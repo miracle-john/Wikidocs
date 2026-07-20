@@ -1,0 +1,356 @@
+A2C: Advantage Actor-Critic:
+
+Advantage Actor-Critic은 강화학습 알고리듬 중 하나로, 정책 평가와 정책 개선을 동시에 수행하는 방법이다. 이 알고리듬은 강화학습에서 정책(policy)을 학습하는 데 사용되며, 정책을 딥러닝 신경망으로 표현한다.
+Advantage Actor-Critic은 Policy Gradient 알고리듬과 비슷한 구조를 가지고 있으며, 주로 강화학습의 연속적인 의사 결정 문제에 적용된다. 이 알고리듬은 두 개의 네트워크로 구성되는데, 
+하나는 정책을 나타내는 Actor 네트워크이고 다른 하나는 정책의 가치를 평가하는 Critic 네트워크이다. 
+Critic 네트워크는 상태-가치 함수를 추정하여 정책 평가를 수행하고, Actor 네트워크는 Critic의 평가 결과를 기반으로 정책을 개선한다.
+<책갈피>
+REINFORCE 알고리즘은 정책을 업데이트하기 위해서 에피소드가 끝날 때까지 기다려야 하고, 
+그래디언트의 분산이 매우 크다는 단점이 있었다. 
+이 두 가지 단점을 개선한 알고리즘이 어드밴티지 액터-크리틱(A2C, advantage actor-critic)이다. 
+개념적으로는 REINFORCE 알고리즘을 살짝 고친 것에 불과하지만, 
+성능은 REINFORCE를 훨씬 능가한다.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+A3C(asynchronous advantage actor-critic):
+asynchronous advantage actor-critic은 강화학습(Reinforcement Learning) 알고리듬 중 하나로, 신경망 기반의 에이전트가 환경과 상호작용하면서 학습하는 방법이다. 
+이 알고리듬은 실시간으로 여러 개의 에이전트가 비동기적으로(parallel) 경험을 수집하고, 이를 기반으로 신경망을 업데이트하는 방식을 사용한다.
+asynchronous advantage actor-critic은 actor-critic 알고리듬과 advantage 개념을 결합한 것이다. 
+actor-critic 알고리듬은 정책(policy)을 학습하는 actor 신경망과 상태 가치(state value)를 추정하는 critic 신경망으로 구성된다. 
+이러한 알고리듬에서 advantage는 현재 상태의 가치와 선택한 행동의 가치 차이로 정의되는데, 이는 더 좋은 행동을 선택하는 데 도움을 준다.
+<책갈피>
+A3C는 구글 딥마인드에서 발표한 대표적인 강화학습 방법 중 하나입니다. A3C는 A2C와 비슷하지만, 그 이름에서도 알 수 있듯이 A2C에 비동기 개념을 추가한 방법입니다.
+A3C는 에이전트가 여러 개의 환경에서 동시에 행동을 수행하고 신경망을 학습해 나갑니다. 이렇게 여러 환경에서 동시에 신경망을 학습하기 때문에 비동기라고 부르는 것입니다.
+
+AGI: Artificial General Intelligence (인공일반지능, 범용 인공지능):
+AGI(Artificial General Intelligence)는 인간처럼 다양한 영역에서 지능적 행동을 수행할 수 있는 인공지능 시스템을 의미한다. 현재 널리 사용되는 특화된 인공지능(Artificial Narrow Intelligence, ANI)이 특정 작업에만 최적화된 것과 달리, 
+AGI는 여러 분야에 걸쳐 지식을 습득하고 이전하며 새로운 문제를 해결할 수 있는 능력을 갖추고 있다. 
+AGI는 인간 수준의 종합적 지능을 갖추어 추론하고, 계획을 세우고, 학습하며, 
+상식에 기반한 지식을 활용하여 임의의 목표를 달성할 수 있어야 한다. 
+즉, 인간이 새로운 환경과 문제에 적응하듯 추가 프로그래밍 없이도 새로운 상황에서 문제를 해결할 수 있는 인공지능을 말한다.
+<배경 및 역사>
+AGI의 개념은 인공지능 연구의 태동기부터 존재했다. 1956년 다트머스 회의를 시작으로 AI 연구 초창기에는 인간과 유사한 범용 지능을 가진 기계를 만들 수 있다는 낙관적 전망이 지배적이었다. 
+당시 AI 선구자 허버트 사이먼(Herbert A. Simon)은 1965년에 "20년 이내에 기계가 인간이 할 수 있는 모든 일을 할 수 있게 될 것"이라고 예측했고, 
+이러한 기대는 영화 '2001 스페이스 오디세이'의 HAL 9000과 같은 지능형 컴퓨터 묘사에도 영향을 주었다.
+그러나 1970년대에 접어들면서 범용 지능 구현의 어려움이 점차 드러났다. 
+추상적 추론, 상식, 맥락 이해 등의 문제가 예상보다 복잡하다는 것이 밝혀지면서 연구 지원 기관들은 좁은 범위의 응용 분야에 집중할 것을 요구했고, 
+이로 인해 AI 연구는 침체기(일명 "AI 겨울")를 맞게 된다.
+"Artificial General Intelligence"라는 용어 자체는 1997년 마크 구브루드(Mark Gubrud)가 처음 사용한 것으로 알려져 있으며, 
+2000년 마커스 후터(Marcus Hutter)의 이론적 AGI 모델 AIXI를 통해 수학적 정의가 시도되었다. 2000년대 초반에 벤 괴르첼(Ben Goertzel)과 쉐인 레그(Shane Legg) 등이 AGI라는 용어를 적극 사용하면서 이 개념이 학계에 재도입되었다.
+2010년대 이후 딥러닝의 발전으로 AI는 여러 분야에서 두각을 나타내며 범용 지능에 대한 관심도 크게 부활했다. 
+2020년 GPT-3, 2023년 GPT-4 등 거대 언어 모델의 등장으로 일부 연구자들은 이를 "AGI의 불꽃(sparks of AGI)"으로 평가하기도 했다.
+<핵심 원리>
+AGI를 구현하기 위해서는 인간 지능의 여러 측면을 종합적으로 구현해야 한다고 간주된다. 연구자들은 다음 능력들을 갖춘 시스템만이 진정한 범용 인공지능으로 간주될 수 있다고 본다.
+
+추론과 문제해결: 논리적으로 추론하고 전략을 세우며, 불확실한 상황에서도 의사결정을 내릴 수 있는 능력
+지식 표현과 상식: 세상의 지식을 효율적으로 표현하고 활용하며, 인간이 당연하게 여기는 상식적 지식을 보유하는 능력
+학습: 경험을 통해 학습하고 적응하여 성능을 향상시키는 능력
+계획: 장기적인 목표를 설정하고 달성 경로를 계획할 수 있는 능력
+자연어 소통: 인간의 자연어로 의사소통하고 이해할 수 있는 능력
+통합적 활용: 위의 모든 능력을 통합하여 어떠한 목표라도 수행해낼 수 있는 종합적 지능
+AGI를 구현하기 위한 접근 방식은 크게 다음과 같이 구분된다.
+
+상징주의(Symbolism): 명시적 지식 표현과 논리 추론을 통해 범용성을 추구하나, 지각과 확률적 추론에 취약하다.
+연결주의(Connectionism): 딥러닝 기반 분산표현이 대규모 데이터를 통해 일반화 능력을 확보한다.
+체화주의(Embodied AI): 지능은 환경과의 상호작용 과정에서 형성된다는 관점으로, 로봇 등 물리적 구현체를 통한 경험이 중요하다고 본다.
+파운데이션 모델(Foundation Model): 인터넷 규모의 다중 모달 데이터를 자가지도학습으로 학습하여, 다양한 태스크에 적응할 수 있는 기반 모델을 구축한다.
+AGI는 반드시 인간과 같은 형태를 가질 필요는 없다. 인간은 신체와 감각을 통해 지능을 발휘하지만, 이론적으로는 소프트웨어 상으로만 존재하는 지능이라도 범용적 기능을 수행할 수 있다면 AGI로 간주될 수 있다.
+<최신 기술 동향>
+2020년대 중반에 이르러 범용 인공지능의 실현 가능성에 대한 논의가 본격화되고 있다. 최근 수년간 머신러닝의 비약적 발전으로 AI는 언어 이해, 시각 인지, 게임 플레이 등 여러 영역에서 인간에 필적하거나 뛰어넘는 성과를 보여주고 있다.
+
+특히 주목할 만한 최신 동향으로는:
+
+멀티모달·롱컨텍스트: 텍스트, 이미지, 오디오, 비디오를 광범위한 맥락에서 통합 처리하는 모델이 등장했다.
+에이전트적(tool-use) AI: 최신 모델들은 API 호출, 코드 실행, 웹 브라우징 등을 조합해 복합 업무를 수행할 수 있게 되었다.
+모듈형 메타러닝: 지속적 학습과 추론 안정성을 높이기 위한 기법들이 개발되고 있다.
+안전·정렬(alignment): AI 시스템의 가치 불일치와 환각(hallucination) 문제를 완화하기 위한 기술이 발전하고 있다.
+2023년 발표된 GPT-4는 복잡한 문제 해결, 코드 작성, 고등 시험 통과 등 다양한 지적 과제를 높은 수준으로 수행하며 주목받았다. Microsoft 연구진은 GPT-4를 "새로운 패러다임의 신호이며, 
+초기 형태의 AGI로 볼 만하다"고 평가했다. 그러나 다른 연구자들은 "진정한 AGI라 부르기에는 아직 한계가 있다"는 신중한 견해를 표명하기도 했다.
+
+AGI 도달 시점에 대한 전문가들의 전망은 크게 엇갈린다. 일부는 "향후 수년 또는 수십 년 안에 AGI가 등장할 것"이라고 보는 반면, 다른 쪽에서는 "한 세기 이상 걸리거나 영영 불가능할 수도 있다"고 예상한다. 
+여러 전문가 설문조사에 따르면 2030년대 초반에서 2050년대 중반 사이에 AGI 등장 확률을 50%로 보는 의견이 많지만, "결코 실현되지 않을 것"이라고 답한 전문가도 상당수 있다.
+<응용 분야 및 윤리적 과제>
+AGI가 현실화된다면 그 응용 범위는 인류 역사상 어떤 기술보다도 광범위할 것으로 예상된다.
+
+의료 분야: 질병의 조기 진단, 맞춤형 치료법 제시, 신약 개발을 위한 분자 시뮬레이션 등
+과학 및 공학: 양자 역학의 통일 이론, 암흑 물질 규명과 같은 난제 해결, 신소재 개발, 에너지 최적화
+교육: 학생별 맞춤형 커리큘럼 제공, 최적화된 학습 경험 설계
+산업: 자율공정 최적화, 에너지 그리드 예측 및 제어
+창작: 멀티모달 콘텐츠 제작, 인터랙티브 스토리 및 게임 개발
+그러나 AGI의 등장은 심각한 윤리적·사회적 문제를 동반할 수 있다.
+
+경제 및 고용 구조 변화: AGI가 많은 일자리를 자동화하면서 대규모 실업과 사회 구조 변화가 초래될 수 있다. 
+OpenAI 연구진은 "미국 노동자의 80% 이상이 업무 시간 중 최소 10%를 AI 영향권에 두게 될 것"이라고 분석했다.
+
+통제 문제: AGI가 자율적으로 행동하면서 인간의 의도와 무관하게 예기치 않은 방식으로 행동할 가능성이 있다. 
+특히 초지능(ASI)에 이르게 되면 인간이 통제권을 상실할 수 있다는 우려가 있다.
+윤리적·존재론적 문제: AGI가 자각이나 감정을 지닌 인격체에 가까워진다면, 그 권리를 어떻게 다룰 것인가 하는 철학적 과제도 제기된다.
+
+2023년에는 OpenAI의 샘 알트만(Sam Altman), DeepMind의 데미스 하사비스(Demis Hassabis) 등 AI 전문가들이 "AI로 인한 인류 멸종 위험을 팬데믹이나 핵전쟁과 동급으로 인식해야 한다"는 공개 성명을 발표하기도 했다. 
+반면, 페이스북의 얀 르쿤(Yann LeCun)과 같은 전문가는 AGI가 인간과 반대되는 욕망을 가질 이유가 없으며, 이러한 우려는 "인간 특성을 AI에 투영한 기우"라고 반박했다.
+<결론>
+범용 인공지능은 엄청난 잠재력과 함께 중대한 도전 과제를 수반한다. AGI가 인류의 번영에 기여할지, 예측하기 어려운 위험을 초래할지는 우리가 어떻게 개발하고 관리하느냐에 달려 있다. 
+많은 전문가들은 AGI 개발에 신중을 기하고 안전장치를 마련해야 한다고 강조하면서도, 그 잠재적 혜택을 고려할 때 연구를 책임감 있게 추진해야 한다고 주장한다.
+
+AGI의 실현은 인류 문명의 진로를 바꿀 분기점이 될 수 있으며, 이에 대비하여 기술 발전을 이끌 지혜와 윤리를 함께 모색하는 것이 중요하다.
+<참고 문헌 및 저작권>
+Kumar, S., Jain, N., Arora, R., & Nafis, M. T. (2024). Understanding AGI: A Comprehensive Review of Theory and Application in Artificial General Intelligence. SSRN. 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4957203
+Fei, N., et al. (2022). Towards artificial general intelligence via a multimodal foundation model. arXiv:2110.14378. 
+https://arxiv.org/abs/2110.14378
+Bennett, M. T. (2022). Computable Artificial General Intelligence. arXiv:2205.10513. 
+https://arxiv.org/abs/2205.10513
+Morris, M. R., et al. (2024). Levels of AGI for Operationalizing Progress on the Path to AGI. arXiv:2311.02462. 
+https://arxiv.org/abs/2311.02462
+Bubeck, S., et al. (2023). Sparks of Artificial General Intelligence: Early Experiments with GPT-4. arXiv:2303.12712.
+https://arxiv.org/abs/2303.12712
+
+AI Winter (AI 겨울):
+AI 겨울(AI Winter)은 인공지능(AI) 연구의 중단과 관심 저하가 반복되는 주기를 의미하는 용어로, 보통 과도한 기대 이후 AI 연구 성과가 기대에 미치지 못할 때 발생한다. 
+AI 겨울의 주요 원인은 과장된 기대, 기술적 한계, 그리고 이로 인해 정부와 기업의 연구 자금이 삭감되면서 생긴다. 이러한 현상은 AI의 발전이 더디거나 정체되며, 연구와 투자가 급감하는 “겨울” 기간이 지속되는 것을 뜻한다.
+
+AI 역사상 두 차례의 큰 AI 겨울이 있었으며, 이는 각각 1970년대와 1980년대 후반에 발생했다. 첫 번째 AI 겨울은 규칙 기반 시스템에 대한 초기 연구가 기대에 미치지 못하면서 시작되었다. 
+두 번째 AI 겨울은 전문가 시스템을 사용한 비즈니스 솔루션들이 유지 비용 문제와 시스템의 한계로 인해 산업적 관심을 잃으면서 시작되었다. 이후 AI는 컴퓨팅 파워의 발전과 빅데이터 활용, 머신러닝 등 새로운 기술적 접근 덕분에 AI 연구가 다시 부흥기를 맞았다.
+
+최근의 AI 연구와 투자가 급격히 증가하고 있지만, 일각에서는 또 다른 AI 겨울 가능성에 대한 우려도 제기되고 있다. 현재 자율주행차나 범용 AI와 같은 영역에서의 성과에 대한 과도한 기대가 반복되면서, 이 기술들이 충분한 성과를 내지 못할 경우 또 다른 AI 겨울이 찾아올 수 있다는 것이다.
+<참고 문헌 및 저작권>
+Techopedia. (2023). What is the ‘AI winter’ and how did it affect AI research? Retrieved from www.techopedia.com
+Automation Tools AI. (2023). AI Winter: Understanding the Cycle of Hype, Disappointment, and Recovery. Retrieved from www.automationtools.ai
+AIWS.net. (2021). The market for specialised AI hardware collapsed in 1987. Retrieved from aiws.net
+
+AI alignment (AI 정렬):
+인공지능에서 'alignment'란 인공지능 시스템의 목표와 행동이 인간의 가치, 목표, 의도와 일치하도록 하는 것이다. 이는 인공지능이 인간의 의도나 목적에 반하는 행동을 하지 않도록 보장하는 중요한 개념이다. 
+Alignment 문제는 특히 고도로 발달된 인공지능 시스템을 설계할 때 중요하다. 인공지능이 인간의 가치와 일치하게 만드는 것은 기술적 도전과 윤리적 고려를 모두 포함한다. 이는 인공지능이 인간의 안전과 복지를 위해 행동하도록 하는 것뿐만 아니라, 
+인공지능의 결정이 인간의 다양한 가치와 문화적 배경을 반영하도록 하는 것도 포함한다.
+
+Alignment 문제를 해결하는 것은 인공지능 연구의 중요한 부분이며, 이는 인공지능 시스템이 인간의 지시를 해석하고 실행하는 방식, 인간의 목표와 가치를 이해하고 존중하는 방식을 개선하는 것을 포함한다. 
+이 문제에 대한 연구는 기술적, 철학적, 윤리적 측면을 모두 포함하며, 인공지능의 발전이 인간 사회에 미치는 영향을 고려하는 것이 중요하다.
+<참고 문헌 및 저작권>
+Russell, Stuart, 《Human Compatible: Artificial Intelligence and the Problem of Control》:https://www.amazon.com/Human-Compatible-Artificial-Intelligence-Problem/dp/0525558616
+Bostrom, Nick, 《Superintelligence: Paths, Dangers, Strategies》:https://www.amazon.com/Superintelligence-Dangers-Strategies-Nick-Bostrom/dp/0199678111
+https://www.eff.org/ai/metrics
+
+AI safety (AI 안전):
+AI 안전(AI safety)이란 인공지능 시스템이 인간과 환경에 해를 끼치지 않도록 설계, 개발, 관리하는 과정과 방법론을 말한다. 이 분야는 인공지능이 의도치 않은 행동을 하거나, 예측할 수 없는 결과를 초래하는 것을 방지하는 데 중점을 둔다. 
+주요 관심사는 인공지능의 신뢰성, 투명성, 해석 가능성, 그리고 인간의 윤리와 가치에 부합하는 행동을 보장하는 것이다. AI 안전 연구는 인공지능이 인간의 통제를 벗어나거나, 잘못된 결정을 내리는 것을 방지하는 기술적 전략 개발을 포함한다.
+
+이 분야는 인공지능이 점점 더 복잡해지고, 사회의 다양한 분야에서 중요한 역할을 하게 됨에 따라 더욱 중요해지고 있다. 
+예를 들어, 자율주행차, 의료 진단 시스템, 금융 거래 시스템 등에서 AI의 안전성은 직접적인 인간의 생명과 재산에 영향을 미칠 수 있다. 따라서 AI 안전 연구는 기술적인 측면뿐만 아니라 윤리적, 법적, 사회적 측면도 고려하여 인공지능 기술의 건강한 발전을 도모한다.
+<참고 문헌 및 저작권>
+Russell, Stuart et al., 《Artificial Intelligence: A Modern Approach》, Pearson: https://aima.cs.berkeley.edu/
+Amodei, Dario et al., 〈Concrete Problems in AI Safety〉, arXiv: https://arxiv.org/abs/1606.06565
+https://futureoflife.org/ai-safety-research/
+
+AI: Artificial Intelligence (인공지능):
+인공지능(Artificial Intelligence, AI)은 컴퓨터 시스템이 인간의 학습, 추론, 문제 해결 등의 지적 능력을 모방하거나 수행하는 분야를 의미한다. 인공지능은 컴퓨터 프로그램이 주어진 데이터를 분석하고 패턴을 학습하여, 
+이를 기반으로 의사 결정을 내리거나 문제를 해결하는 데 사용된다. 이러한 시스템은 기계 학습, 자연어 처리, 컴퓨터 비전 등의 다양한 분야에서 적용되며, 인간 수준의 지능을 가지는 시스템을 개발하는 것을 목표로 한다.
+<참고 문헌 및 저작권>
+Russell, S. J., Norvig, P. (2016). Artificial Intelligence: A Modern Approach. Pearson.: https://www.amazon.com/Artificial-Intelligence-Modern-Approach-3rd/dp/0136042597
+Goodfellow, I., Bengio, Y., Courville, A. (2016). Deep Learning. MIT Press.: https://www.deeplearningbook.org/
+Wikipedia - Artificial intelligence
+<책갈피>
+인공지능이란 개념을 1956년 처음 사용한 스탠퍼드 대학의 존 매카시(John McCarth) 교수는 'the science and engineering of making intelligent machines' (기계에 지능을 부여하는 과학과 기술) 이라고 칭했다.
+인공지능(Artificial Intelligence)의 종류는 크게 전통적인 인공지능과 최근 각광을 받기 시작한 기계학습(Machine Learning) 및 딥러닝(Deep Learning)으로 분류할 수 있는데 본 교재는 특히 기계학습과 딥러닝의 전반적인 개념과 다양한 모델을 다루고자 한다. 
+딥러닝도 기계학습의 한 종류이므로 본 교재에서는 기계학습이라고 총칭하겠다.
+
+ANN: artificial neural network (인공신경망, 뉴럴네트워크):
+뉴럴 네트워크(Neural Network) 혹은 인공신경망(Artificial Neural Network, ANN)은 생물학적 뉴런의 연결 구조에서 영감을 받아 만들어진 컴퓨팅 모델을 의미한다. 뉴런 단위의 간단한 연산을 계층적 혹은 순환적으로 연결하여 복합적인 문제 해결 능력을 갖도록 설계되며, 
+주어진 데이터(입력)로부터 스스로 학습하여 출력(결과)을 예측하거나 분류하는 데 활용된다. 
+최근에는 딥 러닝(Deep Learning) 기법의 등장과 함께 뉴럴 네트워크가 이미지 인식, 기계 번역, 음성 인식, 생성 모델 등 다양한 분야에서 핵심 방법으로 자리잡고 있다 (유성현 & 안춘기, 2017; Yang & Wang, 2020).
+<역사>
+초기 연구
+
+1943년 맥컬록(W. McCulloch)과 피츠(W. Pitts)가 처음으로 수리논리학에 기초한 신경망 모델을 제안하였다. 단순히 뉴런과 시냅스를 추상화한 개념 모델이었으나, 이것이 신경망 연구의 시초가 되었다.
+1957년 로젠블라트(F. Rosenblatt)가 퍼셉트론(Perceptron)을 발표하며, 기계가 간단한 패턴 분류 문제를 해결할 수 있음을 보였다 (유성현 & 안춘기, 2017 참고).
+침체기와 재도약
+
+1960~70년대에 이르러 퍼셉트론이 선형 분리 문제에서는 성능을 보이지만, 비선형 문제(EX-OR 등) 해결에 제한이 있음이 알려지면서 신경망 연구가 한 차례 침체기를 겪었다.
+1980년대 중반, 오류역전파(Backpropagation) 알고리즘의 등장(특히 폴 웨어보스(P. Werbos)의 기여)으로 다층 퍼셉트론이 재조명받았다. 이에 힘입어 인공신경망 연구가 다시 활성화되었다.
+딥 러닝 시대
+
+2000년대 후반부터는 빠른 컴퓨팅 자원(GPU 등), 대규모 데이터셋의 확보, 개선된 알고리즘이 결합하여 “딥 뉴럴 네트워크(Deep Neural Network)”가 폭발적으로 발전하였다.
+영상 처리(CNN, 합성곱 신경망), 시계열 분석(RNN, 순환신경망), 자연어 처리(Transformer, 어텐션 기반 모델) 등 다양한 아키텍처가 나오면서 여러 산업 분야에 광범위하게 적용되고 있다 (Yang & Wang, 2020; Bahdanau et al., 2015).
+<원리>
+구조적 특징
+
+뉴런(Neuron) 단위: 단일 뉴런은 입력 신호들의 가중치 합을 구한 뒤, 비선형 활성화 함수를 적용하여 결과값을 출력한다.
+계층 구조: 일반적으로 입력 계층, 은닉 계층(hidden layers), 출력 계층으로 구성되며, 층이 깊어질수록(Deep) 복잡한 패턴을 학습할 수 있다.
+학습 알고리즘
+
+오류역전파(Backpropagation): 출력과 목표값 사이의 오차를 역방향으로 전파하여 가중치를 갱신함으로써 모델이 데이터 분포에 맞도록 매개변수를 학습한다.
+경사하강법(Stochastic Gradient Descent, SGD): 미니배치를 활용해 확률적 방식으로 모델 파라미터를 최적화하며, 아담(Adam) 등 다양한 변형 기법이 존재한다 (Yang & Wang, 2020).
+활성화 함수(Activation Function)
+
+시그모이드(Sigmoid), ReLU(Rectified Linear Unit), 하이퍼볼릭 탄젠트(Tanh) 등 다양한 형태가 연구되어 왔으며, 심층 신경망에서는 ReLU 계열이 자주 사용된다.
+활성화 함수 선택에 따라 학습 속도, 표현력, 수렴 특성이 달라진다.
+<응용>
+컴퓨터 비전(Computer Vision)
+합성곱 신경망(CNN)을 통해 영상 분류, 객체 검출, 이미지 세분화(semantic segmentation) 등에서 높은 정확도를 달성한다.
+자율주행차, 의료영상 분석, 얼굴 인식 등 다양한 실용 분야에 폭넓게 쓰이고 있다.
+
+자연어 처리(Natural Language Processing)
+기계 번역, 문서 요약, 감정 분석 등에서 순환신경망(RNN) 혹은 어텐션 기반 모델(Transformer)을 활발히 활용한다.
+Bahdanau et al. (2015)는 기계 번역에서 입력 문장과 출력 문장 간의 정렬(alignment) 과정을 학습하기 위해 어텐션 메커니즘을 도입하여, 번역 품질을 크게 개선하였다.
+
+신경과학 및 생물학 모델링
+뇌 정보 처리 과정을 모사하거나 해석하는 데 사용되며, 대규모 신경 세포의 집단 활동을 모델링하여 인지 과정을 연구하는 방향으로 활용 가능하다 (Yang & Wang, 2020).
+
+기타 산업 분야
+음성 인식, 추천 시스템, 신약 개발, 재무 예측 등 다양한 영역에서 인공신경망 기반 솔루션이 연구·개발되고 있다.
+빅데이터와 결합하여 예측 및 최적화 문제 해결에 탁월한 성능을 보인다 (유성현 & 안춘기, 2017).
+<참고 문헌 및 저작권>
+Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. International Conference on Learning Representations (ICLR).
+Yang, G. R., & Wang, X.-J. (2020). Artificial neural networks for neuroscientists: A primer. arXiv preprint arXiv:2006.01001.
+유성현, & 안춘기. (2017). 인공신경망 소개 및 발전 동향. 전기의 세계, 66(8), 36-41.
+
+ARIMA: AutoRegressive Integrated Moving Average (자기회귀 통합 이동 평균):
+ARIMA(AutoRegressive Integrated Moving Average)는 시계열 데이터 분석에 사용되는 통계적 방법이다. ARIMA는 AR(Autoregressive), I(Integrated), MA(Moving Average)의 세 가지 구성요소로 이루어져 있다. 
+AR 요소는 자기 자신의 과거 값을 참조하여 예측하는 것이며, MA 요소는 과거의 오차항을 참조하여 예측하는 것이다. I 요소는 시계열 데이터가 비정상(non-stationary)일 때, 이를 정상성을 가지도록 차분하는 단계를 의미한다.
+
+ARIMA 모델은 시계열의 패턴, 계절성 등을 분석하여 미래의 값들을 예측하는 데 사용된다. ARIMA는 단일 변수 시계열 데이터에 주로 사용되며, ARIMA 모델의 특징은 파라미터의 개수가 많지 않아서 해석이 비교적 간단하다는 장점이 있다. 
+반면, 비선형 트렌드나 복잡한 패턴, 다변수의 시계열 데이터 등에는 적합하지 않을 수 있다.
+<참고 문헌 및 저작권>
+Hyndman, Rob J., and George Athanasopoulos. 《Forecasting: principles and practice》, OTexts: https://otexts.com/fpp2/arima.html
+Box, G.E.P., Jenkins, G.M. and Reinsel, G.C. 《Time Series Analysis: Forecasting and Control》, Wiley: https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193
+ARIMA 모델의 이해: https://byeongkijeong.github.io/ARIMA-with-Python/
+
+ASR: automatic speech recognition (자동음성인식):
+자동 음성 인식(Automatic Speech Recognition, ASR)은 음성 신호를 입력으로 받아들여 텍스트로 변환하는 기술이다. ASR은 음성 인식 엔진을 사용하여 음성 신호를 분석하고 인간의 음성을 텍스트로 해석하는 과정을 수행한다. 
+이러한 기술은 음성 명령 및 제어 시스템, 음성 인터페이스, 음성 검색, 음성 대화 시스템 등 다양한 응용 분야에서 사용된다.
+
+ASR 시스템은 일련의 단계로 구성되어 있다. 첫 번째 단계는 음성 신호의 특징 추출이다. 주로 푸리에 변환(Fourier transform)을 사용하여 음성 신호를 주파수 영역으로 변환한 후, 
+주파수 스펙트럼에서 특징적인 정보를 추출한다. 두 번째 단계는 음성 신호의 특징 벡터를 입력으로 받아들여 음소(phoneme) 단위로 분할하는 과정이다. 이 단계에서는 음소 인식 모델을 사용하여 음성 신호를 음소 단위로 변환한다. 
+마지막으로, 음소 시퀀스를 텍스트로 변환하는 단계가 있다. 이 단계에서는 언어 모델과 결합하여 음성 신호를 텍스트로 해석한다.
+<참고 문헌 및 저작권>
+Steve Young, et al., 《The HTK Book》, Cambridge University Engineering Department: https://htk.eng.cam.ac.uk/docs/docs.shtml
+L. Rabiner, B. Juang, 《Fundamentals of Speech Recognition》, Prentice Hall: https://www.amazon.com/Fundamentals-Speech-Recognition-Lawrence-Rabiner/dp/0130151572
+Speech Recognition - Wikipedia: https://en.wikipedia.org/wiki/Speech_recognition
+
+AUC: area under the curve (곡선 아래 면적):
+AUC(Area Under the Curve)는 머신러닝의 분류 모델 성능을 평가하는 핵심 지표 중 하나이다. 일반적으로 AUC는 ROC 곡선 또는 PR 곡선 아래의 영역을 나타내며, 특히 이진 분류 문제에서 유용하게 사용된다. 
+AUC는 어떤 임계값에 대한 분류 모델의 성능을 평가하는 데 사용되며, 곡선 아래 영역이 클수록 모델의 성능이 우수하다고 판단된다.
+
+ROC 곡선은 분류 모델의 True Positive Rate(TPR)과 False Positive Rate(FPR)의 관계를 그래프로 나타낸다. AUC-ROC 점수는 이 ROC 곡선 아래의 영역을 나타내며, 
+분류 모델이 양성 사례를 음성 사례와 얼마나 잘 구분하는지에 대한 확률을 나타낸다. AUC 점수는 0부터 1까지의 값을 가질 수 있으며, 0.5보다 높으면 모델이 랜덤 추측보다 우수하다는 것을 의미한다. 
+예를 들어 AUC-ROC 점수가 0.9인 경우, 모델이 임의의 양성 예시를 임의의 음성 예시보다 더 큰 확률로 분류할 가능성이 높다는 것을 의미한다.
+
+또한 AUC는 PR-AUC로도 측정될 수 있으며, 이는 Precision-Recall 곡선 아래의 영역을 나타낸다. PR-AUC는 특히 클래스 간 불균형이 큰 상황에서 유용하며, 예를 들어 사기 탐지, 질병 진단 등의 분야에서 사용된다.
+
+AUC는 분류 모델의 다양한 측면을 평가하는 데 도움이 되며, 여러 임계값에서의 성능을 포괄적으로 측정한다는 장점이 있다. 또한 클래스 불균형에 비교적 강해 정확도보다 더 유용한 지표로 사용될 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia의 "Receiver operating characteristic": https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+Built In. (2024). ROC Curves and AUC: The Ultimate Guide: https://builtin.com/data-science/roc-curves-auc
+Stephen Allwright. (2024). How to interpret AUC score: https://stephenallwright.com/interpret-auc-score/
+
+Actor-Critic (액터-크리틱, 행위자-비평자):
+Actor-Critic는 강화학습(Reinforcement Learning)에서 사용되는 알고리즘 중 하나로, 주어진 환경에서 에이전트가 학습을 통해 최적의 행동을 선택하는 방법을 학습하는 방법론이다. Actor-Critic 알고리즘은 정책(policy)과 가치함수(value function)를 동시에 학습하는 형태로 구성되어 있다.
+Actor는 에이전트의 행동을 결정하는 정책(policy) 함수를 학습한다. 정책 함수는 주어진 상태(state)에서 에이전트가 어떤 행동(action)을 선택해야 할지를 결정하는 역할을 한다. 주어진 상태에서 가능한 행동들에 대한 확률 분포를 출력하고, 이를 기반으로 행동을 선택한다.
+Critic은 주어진 상태(state)에서의 가치함수(value function)를 학습한다. 가치함수는 주어진 상태에서의 기대값 또는 평균적인 보상(reward)을 추정하는 함수이다. Critic은 에이전트가 선택한 행동의 가치를 평가하고, 이를 통해 행동의 가치를 업데이트한다.
+Actor-Critic 알고리즘은 이 두 가지 요소를 결합하여 학습을 진행하며, 강화학습의 효율적인 학습을 위해 사용된다.
+
+<참고 문헌 및 저작권>
+Konda, V. R., & Tsitsiklis, J. N. (2000). Actor-Critic Algorithms. In Advances in Neural Information Processing Systems 12 (NIPS 1999) (pp. 1008-1014). MIT Press.: https://papers.nips.cc/paper/1786-actor-critic-algorithms.pdf
+Sutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd Edition). MIT Press.
+
+AdaBoost: Adaptive Boosting:
+Adaptive Boosting, 줄여서 AdaBoost 알고리듬은 여러 약한 분류기(weak classifiers)를 조합하여 하나의 강한 분류기를 생성하는 앙상블 기법으로, 주로 분류 문제에 사용된다.
+
+AdaBoost의 기본 원리는 각 반복마다 잘못 분류된 데이터 포인트에 더 많은 가중치를 부여하는 것이다. 첫 번째 단계에서는 각 데이터 포인트에 동일한 가중치를 부여하고, 첫 번째 약한 분류기(대개 결정 스텀프라고 불리는 단일 노드 결정 트리)를 훈련시킨다. 
+이 분류기의 성능을 기반으로 데이터 포인트의 가중치가 조정되며, 잘못 분류된 포인트는 더 높은 가중치를 받아 다음 분류기 훈련 시 더 큰 영향을 미친다. 이 과정은 지정된 수의 분류기가 생성될 때까지 반복된다.
+
+AdaBoost는 각 분류기의 정확성에 기반한 성능 가중치를 할당하고 이를 결합하여 강력한 최종 모델을 형성한다. 주어진 입력에 대한 결정은 모든 분류기의 결정의 가중치가 많은 투표(또는 합)를 기반으로 만들어진다. 
+이 방법은 특히 이진 분류 작업에 적합하며, 단일 결정 트리에 비해 편향을 줄이고 모델 안정성을 향상시킨다. 
+그러나 AdaBoost는 잡음이 많은 데이터와 이상치에 민감할 수 있으며, 약한 학습자가 너무 복잡하면 편향된 결과를 초래할 수 있다.
+
+AdaBoost의 주요 활용 예에는 컴퓨터 비전, 음성 인식 등이 있으며, 특히 이진 분류 문제에서 강력한 성능을 발휘한다. 
+구현의 용이성과 효과성 덕분에 얼굴 인식 시스템, 고객 이탈 예측, 신용 평가 등 다양한 응용 프로그램에서 널리 사용된다.
+
+<참고 문헌 및 저작권>
+https://en.wikipedia.org/wiki/AdaBoost
+https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/
+https://www.machinelearningplus.com/machine-learning/introduction-to-adaboost/
+https://www.mygreatlearning.com/blog/adaboost-algorithm/
+https://machinelearningmastery.com/boosting-and-adaboost-for-machine-learning/
+Freund, Y., & Schapire, R. E. (1995). A decision-theoretic generalization of on-line learning and an application to boosting. Journal of Computer and System Sciences, 55(1), 119-139.
+Schapire, R. E. (2003). The boosting approach to machine learning: An overview. Nonlinear Estimation and Classification.
+
+AdaGrad(Adaptive Gradient Algorithm):
+Adagrad(Adaptive Gradient Algorithm)은 딥 러닝 모델의 학습 과정에서 매개변수별로 학습률을 자동 조정하는 최적화 알고리듬이다. 2011년 John Duchi 등이 발표한 논문에서 처음 제안되었으며, 
+희소 데이터(sparse data) 처리에 특히 효과적이다. Word2Vec, GloVe와 같은 단어 임베딩 학습이나 기계 번역처럼 빈도 분포가 극단적으로 치우친 텍스트 데이터를 다룰 때 자주 쓰인다. 
+또한, Adagrad는 후속으로 개발된 RMSprop, Adam 등의 알고리듬에 많은 아이디어를 제공하였다.
+
+<알고리듬 작동 원리>
+https://wikidocs.net/152836
+
+<특징>
+Adaptive Learning Rate
+매개변수별 학습률을 자동으로 조정하므로, 학습률을 매번 세밀하게 튜닝할 필요가 줄어든다.
+
+희소 데이터에 대한 효과적 학습
+드물게 나타나는 특징에는 학습률이 상대적으로 크게 적용되어, 자연어 처리나 추천 시스템처럼 입력 차원이 매우 큰 문제에 적합하다.
+
+빠른 초기 수렴
+과거 그래디언트를 누적해 반영하기 때문에, 초기 학습 단계에서 비교적 빠르게 수렴하는 경향이 있다.
+
+<한계점 및 개선 방안>
+학습률 지속 감소 문제
+과거 그래디언트 제곱을 무한히 누적하므로 학습률이 계속 줄어들 수 있다. 이로 인해 학습이 일찍 멈추거나 최적의 성능에 도달하지 못할 수 있다.
+
+개선 알고리듬
+Adadelta: Adagrad의 단점을 완화하기 위해 일정 기간(윈도우)의 그래디언트 정보만 활용한다.
+RMSprop: 과거 그래디언트의 제곱을 지수 가중 평균으로 관리해 학습률 감소 문제를 방지한다.
+Adam: RMSprop에 Momentum 기법을 결합해 빠른 수렴과 안정성을 동시에 확보한다.
+
+<응용 사례>
+자연어 처리
+텍스트 분류, 기계 번역 등에서 희소 단어(드물게 등장하는 단어)의 매개변수 업데이트를 효과적으로 진행해 성능을 높일 수 있다.
+
+컴퓨터 비전
+CNN 등의 이미지 분류 및 객체 인식 모델 학습에서도 사용되며, 초기 단계 학습 가속에 유리하다.
+
+추천 시스템
+사용자-아이템 행렬이 매우 희소한 경우가 흔한데, Adagrad로 드물게 나타나는 사용자의 행동 패턴도 효과적으로 학습할 수 있다.
+
+<다른 최적화 알고리듬과의 비교>
+옵티마이저:
+Adagrad 장점:1. 매개변수별 학습률을 자동으로 조정 2. 희소 데이터에 효과적 3. 학습률 수동 튜닝이 거의 불필요 / 단점:1. 그래디언트 제곱 누적으로 인해 학습률이 계속 감소 2. 후반부 학습 속도가 크게 떨어질 수 있음
+SGD 장점:1. 구현이 간단하고 직관적 2. 확률적 특성으로 지역 최소값 탈출 가능 / 단점:1. 업데이트 변동성이 커서 불안정 2. 학습률과 모멘텀을 세심하게 튜닝해야 함
+RMSProp 장점:1. 제곱 그래디언트의 이동평균을 통해 학습률 조절 2. 비정상적(non-stationary) 환경에도 적합 / 1. 하이퍼파라미터(감쇠율 등)에 민감 2. 모멘텀이 기본적으로 포함되어 있지 않음
+
+<참고 문헌 및 저작권>
+What is AdaGrad - Activeloop: https://www.activeloop.ai/resources/glossary/ada-grad/
+AdaGrad - Cornell University Computational Optimization Open Textbook - Optimization Wiki: https://optimization.cbe.cornell.edu/index.php?title=AdaGrad
+Adagrad Optimizer Explained: How It Works, Implementation, & Comparisons - DataCamp: https://www.datacamp.com/tutorial/adagrad-optimizer-explained
+What is Adaptive Gradient Algorithm (AdaGrad)? Types & Benefits - Deepchecks: https://www.deepchecks.com/glossary/adaptive-gradient-algorithm-adagrad/
+What is Adaptive Gradient(Adagrad) Optimizer? - Analytics Vidhya: https://www.analyticsvidhya.com/blog/2024/11/adaptive-gradient-optimizer/
+Gradient Descent With AdaGrad From Scratch - MachineLearningMastery.com : https://machinelearningmastery.com/gradient-descent-with-adagrad-from-scratch/
+
+Adam:
+Adam은 인공지능과 머신러닝에서 널리 사용되는 최적화 알고리듬으로, 2014년에 Kingma와 Ba가 제안한 방법이다. Adam은 "Adaptive Moment Estimation"의 약자로, 스토캐스틱 경사 하강법(SGD)에 모멘텀 및 RMSProp을 결합하여 경사 하강법의 효율성을 크게 향상시킨다. 
+이 알고리듬은 학습 속도를 자동으로 조정하는 능력을 가지고 있어, 학습 초기 단계와 후반 단계에서의 학습률 변화에 대한 유연한 조정이 가능하다. 이를 통해 복잡한 네트워크 구조에서도 상대적으로 안정적인 수렴을 보인다.
+
+Adam의 작동 원리는 일차 및 이차 모멘트 추정치를 동시에 추적하는 것이다. 각각의 파라미터에 대해, 이전의 기울기 정보를 기반으로 이동 평균을 업데이트하고 학습률을 조정한다. 
+이 과정은 학습 과정에서 진동을 줄이고 보다 일관된 방향으로 파라미터를 업데이트함으로써, 빠른 수렴을 유도한다. Adam은 많은 딥러닝 모델에서 기본 최적화 알고리듬으로 채택되고 있으며, 
+특히 비정형 데이터나 큰 데이터셋에서도 좋은 성능을 보인다.
+
+<참고 문헌 및 저작권>
+Kingma, D. P., & Ba, J. (2014). Adam: A Method for Stochastic Optimization. arXiv.
+
+Agglomerative Clustering (병합 군집 분석):
+집단화는 데이터를 유사성에 기초하여 클러스터로 그룹화하는 계층적 클러스터링의 일종이다. 이 방법은 각 관찰 대상을 독립된 클러스터로 취급하여 시작하며, 가장 유사한 클러스터 쌍을 차례로 병합하여 클러스터 계층을 구성한다. 
+이러한 병합 과정은 모든 데이터 포인트가 단일 클러스터에 속할 때까지 계속된다.
+
+집단화 클러스터링에서는 유사성 측정 기준으로 유클리드 거리가 일반적으로 사용되며, 
+이는 클러스터 내의 분산을 최소화하는 워드 연결(Ward linkage)과 같은 특정 연결 방법을 통해 계산될 수 있다. 
+이 외에도 완전 연결(complete linkage), 평균 연결(average linkage), 단일 연결(single linkage) 등 다양한 연결 방법이 사용될 수 있다. 클러스터의 수를 결정하는 것은 사전에 알려진 데이터의 구조나 ‘덴드로그램’이라 불리는 시각적 도구를 사용하여 결정할 수 있다.
+
+집단화 클러스터링은 시장 세분화, 사회 네트워크 분석, 생물 정보학에서 유전자의 기능적 유사성 분석 등 다양한 분야에서 활용될 수 있다. 
+또한, 머신 러닝에서는 이미지 분할, 고객 세분화 등의 비지도 학습에서 중요한 역할을 한다.
+
+<참고 문헌 및 저작권>
+Buitin.com. (n.d.). Hierarchical Clustering: Agglomerative and Divisive Explained. Retrieved from https://builtin.com/machine-learning/agglomerative-clustering
+Datanovia. (n.d.). Agglomerative Hierarchical Clustering. Retrieved from https://www.datanovia.com/en/lessons/agglomerative-hierarchical-clustering/
+Refactored.ai. (n.d.). Agglomerative-clustering. Retrieved from https://refactored.ai/microcourse/notebook?path=content%2F07-Unsupervised_Models%2F06-Heirarchical_Clustering%2Fagglomerative-clustering.ipynb
+Scikit-learn.org. (n.d.). sklearn.cluster.AgglomerativeClustering. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html
+
+
