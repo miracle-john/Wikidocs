@@ -353,4 +353,301 @@ Datanovia. (n.d.). Agglomerative Hierarchical Clustering. Retrieved from https:/
 Refactored.ai. (n.d.). Agglomerative-clustering. Retrieved from https://refactored.ai/microcourse/notebook?path=content%2F07-Unsupervised_Models%2F06-Heirarchical_Clustering%2Fagglomerative-clustering.ipynb
 Scikit-learn.org. (n.d.). sklearn.cluster.AgglomerativeClustering. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html
 
+AlexNet (알렉스넷):
+AlexNet은 2012년에 등장한 딥러닝 신경망 구조로, 이미지 분류 작업에서 혁신적인 성과를 이끌어낸 모델이다. 이 모델은 제프리 힌튼(Geoffrey Hinton)과 알렉스 크리즈나토스(Alex Krizhevsky) 등이 개발하였으며, 이미지넷(ImageNet) 대회에서 우승한 첫 번째 컨벌루션 신경망이다. 
+AlexNet은 5개의 컨벌루션 계층(Convolutional Layer)과 3개의 완전 연결 계층(Fully Connected Layer)으로 구성되어 있으며, ReLU(Rectified Linear Unit) 활성화 함수와 드롭아웃(Dropout)을 적용한 것이 특징이다. 
+이 모델은 GPU를 이용한 학습과 병렬 처리를 통해 고속화된 학습이 가능했으며, 이를 통해 딥러닝 연구와 응용에 큰 영향을 미쳤다.
 
+<참고 문헌 및 저작권>
+Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton, "Imagenet classification with deep convolutional neural networks", NIPS 2012.: https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+
+Alpaca:
+Alpaca는 스탠퍼드 대학의 연구팀이 개발한 오픈소스 언어 모델로, Meta의 LLaMA(7B 모델)를 기반으로 특정 지시 사항을 따르는 능력을 강화한 버전이다. Alpaca 모델은 OpenAI의 언어 모델 text-davinci-003에서 생성된 5만 2천 개의 지시 데이터 세트를 사용하여 파인튜닝되었으며, 
+이 과정을 통해 OpenAI의 모델과 비슷한 수준의 성능을 낮은 비용으로 구현했다. 스탠퍼드 팀은 오픈소스 접근 방식을 통해 이 모델을 저비용으로 제작하여 연구와 개발 커뮤니티에 기여하고자 했다. 
+Alpaca는 GPT 계열 모델처럼 사용자 요청에 따라 다양한 질문에 답변하거나 대화형 지시를 수행할 수 있다.
+
+Alpaca의 주요 특징은 효율적인 비용으로 생성된 고품질 데이터 세트와 쉽게 재현 가능한 모델링 과정에 있다. 이 모델은 사용자 인터페이스에서 오프라인으로도 사용할 수 있어 실험적 연구나 교육 목적으로 활용하기에 적합하다. 다만, Alpaca는 원래의 LLaMA 모델과 유사한 한계점을 공유하며, 
+종종 사실과 다른 정보를 생성하거나 비슷한 유형의 편향된 답변을 제공할 수 있는 점이 지적되었다.
+
+<참고 문헌 및 저작권>
+GitHub Repository. (n.d.). Stanford Alpaca: Code and documentation to train Stanford's Alpaca models. Retrieved from https://github.com/tatsu-lab/stanford_alpaca
+Sapling. (2023, March). Alpaca vs. LLaMA: Which LLM is Better? Retrieved from https://sapling.ai/llm/alpaca-vs-llama
+
+AlphaGo (알파고):
+AlphaGo는 구글 딥마인드 연구소에서 개발된 인공지능 기반의 바둑 프로그램이다. AlphaGo는 딥러닝과 강화학습 기술을 활용하여 바둑 게임에서 세계적인 선수들을 이기는 능력을 갖추었다. 
+AlphaGo는 2016년 3월에 이세돌 9단과 대국을 벌여 이세돌을 4승 1패로 이기는 역사적인 성과를 달성했다. 이를 통해 AlphaGo는 인공지능 분야에서 큰 주목을 받으며 기술적인 돌파구를 제시했다.
+
+<참고 문헌 및 저작권>
+David Silver, Julian Schrittwieser, Karen Simonyan, et al., 《Mastering the game of Go with deep neural networks and tree search》, Nature, 2016: https://www.nature.com/articles/nature16961
+AlphaGo - Google DeepMind: https://deepmind.google/research/alphago/
+
+Autograd (자동 미분):
+Autograd는 딥러닝 프레임워크에서 신경망 학습을 가능하게 하는 핵심 기술인 자동 미분 엔진이다. Autograd는 PyTorch의 핵심 구성 요소이며, TensorFlow와 같은 다른 딥러닝 프레임워크에서도 유사한 기능을 제공한다. Autograd는 native Python 및 NumPy 코드를 자동으로 미분할 수 있으며, 루프, 조건문, 재귀, 클로저 등 Python의 다양한 기능을 지원한다. 
+또한, 역전파(backpropagation)라고도 알려진 역방향 모드 자동 미분과 순방향 모드 자동 미분을 모두 지원하며, 이 두 가지 방식을 임의로 조합하여 사용할 수 있다. Autograd의 주요 용도는 그래디언트 기반 최적화이며, 개발자가 수동으로 그래디언트를 계산해야 하는 부담을 덜어주어 모델 학습 및 실험 과정을 단순화하고, 딥러닝 모델 개발을 더욱 효율적으로 수행할 수 있도록 한다.
+
+Autograd는 미분 가능한 프로그래밍(differentiable programming) 패러다임의 일부이다. 미분 가능한 프로그래밍은 프로그램의 실행 과정을 미분 가능한 연산으로 표현하여 그래디언트를 자동으로 계산하는 기술이다. Autograd는 동적 그래프 기반 접근 방식을 사용하여 미분 가능한 프로그래밍을 구현한다. 
+즉, 프로그램이 실행되는 동안 동적으로 계산 그래프를 구성하고, 이를 통해 그래디언트를 계산한다.
+
+Autograd는 텐서 연산을 기록하여 동적 계산 그래프를 생성한다. 이 그래프는 입력 텐서를 리프 노드로, 출력 텐서를 루트 노드로 가지는 비순환 그래프이다. 
+Autograd는 이 그래프를 루트에서 리프까지 추적하여 연쇄 법칙을 사용해 그래디언트를 자동으로 계산한다. 
+Autograd는 순방향 계산을 수행하는 동시에 그래디언트를 계산하는 함수를 나타내는 그래프를 구축한다. 
+순방향 계산이 완료되면 역방향 계산에서 이 그래프를 평가하여 그래디언트를 계산한다. 
+Autograd는 동적 계산 그래프를 사용하기 때문에 모델에 조건 분기나 런타임까지 길이를 알 수 없는 루프가 있는 경우에도 계산을 정확하게 추적하고 학습을 위한 정확한 그래디언트를 얻을 수 있다. 
+이는 정적 계산 그래프를 사용하는 방식에 비해 큰 장점이다.
+
+<작동원리>
+https://wikidocs.net/120079
+
+<주요특징>
+자동 미분: Autograd는 연쇄 법칙을 사용하여 자동으로 그래디언트를 계산한다. 이를 통해 개발자는 수동으로 그래디언트를 계산할 필요가 없어 딥러닝 모델 개발을 더욱 효율적으로 수행할 수 있다.
+동적 계산 그래프: Autograd는 코드가 실행될 때 동적으로 계산 그래프를 생성한다. 이는 모델의 제어 흐름에 따라 그래프이 변경될 수 있음을 의미하며, 복잡한 모델을 구축하는 데 매우 유용하다. 특히, 조건문이나 반복문과 같이 실행 시점에 결정되는 동적인 구조를 가진 모델도 처리할 수 있다.
+GPU 지원: Autograd는 GPU 연산을 지원하여 대규모 딥러닝 모델을 효율적으로 학습할 수 있도록 한다.
+
+<Grad Modes>
+Autograd는 그래디언트 계산을 제어하기 위한 다양한 Grad Mode을 제공한다.
+
+default: 기본 모드이다. 모든 연산이 역방향 그래프에 기록되고 그래디언트 계산에 사용된다. 일반적인 순방향 계산에 사용된다.
+no-grad: 이 모드에서는 연산이 역방향 그래프에 기록되지 않는다. 즉, 그래디언트 계산이 필요하지 않은 경우에 사용된다. 예를 들어, 모델의 가중치를 업데이트하는 최적화 단계에서 사용된다.
+inference: no-grad 모드와 유사하지만 추가적인 Autograd 추적 오버헤드를 줄인다. 모델 평가나 데이터 처리와 같이 그래디언트 계산이 필요하지 않고 성능이 중요한 경우에 사용된다.
+
+<응용사례>
+Autograd는 딥러닝 모델 학습에 광범위하게 사용된다. 특히 역전파 알고리듬을 사용하는 거의 모든 딥러닝 모델에서 Autograd가 사용된다. 주요 응용 분야는 다음과 같다.
+
+이미지 인식: 이미지 분류, 객체 감지, 이미지 생성 등 다양한 이미지 인식 작업에 사용되는 딥러닝 모델을 학습하는 데 사용된다.
+자연어 처리: 기계 번역, 텍스트 요약, 감정 분석 등 자연어 처리 작업에 사용되는 딥러닝 모델을 학습하는 데 사용된다.
+음성 인식: 음성 인식, 음성 합성, 음성 분류 등 음성 인식 작업에 사용되는 딥러닝 모델을 학습하는 데 사용된다.
+
+<한계 및 대안>
+Autograd는 강력한 도구이지만 몇 가지 한계점도 가지고 있다.
+
+계산 효율성: Autograd는 동적 계산 그래프를 사용하기 때문에 정적 계산 그래프를 사용하는 경우보다 계산 효율성이 떨어질 수 있다. 모델의 구조가 미리 알려져 있고 고정된 경우에는 정적 계산 그래프를 사용하는 것이 더 효율적일 수 있다.
+메모리 사용량: Autograd는 계산 그래프를 저장하기 위해 많은 메모리를 사용할 수 있다. 이는 특히 대규모 모델을 학습할 때 문제가 될 수 있다. 계산 그래프의 크기는 모델의 복잡도와 입력 데이터의 크기에 따라 증가하며, 메모리 부족 현상을 일으킬 수 있다.
+제어 흐름 제약: Autograd는 Python의 모든 제어 흐름 구문을 지원하지 않을 수 있다. Autograd는 일반적인 Python 코드를 미분할 수 있도록 설계되었지만, 일부 복잡한 제어 흐름 구문이나 외부 라이브러리 호출은 지원하지 못할 수 있다.
+Autograd의 대안으로는 다음과 같은 기술들이 있다.
+
+수동 미분: 개발자가 직접 그래디언트를 계산하는 방법이다. Autograd보다 계산 효율성이 높을 수 있지만, 구현이 복잡하고 오류가 발생하기 쉽다. 특히, 복잡한 모델의 경우 수동으로 그래디언트를 계산하는 것은 매우 어렵고 시간이 많이 소요된다.
+기호 미분: Symbolic differentiation은 수식을 기호적으로 미분하는 방법이다. Autograd보다 정확한 결과를 제공할 수 있지만, 복잡한 수식에 대해서는 계산 비용이 많이 들 수 있다. 
+또한, 기호 미분은 프로그램의 제어 흐름을 고려하지 않기 때문에 동적인 구조를 가진 모델에는 적용하기 어렵다.
+수치 미분: Numerical differentiation은 유한 차분법을 사용하여 그래디언트를 근사하는 방법이다. Autograd보다 계산 비용이 적게 들지만, 정확도가 떨어질 수 있다. 또한, 수치 미분은 수치적인 불안정성 문제가 발생할 수 있으며, 특히 고차 미분을 계산할 때 문제가 될 수 있다.
+
+Method      /    Advantages                              /    Disadvantages
+Autograd    /    자동 미분, 동적 계산 그래프, GPU 지원     /    계산 효율성, 메모리 사용량, 제어 흐름 제약
+수동 미분    /    계산 효율성                             /    구현 복잡성, 오류 발생 가능성
+기호 미분    /    정확성                                 /     계산 비용, 동적 구조 적용 어려움
+수치 미분    /    계산 비용                              /     정확도, 수치적 불안정성
+
+<결론>
+Autograd는 딥러닝 모델 학습에 필수적인 자동 미분 엔진이다. Autograd는 연산 그래프를 사용하여 그래디언트를 자동으로 계산하며, 
+동적 계산 그래프를 통해 복잡한 모델을 유연하게 구축할 수 있도록 지원한다. Autograd는 이미지 인식, 자연어 처리, 음성 인식 등 다양한 분야에서 딥러닝 모델 학습에 활용되고 있다. 
+Autograd는 딥러닝 프레임워크의 핵심 기술 중 하나이며, 딥러닝 기술 발전에 크게 기여하고 있다. Autograd의 등장으로 딥러닝 모델의 개발 및 학습이 훨씬 쉬워졌으며, 더욱 복잡하고 정교한 모델을 개발할 수 있게 되었다. 
+Autograd는 앞으로도 딥러닝 분야의 발전에 중요한 역할을 할 것으로 예상되며, 더욱 효율적이고 강력한 자동 미분 기술 개발을 위한 연구가 계속될 것이다.
+
+<참고 문헌 및 저작권>
+PyTorch Autograd Tutorial (2024년 12월 28일 접근): https://docs.pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html
+Using Autograd in TensorFlow to Solve a Regression Problem - Machine Learning Mastery (2024년 12월 28일 접근): https://machinelearningmastery.com/using-autograd-in-tensorflow-to-solve-a-regression-problem/
+HIPS/autograd: Efficiently computes derivatives of NumPy code. - GitHub (2024년 12월 28일 접근): https://github.com/HIPS/autograd
+Demystifying AutoGrad in Machine Learning | by Dagang Wei - Medium (2024년 12월 28일 접근): https://medium.com/@weidagang/demystifying-autograd-in-machine-learning-eb7d5c875ff2
+Understanding PyTorch AutoGrad: A Complete Guide for Deep Learning Practitioners | by Piyush Kashyap | Nov, 2024 | Medium (2024년 12월 28일 접근): https://medium.com/@piyushkashyap045/understanding-pytorch-autograd-a-complete-guide-for-deep-learning-practitioners-f5dd1f43b417
+Differentiable programming - Wikipedia (2024년 12월 28일 접근): https://en.wikipedia.org/wiki/Differentiable_programming
+PyTorch Autograd - Towards Data Science (2024년 12월 28일 접근): https://towardsdatascience.com/
+Autograd mechanics — PyTorch 2.5 documentation (2024년 12월 28일 접근): https://docs.pytorch.org/docs/2.13/notes/autograd.html
+A Gentle Introduction to torch.autograd — PyTorch Tutorials 2.5.0+cu124 documentation (2024년 12월 28일 접근): https://docs.pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html
+The Fundamentals of Autograd — PyTorch Tutorials 2.5.0+cu124 documentation (2024년 12월 28일 접근): https://docs.pytorch.org/tutorials/beginner/introyt/autogradyt_tutorial.html
+Graphs, Automatic Differentiation and Autograd in PyTorch - GeeksforGeeks (2024년 12월 28일 접근): https://www.geeksforgeeks.org/machine-learning/graphs-automatic-differentiation-and-autograd-in-pytorch/
+autograd/docs/tutorial.md at master - GitHub (2024년 12월 28일 접근): https://github.com/HIPS/autograd/blob/master/docs/tutorial.md
+
+Autoregressive Transformer (자동회귀 트랜스포머, 자기회귀 트랜스포머):
+Autoregressive Transformer는 Transformer 아키텍처를 기반으로 하여 순차적 데이터 처리 작업에 사용되는 모델이다. 이 모델은 주어진 시퀀스의 이전 항목들을 기반으로 다음 항목을 예측하는 방식으로 작동하며, 주로 텍스트 생성, 번역, 요약 등 자연어 처리(NLP) 작업에서 활용된다.
+
+Autoregressive Transformer의 주요 특징은 다음과 같다.
+
+순차적 생성: 모델은 출력 시퀀스를 왼쪽에서 오른쪽으로 순차적으로 생성한다.
+마스킹된 셀프 어텐션: 미래의 토큰을 보지 못하도록 어텐션 메커니즘에 마스킹을 적용한다.
+긴 문맥 유지: 이전에 생성된 모든 토큰을 고려하여 다음 토큰을 예측한다.
+대표적인 예로는 다음과 같은 모델들이 있다.
+
+GPT(Generative Pre-trained Transformer) 시리즈: OpenAI에서 개발한 대규모 언어 모델로, GPT-3는 놀라운 텍스트 생성 능력을 보여주었다.
+XLNet: 순열 언어 모델링을 사용하여 양방향 문맥을 포착하면서도 autoregressive 특성을 유지한다.
+TransformerXL: 긴 시퀀스를 효과적으로 처리하기 위해 세그먼트 수준 순환 메커니즘을 도입했다.
+Autoregressive Transformer는 각 단어를 순차적으로 예측하기 때문에 문맥을 잘 이해하고 반영할 수 있다. 이러한 방식은 특히 대화형 AI, 콘텐츠 생성, 언어 번역 등에 유용하다. 그러나 양방향 문맥을 동시에 고려하지 못한다는 단점이 있어, 
+일부 언어 이해 작업에서는 BERT와 같은 양방향 모델보다 성능이 떨어질 수 있다.
+
+이 모델은 Transformer의 기본 구조인 멀티헤드 셀프 어텐션 메커니즘을 활용하여 입력 데이터의 각 요소가 이전의 모든 요소와의 관계를 동시에 고려할 수 있게 하여 병렬 처리를 가능하게 한다. 이를 통해 기존의 순차적 모델들보다 더 빠르고 효율적인 학습이 가능하다.
+
+<참고 문헌 및 저작권>
+A. Radford et al., 《Language Models are Unsupervised Multitask Learners》, OpenAI Blog
+Z. Yang et al., 〈XLNet: Generalized Autoregressive Pretraining for Language Understanding〉, NeurIPS 2019
+Z. Dai et al., 〈Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context〉, ACL 2019
+T. Brown et al., 〈Language Models are Few-Shot Learners〉, NeurIPS 2020
+Transformer (deep learning architecture). In Wikipedia. https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)
+https://huggingface.co/docs/transformers/model_summary
+https://paperswithcode.com/method/gpt-3
+https://paperswithcode.com/methods/category/autoregressive-transformers
+https://paperswithcode.com/method/xlnet
+
+accuracy (정확도):
+‘accuracy’란 모델의 성능을 평가하기 위해 사용되는 지표로, 예측 결과와 실제 값 사이의 일치 정도를 나타낸다. 일반적으로 분류 문제에서는 정확도를 계산하여 모델이 올바르게 분류한 샘플의 비율로 정의된다.
+
+정확도는 다음과 같이 계산된다.
+
+accuracy = (올바르게 분류된 샘플 수) / (전체 샘플 수)
+
+<참고 문헌 및 저작권>
+Wikipedia - Accuracy and precision: https://en.wikipedia.org/wiki/Accuracy_and_precision
+
+acoustic scene classification:
+Acoustic Scene Classification은 음향 신호를 분석하여 환경 소리의 특징을 인식하고 분류하는 작업을 말한다. 이는 기계 학습과 인공 지능 기술을 활용하여 주어진 음향 데이터가 어떤 환경 소리에 해당하는지를 자동으로 식별하는 것을 목표로 한다. 
+예를 들어, 길거리, 회의실, 숲 등과 같은 다양한 환경 소리를 구분하고 분류하는 것이 acoustic scene classification의 주요한 응용 사례이다.
+
+Acoustic Scene Classification은 일반적으로 오디오 신호 처리 기술, 특징 추출 기법, 분류 알고리즘 등을 사용하여 구현된다. 음향 신호에서 특징을 추출하기 위해 주로 주파수, 주파수 영역에서의 에너지 분포, 스펙트럼 모양, 주파수 및 시간 영역의 특징 등이 활용된다. 
+이러한 특징들은 기계 학습 알고리즘에 입력으로 제공되어 음향 신호를 학습하고 분류할 수 있는 모델을 생성한다.
+
+<참고 문헌 및 저작권>
+Acoustic Scene Classification, https://ar5iv.labs.arxiv.org/html/1411.3715
+
+action (행동)
+‘action’은 머신 러닝과 인공지능에서 사용되는 개념으로, 시스템이 수행하는 단일 작업 또는 연속적인 작업의 단위를 나타낸다. ‘action’은 주어진 상황에 대한 응답으로서 시스템이 취할 수 있는 특정한 동작이나 결정을 나타낸다. 
+머신 러닝 모델에서는 ‘action’이 입력 데이터와 상호작용하여 원하는 결과를 산출하거나 의사결정을 수행하는 중요한 요소이다.
+
+<참고 문헌 및 저작권>
+Sutton, R. S., & Barto, A. G., "Reinforcement Learning: An Introduction", 2nd edition: http://incompleteideas.net/book/the-book-2nd.html
+
+action-value function (행동가치 함수):
+액션-가치 함수(Action-Value Function)란 강화 학습(Reinforcement Learning)에서 사용되는 개념으로, 특정 상태(state)에서 특정 액션(action)을 취했을 때 얻을 수 있는 기대값을 나타내는 함수이다. 
+즉, 주어진 상태에서 각 액션의 가치를 평가하는 함수로 볼 수 있다. 액션-가치 함수는 일반적으로 Q 함수(Q function)라고도 불리며, 상태와 액션의 조합에 대한 예상 보상(expected reward) 또는 가치(value)를 계산하여 액션 선택에 사용된다.
+
+액션-가치 함수는 강화 학습에서 주어진 상태에서 최적의 액션을 선택하는데 사용되는 중요한 도구이다. 이를 통해 에이전트(Agent)는 주어진 상태에서 어떤 액션을 선택해야 가장 큰 보상을 얻을 수 있는지를 결정할 수 있다. 
+일반적으로 액션-가치 함수는 표 형태로 나타내어 각 상태와 액션에 대한 가치 추정을 저장하고 업데이트하는 방식으로 구현된다.
+
+<참고 문헌 및 저작권>
+Richard S. Sutton and Andrew G. Barto, 《Reinforcement Learning: An Introduction》, The MIT Press: http://incompleteideas.net/book/the-book-2nd.html
+
+activation function (활성화함수):
+활성화 함수(activation function)란 인공 신경망에서 입력 신호의 가중치 합을 출력 신호로 변환하는 함수이다. 활성화 함수는 비선형성(non-linearity)을 가지고 있으며, 입력에 대한 비선형 변환을 통해 신경망이 다양한 종류의 복잡한 함수를 학습할 수 있게 한다. 
+활성화 함수는 주로 각 뉴런의 출력 값을 결정하고 신경망의 비선형성을 제공하는 역할을 수행한다.
+
+활성화 함수는 입력 신호의 가중치 합인 선형 변환을 입력으로 받아 비선형 변환을 수행하며, 이를 통해 신경망이 복잡한 문제를 해결할 수 있는 능력을 갖게 된다. 대표적인 활성화 함수로는 시그모이드(sigmoid), 하이퍼볼릭 탄젠트(tanh), 렐루(Rectified Linear Unit, ReLU) 등이 있다.
+
+<참고 문헌 및 저작권>
+Activation function - Wikipedia: https://en.wikipedia.org/wiki/Activation_function
+Activation Functions in Neural Networks, Towards Data Science.: https://towardsdatascience.com/activation-functions-in-neural-networks-how-to-choose-the-right-one-cb20414c04e5/
+
+agent (에이전트)
+Agent는 인공지능(AI)에서 환경과 상호작용하며 목표를 달성하기 위해 행동을 수행하는 자율적인 시스템 또는 엔터티를 의미한다. 이러한 에이전트는 주어진 환경에서 데이터를 감지하고, 처리하여 의사결정을 내리며, 그 결과에 따라 행동한다. 
+에이전트는 환경의 상태를 관찰하고, 이를 바탕으로 적절한 행동을 선택하여 환경에 영향을 미치는 사이클을 반복한다.
+
+강화학습(RL)에서의 에이전트
+
+강화학습에서 에이전트는 특정 환경 내에서 목표를 달성하기 위해 행동을 학습하는 역할을 한다. 에이전트는 상태(state)를 관찰하고, 이에 따른 행동(action)을 선택하며, 그 행동이 환경에 미치는 결과로 보상(reward)을 받는다. 이 보상을 최대화하는 방향으로 행동을 조정하는 것이 에이전트의 주요 목표이다. 
+에이전트는 보상 신호를 통해 정책(policy)을 학습하고, 이를 통해 어떤 상태에서 어떤 행동을 취해야 할지를 결정하게 된다. 강화학습 에이전트는 자율주행차, 게임 플레이 AI, 로봇 공학 등 다양한 분야에 적용된다.
+
+대규모 언어 모델(LLM) 관점에서의 에이전트
+대규모 언어 모델(LLM)에서 에이전트는 자연어 처리(NLP) 작업을 수행하는 역할을 한다. LLM 기반의 에이전트는 텍스트 생성, 질문 응답, 번역, 요약 등 다양한 언어 처리 작업을 수행할 수 있다. LLM 에이전트는 특정 목적을 달성하기 위해 텍스트를 분석하고, 
+사용자의 질의에 응답하거나 특정 작업을 실행한다. 이러한 에이전트는 일반적으로 대규모 데이터셋으로 학습되며, 인간과 유사한 언어 이해 및 생성 능력을 가지고 있다. 
+ChatGPT와 같은 시스템이 이에 해당하며, 이는 사용자와 대화하거나 복잡한 언어 작업을 수행하는 데 활용된다.
+
+<참고 문헌 및 저작권>
+Sutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd ed.). MIT Press.
+Russell, S., & Norvig, P. (2010). Artificial Intelligence: A Modern Approach (3rd ed.). Pearson.
+Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., ... & Amodei, D. (2020). Language Models are Few-Shot Learners. Advances in Neural Information Processing Systems, 33, 1877-1901.
+
+anomaly detection (이상 탐지):
+Anomaly Detection(이상 탐지)란 데이터에서 정상 범위를 벗어난 패턴, 값, 또는 사건을 식별하는 기법이다. 주로 금융 거래의 사기 탐지, 네트워크 보안, 품질 통제, 기계 장애 감지 등 다양한 분야에서 응용된다. 이상 탐지는 대부분의 데이터가 정상적이라는 가정 하에 이를 바탕으로 이상치를 찾아내는데, 
+이 과정은 종종 통계적 방법, 머신러닝, 딥러닝 기법을 활용한다.
+
+outlier와 anomaly:
+Outlier(이상치)란 주로 통계에서 사용하는 용어로, 다른 관측치들과 크게 다른 값을 갖는 관측치를 지칭한다. 이상치는 데이터 분석 시 주의가 필요하며, 때때로 오류나 노이즈를 의미할 수도 있다. 반면, Anomaly(이상)는 데이터나 패턴에서 예상치 못한 행동이나 사건을 지칭한다. 
+이상은 주로 네트워크 보안, 시스템 모니터링, 금융 거래에서의 사기 탐지 등에서 사용되는 용어다.
+
+둘 다 '평범하지 않은' 것을 가리키지만, 그 의미와 사용되는 맥락이 다르다. 이상치는 주로 개별적인 데이터 포인트의 관점에서 사용되며, 이상은 보다 넓은 범위나 패턴에서의 예외 상황을 의미한다.
+
+<참고 문헌 및 저작권>
+Aggarwal, C.C., 《Outlier Analysis》, Springer.: springer.com/gp/book/9783319475776
+Anomaly detection techniques in Python: https://towardsdatascience.com/anomaly-detection-techniques-in-python-50f650c75aaf
+
+association analysis (연관성 분석):
+연관 분석은 대규모 데이터 세트에서 항목 간의 연관성을 파악하는 데이터 마이닝 기법입니다. 이를 통해 상품 판매 데이터, 웹사이트 방문 기록 등에서 아이템 간의 관계를 추출하여 유용한 정보를 도출할 수 있습니다. 
+연관 분석은 일련의 항목 집합이 얼마나 자주 함께 발생하는지, 즉 '지지도'를 계산하고, 특정 항목 집합이 발생했을 때 다른 항목 집합의 발생 가능성을 예측하는 '신뢰도'를 측정합니다. 연관 규칙은 이러한 지지도와 신뢰도를 기반으로 생성됩니다.
+
+연관 분석은 마케팅, 판매, 고객 행동 분석 등 다양한 분야에서 활용됩니다. 예를 들어, 슈퍼마켓에서 연관 분석을 적용하면 고객이 어떤 상품을 함께 구매하는지 파악하여 광고, 상품 배치, 할인 행사 등을 계획할 수 있습니다. 
+또한, 온라인 쇼핑몰에서는 고객의 구매 기록을 분석하여 개인화된 추천 시스템을 구현하는 데에도 활용됩니다.
+
+<참고 문헌 및 저작권>
+Jiawei Han, Micheline Kamber, Jian Pei, 《Data Mining: Concepts and Techniques》, Morgan Kaufmann: https://www.amazon.com/Data-Mining-Concepts-Techniques-Management/dp/0123814790
+Rakesh Agrawal, Ramakrishnan Srikant, 〈Fast Algorithms for Mining Association Rules in Large Databases〉, VLDB: https://www.vldb.org/conf/1994/P487.PDF
+
+attention (어텐션, 주의, 주목):
+Attention Mechanism은 입력 데이터 중 중요한 정보에 ‘집중(attend)’하도록 설계된 기계학습 기법으로, 뉴럴 네트워크가 모든 입력 요소를 동등하게 처리하는 대신 적절한 가중치를 두어 특정 부분에 집중함으로써 더욱 효율적으로 특징을 추출하고 결과를 도출하도록 돕는 방법이다. 
+이를 통해 모델은 긴 문장이나 복잡한 영상, 오디오 등에서 필요한 정보를 능동적으로 선택하고 활용할 수 있다. 특히 자연어 처리(NLP), 음성 인식, 컴퓨터 비전 등 다양한 분야에서 널리 사용된다.
+
+<역사>
+1. 초기 시도
+인공신경망에 ‘주의(attention)’ 메커니즘을 도입하려는 발상은 인간의 시각적 주의(Visual Attention) 체계에서 영감을 얻었다. 1990년대부터 시각 정보 처리에서 특정 영역만을 고해상도로 분석하되, 이 영역을 동적으로 움직이는 모델에 대한 연구가 시작되었다 (Soydaner, 2022).
+
+2. 신경망 기반 기계번역의 등장
+Bahdanau, Cho, 그리고 Bengio(2015)는 기계번역에서 입력 문장의 전체 정보를 하나의 고정 차원 벡터로만 요약하는 기존 방식의 한계를 극복하기 위해 ‘어텐션(Attention)’ 기법을 고안했다. 이들은 “Neural machine translation by jointly learning to align and translate” 논문에서, 각 시점마다 필요한 단어(혹은 위치)에 가중치를 두어 번역하는 구조를 제안함으로써, 학습 과정에서 자동으로 정렬(alignment)을 학습하는 데 성공하였다.
+
+3. Transformer의 등장
+Vaswani 외(2017)는 “Attention is all you need” 논문을 통해, RNN(순환신경망)이나 CNN(합성곱신경망) 없이도 어텐션만으로 시퀀스 변환(예: 번역)이 가능함을 보였다. 이 모델을 ‘Transformer’라 명명하였으며, 병렬화가 쉽고 학습 효율이 뛰어나 다양한 NLP 과제에서 획기적인 성능 향상을 이끌었다.
+
+4. 다양한 확장과 정착
+이후 컴퓨터 비전 분야(예: 이미지 캡셔닝, 객체 검출 등), 음성 처리, 추천 시스템, 시계열 분석 등에서 주목할 만한 성능을 보이며 attention mechanism은 뉴럴 네트워크의 필수 구성 요소로 자리 잡았다 (Brauwers & Frasincar, 2021).
+
+<원리>
+Attention Mechanism의 기본 아이디어는 ‘Query-Key-Value’ 구조를 통해 입력 요소 간 ‘가중치(Attention Weight)’를 학습적으로 부여하는 데 있다.
+
+Query: 해당 시점에서 어떤 정보가 필요한지를 나타내는 벡터.
+Key / Value: 입력 벡터를 두 가지 표현으로 나누어, Key를 통해 ‘해당 입력 위치가 Query와 얼마나 유사/연관이 있는지’를 계산하고, Value를 통해 최종적으로 필요한 정보를 가중합(Weighted Sum) 형태로 추출한다.
+어텐션 스코어(Attention Score): Query와 Key의 내적(dot product) 또는 기타 점수 함수를 통해 연관도를 측정한 뒤, Softmax나 유사함수로 정규화하여 각 위치별 가중치로 활용한다.
+가중합(Weighted Summation): 구한 가중치를 Value 벡터에 곱해 모두 합산하면, 해당 시점에서 모델이 집중해야 할 정보를 요약한 ‘컨텍스트(context) 벡터’가 얻어진다 (Soydaner, 2022; Vaswani et al., 2017).
+
+<주요 응용>
+자연어 처리(NLP)
+기계번역: RNN 기반 번역 모델에서부터 Transformer 계열 모델까지, 어텐션 메커니즘은 긴 문장을 번역할 때 필요한 중요 단어나 구를 동적으로 선택해 번역 품질을 높인다 (Bahdanau et al., 2015).
+문서 요약 / 질문-응답: 질문과 관련된 문장 부분에 집중하여 더욱 정확한 답변을 생성한다.
+텍스트 분류 / 감성 분석: 문맥상 주요 단어에 가중치를 두어 분류 정확도를 높인다.
+
+컴퓨터 비전
+이미지 캡셔닝(Image Captioning): CNN으로 추출된 이미지 특징에서 특정 영역(물체, 배경 등)에 대해 어텐션을 적용, 사람이 이미지 일부에 집중하듯이 의미 있는 영역을 포착한다.
+시각 질문 응답(VQA): 질문 문맥에 맞춰 이미지의 특정 부분을 강조해 답변 정확도를 높인다.
+
+음성 인식 / 음성 처리
+발화 내에서 주의 깊게 봐야 할 시간 구간, 스펙트럼 등 특정 특징에 집중하여 인식률을 개선한다.
+
+추천 시스템 및 시계열 분석
+사용자 과거 행동 중 특히 중요한 항목(아이템, 클릭, 구매 이력 등)이나, 시계열에서 중요한 시점에 주목하여 더 정교한 예측을 수행한다 (Brauwers & Frasincar, 2021).
+
+<참고 문헌 및 저작권>
+Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. International Conference on Learning Representations (ICLR).
+Brauwers, G., & Frasincar, F. (2021). A general survey on attention mechanisms in deep learning. arXiv preprint arXiv:2203.14263.
+Soydaner, D. (2022). Attention mechanism in neural networks: Where it comes and where it goes. arXiv preprint arXiv:2204.13154.
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30.
+
+audio generation (오디오 생성):
+오디오 생성은 인공 지능과 기계 학습 기술을 사용하여 음향 신호를 생성하는 과정을 의미한다. 이는 기계가 음악, 음성 또는 다른 오디오 형태의 데이터를 생성하고 출력하는 능력을 갖추게 된다. 
+오디오 생성은 딥러닝 모델과 신경망 기술을 활용하여 소리의 주파수, 진폭, 지속 시간 등과 같은 특징을 모델링하고 학습한다. 
+이러한 모델은 음악 작곡, 자동 음성 생성, 음향 효과 생성 등 다양한 응용 분야에서 사용될 수 있다.
+
+<참고 문헌 및 저작권>
+Chris Donahue, Julian McAuley, Miller Puckette, "Synthesizing Audio with Generative Adversarial Networks," arXiv:1802.04208, 2018.: https://arxiv.org/abs/1802.04208
+Jesse Engel, Cinjon Resnick, Adam Roberts, Sander Dieleman, Karen Simonyan, Mohammad Norouzi, "Neural Audio Synthesis of Musical Notes with WaveNet Autoencoders," arXiv:1704.01279, 2017.: https://arxiv.org/abs/1704.01279
+
+autoencoder (오토인코더, 자동부호기):
+‘autoencoder’는 비지도 학습의 한 유형으로, 입력 데이터를 효율적으로 인코딩하고, 이를 다시 디코딩하여 원래의 입력 데이터를 복원하는 신경망 모델이다. 일반적으로, autoencoder는 입력 데이터의 특징을 학습하기 위해 중간(hidden) 계층을 통해 데이터를 압축(인코딩)하고, 
+그 압축된 표현을 사용하여 원본 데이터를 복원(디코딩)한다. 이 과정에서 autoencoder는 입력 데이터의 중요한 특성을 학습하고, 잡음이나 불필요한 정보를 필터링하는 능력을 갖추게 된다. 
+Autoencoder는 차원 축소, 데이터 압축, 특징 추출, 잡음 제거 등 다양한 응용 분야에서 활용된다.
+
+<참고 문헌 및 저작권>
+Francois Chollet, 《Deep Learning with Python》, Manning Publications, 2018: https://www.manning.com/books/deep-learning-with-python
+Hugo Larochelle, 〈Neural networks [6.1] : Autoencoder - definition〉, YouTube (Online video): https://www.youtube.com/watch?v=FzS3tMl4Nsc
+Wikipedia - Autoencoder: https://en.wikipedia.org/wiki/Autoencoder
+
+auxiliary classifier (보조 분류기):
+Auxiliary Classifier는 딥러닝 모델에서 사용되는 보조 분류기로, 주요 분류 작업 외에 부가적인 분류 작업을 수행하는 구성 요소이다. 주요 분류 작업과 별개로 보조 분류기는 중간 또는 하위 레이어에서 추가적인 분류 문제를 해결하는 데 사용된다. 
+일반적으로 주요 분류기와 보조 분류기는 서로 다른 손실 함수를 사용하여 독립적으로 학습됩니다.
+
+Auxiliary Classifier는 다른 네트워크 모듈에서 특정 기능을 추출하고 다른 특징들과 함께 사용하여 성능을 향상시키는 데 도움이 된다. 보조 분류기는 주로 적은 양의 데이터를 가진 작업에서 주요 분류 작업의 성능을 향상시키기 위해 사용된다. 
+또한, 그라디언트가 주요 분류기로 전파되는 동안에도 보조 분류기를 통해 중간 레이어에서 그라디언트 신호를 보다 잘 전파할 수 있다.
+
+<참고 문헌 및 저작권>
+Christian Szegedy, et al., "Going deeper with convolutions.", CVPR 2015: https://arxiv.org/abs/1409.4842
