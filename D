@@ -1,0 +1,145 @@
+DBSCAN: Density-based spatial clustering of applications with noise:
+DBSCAN(Density-based spatial clustering of applications with noise)은 1996년 마틴 에스터(Martin Ester), 한스-페터 크리겔(Hans-Peter Kriegel), 요르크 산더(Jörg Sander), 
+그리고 샤오웨이 쉬(Xiaowei Xu)에 의해 제안된 데이터 클러스터링 알고리듬이다. 이는 비모수 밀도 기반 클러스터링 알고리듬으로, 공간 내의 점 집합을 주어진 경우, 밀접하게 패킹된 점들을 함께 그룹화하고, 
+낮은 밀도 영역에서 홀로 있는 점들(가장 가까운 이웃이 너무 멀리 떨어진 점들)을 이상치로 표시한다. DBSCAN은 가장 일반적이며 가장 널리 인용되는 클러스터링 알고리듬 중 하나다.
+
+DBSCAN의 기본 아이디어는 일정 밀도 이상의 점들을 연결하여 클러스터를 형성하는 것이다. 이 알고리듬은 두 가지 주요 개념인 도달 가능성(Reachability)과 연결성(Connectivity)에 기반한다. 
+점 X가 점 Y로부터 직접 밀도 도달 가능하려면, X가 Y의 ε(엡실론) 인접 영역 내에 있어야 하고, Y는 핵심 점이어야 한다. 
+반대로, X가 Y로부터 밀도 도달 가능하려면 점 X와 Y 사이에 직접 밀도 도달 가능한 점의 연쇄가 존재해야 한다. 두 점이 밀도 연결되어 있다는 것은, 두 점 모두가 제3의 점 O로부터 밀도 도달 가능한 경우를 말한다.
+
+DBSCAN 알고리듬은 ε(엡실론)과 minPts(최소 점 수)라는 두 개의 매개변수가 필요하며, 이는 알고리듬이 민감하게 반응한다. minPts는 적어도 데이터 세트의 차원 수보다 하나 더 많아야 한다. 
+ε의 값은 K-거리 그래프에서 최대 곡률(엘보) 지점을 통해 결정될 수 있다. 너무 작은 ε 값은 더 많은 클러스터와 노이즈 데이터 포인트를 생성하는 반면, 
+너무 큰 값은 여러 작은 클러스터를 하나의 큰 클러스터로 합쳐서 세부 정보를 잃게 만든다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). DBSCAN. Retrieved from https://en.wikipedia.org/wiki/DBSCAN
+Analytics Vidhya. (n.d.). How Does DBSCAN Clustering Work? Understanding the Basics. Retrieved from https://www.analyticsvidhya.com/blog/2020/09/how-dbscan-clustering-works/
+
+DCGAN: deep convolutional generative adversarial network:
+DCGAN(Deep Convolutional Generative Adversarial Network)은 생성적 적대 신경망(GAN, Generative Adversarial Network)의 한 변형으로, 심층 합성곱 신경망(Deep Convolutional Neural Networks)을 기반으로 한다. 
+DCGAN은 생성자(Generator)와 판별자(Discriminator) 두 부분으로 구성되며, 이들은 서로 경쟁하면서 학습한다. 생성자는 무작위 노이즈로부터 실제와 유사한 데이터를 생성하는 반면, 
+판별자는 생성된 데이터와 실제 데이터를 구분하려고 한다.
+
+DCGAN의 특징은 전통적인 GAN 구조에 합성곱 신경망을 도입한 것이다. 이를 통해 이미지와 같은 고차원 데이터를 보다 효과적으로 처리할 수 있다. 
+DCGAN은 안정적인 학습 과정, 높은 이미지 품질, 특성 학습 능력 등으로 주목받았으며, 이미지 생성, 스타일 전이, 이미지 보간 등 다양한 응용 분야에서 활용되고 있다.
+
+<참고 문헌 및 저작권>
+Radford, A., Metz, L., & Chintala, S., 〈Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks〉, ArXiv: https://arxiv.org/abs/1511.06434
+Goodfellow, I. et al., 《Generative Adversarial Networks》, ArXiv: https://arxiv.org/abs/1406.2661
+Deep Convolutional Generative Adversarial Network, Wikipedia 페이지: https://en.wikipedia.org/wiki/Deep_convolutional_generative_adversarial_network
+
+DDPG: Deep Deterministic Policy Gradient:
+DDPG(Deep Deterministic Policy Gradient)는 심층 강화 학습(DRL) 알고리듬 중 하나로, 연속적인 행동 공간에서 효과적으로 작동하는 모델 프리 방식의 강화 학습 알고리듬이다. 
+이 알고리듬은 ‘actor-critic’ 구조를 기반으로 하며, actor는 정책을 학습하고, critic은 Q-값(상태-행동 가치)을 평가하는 역할을 한다. 
+DDPG는 결정론적 정책 그라디언트(Deterministic Policy Gradient)와 심층 Q-네트워크(DQN)의 몇 가지 핵심 아이디어를 결합한 것으로, 
+경험 재현(replay buffer)과 타깃 네트워크(target network)를 활용하여 학습의 안정성과 효율성을 높인다.
+
+DDPG는 특히 연속적인 행동 공간을 처리하는 데 적합하며, 로봇 제어, 자율 주행, 자원 할당, 무인 항공기(UAV) 제어 등 다양한 분야에서 활용되고 있다. 
+예를 들어, 로봇 팔의 움직임 제어에서 DDPG는 복잡한 환경에서도 효과적으로 동작할 수 있도록 학습할 수 있으며, 전력 시장 전략 분석이나 무선 통신의 에너지 관리에서도 널리 응용되고 있다. 
+하지만, DDPG는 보상이 희소한 환경에서 학습이 느릴 수 있고, 적절한 보상 함수를 설계하지 않으면 효율성이 떨어질 수 있다.
+
+<참고 문헌 및 저작권>
+https://spinningup.openai.com/en/latest/algorithms/ddpg.html
+Hamid, E., Sumiea, S. J., & Al-Selwi, S. M. (2024). Deep Deterministic Policy Gradient Algorithm: A Systematic Review. Research Square. https://www.sciencedirect.com/science/article/pii/S2405844024067288
+Wang, H., Kaur, P., Mittal, M., & Xu, Z. (2020). An enhanced deep deterministic policy gradient algorithm for intelligent control of robotic arms. Frontiers. https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2023.1096053/full
+Lillicrap, T. P., Hunt, J. J., Pritzel, A., et al. (2015). Continuous control with deep reinforcement learning. arXiv preprint arXiv:1509.02971.
+
+DDQN: Double DQN:
+Double DQN은 기존의 Deep Q-Network(DQN) 알고리즘을 기반으로 하여 행동 가치의 과대평가 문제를 해결하기 위해 고안된 강화 학습 알고리즘이다. 
+DQN이 딥러닝과 Q-learning을 결합하여 순차적 의사결정 과제에 대한 최적 정책을 학습하는 데 큰 도약이었다면, Double DQN은 이러한 접근 방식을 한 단계 발전시켜 Q-values의 과대평가 경향을 줄이는 데 중점을 둔다. 
+이는 DQN에서 발생할 수 있는 주요 제한 중 하나인데, 특히 잡음이 많거나 편향된 추정치가 있을 경우 Q-values를 과대평가하여 부적합한 정책으로 이어지고 학습의 수렴을 늦출 수 있다.
+
+Double DQN은 행동 선택과 평가를 분리함으로써 이 문제를 해결한다. 구체적으로, 행동 선택에는 온라인 네트워크를 사용하고, 선택된 행동의 Q-value를 평가하는 데는 타겟 네트워크를 사용한다. 
+이러한 분리는 Q-values의 과대평가를 줄이고, 알고리즘의 안정성과 성능을 향상시킨다. 이 방식은 두 개의 별도 신경망을 사용하여 Q-values를 추정하며, 
+학습 과정에서 온라인 네트워크로부터 가장 좋은 행동을 선택하고 타겟 네트워크를 사용해 해당 행동의 Q-value를 평가한다.
+
+그러나 모든 경우에 Double DQN이 기존 DQN보다 우수한 성능을 보이는 것은 아니다. 예를 들어, 바둑 게임과 같은 특정 과제에서는 전통적인 DQN이 Double DQN보다 더 나은 성능을 보일 수 있다. 
+따라서, 각 특정 과제에서 DDQN의 성능을 신중하게 평가하여 그것이 유익할 가능성을 결정하는 것이 중요하다.
+
+Double DQN의 적용 분야는 매우 다양하다. Atari 게임 플레이, 복잡한 환경 탐색, 조합 최적화 문제 해결 등 다양한 강화 학습 과제에 성공적으로 적용되어 전통적인 DQN 및 다른 딥 강화 학습 방법보다 우수한 성능과 더 빠른 수렴을 보였다.
+
+<참고 문헌 및 저작권>
+Papers With Code. (n.d.). Double DQN. Retrieved from https://paperswithcode.com/method/double-dqn
+Ankore. (n.d.). What is Double DQN? Definition, Significance and Applications in AI. Retrieved from https://ankore.io/glossary/double-dqn/
+Jayakody, D. (n.d.). Double Deep Q-Networks (DDQN) - A Quick Intro (with Code). Retrieved from https://dilithjay.com/blog/ddqn
+
+DL: deep learning (딥러닝, 딥 러닝, 심층학습):
+딥 러닝(Deep Learning)이란 인공 신경망에 기반한 머신러닝의 한 분야이다. 여러 계층의 'hidden layer'로 이루어진 신경망을 사용하여 복잡한 패턴을 학습할 수 있게 하는 방법론이다. 
+이러한 계층 구조를 통해, 딥 러닝은 입력 데이터의 복잡한 비선형 관계를 모델링하고, 이미지 및 음성 인식, 자연어 처리 등의 복잡한 문제에 효과적으로 접근할 수 있다.
+
+딥 러닝은 큰 데이터셋과 강력한 컴퓨터 하드웨어에 의존하며, 신경망의 구조와 학습 방법에 따라 다양한 형태로 나타난다. 이러한 형태로는 컨볼루션 신경망(CNN), 순환 신경망(RNN), 트랜스포머(Transformer) 등이 있다. 
+딥 러닝의 주요 학습 방식 중 하나는 역전파(Backpropagation)라는 알고리듬이다.
+
+<참고 문헌 및 저작권>
+Goodfellow et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+LeCun, Yann, Yoshua Bengio, and Geoffrey Hinton. 〈Deep learning〉, nature 521.7553 (2015): https://www.nature.com/articles/nature14539
+Deep Learning on Wikipedia: https://en.wikipedia.org/wiki/Deep_learning
+
+DNN-HMM:
+DNN-HMM(Deep Neural Network-Hidden Markov Model)은 음성 인식에서 사용되는 하이브리드 모델로, 딥러닝 기반의 음향 모델(DNN)과 시퀀스 모델링을 위한 HMM(Hidden Markov Model)을 결합한다.
+이 모델은 전통적인 GMM-HMM 모델을 개선한 것으로, DNN을 사용하여 더 정확하고 복잡한 음향 특성을 학습한다. DNN은 음성 신호의 원시 특징 또는 저수준 특징에서 고수준의 표현을 학습하며, 
+HMM은 시간적 변화를 모델링하여 음성의 시퀀스를 효과적으로 처리한다.
+
+DNN-HMM 모델은 음성 인식의 성능을 크게 향상시킨다. DNN은 음성 신호의 복잡한 패턴을 학습하는 능력이 뛰어나며, HMM은 이러한 패턴을 시간에 따른 시퀀스로 해석하는 데 사용된다. 
+이 모델은 다양한 음성 인식 시나리오에서 높은 인식 정확도를 달성하며, 특히 대규모 음성 데이터셋을 사용한 학습에서 그 장점이 더욱 부각된다.
+
+<참고 문헌 및 저작권>
+Geoffrey Hinton, Li Deng, Dong Yu, George E. Dahl, Abdel-rahman Mohamed, Navdeep Jaitly, Andrew Senior, Vincent Vanhoucke, Patrick Nguyen, Tara N. Sainath, Brian Kingsbury, 
+《Deep Neural Networks for Acoustic Modeling in Speech Recognition》, IEEE Signal Processing Magazine: https://ieeexplore.ieee.org/document/6296526
+Hinton et al., 《Deep Neural Networks for Acoustic Modeling in Speech Recognition: The Shared Views of Four Research Groups》, IEEE Signal Processing Magazine: https://ieeexplore.ieee.org/document/6296526
+Deep Learning in Speech Recognition, Microsoft Research Blog
+
+DNN: deep neural network (심층 신경망):
+DNN(Deep Neural Network)은 여러 개의 hidden layer를 가진 인공 신경망이다. 이러한 신경망은 복잡한 비선형 문제를 해결하기 위해 설계되었으며, 각 계층은 데이터의 고수준 표현을 학습하는 데 도움을 준다. 
+DNN은 입력 계층, 여러 개의 hidden layer, 그리고 출력 계층으로 구성된다. 각 계층은 뉴런 또는 노드로 구성되어 있으며, 이들은 가중치와 활성화 함수를 통해 서로 연결되어 있다.
+
+DNN은 이미지 인식, 음성 인식, 자연어 처리 등 다양한 분야에서 활용된다. 이 신경망은 대량의 데이터에서 복잡한 패턴과 관계를 학습할 수 있으며, 
+이를 바탕으로 분류, 예측, 생성 등의 작업을 수행한다. DNN의 핵심은 깊은 구조를 통해 데이터의 추상적이고 복잡한 특성을 학습하는 것이며, 이를 통해 보다 정확하고 강력한 모델을 구축할 수 있다.
+
+<참고 문헌 및 저작권>
+Ian Goodfellow, Yoshua Bengio, Aaron Courville, 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Yann LeCun, Yoshua Bengio, Geoffrey Hinton, 《Deep Learning》, Nature: https://www.nature.com/articles/nature14539
+Deep Neural Networks, IBM Cloud Learning Center: https://www.ibm.com/think/topics
+
+DPO: Direct Preference Optimization (직접 선호 최적화):
+직접 선호 최적화(Direct Preference Optimization, DPO)는 기존의 강화 학습에서 요구되는 보상 모델링 단계를 건너뛰고 선호도 데이터를 직접 사용하여 언어 모델을 최적화하는 접근 방식이다. 
+이 방법은 선호도 기반의 강화 학습(Preference-based RL, PbRL)과 유사한 개념에서 발전했으며, 사용자의 이진 선호(예: 더 선호하는 답변에 대한 선택)를 기반으로 한다. 
+DPO는 복잡한 보상 함수를 명시적으로 모델링하고 최적화하는 대신, 선호도 데이터를 통해 직접 정책(policy)을 최적화함으로써, 언어 모델의 출력을 사용자의 선호와 더 잘 일치시키는 것을 목표로 한다.
+
+DPO는 기존의 강화 학습 프로세스인 RLHF(Reinforcement Learning from Human Feedback)와 비교했을 때, 구현의 단순성과 계산 효율성에서 이점을 제공한다. 
+RLHF 과정은 일반적으로 세 단계로 이루어지는데, (1) 감독 학습을 통한 미세 조정, (2) 선호도 샘플링 및 보상 학습, 그리고 (3) 강화 학습 최적화가 그것이다. 
+반면, DPO는 선호도 데이터를 사용하여 직접 정책을 최적화함으로써, 이러한 단계 중 일부를 생략하고 계산적으로 더 간단하고 경량화된 접근 방식을 제공한다.
+
+DPO의 주요 이점 중 하나는 선호도 데이터 셋의 필요성을 줄이면서도, 언어 모델을 사용자의 선호에 맞춰 미세 조정할 수 있는 능력이다. 
+이는 특히 대규모 언어 모델의 성능을 개선하고 사용자 경험을 향상시키기 위한 연구와 응용 프로그램에서 유용하다. 
+DPO와 같은 기법은 연구자와 개발자가 복잡한 보상 모델을 직접 설계하고 최적화하지 않고도, 모델의 출력을 사용자의 선호와 더 잘 맞출 수 있게 해줌으로써, 언어 모델의 미세 조정 과정을 단순화하고 가속화할 수 있게 한다.
+
+<참고 문헌 및 저작권>
+Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn, Direct Preference Optimization: Your Language Model is Secretly a Reward Model, 2023, arXiv: https://arxiv.org/abs/2305.18290
+
+DPR: Dense Passage Retriever (밀집형 구절 검색기):
+Dense Passage Retriever(DPR)는 오픈 도메인 질의응답(Open-domain Question Answering, ODQA) 시스템에서 효율적인 구절(passage) 검색을 목적으로 페이스북 AI 연구소(FAIR)가 제안한 방법이다. 
+DPR은 질문과 구절을 각각 독립적인 인코더로 밀집 벡터(dense vectors)로 변환한 뒤, 이를 기반으로 유사도를 계산해 질문과 가장 관련 있는 구절을 빠르게 검색한다.
+
+전통적인 구절 검색 방법인 TF-IDF나 BM25는 키워드 기반의 희소(sparse) 표현에 의존하여, 의미적 유사성보다 단어의 일치 여부에 초점을 맞추는 반면, 
+DPR은 사전 학습된 BERT 모델을 활용한 이중 인코더(dual-encoder) 프레임워크를 통해 의미적 관계를 더 효과적으로 포착한다. 
+DPR의 질문 인코더(question encoder)는 입력된 질문을, 구절 인코더(passage encoder)는 구절을 각각 저차원의 연속 벡터 공간에 임베딩(embedding)하며, 유사도는 이 두 벡터 간 내적(dot product)으로 계산된다.
+
+DPR의 학습은 관련 질문-구절 쌍(positive pairs)의 유사도를 높이고 무관한 쌍(negative pairs)의 유사도를 낮추는 메트릭 학습(metric learning) 방식으로 진행된다. 
+이때 인배치 네거티브(in-batch negatives) 전략을 사용하여 배치 내의 모든 질문-구절 쌍을 효과적으로 활용하며, 추가적으로 하드 네거티브(hard negatives)를 사용하여 모델의 성능을 향상할 수 있다.
+
+DPR은 BM25 대비 최대 19%의 구절 검색 성능 향상을 보였으며, 특히 동의어나 의역과 같은 의미론적 변형에 더욱 강건한 성능을 발휘한다. 
+이로 인해 ODQA 시스템 전체의 정확도를 크게 개선하여 여러 벤치마크에서 최고(state-of-the-art) 결과를 달성하였다.
+
+<참고 문헌 및 저작권>
+Karpukhin, V., Oguz, B., Min, S., Lewis, P., Wu, L., Edunov, S., Chen, D., & Yih, W. T. (2020). Dense Passage Retrieval for Open-Domain Question Answering. Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), 6769-6781. https://doi.org/10.18653/v1/2020.emnlp-main.550
+
+
+
+
+
+
+
+
+
+
