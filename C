@@ -1,0 +1,507 @@
+CART: Classification And Regression Tree (분류 및 회귀 트리):
+분류 및 회귀 트리(Classification And Regression Tree, CART)는 의사결정 나무(decision tree)의 한 형태로, 분류(classification) 또는 회귀(regression) 예측 모델링 문제를 해결하기 위해 사용된다. 
+이 알고리즘은 데이터를 이진 트리 형태로 구성하여, 입력 변수를 바탕으로 목표 변수(target variable)를 예측한다. 
+CART는 데이터를 가장 잘 구분하는 입력 변수와 분할 지점을 찾아 트리를 생성하며, 이 과정에서 Gini 계수나 평균 제곱 오차(mean squared error)와 같은 불순도(impurity) 측정 기준을 사용한다.
+
+CART 알고리즘의 작동 방식은 특성 선택에서 시작하여 데이터를 효과적으로 분할할 수 있는 가장 좋은 특성을 결정하고, 이를 바탕으로 이진 분할을 수행한다. 
+이 과정은 트리의 각 노드에서 반복적으로 수행되며, 최대 깊이나 노드 당 최소 샘플 수와 같은 정지 기준에 도달할 때까지 계속된다. 트리 생성 후에는 과적합을 방지하기 위해 가지치기(pruning) 과정을 거칠 수 있다. 
+이러한 점에서 CART는 분류 문제와 회귀 문제 모두에서 유용하게 적용될 수 있다.
+
+CART는 의료, 금융, 전자상거래, 에너지 분야 등 다양한 산업 분야에서 널리 활용되고 있다. 예를 들어, 의료 분야에서는 환자의 증상과 검사 결과를 바탕으로 특정 질병의 발병 가능성을 예측하고, 
+금융에서는 고객의 신용 등급을 평가하거나 사기 거래를 탐지하는 데 사용된다. 또한, 전자상거래 플랫폼에서는 고객 구매 행동을 분석하여 개인화된 제품 추천에 활용되기도 한다.
+
+<참고 문헌 및 저작권>
+Brownlee, J. (n.d.). Classification And Regression Trees for Machine Learning. Machine Learning Mastery. Retrieved from: https://machinelearningmastery.com/classification-and-regression-trees-for-machine-learning/
+Dataaspirant. (n.d.). How the CART Algorithm (Classification and Regression Trees) Works. Retrieved from: https://dataaspirant.com/cart-algorithm/
+
+CBOW: Continuous Bag of Words:
+CBOW는 Continuous Bag-of-Words의 약자로, 자연어 처리(NLP)에서 사용되는 단어 임베딩 모델 중 하나이다. CBOW 모델은 주어진 문맥 단어들로부터 타깃 단어를 예측하는 방식으로 작동한다. 
+예를 들어, "The cat sits on the"라는 문장에서 "mat"을 타깃 단어로 예측하는 것이다. 이 모델은 간단한 신경망 구조로, 입력층, 은닉층, 출력층으로 구성되어 있다.
+
+CBOW의 핵심 아이디어는 문맥 단어들의 임베딩 벡터를 평균하여 타깃 단어의 벡터를 예측하는 것이다. 입력층에서는 문맥 단어들이 원핫 인코딩으로 표현되고, 은닉층에서는 이 벡터들이 임베딩 벡터로 변환된다. 
+은닉층의 벡터들은 평균되어 출력층으로 전달되며, 여기서 타깃 단어를 예측한다.
+
+CBOW 모델은 다양한 NLP 작업에 응용될 수 있다. 예를 들어, 텍스트 분류, 감정 분석, 정보 검색, 질의응답 시스템 등에서 사용된다. 또한, 단어 유사도와 관련성 작업에서도 유용하며, 
+명명 엔터티 인식(NER)과 품사 태깅 작업에서도 활용된다.
+
+<참고 문헌 및 저작권>
+Bhoomika Madhukar. (2024). The Continuous Bag Of Words (CBOW) Model in NLP. Analytics India Magazine. https://analyticsindiamag.com/the-continuous-bag-of-words-cbow-model-in-nlp-hands-on-implementation-with-codes/
+Implementing Deep Learning Methods and Feature Engineering for Text Data: The Continuous Bag of Words (CBOW). (2024). KDnuggets. https://www.kdnuggets.com/2018/04/implementing-deep-learning-methods-feature-engineering-text-data-cbow.html
+How To Implement The Continuous Bag-of-Words (CBOW) Model. (2024). Spot Intelligence. https://spotintelligence.com/2023/07/27/continuous-bag-of-words/
+
+CGAN: conditional GAN (조건부 GAN):
+CGAN(Conditional Generative Adversarial Network)은 쉽게 말해 기존 GAN(생성적 적대 신경망)에 '조건(Condition)'을 부여하여 원하는 형태의 데이터를 생성할 수 있도록 제어력을 더한 모델입니다.
+기존의 일반적인 GAN은 무작위 노이즈(Random Noise)에서 이미지를 생성하기 때문에, 결과물이 진짜 같기는 하지만 '무엇을' 만들지 개발자가 통제할 수 없다는 한계가 있었습니다. 
+예를 들어 숫자 이미지를 생성하는 GAN을 학습시키면, 1이 나올지 7이 나올지 생성해 보기 전에는 알 수 없습니다.CGAN은 이 문제를 해결하기 위해 모델에 $y$라는 '조건(레이블)'을 추가로 입력합니다.
+
+<활용방안>
+Pix2Pix (Image-to-Image Translation): "낮 사진을 밤 사진으로 바꿔라", "흑백 스케치를 컬러 이미지로 바꿔라"와 같이 원본 이미지를 조건($y$)으로 삼아 새로운 이미지를 생성합니다.
+Text-to-Image: 현재 널리 쓰이는 Midjourney나 DALL-E 같은 모델들의 아주 기초적인 개념이 되었습니다. 텍스트 프롬프트 자체가 조건($y$)으로 작용하는 셈입니다.
+데이터 증강 (Data Augmentation): 특정 클래스의 데이터가 부족할 때, 해당 클래스의 레이블을 조건으로 주어 인공적으로 데이터를 대량 생성해낼 수 있습니다.
+
+CIFAR-10:
+CIFAR-10은 딥러닝 및 머신러닝 연구에서 널리 사용되는 이미지 데이터셋이다. 이 데이터셋은 캐나다 몬트리올의 CIFAR(미래를 위한 고급 연구 기구) 연구소에서 수집되었다. 
+CIFAR-10은 10개의 상호 배타적인 클래스(예: 비행기, 자동차, 새, 고양이 등)로 구성되어 있으며, 각 클래스는 6,000개의 컬러 이미지로 구성된다. 
+총 데이터셋 크기는 60,000개의 32x32 픽셀의 작은 이미지로 이루어져 있다. 이 중 50,000개는 훈련용, 10,000개는 테스트용으로 사용된다.
+
+CIFAR-10은 특히 딥러닝 모델의 성능을 비교하고 시각적 패턴 인식 및 분류 모델을 훈련하는 데 매우 유용하다. 
+이 데이터셋은 상대적으로 작은 이미지 크기 덕분에 컴퓨팅 자원이 한정된 환경에서도 쉽게 사용할 수 있으며, 
+다양한 이미지 분류 알고리듬의 기본적인 성능을 평가하는 데 이상적이다. 컴퓨터 비전의 기초 연구 외에도, 
+신경망 구조 최적화 및 전이 학습 등의 연구에서 자주 사용된다.
+
+<참고 문헌 및 저작권>
+Krizhevsky, A. (2009). Learning multiple layers of features from tiny images. University of Toronto.
+CIFAR. (n.d.). CIFAR-10 dataset 설명. Retrieved from https://www.cs.toronto.edu/~kriz/cifar.html
+Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.
+
+CLIP: Contrastive Language-Image Pre-training (대조적 언어-이미지 사전 학습):
+CLIP (Contrastive Language-Image Pre-training)은 OpenAI에서 개발한 다중모달 학습 아키텍처이다. 이 모델은 이미지와 텍스트 쌍을 학습하여 자연어 감독을 통해 시각적 개념을 이해한다. 
+CLIP의 주요 특징은 별도의 태스크 특화된 학습 없이 다양한 태스크를 수행할 수 있는 능력이다. 이는 이미지와 텍스트의 쌍을 대규모 데이터셋으로 학습함으로써 달성된다.
+
+<응용>
+CLIP는 다양한 실제 응용 분야에서 유용하다. 대표적인 예로, 제로샷 이미지 분류가 있다. 이는 CLIP가 이전에 본 적 없는 이미지를 자연어 설명만으로 분류할 수 있게 한다. 
+이로 인해 사전에 정의된 레이블이 부족하거나 실용적이지 않은 경우에도 이미지를 정확하게 분류할 수 있다.
+
+또 다른 응용 분야는 다중모달 학습 시스템이다. 예를 들어, CLIP는 텍스트 입력을 기반으로 이미지를 생성하거나 기존 이미지를 편집하는 작업에 사용할 수 있다. 
+이는 사용자가 예술적 기술이나 도구 없이도 창의적으로 이미지를 생성하고 조작할 수 있게 해준다.
+
+<참고 문헌 및 저작권>
+OpenAI. (2024). CLIP: Connecting text and images. OpenAI.: https://openai.com/index/clip/
+GitHub. (2024). CLIP: Contrastive Language-Image Pretraining.: GitHub. https://github.com/openai/CLIP
+Roboflow. (2024). What is CLIP? The Ultimate Guide. Roboflow Blog.: https://blog.roboflow.com/openai-clip/
+Viso. (2024). CLIP: Contrastive Language-Image Pre-Training. Viso.ai.: https://viso.ai/deep-learning/clip-machine-learning/
+Arxiv.org. (2024). EVA-CLIP-18B: Scaling CLIP to 18 Billion Parameters.: Arxiv. https://arxiv.org/abs/2402.04252
+
+CNN: Convolutional Neural Network (합성곱 신경망):
+합성곱 신경망(Convolutional Neural Network, CNN)이란 딥 러닝의 한 종류로, 주로 이미지 인식 및 처리에 많이 사용되는 알고리듬이다. 
+CNN은 일반적인 신경망 구조에 합성곱 계층(Convolutional Layer)과 풀링 계층(Pooling Layer)을 추가함으로써 공간적인 구조 정보를 유지하고, 
+이를 바탕으로 이미지 등의 2차원 데이터에서 패턴을 찾아내는 데 특화되어 있다.
+
+합성곱 계층에서는 입력 데이터에 대해 합성곱 연산을 수행하여 여러 개의 필터를 통해 새로운 피처 맵(Feature Map)을 생성한다. 
+이렇게 생성된 피처 맵은 풀링 계층을 거치며 크기가 축소되고, 이 과정을 반복하여 깊은 층을 형성한다. 이런 구조로 인해 CNN은 이미지의 지역적인 특성을 추출하는 데 유리하며, 
+이는 고차원의 복잡한 데이터를 더욱 간결하게 표현할 수 있게 한다.
+
+<참고 문헌 및 저작권>
+Krizhevsky, A., Sutskever, I., & Hinton, G. E., 〈ImageNet Classification with Deep Convolutional Neural Networks〉, Advances in neural information processing systems: https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+Convolutional neural network: https://en.wikipedia.org/wiki/Convolutional_neural_network
+
+CRFs: conditional random fields (조건부 랜덤 필드):
+CRF(Conditional Random Field)란 조건부 확률 필드라는 뜻으로, 머신러닝에서 시퀀스 데이터를 모델링하기 위해 사용되는 확률적 그래프 모델이다. 
+이 모델은 주어진 입력 시퀀스에 대해 출력 시퀀스의 조건부 확률을 모델링한다. CRF는 주로 자연어 처리(NLP) 분야에서 텍스트 데이터의 특정 부분에 라벨을 할당하는 태깅 작업에 활용된다. 
+예를 들어, 품사 태깅(POS tagging)이나 개체명 인식(NER)과 같은 작업에서 유용하다.
+
+CRF는 각 라벨이 이전 라벨에 의존하는 마르코프 속성(Markov property)을 가진다. 이는 각 시퀀스 요소의 라벨이 그 이전 요소들의 라벨에만 의존하고, 
+전체 시퀀스에 대한 정보는 직접적으로 사용하지 않는다는 것을 의미한다. 이 특징 때문에 CRF는 시퀀스 내 요소들 간의 상호작용을 효과적으로 포착할 수 있으며, 복잡한 시퀀스 데이터에 대한 모델링에 적합하다.
+
+<참고 문헌 및 저작권>
+John Lafferty, Andrew McCallum, Fernando Pereira, 《Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data》, 2001.: https://repository.upenn.edu/cgi/viewcontent.cgi?article=1162&context=cis_papers
+Charles Sutton, Andrew McCallum, 《An Introduction to Conditional Random Fields》, 2010.: https://arxiv.org/abs/1011.4088
+
+CTC: Connectionist Temporal Classification (연결 시간 분류):
+연결 시간 분류(CTC, Connectionist Temporal Classification)란 시퀀스 데이터에서 정렬이 없거나 부분적으로만 알려진 학습 데이터를 다루기 위한 기계 학습 방법이다. 
+특히, 음성 인식이나 필기 인식 같은 분야에서 많이 사용된다. CTC는 입력 데이터의 시간적 순서를 유지하면서, 출력 시퀀스의 길이가 입력 시퀀스와 다를 수 있는 상황을 효과적으로 처리할 수 있다. 
+이 방법은 재귀 신경망(RNN)과 함께 사용되며, 특정 시점의 출력이 전체 시퀀스에 걸쳐 어떻게 분포하는지를 학습한다. CTC는 주로 '블랭크' 라벨을 도입하여, 연속된 같은 문자나 소리가 하나의 라벨로 합쳐지는 것을 방지한다.
+
+CTC는 전체 시퀀스를 고려하여 최적의 경로를 찾는 동적 프로그래밍 기법을 사용한다. 이는 각 시간 단계에서 발생할 수 있는 모든 가능한 라벨 시퀀스의 확률을 계산하고, 가장 높은 확률을 가진 시퀀스를 최종 출력으로 선택한다. 
+이 과정은 시퀀스 길이가 다른 입력과 출력 사이의 정렬 문제를 효과적으로 해결한다. CTC는 특히 빠른 속도의 음성이나 필기체 텍스트에서 높은 인식 성능을 보여준다.
+
+<참고 문헌 및 저작권>
+Alex Graves et al., 《Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks》, ICML 2006: https://www.cs.toronto.edu/~graves/icml_2006.pdf
+Awni Hannun, 〈Sequence Modeling with CTC〉, Distill: https://distill.pub/2017/ctc/
+
+CVAE: Conditional Variational Autoencoder (조건부 VAE):
+조건부 변분 오토인코더(Conditional Variational Autoencoder, CVAE)는 기본적인 변분 오토인코더(Variational Autoencoder, VAE)에 조건이 추가된 모델이다. 
+이 조건은 주로 입력 데이터와 함께 적용되어, 생성된 출력이 특정 조건을 만족하도록 하며, 이는 훈련 데이터에서 원하는 특성을 재현하거나 특정한 출력을 생성하는 데 사용될 수 있다. 
+CVAE는 이러한 추가적인 정보를 바탕으로 특정 목표에 대한 고정된 분포에서 샘플링할 수 있는 역할을 한다.
+
+CVAE는 기본적인 VAE와 비슷한 두 가지 주요 구성 요소, 즉 인코더와 디코더를 갖는다. 하지만, CVAE는 두 요소 모두에 추가 정보를 제공하는 조건이 적용된다. 인코더는 주어진 데이터의 잠재 표현을 학습하고, 
+디코더는 이 잠재 표현을 원래 데이터 공간으로 재구성한다. 조건은 인코더에게 입력 데이터와 함께 제공되며, 디코더에게는 잠재 표현과 함께 제공된다. 
+이렇게 함으로써 CVAE는 VAE가 제공하는 확률적이고 연속적인 잠재 공간을 유지하면서도, 조건부 생성 과정을 가능하게 한다.
+
+<참고 문헌 및 저작권>
+Diederik P Kingma, Max Welling, 〈Auto-Encoding Variational Bayes〉, arXiv: https://arxiv.org/abs/1312.6114
+Sohn, Kihyuk, Lee, Honglak, Yan, Xinchen, 〈Learning Structured Output Representation using Deep Conditional Generative Models〉, NIPS Proceedings: https://papers.nips.cc/paper_files/paper/2015/hash/8d55a249e6baa5c06772297520da2051-Abstract.html
+Agustinus Kristiadi, Variational Autoencoder: Intuition and Implementation: https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/
+Joseph Rocca, Understanding Variational Autoencoders (VAEs), towardsdatascience.com : https://towardsdatascience.com/difference-between-autoencoder-ae-and-variational-autoencoder-vae-ed7be1c038f2/
+
+CatBoost:
+CatBoost는 Yandex 연구진에 의해 개발된 고성능 그래디언트 부스팅 머신러닝 라이브러리로, 결정 트리에서 실행된다. 이 알고리듬은 특히 범주형 변수를 자동으로 수치형으로 변환하고 처리하는 능력이 뛰어나며, 
+이로 인해 데이터 전처리 과정이 간소화된다. CatBoost는 순서형 부스팅(ordered boosting)과 고르게 분포된 트리(symmetrical trees)를 사용하여 예측 정확도를 높이고 과적합을 줄이는 것이 특징이다.
+
+CatBoost의 주요 장점으로는 범주형 데이터의 자동 처리, 빠른 GPU 학습, 모델 및 특성 분석 도구, 오버피팅 방지를 위한 알고리즘, 대규모 데이터셋에 대한 확장성 등이 있다. 
+이러한 기능들 덕분에 CatBoost는 다양한 분야에서 널리 사용된다.
+
+CatBoost는 추천 시스템, 사기 탐지, 이미지 및 텍스트 분류, 고객 이탈 예측, 의료 진단, 자연어 처리, 시계열 예측 등 다양한 응용 분야에 활용된다. 예를 들어, 의료 분야에서는 환자의 증상이나 병력 등을 기반으로 질병을 예측하는 데 사용될 수 있으며, 금융 분야에서는 신용 카드 거래에서의 사기 행위를 식별하는 데 활용될 수 있다.
+
+<참고 문헌 및 저작권>
+CatBoost 공식 웹사이트. (n.d.). Retrieved from https://catboost.ai/
+Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., & Gulin, A. (2019). CatBoost: unbiased boosting with categorical features. arXiv. Retrieved from https://arxiv.org/abs/1706.09516
+Built In. (n.d.). What Is CatBoost? How Does It Work? Built In. Retrieved from https://builtin.com/machine-learning/catboost
+Dataaspirant. (n.d.). How CatBoost Algorithm Works In Machine Learning. Dataaspirant. Retrieved from https://dataaspirant.com/catboost-algorithm/
+Wikipedia. (n.d.). CatBoost. Wikipedia. Retrieved from https://en.wikipedia.org/wiki/CatBoost
+
+Confusion Matrix (혼동 행렬):
+혼동 행렬(Confusion Matrix)은 예측 분석에서 사용되는 테이블로, 두 개의 행과 두 개의 열로 구성되어 있다. 
+이 행렬은 진정성 진양성(true positives), 위음성(false negatives), 위양성(false positives), 진음성(true negatives)의 수를 보고하여, 
+단순히 정확한 분류 비율(정확도)을 관찰하는 것보다 더 상세한 분석을 가능하게 한다. 데이터 세트가 불균형한 경우, 즉 다른 클래스의 관찰 수가 크게 다를 때 정확도만으로는 오해의 소지가 있기 때문에 특히 유용하다.
+
+혼동 행렬은 분류 모델의 성능을 요약하는 데 사용되며, 모델의 예측이 실제 값과 어떻게 다른지를 보여주는 것으로, 특히 두 클래스(양성과 음성) 문제에서 유용하다. 
+이를 통해 정확도, 정밀도, 재현율, 특이성 및 감도와 같은 고급 분류 지표를 계산할 수 있다. 예를 들어, 어떤 질병 상태가 있는지 없는지를 구분하려는 경우, 
+이벤트 행을 '양성'으로, 이벤트가 없는 행을 '음성'으로 할당할 수 있으며, 예측 열을 '진실'과 '거짓'으로 할당함으로써, 
+올바르게 예측된 이벤트 값을 '진양성', 잘못 예측된 이벤트 값을 '위양성', 올바르게 예측된 비이벤트 값을 '진음성', 잘못 예측된 비이벤트 값을 '위음성'으로 요약할 수 있다.
+
+이 도구는 머신러닝에서 분류 문제의 결과를 시각화하고 해석하는 데 널리 사용되며, Python의 scikit-learn이나 R의 caret과 같은 현대 머신러닝 플랫폼에서 혼동 행렬을 계산하는 코드 예시를 제공한다. 
+예를 들어, scikit-learn 라이브러리는 confusion_matrix() 함수를 사용하여 예측값과 실제값을 기반으로 혼동 행렬을 계산하고 결과를 배열로 반환한다. 
+R에서는 caret 라이브러리의 confusionMatrix() 함수를 사용하여 예측값과 실제값을 기반으로 혼동 행렬을 계산하고 결과를 상세 보고서로 반환한다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Confusion matrix. Retrieved from https://en.wikipedia.org/wiki/Confusion_matrix
+Brownlee, J. (n.d.). What is a Confusion Matrix in Machine Learning. Machine Learning Mastery. Retrieved from https://machinelearningmastery.com/confusion-matrix-machine-learning/
+
+Coreference Resolution (코리퍼런스 해소, 상호참조해결, 공지시 해결):
+코리퍼런스 해소(coreference resolution)는 같은 담화(문서 또는 대화) 내에서 서로 같은 실체(entity)를 가리키는 모든 표지(명사구, 대명사, 지시어 등)를 찾아 하나의 군(cluster)으로 묶는 자연어 처리 작업이다. 
+예를 들어 "철수는 학교에 갔다. 그는 공부를 했다."에서 '철수'와 '그'가 같은 실체를 가리키면 두 표현을 연결해야 한다. 이 작업은 자연어에서 지시 참조(referential expressions)를 식별하고 연결하는 것을 목표로 한다.
+
+<배경 및 역사>
+코리퍼런스 해소 연구는 1970년대 규칙 기반 접근법에서 시작하여 현재의 대규모 언어모델 기반 방법론까지 발전해왔다.
+
+고전적 규칙·구문 기반 방법
+초창기 연구는 구문(parse tree) 정보와 언어학적 제약(수·성 일치, 바인딩 제약 등)을 이용한 규칙적 알고리즘이 주류였다. Hobbs(1978)의 탐색 알고리즘이 대표적인데, 목표 대명사에서 시작해 상위 구문 노드를 타고 올라가며 후보 명사구(NP)를 탐색하는 방식으로 동작했다.
+
+담화의 주의(attention)와 응집성(coherence)을 모델링하려는 시도로 Grosz, Joshi, Weinstein(1995)의 Centering 이론이 제안되었다. 
+이 이론은 어떤 실체가 문맥상 더 '중심적'인지(다음에 대명사로 등장할 가능성 등)를 설명하려 했다. Lappin & Leass(1994)는 이러한 언어학적 제약을 체계적으로 구현한 알고리즘을 제시했다.
+
+기계학습의 도입 (2000년대 초)
+2000년대 들어 레이블된 말뭉치와 분류기 기반 접근이 보편화되었다. Soon et al.(2001)은 명사구 코리퍼런스 문제를 기계학습으로 풀어 큰 성과를 보였고, Ng & Cardie(2002) 등은 특징(feature) 설계와 학습 틀 개선으로 성능을 끌어올렸다. 이 시기에는 mention-pair 모델, mention-ranking, 다양한 클러스터링 기법들이 경쟁했다.
+
+대규모 데이터셋과 공모전의 등장
+OntoNotes 말뭉치와 CoNLL-2011/2012 공유과제는 다국어·다장르 코리퍼런스 평가의 표준을 제공하여 연구의 비교 가능성과 발전 속도를 높였다. 이 데이터셋은 현재까지도 코리퍼런스 해소 연구의 벤치마크로 널리 사용된다.
+
+신경망·프리트레인드 언어모델의 시대 (2017년 이후)
+2017년 Lee et al.은 end-to-end 신경망(스팬 기반) 코리퍼런스 모델을 제안하여, 별도의 파서나 수작업 멘션 탐지기 없이 문서의 모든 연속적 스팬(spans)을 잠재적 멘션으로 보고 학습하도록 했다. 2019년 SpanBERT의 등장으로 성능이 크게 향상되었고, 이후 BERT, RoBERTa 등 Transformer 기반 프리트레인드 언어모델을 결합한 기법들이 CoNLL-F1 점수를 지속적으로 개선했다.
+
+최신 연구 동향 (2020년 이후)
+2020년 이후에는 다양한 방향으로 연구가 확장되었다. Wu et al.(2020)은 코리퍼런스를 질의응답 문제로 재정의한 CorefQA를 제안하여 OntoNotes에서 CoNLL-F1 약 83.1을 달성했다. Kirstain et al.(2021)은 스팬 표현 없이도 경쟁력 있는 성능을 내는 경량 모델을 제시했고, Grenander et al.(2022)은 문장 단위 증분 처리 모델을 도입하여 실시간 처리 가능성을 보였다.
+
+문서 간(cross-document) 코리퍼런스와 이벤트 코리퍼런스 연구도 활성화되었다. Cattan et al.(2021)은 여러 문서에 걸친 엔티티 추적을 다루었고, Xu et al.(2022)은 이벤트 코리퍼런스에서 문서 수준 맥락의 중요성을 입증했다. CRAC 2023 공유과제는 다언어 코리퍼런스 평가 환경을 제공했으며, 우승 시스템인 CorPipe(Straka, 2023)는 더 큰 문맥 활용으로 다언어 성능을 크게 개선했다.
+
+Porada et al.(2024)은 최근 모델들의 성능 향상이 주로 더 강력한 프리트레인 언어모델에 기인한다는 재평가 결과를 발표하여, 아키텍처 혁신과 LM 의존성을 구분해야 한다는 점을 강조했다.
+
+<원리 및 방법론>
+코리퍼런스 해소는 크게 네 단계로 이루어진다.
+
+멘션(언급) 탐지 (Mention Detection)
+문서에서 '사람·사물·장소·사건'을 가리키는 텍스트 스팬을 찾아낸다. 전통적 방법은 규칙·구문 기반이었지만, 최신 방법은 스팬 기반 신경망을 사용한다. Lee et al.(2017)의 end-to-end 방식은 모든 가능한 스팬을 후보로 처리하고 점수화하는 방식으로 멘션 탐지와 연결을 동시에 수행한다.
+
+대상(Antecedent) 선택 / 유사도 계산
+각 멘션에 대해 어떤 이전 멘션(또는 자기 자신: new entity)과 연결할지를 결정한다. 특징 기반 모델은 문자열 일치, 문법적 단서, 의미 클래스, 근접성 등을 사용했고, 학습 기반 모델은 후보 쌍에 대한 점수 함수를 학습한다. 주요 접근법으로는 mention-pair 모델과 mention-ranking 모델이 있다. 최근에는 질의응답 프레임워크를 활용하거나 seq2seq 방식으로 접근하는 시도도 등장했다.
+
+클러스터링 (군집화)
+멘션-멘션 연결을 바탕으로 같은 실체를 가리키는 멘션들을 군집화한다. 파이프라인 방식(멘션 탐지 → 연결 → 군집)과 엔드투엔드 방식(스팬 임베딩으로 직접 군집을 유도)이 존재한다. 군집화 알고리즘으로는 최근접 우선(closest-first), 최량 우선(best-first), 집합론적 방법 등이 사용된다.
+
+학습 신호와 평가
+말뭉치(예: OntoNotes)의 정답 클러스터를 이용해 손실(loss)을 정의하고 학습한다. 평가 지표로는 다음이 널리 쓰인다.
+
+MUC (Message Understanding Conference): 링크 기반 평가
+B³ (B-cubed): 개별 멘션 기반 평가
+CEAF (Constrained Entity-Alignment F-Measure): 엔티티 정렬 기반 평가
+CoNLL F1: MUC, B³, CEAF의 평균으로, 공정 비교를 위한 표준 지표
+기술적 쟁점과 발전 방향
+분산 표현과 문맥화의 중요성
+단순 표면적 특징만으로는 어려운 모호성을 문맥화된 임베딩(pretrained LM)을 통해 크게 완화했다. SpanBERT(2019) 이후 프리트레인 언어모델의 발전이 성능 향상을 주도해왔다. 
+그러나 Porada et al.(2024)의 재평가 연구에 따르면, 최근 모델들의 성능 향상 상당 부분이 더 강력한 프리트레인 모델 선택에 기인하며, 아키텍처 자체의 혁신 기여도는 상대적으로 작다. 
+이는 '모델 설계'와 '프리트레인 자원'의 기여도를 분리하여 평가해야 함을 시사한다.
+
+효율성과 증분 처리
+멘션이 문서의 먼 앞부분에 있을 때 연결이 어렵고(메모리·계산 비용 문제), 실시간 대화나 스트리밍 환경에서는 증분(incremental) 처리가 필요하다. 
+Grenander et al.(2022)의 문장 단위 증분 모델과 Kirstain et al.(2021)의 스팬 표현 없는 경량 모델은 효율성 개선을 목표로 한다. 최근에는 긴 문맥을 처리할 수 있는 언어모델의 발전으로 이러한 제약이 완화되고 있으나, 
+여전히 실용적 과제로 남아 있다.
+
+확장된 코리퍼런스 유형
+전통적으로 엔티티 동일성(identity coreference)에 초점을 맞췄으나, 최근에는 다양한 참조 유형으로 확장되고 있다.
+
+이벤트 코리퍼런스(Event Coreference): 동일 사건을 가리키는 표현들을 연결. Xu et al.(2022)은 문서 수준 맥락이 이벤트 코리퍼런스에 중요함을 보였다.
+문서 간 코리퍼런스(Cross-document Coreference): 여러 문서에 걸쳐 등장하는 동일 실체를 추적. Cattan et al.(2021)이 엔드투엔드 모델과 벤치마크를 제시했다.
+브리징 참조(Bridging Reference): 직접적 동일성이 아닌 연관 관계(예: "차-바퀴") 처리
+비표준 모달리티: Yin et al.(2021)은 수화에서의 코리퍼런스를 다루며, 공간적 지시 등 비문자·비음성 표지의 참조 추적 문제를 제기했다.
+
+다언어 및 저자원 언어
+CRAC 2023 공유과제는 다언어 코리퍼런스 평가 표준을 제공했다. 우승 시스템 CorPipe(Straka, 2023)는 더 큰 문맥 활용과 개선된 파이프라인으로 다언어 성능을 약 4.5%p 향상시켰다. 
+언어별 형태론 차이, 대명사 생략 언어(예: 중국어, 일본어), 저자원 언어에서의 데이터 부족 등이 여전히 도전 과제로 남아 있다.
+
+<응용>
+코리퍼런스 해소는 여러 실무·연구 응용에서 핵심 전처리 또는 구성 요소로 사용된다.
+
+정보추출(Information Extraction): 동일 실체에 대한 모든 언급을 모아 속성(속성 추출·관계 추출) 일관성을 높인다.
+질의응답(Question Answering): 질문·문맥 속 대명사 연결로 정답 후보를 올바르게 찾아내는 데 필요하다. CorefQA(Wu et al., 2020)는 코리퍼런스를 질의응답 프레임워크로 재정의하여 성능을 개선했다.
+자동 요약(Abstractive/Extractive Summarization): 핵심 인물·사건을 일관되게 연결해 중복 제거와 응집성 있는 요약을 만드는 데 도움된다.
+기계번역(Machine Translation): 대명사의 적절한 번역(성·수·격)을 위해 문맥상 지시 대상을 식별해야 한다.
+대화 시스템 및 대화 상태 추적(Dialogue Systems): 대화에서 사용자가 가리키는 대상("그거", "그 사람")을 추적하여 올바른 응답을 생성한다.
+
+<참고 문헌 및 저작권>
+초기 연구 및 기초 이론
+Hobbs, J. R. (1978). Resolving pronoun references. Lingua, 44(4), 311-338.
+Grosz, B. J., Joshi, A. K., & Weinstein, S. (1995). Centering: A framework for modeling the local coherence of discourse. Computational Linguistics, 21(2), 203-225. https://aclanthology.org/J95-2003/
+Lappin, S., & Leass, H. J. (1994). An algorithm for pronominal anaphora resolution. Computational Linguistics, 20(4), 535-561. https://aclanthology.org/J94-4002/
+
+기계학습 기반 접근
+Soon, W. M., Ng, H. T., & Lim, D. C. Y. (2001). A machine learning approach to coreference resolution of noun phrases. Computational Linguistics, 27(4), 521-544. https://aclanthology.org/J01-4004/
+Ng, V., & Cardie, C. (2002). Improving machine learning approaches to coreference resolution. In Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics (pp. 104-111). https://aclanthology.org/P02-1014/
+
+벤치마크 및 평가
+Pradhan, S., et al. (2012). CoNLL-2012 shared task: Modeling multilingual unrestricted coreference in OntoNotes. In Joint Conference on EMNLP and CoNLL-Shared Task (pp. 1-40). https://aclanthology.org/W12-4501/
+
+신경망 및 프리트레인드 모델 시대
+Lee, K., He, L., Lewis, M., & Zettlemoyer, L. (2017). End-to-end neural coreference resolution. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 188-197). https://aclanthology.org/D17-1018/
+Joshi, M., Chen, D., Liu, Y., Weld, D. S., Zettlemoyer, L., & Levy, O. (2019). SpanBERT: Improving pre-training by representing and predicting spans. Transactions of the Association for Computational Linguistics, 8, 64-77. https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00300/43539
+
+최신 연구 (2020년 이후)
+Wu, W., Wang, F., Yuan, A., Wu, F., & Li, J. (2020). CorefQA: Coreference resolution as query-based span prediction. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (pp. 6953-6963). https://aclanthology.org/2020.acl-main.622/
+Kirstain, Y., Ram, O., & Levy, O. (2021). Coreference resolution without span representations. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 2: Short Papers) (pp. 14-19). https://aclanthology.org/2021.acl-short.3/
+Cattan, A., Eirew, A., Stanovsky, G., Joshi, M., & Dagan, I. (2021). Cross-document coreference resolution over predicted mentions. In Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021 (pp. 5100-5107). https://aclanthology.org/2021.findings-acl.453/
+Yin, K., DeHaan, K., & Alikhani, M. (2021). Signed coreference resolution. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (pp. 4950-4961). https://aclanthology.org/2021.emnlp-main.405/
+Grenander, M., Cohen, S. B., & Steedman, M. (2022). Sentence-incremental neural coreference resolution. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (pp. 427-443). https://aclanthology.org/2022.emnlp-main.28/
+Xu, S., Li, P., & Zhu, Q. (2022). Improving event coreference resolution using document-level and topic-level information. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (pp. 6765-6775). https://aclanthology.org/2022.emnlp-main.454/
+Straka, M. (2023). ÚFAL CorPipe at CRAC 2023: Larger context improves multilingual coreference resolution. In Proceedings of the CRAC 2023 Shared Task on Multilingual Coreference Resolution (pp. 41-51). https://aclanthology.org/2023.crac-sharedtask.4/
+Porada, I., Zou, X., & Cheung, J. C. K. (2024). A controlled reevaluation of coreference resolution models. In Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024) (pp. 256-263). https://aclanthology.org/2024.lrec-main.23/
+
+<종합 리뷰>
+Sukthanker, R., Poria, S., Cambria, E., & Thirunavukarasu, R. (2020). Anaphora and coreference resolution: A review. Information Fusion, 59, 139-162. https://arxiv.org/abs/1805.11824
+
+Curse of Dimensionality (차원의 저주):
+차원의 저주는 데이터 분석과 머신러닝에서 고차원 데이터를 다룰 때 발생하는 다양한 문제들을 총칭한다. 이 용어는 처음에는 동적 최적화 문제를 풀기 위해 고안된 것이지만, 
+머신러닝 분야에서 널리 사용되고 있다. 고차원 공간에서 데이터 포인트 간의 거리가 기하급수적으로 증가하면서 데이터가 희박해지고(즉, 각 데이터 포인트들이 서로 멀어지고), 
+이는 유클리드 거리 같은 거리 측정 방식의 효율성을 저하시키는 주된 원인이 된다.
+
+차원의 저주는 주로 데이터 포인트 간의 고유한 "근접성"이 감소하면서 발생한다. 예를 들어, 유클리드 거리를 기반으로 하는 KNN(K-Nearest Neighbors) 알고리듬과 같은 머신러닝 모델은 고차원에서는 성능이 크게 떨어질 수 있다. 
+이는 모든 데이터 포인트가 비슷하게 떨어져 있어 실제로 가까운 이웃을 구분하기 어렵기 때문이다.
+
+이 문제를 해결하기 위한 방법 중 하나는 차원 축소 기법을 사용하는 것이다. PCA(주성분 분석), t-SNE(t-Distributed Stochastic Neighbor Embedding), 오토인코더 등이 대표적인 차원 축소 기법으로, 
+이들은 고차원 데이터에서 중요한 정보를 유지하면서 차원을 줄이는 데 도움을 준다. 이러한 기법들은 불필요한 데이터를 줄이고, 더 낮은 차원에서 데이터의 중요한 특성을 더 명확하게 파악할 수 있게 한다.
+
+따라서, 차원의 저주에 대처하는 것은 머신러닝 모델의 성능을 유지하고 개선하는 데 중요한 과제다. 올바른 데이터 전처리 및 적절한 알고리듬 선택으로 이 문제를 완화할 수 있다.
+
+<참고 문헌 및 저작권>
+DataCamp. (2023). The Curse of Dimensionality in Machine Learning: Challenges, Impacts, and Solutions. Retrieved from https://www.datacamp.com/blog/curse-of-dimensionality-machine-learning
+Analytics Vidhya. (n.d.). Curse of Dimensionality in Machine Learning. Retrieved from https://www.analyticsvidhya.com/blog/2021/04/the-curse-of-dimensionality-in-machine-learning/
+Built In. (n.d.). What is Curse of Dimensionality? A Complete Guide. Retrieved from https://builtin.com/data-science/curse-dimensionality
+
+casual inference (인과 추론):
+Casual inference는 인과 관계를 이해하고 추론하는 방법으로, 특히 인공지능(AI)과 머신러닝(ML)에서 중요한 역할을 한다. 이는 단순한 상관관계 분석을 넘어서, 
+특정 현상이 다른 현상에 미치는 실제적인 영향을 밝혀내는 데 중점을 둔다. 예를 들어, 마케팅 캠페인이 실제로 매출 증가에 기여했는지, 또는 특정 의료 처치가 환자의 회복에 어떤 영향을 미쳤는지를 판단하는 데 사용된다.
+
+적용 사례
+의료 분야: 인과 추론은 의료 연구에서 치료의 효과를 평가하는 데 사용된다. 예를 들어, 새로운 약물이 환자의 회복에 미치는 영향을 평가하기 위해 인과 추론을 활용할 수 있다. 
+이를 통해 환자 맞춤형 치료를 제공하고, 치료 결과를 개선할 수 있다.
+
+경제학 및 정책 연구: 경제학자들은 인과 추론을 사용하여 정책 변화가 경제에 미치는 영향을 분석한다. 예를 들어, 세금 정책 변경이 소비자 지출에 미치는 영향을 평가할 수 있다. 이를 통해 더 나은 정책 결정을 내릴 수 있다.
+
+추천 시스템: 전자 상거래에서 추천 시스템은 사용자 행동 데이터를 기반으로 제품을 추천하는데, 인과 추론을 통해 사용자에게 더욱 적합한 추천을 제공할 수 있다. 
+예를 들어, 특정 제품을 구매한 사용자가 다른 제품을 구매할 가능성을 추론하여, 교차 판매를 촉진할 수 있다.
+
+인과 추론은 머신러닝과 결합하여 더욱 강력한 예측 모델을 구축하는 데 기여하며, 이러한 모델은 기존의 단순한 패턴 인식 방법을 넘어 실제 원인과 결과를 파악하는 데 유리하다. 
+이는 특히 비정상적인 상황 변화에 대한 모델의 견고성을 높이는 데 유용하다.
+
+<참고 문헌 및 저작권>
+Microsoft Research. (n.d.). Causality and Machine Learning. Retrieved from https://www.microsoft.com/en-us/research/group/causal-inference/
+Stanford Graduate School of Business. (n.d.). Machine Learning & Causal Inference: A Short Course. Retrieved from https://www.gsb.stanford.edu/faculty-research/labs-initiatives/sil/research/methods/ai-machine-learning/short-course
+https://www.causalml-book.org/
+Recent Developments in Causal Inference and Machine Learning, https://scholar.harvard.edu/sites/scholar.harvard.edu/files/xzhou/files/brand-zhou-xie2023_causal.pdf
+Causality for Machine Learning, https://ar5iv.labs.arxiv.org/html/1911.10500
+
+catastrophic forgetting (파멸적 망각):
+catastrophic forgetting은 인공지능과 기계 학습 분야에서 인공 신경망이 새로운 정보를 학습할 때 이전에 학습한 정보를 급격하게 잊어버리는 현상을 의미한다. 
+이는 주로 연속 학습(continual learning) 또는 온라인 학습 환경에서 발생하는 문제로, 모델이 새로운 데이터를 학습하는 과정에서 기존에 학습한 데이터에 대한 성능이 저하되는 상황이다.
+
+이 문제를 해결하기 위해 다양한 접근 방법이 연구되고 있다. 대표적인 방법으로는 이전 데이터를 반복적으로 학습하는 리플레이(replay) 기법, 모델의 파라미터를 규제하는 방식, 
+그리고 새로운 정보와 기존 정보를 동시에 학습하는 전략 등이 있다. 예를 들어, 인지적 리플레이(cognitive replay) 기법은 모델이 이전에 학습한 데이터를 기억할 수 있도록 반복적으로 상기시키는 방법을 사용하여, 
+잊어버리는 현상을 줄이는 데 도움을 준다.
+
+또한, 파레토 최적화(Pareto optimization)를 통해 이전 작업들 간의 상호작용을 모델링하고, 이를 기반으로 하여 이전 작업의 성능을 유지하면서 새로운 작업의 성능을 향상시키는 방법도 제안되었다. 
+이러한 접근법은 지속적인 학습 과정에서 모델의 전반적인 성능을 향상시키는 데 효과적이다.
+
+<참고 문헌 및 저작권>
+Kudithipudi, D., et al. (2022). Continual Learning and Catastrophic Forgetting. arXiv. https://arxiv.org/abs/2403.05175
+Wu, Y., Wang, H., Zhao, P., Zheng, Y., Wei, Y., & Huang, L.-K. (2024). Mitigating Catastrophic Forgetting in Online Continual Learning by Modeling Previous Task Interrelations via Pareto Optimization. OpenReview. https://openreview.net/forum?id=olbTrkWo1D
+Van de Ven, G. M., & Tolias, A. S. (2019). Three scenarios for continual learning. arXiv. https://arxiv.org/abs/1904.07734
+
+checkpoint (체크포인트):
+체크포인트(Checkpoint)란 모델 학습 과정 중 특정 시점의 모델의 가중치와 파라미터를 저장한 상태이다. 이는 일종의 저장 상태로, 학습 중인 모델의 진행 상황을 특정 지점에서 보존하는 데 사용된다. 
+중단된 학습을 재개하거나 과적합을 방지하기 위해 조기에 학습을 멈출 때 유용하다.
+
+또한 체크포인트는 모델의 일관성을 유지하고, 실험의 재현성을 보장하는 데 도움을 준다. 일반적으로 체크포인트는 주기적인 간격으로 생성되며, 이러한 주기는 학습자가 직접 설정할 수 있다.
+
+<참고 문헌 및 저작권>
+Goodfellow, Ian et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Bengio, Yoshua, 〈Practical Recommendations for Gradient-Based Training of Deep Architectures〉, arXiv.org : https://arxiv.org/abs/1206.5533
+모델 저장과 복원, TensorFlow 공식 문서: https://www.tensorflow.org/tutorials/keras/save_and_load
+
+class (클래스):
+머신러닝과 인공지능에서 클래스(class)란 데이터 포인트가 속할 수 있는 범주 또는 그룹을 의미한다. 이는 주로 지도 학습, 특히 분류 문제에서 사용되는 용어로, 모델이 예측해야 하는 대상의 카테고리를 지칭한다. 
+예를 들어, 이메일을 ‘스팸’ 또는 ‘비스팸’으로 분류하는 문제에서 ‘스팸’과 ‘비스팸’은 두 개의 클래스에 해당한다. 다중 클래스 분류 문제에서는 세 개 이상의 클래스가 존재하며, 각 인스턴스는 이 중 하나의 클래스에 속하게 된다. 
+클래스는 모델이 학습 과정에서 사용하는 레이블 데이터에 기반하여 정의되며, 이를 통해 모델은 주어진 입력 데이터가 어떤 클래스에 속하는지를 학습하고 예측하게 된다.
+
+분류 문제에서 클래스는 모델의 출력층에서 소프트맥스 함수와 같은 활성화 함수를 사용하여 각 클래스에 속할 확률을 계산하는 데 중요한 역할을 한다. 이러한 확률 분포를 바탕으로, 
+모델은 가장 높은 확률 값을 가진 클래스를 최종 예측 결과로 선택한다. 따라서, 클래스는 모델이 예측하려는 대상의 종류를 정의하는 핵심적인 개념이다.
+
+classification (분류):
+Classification이란 머신 러닝의 한 형태로, 데이터를 미리 정의된 여러 범주로 분류하는 것이다. 이러한 분류 과정은 지도 학습의 일부로서, 모델은 레이블이 지정된 학습 데이터를 통해 학습된다. 
+이렇게 학습된 모델은 새로운, 알려지지 않은 데이터에 대한 클래스 레이블을 예측하는 데 사용된다.
+
+Classification은 이진 분류(binary classification)와 다중 클래스 분류(multiclass classification)로 나뉜다. 이진 분류는 두 범주 중 하나에 데이터를 분류하는 반면, 
+다중 클래스 분류는 두 개 이상의 범주 중 하나에 데이터를 분류한다. 대표적인 분류 알고리즘에는 로지스틱 회귀, 의사결정 나무, 랜덤 포레스트, 서포트 벡터 머신 등이 있다.
+
+<참고 문헌 및 저작권>
+Tom M. Mitchell, 《Machine Learning》, McGraw Hill: https://www.cs.cmu.edu/~tom/mlbook.html: https://www.cs.cmu.edu/~tom/mlbook.html
+Christopher Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Classification: Basic Concepts and Decision Trees: https://www-users.cse.umn.edu/~kumar001/dmbook/ch4.pdf
+
+clustering (클러스터링, 군집화):
+클러스터링(clustering)이란 유사한 특성을 가진 데이터 포인트를 그룹으로 묶는 머신러닝의 비지도 학습 방법이다. 클러스터링의 목적은 데이터 내의 자연스러운 구조나 패턴을 찾아내는 것이며, 
+이를 통해 데이터를 다양한 그룹(클러스터)으로 분류한다. 클러스터링 알고리즘은 각 데이터 포인트가 속한 클러스터를 결정하기 위해 유사성 또는 거리 측정 기준을 사용한다. 
+유사한 데이터 포인트는 동일한 클러스터에 할당되며, 서로 다른 클러스터에 속한 데이터 포인트는 상대적으로 덜 유사하다.
+
+클러스터링은 다양한 방법으로 수행될 수 있으며, 대표적인 알고리즘으로는 K-평균(K-means), 계층적 클러스터링(hierarchical clustering), DBSCAN 등이 있다. K-평균은 데이터를 K개의 클러스터로 그룹화하며, 
+계층적 클러스터링은 데이터 포인트를 트리 구조의 계층으로 구성한다. DBSCAN은 밀도 기반의 클러스터링 방법으로, 데이터 포인트의 밀도를 기반으로 클러스터를 형성한다. 
+클러스터링은 시장 세분화, 소셜 네트워크 분석, 천체물 분류, 유전자 분석 등 다양한 분야에서 응용된다.
+
+<참고 문헌 및 저작권>
+James, Witten, Hastie, Tibshirani, 《An Introduction to Statistical Learning》, Springer: http://www-bcf.usc.edu/~gareth/ISL/
+Ester et al., 《A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise》, AAAI Press: https://cdn.aaai.org/KDD/1996/KDD96-037.pdf
+MacQueen, 《Some Methods for classification and Analysis of Multivariate Observations》, Proceedings of 5th Berkeley Symposium on Mathematical Statistics and Probability: https://projecteuclid.org/ebooks/berkeley-symposium-on-mathematical-statistics-and-probability/Proceedings-of-the-Fifth-Berkeley-Symposium-on-Mathematical-Statistics-and/chapter/Some-methods-for-classification-and-analysis-of-multivariate-observations/bsmsp/1200512992
+
+collaborative filtering (협업 필터링):
+여러 다른 사용자의 관심분야를 기반으로 특정 사용자의 관심분야를 예측하는 방식입니다. 협업 필터링은 추천 시스템에 자주 사용됩니다. — 머신러닝 용어집
+
+협업 필터링(collaborative filtering)은 많은 사용자들로부터 얻은 기호정보(taste information)에 따라 사용자들의 관심사들을 자동적으로 예측하게 해주는 방법이다. 협력 필터링 접근법의 근본적인 가정은 사용자들의 과거의 경향이 미래에서도 그대로 유지 될 것이라는 전제에 있다. 예를 들어, 음악에 관한 협력 필터링 혹은 추천시스템(recommendation system)은 사용자들의 기호(좋음, 싫음)에 대한 부분적인 목록(partial list)을 이용하여 그 사용자의 음악에 대한 기호를 예측하게 된다. 이 시스템은 특정 사용자의 정보에만 국한 된 것이 아니라 많은 사용자들로부터 수집한 정보를 사용한다는 것이 특징이다. 
+이것이 단순히 투표를 한 수를 기반으로 각 아이템의 관심사에 대한 평균적인 평가로 처리하는 방법과 차별화 된 것이다. 
+즉 고객들의 선호도와 관심 표현을 바탕으로 선호도, 관심에서 비슷한 패턴을 가진 고객들을 식별해 내는 기법이다. 
+비슷한 취향을 가진 고객들에게 서로 아직 구매하지 않은 상품들은 교차 추천하거나 분류된 고객의 취향이나 생활 형태에 따라 관련 상품을 추천하는 형태의 서비스를 제공하기 위해 사용된다. 
+— https://ko.wikipedia.org/wiki/협업_필터링
+
+협업 필터링은 다수 사용자의 콘텐츠 이용 및 선호도 패턴을 이용해 사용자의 취향 또는 콘텐츠의 속성을 수치화하고 사용자 간의 유사도 또는 콘텐츠 간의 유사도를 계산해 추천하는 기술입니다. 
+협업 필터링의 대표적인 기술은 이웃 기반 협업 필터링(neighborhood-based collaborative filtering) 또는 메모리 기반 협업 필터링(memory-based collaborative filtering)이라고 불리며 사용자 기반 협업 필터링과 아이템 기반 협업 필터링의 두 가지 방식이 있습니다. 
+그림 4.7의 왼쪽은 나와 유사한 취향을 가진 사람들을 찾고 이들이 선호하는 콘텐츠 중에서 내가 이용하지 않은 것을 추천하는 사용자 기반 협업 필터링을 나타내고, 
+오른쪽은 내가 좋아하는 콘텐츠와 가장 유사한 속성을 가지는 콘텐츠 중에서 내가 이용하지 않은 것을 추천하는 아이템 기반 협업 필터링을 나타냅니다.
+
+computer vision (컴퓨터 비전, 컴퓨터비전, 컴퓨터 시각):
+컴퓨터 비전(Computer Vision)은 컴퓨터를 사용하여 인간의 시각과 유사한 방식으로 이미지와 비디오에서 정보를 추출하고 해석하는 기술 분야이다. 
+이 분야의 목표는 컴퓨터가 실세계의 시각적 데이터를 인식하고 처리하여, 객체를 감지하고 분류하는 것에서부터 장면의 깊이와 움직임을 해석하는 것에 이르기까지 다양한 작업을 수행할 수 있도록 하는 것이다. 
+컴퓨터 비전은 이미지 처리(Image Processing)와 관련이 깊지만, 이미지 처리가 이미지 자체의 개선이나 변경에 초점을 맞춘 반면, 컴퓨터 비전은 이미지의 내용을 이해하는 데 중점을 둔다.
+
+컴퓨터 비전 기술은 머신러닝과 특히 딥러닝의 발전과 함께 크게 진보하였다. 컨볼루셔널 신경망(CNN)과 같은 딥러닝 아키텍처는 이미지에서 특징을 자동으로 학습하고, 
+이를 바탕으로 객체 인식, 분할, 추적 등의 복잡한 작업을 수행할 수 있다. 이러한 기술은 의료 영상 분석, 자율 주행 차량, 보안 감시, 증강 현실 등 다양한 응용 분야에서 활용되고 있다.
+
+컴퓨터 비전은 여전히 많은 연구가 진행 중인 분야로, 특히 다양한 조명, 시각적 장애물, 복잡한 배경과 같은 실세계의 도전적인 조건에서의 객체 인식과 해석 능력을 개선하는 데 중점을 두고 있다.
+
+<참고 문헌 및 저작권>
+Szeliski, R., 《Computer Vision: Algorithms and Applications》, Springer: https://szeliski.org/Book/
+Forsyth, D.A. and Ponce, J., 《Computer Vision: A Modern Approach》, Pearson: https://www.pearson.com/en-us/search/Shop?aq=Forsyth%20Computer-Vision-A-Modern-Approach-2nd-Edition
+Computer Vision - Wikipedia: https://en.wikipedia.org/wiki/Computer_vision
+
+conformer (컨포머):
+컨포머(Conformer)란 음성 인식에서 사용되는 딥러닝 모델의 일종이다. 이 모델은 컨볼루션 신경망(Convolutional Neural Network, CNN)과 트랜스포머(Transformer)의 장점을 결합하여 설계되었다. 
+컨포머는 CNN의 시간적 특징을 추출하는 능력과 트랜스포머의 긴 거리 의존성을 학습하는 능력을 함께 활용한다. 이를 통해 음성 인식 작업에서 더 높은 정확도와 효율성을 달성할 수 있다.
+
+컨포머 모델은 음성 신호의 복잡한 특성과 다양한 시간적 길이를 처리할 수 있도록 설계되었다. 이 모델은 음성 인식 분야에서 주요한 진보를 이루었으며, 다양한 언어와 환경에서의 음성 인식 성능을 개선하는 데 중요한 역할을 한다. 
+컨포머는 특히 빠른 처리 속도와 높은 정확도로 인해 많은 주목을 받고 있다.
+
+<참고 문헌 및 저작권>
+Gulati, Anmol, et al., 《Conformer: Convolution-augmented Transformer for Speech Recognition》, 2020.: https://arxiv.org/abs/2005.08100
+
+context window (컨텍스트 윈도우, 문맥 윈도우, 문맥 창, 문맥 윈도, 콘텍스트 윈도):
+context window는 인공지능(AI)과 기계 학습(ML)에서 모델이 예측을 위해 참조할 수 있는 최대 텍스트 양을 의미한다. 이는 주로 토큰(token) 단위로 측정되며, 모델이 문맥을 이해하고 적절한 응답을 생성할 수 있도록 한다. 
+예를 들어, GPT-4의 경우 최대 32,000개의 토큰을 처리할 수 있으며, 이는 약 25,000단어에 해당한다. 반면, Gemini 1.5는 실험적으로 최대 1백만 개의 토큰을 처리할 수 있으며, 
+이는 약 700,000단어, 1시간 길이의 비디오, 또는 11시간의 오디오 데이터를 처리할 수 있는 능력을 의미한다.
+
+<응용>
+큰 문맥 창은 AI 모델이 더 긴 문서나 대화를 처리하는 데 유리하다. 예를 들어, 법률 문서, 연구 논문, 고객 지원 대화 등에서 긴 문맥을 유지하며 일관된 응답을 생성할 수 있다. 또한, 
+여러 문서를 한 번에 처리하여 질문에 대한 통합된 답변을 제공하는 데도 유용하다. 반면 작은 문맥 창을 가진 모델은 짧고 명확한 문장이나 질문에 대한 빠른 응답을 생성하는 데 적합하다.
+
+<참고 문헌 및 저작권>
+https://aiwiki.ai/wiki/Context_window
+https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/
+Ratner, N., Levine, Y., Belinkiv, Y., Ram, O., Abend, O., Karpas, E., Shashua, A., Leyton-Brown, K., & Shoham, Y. (2022). Parallel Context Windows Improve In-Context Learning of Large Language Models. arXiv:2212.10947v1.
+Gartenberg, C. (2024, February 16). What is a long context window? Google DeepMind engineers explain. Google Developers Blog.
+Sha, A. (2024, February 15). Google Introduces Gemini 1.5 Pro with a Massive 1 Million Context Window. Beebom. https://beebom.com/gemini-1-5-pro-announced/
+https://techpolicyinstitute.org/publications/artificial-intelligence/from-tokens-to-context-windows-simplifying-ai-jargon/
+https://towardsai.net/p/machine-learning/infinite-context-window
+
+continual learning (연속 학습):
+Continual learning(연속 학습)은 인공지능 및 기계 학습의 한 분야로, 모델이 새로운 데이터를 지속적으로 학습하면서 이전에 학습한 내용을 잊지 않도록 하는 능력을 의미한다. 
+이는 신경망이 비정지(non-stationary) 정보 스트림에서 점진적으로 학습하는 것을 가능하게 하며, 데이터 분포가 계속 변화하는 상황에서도 안정적인 성능을 유지하도록 돕는다.
+
+연속 학습의 주요 과제 중 하나는 파멸적 망각(catastrophic forgetting) 문제를 해결하는 것이다. 이는 새로운 작업을 학습할 때 이전에 학습한 내용을 빠르게 잊어버리는 현상을 의미한다. 
+이를 해결하기 위해 다양한 기법들이 제안되었는데, 대표적으로는 Elastic Weight Consolidation (EWC), Synaptic Intelligence (SI), 그리고 메모리 인식 시냅스(Memory Aware Synapses, MAS) 등이 있다. 
+EWC는 손실 함수에 추가적인 페널티 항을 도입해 중요한 가중치가 변경되지 않도록 하며, SI는 시냅스를 통해 가중치의 중요성을 측정하여 중요한 시냅스가 변경되지 않도록 한다.
+
+연속 학습은 다양한 응용 분야에서 중요한 역할을 한다. 예를 들어, 자율 주행 자동차의 이미지 분류 모델은 다양한 형태와 모델의 차량 이미지를 지속적으로 학습하여 정확도를 높이는 동시에, 
+도로 환경에서 보행자, 나무, 도로 표지판 등의 객체를 올바르게 분류할 수 있어야 한다. 이러한 시스템은 최소한의 재훈련으로 새로운 데이터 분포에 적응할 수 있어야 한다. 
+또한, 뉴로모픽 컴퓨팅에서도 연속 학습이 중요한 역할을 하며, 특히 스파이킹 뉴럴 네트워크(SNN)에서 효율적인 학습을 위해 연구되고 있다.
+
+<참고 문헌 및 저작권>
+https://arxiv.org/abs/2302.00487
+Mitchell, T., et al. (2022). Continual Learning: Applications and the Road Forward. arXiv. https://arxiv.org/abs/2311.11908v3
+Raza, M. (2024). Continual Learning in AI: How It Works & Why AI Needs It. Splunk. https://www.splunk.com/en_us/blog/learn/continual-learning.html
+Xiao, M., et al. (2024). Hebbian Learning based Orthogonal Projection for Continual Learning of Spiking Neural Networks. OpenReview. https://openreview.net/forum?id=MeB86edZ1P
+Liu, Z., et al. (2018). Recent Advances of Continual Learning in Computer Vision: An Overview. arXiv. https://arxiv.org/abs/2109.11369
+
+contrastive loss (대조 손실):
+콘트라스트 손실(Contrastive Loss)은 유사성 학습 또는 메트릭 학습에서 기본적인 역할을 하는 손실 함수다. 이는 데이터의 임베딩(표현)을 학습하여 샘플 간의 유사성 또는 불일치를 반영하도록 한다. 
+콘트라스트 손실의 기본 원리는 유사한 항목들을 학습 공간에서 가깝게 하고, 불일치하는 항목들은 멀어지게 하는 것이다. 
+즉, 샘플이 유사할 경우 그들의 표현 사이의 거리를 최소화하려고 시도하고, 샘플이 불일치할 경우 종종 버퍼 존으로 작용하는 마진과 함께 그들의 거리를 최대화하려고 한다. 이 손실 함수는 얼굴 인식 같은 작업에서 중요하게 사용되며, 
+여기서 알고리즘은 다른 개인의 얼굴을 구별하거나, 정상 패턴과 비정상 패턴을 명확하게 분리하는 이상 탐지에서의 목표를 학습해야 한다.
+
+<참고 문헌 및 저작권>
+Code Labs Academy. (2024, March 26). Understanding Contrastive Loss and Reconstruction Loss in Machine Learning. Retrieved from https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/
+
+coordinate descent (좌표 하강):
+백설공주: 미분한 후에 오차가 줄어드는 방향으로 레버를 움직인다!
+(생략)
+거울: 이 알고리즘은 좌표 하강법(coordinate descent)이라고 해요.
+(생략)
+백설공주: 레버를 하나하나 만져보는 건 너무 번거로우니까 각각의 레버를 어느 방향으로 움직여야 하는지 알아본 다음, 모든 레버를 한 번에 움직이면 빠르지 않을까?
+거울: 네, 그렇게 여러 개의 레버를 한 번에 움직여서 오차가 적어지도록 하는 방법을 경사 하강법(gradient descent, steepest descent)이라고 해요.
+https://wikidocs.net/120156
+
+corpus, corpora (말뭉치, 코퍼스):
+말뭉치(단수: corpus, 복수: corpora)는 자연어 처리와 언어학에서 사용되는 용어로, 언어 데이터(주로 텍스트)의 큰 집합을 의미한다. 
+말뭉치는 일반적으로 체계적으로 수집되고 구성된 텍스트 모음으로, 특정 언어, 방언, 주제, 스타일 또는 시대를 대표하는 텍스트들을 포함할 수 있다. 
+자연어 처리 분야에서 말뭉치는 언어 모델을 훈련하고, 언어의 통계적 패턴을 분석하며, 다양한 컴퓨터 기반 언어 연구에 사용된다.
+
+말뭉치의 특성은 그 목적과 사용 방식에 따라 다양하다. 어떤 말뭉치는 특정 언어의 일반적인 사용을 반영하기 위해 다양한 소스에서 수집되는 반면, 
+다른 말뭉치는 특정 장르나 스타일에 집중할 수 있다. 또한, 말뭉치는 주석이 달린(annotated) 형태로 제공될 수 있는데, 이는 텍스트에 추가적인 정보, 
+예를 들어 문법적, 의미적 태그가 포함된 것을 의미한다. 주석이 달린 코퍼스는 특히 언어학 연구와 자연어 처리 알고리듬의 성능 평가에 유용하다.
+
+자연어 처리에서 말뭉치의 질과 크기는 모델의 성능에 큰 영향을 미친다. 대규모의 다양한 말뭉치는 모델이 언어의 다양한 측면을 학습하는 데 도움을 주지만, 편향된 말뭉치는 모델의 일반화 능력을 제한할 수 있다.
+
+<참고 문헌 및 저작권>
+Manning, C. D. and Schütze, H., 《Foundations of Statistical Natural Language Processing》, MIT Press: https://nlp.stanford.edu/fsnlp/
+McEnery, T. and Wilson, A., 《Corpus Linguistics》, Edinburgh University Press: https://edinburghuniversitypress.com/book-corpus-linguistics.html
+Corpus linguistics - Wikipedia: https://en.wikipedia.org/wiki/Corpus_linguistics
+
+cross-entropy(교차 엔트로피,크로스 엔트로피(cross-entropy)는 두 확률 분포 간의 차이를 측정하는 메트릭이다. 
+정보 이론에서는 원래 전송 중에 발생할 수 있는 "비용"이나 "불확실성"을 측정하기 위해 사용되었다. 머신 러닝, 특히 분류 문제에서는 실제 확률 분포와 모델이 예측한 확률 분포 간의 차이를 수치화하여, 
+모델의 성능을 평가하는 데 사용된다. 값이 작을수록 두 확률 분포가 유사하다고 해석할 수 있으며, 이를 통해 최적의 모델 파라미터를 찾는다.
+
+크로스 엔트로피는 종종 로그 손실(log loss)이라고도 불리며, 손실 함수(loss function)의 한 종류이다. 로지스틱 회귀, 신경망 등 다양한 알고리즘에서 최적화 목적으로 사용된다. 
+목적 함수(objective function)를 최소화하는 과정에서 크로스 엔트로피가 사용되기도 한다.
+
+<참고 문헌 및 저작권>
+Christopher M. Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Sergey Ioffe, Christian Szegedy, 〈Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift〉, arXiv.org: https://arxiv.org/abs/1502.03167
+https://en.wikipedia.org/wiki/Cross-entropy
+
+cross-validation (교차 검증):
+교차 검증(Cross-validation)은 머신러닝에서 모델의 일반화 능력을 평가하고 검증하기 위한 기술이다. 이 방법은 학습 데이터를 여러 부분집합(subsets)으로 나누고, 
+이 중 일부를 학습에, 나머지를 검증에 사용하는 반복적인 과정을 포함한다. 가장 흔히 사용되는 교차 검증 방법 중 하나는 k-겹 교차 검증(k-fold cross-validation)으로, 
+여기서 데이터는 'k'개의 부분집합으로 나누어지며, 각 부분집합은 순차적으로 검증 집합으로 사용된다.
+
+교차 검증의 목적은 모델이 새로운 데이터에 대해 어떻게 성능을 낼지를 평가하는 것이다. 이 방법은 모델이 특정 학습 데이터셋에 과적합되는 것을 방지하고, 모델의 성능을 더 신뢰성 있게 추정할 수 있게 해준다. 
+각 반복에서 모델은 서로 다른 학습 및 검증 데이터셋으로 테스트되므로, 교차 검증을 통해 얻은 성능 평가는 모델이 다양한 데이터에 얼마나 잘 일반화되는지를 더 잘 반영한다.
+
+그러나 교차 검증은 추가적인 계산 비용을 필요로 하며, 특히 k가 크거나 데이터셋이 매우 큰 경우에는 시간이 오래 걸릴 수 있다. 또한, 데이터의 분포가 불균형하거나 특정 패턴을 따르는 경우, 
+교차 검증의 결과가 왜곡될 수 있다.
+
+<참고 문헌 및 저작권>
+Cross-validation (statistics) - Wikipedia: https://en.wikipedia.org/wiki/Cross-validation_(statistics)
