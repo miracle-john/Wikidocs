@@ -1,0 +1,203 @@
+HBM: High Bandwidth Memory (고대역 메모리):
+HBM(High Bandwidth Memory)은 여러 개의 D램 칩을 수직으로 적층하고, 실리콘 관통 전극(TSV)을 통해 연결하여 기존 메모리보다 높은 대역폭과 낮은 전력 소비를 실현한 고성능 메모리 기술이다. 
+이러한 구조는 데이터 전송 경로를 단축시켜 처리 속도를 향상시키며, 
+특히 인공지능(AI), 고성능 컴퓨팅(HPC), 그래픽 처리 장치(GPU) 등 대용량 데이터 처리가 요구되는 분야에서 활용된다.
+
+HBM은 기존의 DDR 메모리와 비교하여 더 넓은 데이터 버스를 제공하며, 이는 병렬 데이터 처리에 유리하다. 
+예를 들어, HBM3는 1024비트의 데이터 버스를 통해 최대 819GB/s의 대역폭을 제공한다. 
+이러한 특성으로 인해 AI 모델의 학습과 추론 과정에서 대규모 데이터의 빠른 처리와 에너지 효율 향상에 기여한다. 
+최근 삼성전자와 SK하이닉스는 HBM3E와 같은 차세대 HBM 제품을 개발하여 AI 시장에서의 경쟁력을 강화하고 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (2024). High Bandwidth Memory. Retrieved from https://en.wikipedia.org/wiki/High_Bandwidth_Memory
+연합뉴스. (2024). '회심의 카드' 꺼내든 삼성…AI 시장 확대에 HBM 경쟁 본격화. Retrieved from https://www.yna.co.kr/view/AKR20240227074200003
+
+HMM: hidden Markov model (은닉 마르코프 모형):
+HMM(Hidden Markov Model)은 시퀀스 데이터를 모델링하기 위한 통계적 모델로, 관찰되지 않는(숨겨진) 상태들 사이의 마르코프 체인을 기반으로 한다. 
+이 모델은 각 숨겨진 상태가 관찰 가능한 출력을 생성하는 과정을 통해 시퀀스 데이터의 구조를 학습한다. 
+HMM의 핵심 요소는 상태(state), 전이 확률(transition probability), 그리고 관찰 확률(observation probability)이다. 
+상태는 시퀀스의 각 요소를 나타내며, 전이 확률은 하나의 상태에서 다른 상태로 이동할 확률을 나타낸다. 
+관찰 확률은 특정 상태에서 특정 관찰이 나타날 확률을 의미한다.
+
+HMM은 음성 인식, 자연어 처리, 유전자 서열 분석 등 다양한 분야에서 사용된다. 
+예를 들어, 음성 인식에서 HMM은 음향 신호의 시퀀스를 단어나 음소의 시퀀스로 변환하는 데 사용된다. 
+자연어 처리에서는 단어 시퀀스를 구문적 또는 의미적 구조로 변환하는 데 활용된다. 
+HMM의 장점은 시퀀스 내의 시간적 의존성을 효과적으로 모델링할 수 있으며, 숨겨진 상태를 통해 복잡한 데이터 구조를 간결하게 표현할 수 있다는 점이다.
+
+<참고 문헌 및 저작권>
+Lawrence R. Rabiner, 《A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition》, Proceedings of the IEEE
+Hidden Markov Models, San Jose State University
+The Hidden Markov Model, Stanford University
+
+Hamming score (해밍 점수):
+해밍 점수 자체 공식은 없다. 이진 및 다중 클래스 과업에서는 정확도(accuracy)와 같다.
+
+          올바른예측수
+정확도 = -------------
+          총예측수
+
+좀 더 형식적으로는 다음과 같다.
+
+                  참음성 + 참양성
+정확도 = -------------------------------------
+          참양성 + 거짓양성 + 참음성 + 거짓음성
+
+각 인스턴스의 정확도는 해당 인스턴스에 대한 총 레이블 수(예측 및 실제)에 대한 예측된 올바른 레이블의 비율로 정의된다. 
+전체 정확도는 모든 인스턴스의 평균이다. 덜 모호하게 Hamming 점수라고 한다.
+
+<참고 문헌 및 저작권>
+https://hasty.ai/docs/mp-wiki/metrics/hamming-score
+https://mmuratarat.github.io/2020-01-25/multilabel_classification_metrics
+
+Heterogeneous data (이질 데이터):
+Heterogeneous data는 인공지능 및 기계 학습에서 다양한 출처와 형식을 가진 데이터를 의미한다. 
+이러한 데이터는 텍스트, 이미지, 음성, 센서 데이터 등 여러 종류의 정보를 포함하며, 이질적 특성을 가지기 때문에 단일 데이터 형식으로 처리하기 어렵다.
+
+기계 학습에서 이질적인 데이터를 다루는 주요 도전 과제는 데이터 통합과 전처리이다. 예를 들어, 텍스트 데이터와 숫자 데이터를 결합하거나, 구조화되지 않은 데이터를 구조화된 형식으로 변환하는 작업이 필요하다. 
+이를 위해 다양한 기법이 사용되는데, 예를 들어 유사도 인코딩(similarity encoding)은 텍스트 데이터를 수치형 벡터로 변환하여 모델이 처리할 수 있게 한다.
+
+이질적인 데이터는 다양한 응용 분야에서 유용하게 사용된다. 
+예를 들어, 의료 데이터 분석에서 환자의 전자의료기록(EMR), 유전자 데이터, 이미지 데이터 등을 통합하여 더 정확한 진단 및 치료 계획을 수립할 수 있다. 
+또한, 소셜 미디어 데이터와 같은 비정형 데이터를 분석하여 소비자 트렌드 및 감정을 파악하는 데에도 활용된다.
+
+<참고 문헌 및 저작권>
+Parietal. (n.d.). Learning from heterogeneous data – Parietal. Inria. Retrieved from https://team.inria.fr/parietal/research/statistical-and-machine-learning-methods-for-large-scale-data/learning-from-heterogeneous-data/
+Science and Education Publishing. (n.d.). Heterogeneous Data and Big Data Analytics. Retrieved from https://pubs.sciepub.com/acis/3/1/3/acis-3-1-3.pdf
+
+HiFi-GAN:
+HiFi-GAN은 음성 합성을 위한 생성적 적대 신경망(Generative Adversarial Network, GAN)이다. 
+HiFi-GAN은 하나의 생성기(generator)와 두 개의 판별자(discriminator)로 구성되며, 이들은 대립적으로 학습된다. 
+생성기는 멜 스펙트로그램(mel-spectrogram)을 입력으로 받아 이를 역합성하여 고품질의 음성 파형을 생성한다. 
+멜 스펙트로그램은 음성의 주파수 특성을 시간에 따라 나타내는 그래픽이며, HiFi-GAN은 이를 기반으로 원본 음성과 유사한 오디오를 생성한다.
+
+HiFi-GAN은 멀티-스케일 판별자(Multi-Scale Discriminator, MSD)와 멀티-피리어드 판별자(Multi-Period Discriminator, MPD)를 사용한다. 
+MSD는 연속적인 오디오 샘플을 다양한 수준에서 평가하고, MPD는 입력 오디오의 주기적 신호를 다루는 여러 개의 소규모 판별자로 구성된다. 
+이 두 판별자는 각각 다른 측면에서 오디오의 질을 평가하며, 생성된 오디오의 사실성과 질을 높이는 데 기여한다.
+
+HiFi-GAN의 핵심은 효율성과 고품질의 오디오 생성 능력에 있다. 
+이 모델은 단일 GPU에서 실시간 대비 167.9배 빠른 속도로 고품질의 22.05 kHz 오디오를 생성할 수 있으며, CPU에서도 실시간 대비 13.4배 빠르게 작동할 수 있다. 
+이로 인해 HiFi-GAN은 실시간 응용 프로그램 또는 낮은 지연 시간이 요구되는 시스템에 매우 적합하다.
+
+<참고 문헌 및 저작권>
+Kong, J., Kim, J., & Bae, J. (2020). HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis. Retrieved from https://ar5iv.org/abs/2010.05646
+Papers With Code. HiFi-GAN Explained. Retrieved from https://paperswithcode.com/method/hifi-gan
+GitHub - jik876/hifi-gan. Retrieved from https://github.com/jik876/hifi-gan
+
+Hugging Face (허깅페이스):
+Hugging Face는 AI 및 머신러닝(Machine Learning) 커뮤니티를 위한 오픈소스 플랫폼으로, 특히 자연어 처리(NLP)와 관련된 도구와 라이브러리를 제공하며, 다양한 AI 모델의 개발, 공유, 배포를 지원하는 데 중점을 두고 있다. 
+2016년에 설립된 Hugging Face는 처음에는 챗봇 애플리케이션을 개발하려던 스타트업이었으나, 이후 공개된 NLP 라이브러리, 특히 “Transformers” 라이브러리를 통해 NLP와 딥러닝 분야에서 핵심적인 역할을 수행하게 되었다. 
+이 플랫폼은 BERT, GPT 등 여러 유명한 사전 학습(pre-trained) 모델을 포함하여 수천 개의 모델을 제공하고, 이를 사용자가 손쉽게 다운로드하고 파인 튜닝(fine-tuning)하여 활용할 수 있도록 하고 있다.
+
+주요 기능으로는 모델 허브(Model Hub)와 데이터셋 허브(Dataset Hub)가 있으며, Hugging Face 커뮤니티가 기여한 다양한 모델과 데이터셋을 공유할 수 있는 공간을 제공한다. 
+모델 허브는 NLP뿐만 아니라 컴퓨터 비전, 음성 인식 등 다양한 도메인의 사전 학습된 모델을 제공하여 연구자 및 개발자가 빠르게 모델을 활용하고 실험할 수 있도록 돕는다. 
+또한 Transformers 라이브러리는 텍스트 분류, 텍스트 생성, 번역 등 여러 NLP 작업을 수행하기 위한 사전 학습된 모델을 간편하게 활용할 수 있는 파이프라인을 제공하여, 복잡한 설정 없이도 NLP 모델을 손쉽게 사용할 수 있다.
+
+Hugging Face는 Amazon Web Services(AWS), Microsoft, Meta 등과의 협업을 통해 머신러닝의 접근성을 높이고 있으며, 이를 통해 AI 기술을 보다 널리 보급하려는 목표를 갖고 있다. 
+이외에도, Spaces라는 클라우드 기반 개발 환경을 제공해 사용자가 인터랙티브한 머신러닝 애플리케이션을 웹에서 손쉽게 구축하고 배포할 수 있도록 지원하고 있다.
+
+<참고 문헌 및 저작권>
+Hugging Face – The AI community building the future. (n.d.). Hugging Face. Retrieved November 2, 2024, from https://huggingface.co
+What is Hugging Face? The AI Community's Open-Source Oasis. (n.d.). DataCamp. Retrieved November 2, 2024, from https://www.datacamp.com
+
+hallucination (환각):
+LLM(Large Language Model)의 환각이란 LLM이 잘못된 정보를 생성하거나 실제로 존재하지 않는 사실을 사실처럼 제시하는 현상을 말한다. 
+이러한 환각은 모델이 훈련 데이터에서 충분히 정확한 패턴을 학습하지 못했거나, 특정 질의에 대해 과신된 답변을 생성할 때 발생할 수 있다. 
+LLM의 환각은 다양한 형태로 나타날 수 있으며, 가장 흔한 예로는 잘못된 사실의 제시, 존재하지 않는 인물이나 사건에 대한 언급, 논리적으로 모순되는 정보의 제공 등이 있다.
+
+LLM의 환각 문제는 인공지능 연구 및 개발 과정에서 중요한 도전 과제 중 하나이다. 
+연구자들은 이 문제를 해결하기 위해 데이터 정제, 모델 아키텍처의 개선, 더 나은 학습 방법론 개발 등 다양한 접근 방식을 시도하고 있다. 
+또한, 사용자 피드백과 실시간 모니터링을 통해 환각 현상을 감지하고 수정하는 기술도 연구되고 있다. 
+이러한 노력에도 불구하고 LLM의 환각 문제는 여전히 해결해야 할 중요한 과제로 남아 있으며, 이는 LLM의 신뢰성과 정확성을 높이기 위한 연구의 중요한 부분이다.
+
+hard negative:
+하드 네거티브는 머신러닝과 컴퓨터 비전 분야에서 사용되는 용어로, 특히 대조 학습(contrastive learning)과 같은 자기지도 학습(self-supervised learning)에서 중요한 역할을 한다. 
+하드 네거티브는 유사하게 보이지만 실제로는 다른 카테고리에 속하는 데이터 샘플을 말한다. 이러한 샘플들은 모델이 더 정확한 특징을 학습하도록 돕기 위해 선택된다. 
+특히, 하드 네거티브 샘플은 기존의 샘플들과 비슷하게 인코딩되어 있으나 실제로는 다른 클래스에 속하는 경우를 말하며, 이는 모델이 더 강력한 판별력을 개발하도록 유도한다.
+
+대조 학습에서는 '앵커' 샘플과 '양성' 샘플(같은 클래스의 다른 샘플), 그리고 '음성' 샘플(다른 클래스의 샘플) 간의 관계를 이용하여 특징 공간에서의 거리를 조절함으로써 학습이 이루어진다. 
+하드 네거티브는 이러한 음성 샘플 중에서도 앵커에 가깝게 인코딩되어 있는 것으로, 모델이 이를 분별해내기 어려운 샘플이다. 이를 효과적으로 활용하면 모델의 일반화 능력과 성능이 크게 향상될 수 있다.
+
+하드 네거티브 샘플을 활용하는 방법 중 하나로 하드 네거티브 마이닝(Hard Negative Mining, HNM)이 있다. 
+이 방법은 모델의 학습 과정에서 하드 네거티브 샘플들을 적극적으로 찾아내어 학습 데이터로 사용함으로써, 특히 대조적 손실 함수를 통해 모델의 판별 경계를 더 명확하게 만든다. 
+이러한 접근법은 이미지-텍스트 검색(Image–Text Retrieval)과 시간적 행동 위치 지정(Temporal Action Localization)과 같은 다양한 시각적 이해 작업에서도 적용되어 성능을 개선하는데 기여한다.
+
+<참고 문헌 및 저작권>
+Wang, X., Guo, C., & Feng, C. (2023). Revisiting Hard Negative Mining in Contrastive Learning for Visual Understanding. Electronics, 12(23), 4884. https://doi.org/10.3390/electronics12234884
+Chuang, J. J., et al. (2020). Contrastive Learning with Hard Negative Samples. arXiv preprint arXiv:2010.04592. Retrieved from https://arxiv.org/abs/2010.04592
+NeurIPS. (2020). Hard Negative Mixing for Contrastive Learning. Retrieved from https://proceedings.neurips.cc/paper/2020/file/f7cade80b7cc92b991cf4d2806d6bd78-Paper.pdf
+
+hidden layer (은닉층, 은닉 계층, 히든 레이어, 숨은 레이어):
+은닉층(hidden layer)은 인공신경망에서 입력층과 출력층 사이에 위치하는 층이다. 
+이 층은 입력 데이터로부터 복잡한 특징이나 패턴을 추출하는 역할을 수행한다. 
+은닉층은 하나 이상 존재할 수 있으며, 층이 많아질수록 네트워크는 더 복잡한 특징을 학습할 수 있다. 
+각 은닉층은 여러 뉴런(또는 노드)으로 구성되며, 이 뉴런들은 가중치와 활성화 함수를 통해 입력 신호를 처리하고 다음 층으로 전달한다. 
+은닉층의 구조와 수는 모델의 성능과 복잡도에 큰 영향을 미친다.
+
+<참고 문헌 및 저작권>
+Goodfellow et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+《Neural Network Hidden Layers Explained》, IBM Cloud: https://www.ibm.com/think/topics#toc-neural-netw-JFQ5yqE4
+
+hierarchical clustering(계층적 군집화, 계층적 클러스터링):
+계층적 군집화
+계층적 군집화(hierarchical clustering)는 개체들을 서로 유사한 그룹으로 구성하는 계층적 트리 구조를 형성하는 클러스터 분석 방법이다. 
+이 방법은 주로 응집형(agglomerative)과 분할형(divisive) 유형으로 나뉜다.
+
+응집형 계층적 군집화는 개별 데이터 포인트에서 시작하여 가장 가까운 쌍의 클러스터를 순차적으로 병합해 가며 하나의 큰 클러스터를 형성하는 방식으로 진행된다. 
+이 과정에서 사용되는 주요 연결 기준(linkage criteria)에는 최소 연결(single linkage), 최대 연결(complete linkage), 평균 연결(average linkage) 등이 있다. 
+각 연결 기준은 클러스터간 거리를 다르게 측정하여 다양한 형태의 클러스터 구조를 생성할 수 있으며, 특히 유사한 데이터 포인트를 그룹화하는데 유용하다.
+
+반면, 분할형 계층적 군집화는 전체 데이터 세트를 하나의 클러스터로 간주하고 시작하여, 가장 결합력이 낮은 클러스터를 반복적으로 두 개의 클러스터로 분할해 나가는 방식이다. 
+이 방법은 큰 클러스터를 효율적으로 식별할 수 있지만, 구현의 복잡성으로 인해 많은 기계 학습 프레임워크에서 미리 정의된 함수나 클래스를 제공하지 않는다.
+
+계층적 군집화의 주요 장점 중 하나는 사전에 클러스터의 수를 정의할 필요가 없다는 점이다. 
+또한, 데이터 간의 관계를 보여주는 덴드로그램(dendrogram)을 생성할 수 있어 데이터의 구조적 이해를 돕고 군집화 결과를 해석하는 데 유용하다. 
+하지만, 대규모 데이터 세트에 대해서는 계산 비용이 높고, 데이터의 잡음이나 이상치에 민감하다는 단점도 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia contributors. (n.d.). Hierarchical clustering. Wikipedia. Retrieved May 14, 2024, from https://en.wikipedia.org/wiki/Hierarchical_clustering
+Built In Editorial Team. (n.d.). Hierarchical Clustering: Agglomerative and Divisive Explained. Built In. Retrieved May 14, 2024, from https://builtin.com/machine-learning/agglomerative-clustering
+DeepAI Editorial Team. (n.d.). Hierarchical Clustering. DeepAI. Retrieved May 14, 2024, from https://deepai.org/machine-learning-glossary-and-terms/hierarchical-clustering
+
+hyperbolic tangent, tanh (하이퍼볼릭 탄젠트, 쌍곡 탄젠트):
+Hyperbolic Tangent, 혹은 Tanh라 불리는 이 함수는 실수 값을 (-1, 1) 범위로 압축하는 활성화 함수이다. 
+원점을 중심으로 하여 값이 양의 무한대로 갈수록 1에 수렴하고, 값이 음의 무한대로 갈수록 -1에 수렴한다. 
+이 함수는 그 형태가 S자를 닮았기 때문에 'Sigmoid 함수'의 일종으로 간주되며, 이런 특징 덕분에 비선형성을 모델에 부여할 수 있다.
+
+Tanh 함수의 중요한 특징 중 하나는 그 출력값의 범위가 -1에서 1 사이라는 것이다. 이는 함수의 출력값이 평균을 중심으로 분포하는 결과를 가져온다. 
+이는 학습 과정에서 더 나은 결과를 가져올 수 있게 하며, 특히 Gradient Descent 알고리즘의 수렴을 더 빠르게 만들 수 있다.
+
+<참고 문헌 및 저작권>
+Goodfellow, Ian, Yoshua Bengio, and Aaron Courville, 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Hastie, Trevor, Robert Tibshirani, and Jerome Friedman, 《The Elements of Statistical Learning》, Springer: https://hastie.su.domains/ElemStatLearn/
+Hyperbolic tangent function on Wikipedia: https://en.wikipedia.org/wiki/Hyperbolic_functions#Inverse_functions
+
+hyperparameter(하이퍼파라미터, 초매개변수, 하이퍼매개변수):
+하이퍼파라미터는 머신러닝 알고리듬의 학습 과정을 설정하기 위해 학습 전에 지정되는 매개변수(parameter)이다. 
+이러한 파라미터는 모델의 학습과 일반화 능력에 중요한 영향을 미치며, 적절한 하이퍼파라미터 값을 선택하는 것은 모델의 성능을 최적화하는 데 필수적이다. 
+하이퍼파라미터에는 학습률, 에포크 수, 배치 크기(batch size), 활성화 함수 등이 포함된다.
+
+하이퍼파라미터는 학습 데이터에 과적합되지 않으면서 새로운 데이터에 대해 잘 일반화할 수 있도록 모델을 조정하는 데 도움을 준다. 
+예를 들어, 신경망에서 배치 크기나 학습률은 모델의 수렴 속도와 일반화 성능에 영향을 미치며, 
+결정 트리의 깊이나 랜덤 포레스트의 트리 수와 같은 하이퍼파라미터는 모델이 데이터의 복잡성을 얼마나 잘 포착할 수 있는지 결정한다.
+
+하이퍼파라미터 최적화는 가장 적절한 하이퍼파라미터 값의 조합을 찾는 과정으로, 
+그리드 탐색, 랜덤 탐색(random search), 베이지안 최적화(Bayesian optimization), 진화 알고리듬(evolutionary algorithms) 등 다양한 방법을 사용할 수 있다. 
+이러한 기술들은 효율적인 하이퍼파라미터 탐색을 가능하게 하여 머신러닝 모델의 성능을 향상시키는 데 기여한다.
+
+<참고 문헌 및 저작권>
+DeepAI. (n.d.). Hyperparameter. Retrieved from https://deepai.org/machine-learning-glossary-and-terms/hyperparameter
+Sharp Sight Labs. (n.d.). Machine Learning Hyperparameters, Explained. Retrieved from https://www.sharpsightlabs.com/blog/machine-learning-hyperparameters-explained/
+Robots.net. (n.d.). What Is A Hyperparameter In Machine Learning. Retrieved from https://robots.net/fintech/what-is-a-hyperparameter-in-machine-learning/
+
+hyperplane (초평면):
+하이퍼플레인(hyperplane)이란 N차원 공간을 두 부분으로 나누는 N-1차원의 부분공간이다. 
+예를 들어, 2차원 공간(평면)에서 하이퍼플레인은 1차원의 선이며, 3차원 공간에서는 2차원의 평면이 된다. 
+머신러닝과 특히 서포트 벡터 머신(SVM)에서 중요한 개념으로, 하이퍼플레인은 데이터 클래스를 구분하는 결정 경계로 사용된다. 
+하이퍼플레인의 정의는 주로 선형 방정식을 통해 이루어진다.
+
+하이퍼플레인은 고차원 데이터를 분류할 때 중요한 역할을 한다. 
+특히, 서포트 벡터 머신에서는 가장 가까운 데이터 포인트(서포트 벡터) 사이의 마진을 최대화하는 하이퍼플레인을 찾음으로써, 두 클래스를 가장 잘 구분할 수 있는 결정 경계를 찾는다. 
+이러한 성질 때문에 하이퍼플레인은 패턴 인식, 이미지 분석, 바이오인포매틱스 등 다양한 머신러닝 응용 분야에서 활용된다.
+
+Vapnik, 《The Nature of Statistical Learning Theory》, Springer: https://link.springer.com/book/10.1007/978-1-4757-3264-1
+Cristianini and Shawe-Taylor, 《An Introduction to Support Vector Machines and Other Kernel-based Learning Methods》, Cambridge University Press
