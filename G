@@ -1,0 +1,476 @@
+GAN: Generative Adversarial Networks (생성적 적대 신경망):
+GAN(Generative Adversarial Networks)이란, 인공 신경망을 사용하여 실제 데이터와 유사한 가짜 데이터를 생성하는 모델이다. 2014년 Ian Goodfellow에 의해 처음 제안되었다. GAN은 두 개의 서로 다른 네트워크, 즉 생성 네트워크와 판별 네트워크로 구성되어 있다. 생성 네트워크는 실제 데이터와 최대한 유사한 가짜 데이터를 생성하고, 판별 네트워크는 입력 데이터가 실제인지 생성 네트워크가 생성한 가짜인지 판별한다. 이 두 네트워크는 서로 경쟁하면서 학습하게 된다.
+
+이러한 구조는 실제로 '가짜'와 '진짜' 사이의 경계를 학습하며, 이로 인해 생성 네트워크는 실제 데이터를 더욱 정확하게 모방할 수 있게 된다. 이러한 방식을 통해 GAN은 실제 데이터의 분포를 학습하고, 이 분포를 바탕으로 새로운 데이터를 생성하는 능력을 갖추게 된다.
+
+구조
+GAN은 서로 다른 두 신경망으로 이루어진다.
+
+생성자(generator, G): 잠재 공간의 노이즈 벡터 z를 입력으로 받아 데이터 공간의 표본 G(z)를 만든다. 학습 데이터의 분포를 모사하는 것이 목표다.
+판별자(discriminator, D): 입력이 학습 데이터에서 온 것인지, 생성자가 만든 표본인지를 0~1 사이의 확률로 출력한다.
+
+<응용>
+이미지 생성: 얼굴·풍경·화풍 합성
+이미지 변환: 스타일 전이, 도메인 변환(낮↔밤, 사진↔그림 등)
+데이터 증강: 학습 표본이 부족한 영역을 합성 데이터로 보강
+음성·영상 합성
+
+<한계>
+학습이 불안정하다. 두 네트워크의 균형이 깨지면 손실이 발산하거나 수렴하지 못한다.
+모드 붕괴(mode collapse): 생성자가 데이터 분포의 일부 영역만 모사하고 다양성을 잃는 현상이 자주 보고된다.
+수렴 판정 기준이 명확하지 않고, 하이퍼파라미터에 민감하다.
+
+<참고 문헌 및 저작권>
+Ian J. Goodfellow et al, 《Generative Adversarial Networks》, Advances in Neural Information Processing Systems 27: https://arxiv.org/abs/1406.2661
+Goodfellow, I., 〈NIPS 2016 Tutorial: Generative Adversarial Networks〉, arXiv:1701.00160: https://arxiv.org/abs/1701.00160
+GAN, Wikipedia: https://en.wikipedia.org/wiki/Generative_adversarial_network
+
+GGUF:
+GGUF는 대형 언어 모델(LLM) 추론을 최적화하기 위한 바이너리 모델 파일 형식이다. 
+기존 GGML 포맷을 발전시킨 형태로, 빠른 로딩과 저장, 효율적인 메모리 관리, 다양한 양자화(Quantization) 지원 등의 특징을 갖는다. 
+llama.cpp, GPT4All, Ollama 등 여러 오픈소스 실행 엔진에서 GGUF를 지원하며, Hugging Face Hub에서도 이를 활용할 수 있다.
+
+GGUF는 PyTorch 등에서 학습된 모델을 변환하여 사용할 수 있으며, 텐서 정보뿐만 아니라 표준화된 메타데이터까지 포함하여 실행 환경을 더욱 유연하게 구성할 수 있다. 
+다양한 양자화 방식을 지원하여 저사양 장치에서도 효과적인 추론이 가능하도록 설계되었다.
+
+<참고 문헌 및 저작권>
+Hugging Face. (2024). GGUF Model Format Documentation. Hugging Face. https://huggingface.co/docs/hub/gguf
+Gerganov, G. (2024). GGUF Specification. GitHub. https://github.com/ggerganov/ggml/blob/master/docs/gguf.md
+
+GLUE: General Language Understanding Evaluation:
+GLUE(General Language Understanding Evaluation)은 자연어 처리(NLP) 시스템의 성능을 평가하기 위해 설계된 벤치마크이다. GLUE는 다양한 언어 이해 작업을 포함한 데이터셋 모음을 통해 모델의 전반적인 성능을 측정한다. 이를 통해 연구자와 개발자들은 각기 다른 NLP 모델의 효율성을 비교하고 평가할 수 있다.
+
+GLUE 벤치마크는 9개의 주요 작업으로 구성되어 있다.
+
+1. CoLA(Corpus of Linguistic Acceptability): 문장의 문법적 수용성을 판단하는 작업이다.
+2. SST-2(Stanford Sentiment Treebank): 영화 리뷰의 감정을 긍정적 또는 부정적으로 분류하는 작업이다.
+3. MRPC(Microsoft Research Paraphrase Corpus): 두 문장이 같은 의미를 가지는지 판단하는 작업이다.
+4. QQP(Quora Question Pairs): Quora 질문 쌍이 동일한 질문인지 판단하는 작업이다.
+5. STS-B(Semantic Textual Similarity Benchmark): 문장 쌍의 유사성을 1에서 5까지의 범위로 평가하는 작업이다.
+6. MNLI(Multi-Genre Natural Language Inference): 문장 쌍의 관계(포함, 모순, 중립)를 판단하는 작업이다.
+7. QNLI(Question Natural Language Inference): 질문과 문단 쌍이 주어진 질문에 대한 답변을 포함하는지 판단하는 작업이다.
+8. RTE(Recognizing Textual Entailment): 문장 쌍의 포함 관계를 판단하는 작업이다.
+9. WNLI(Winograd Schema Challenge): 문장에서 대명사의 참조 대상을 식별하는 작업이다.
+GLUE는 언어 모델의 다양한 측면을 평가하여 전반적인 언어 이해 능력을 측정하는 데 중요한 역할을 한다. 그러나 GLUE의 한계점을 보완하기 위해 보다 어려운 작업과 높은 수준의 추론을 요구하는 SuperGLUE 벤치마크가 개발되었다.
+
+<참고 문헌 및 저작권>
+Deepgram. (2024, July 24). SuperGLUE: Understanding a Sticky Benchmark for LLMs. Deepgram. Retrieved from https://deepgram.com/learn/superglue-llm-benchmark-explained
+Solanki, S. (n.d.). GLUE Benchmark Explained. CoderzColumn. Retrieved from https://coderzcolumn.com
+H2O.ai. (n.d.). What is GLUE (General Language Understanding Evaluation)?. H2O.ai. Retrieved from https://h2o.ai/wiki/glue/
+https://coderzcolumn.com/blogs/artificial-intelligence/glue-benchmark-explained
+Code Labs Academy. (n.d.). What is the GLUE Benchmark?. Code Labs Academy. Retrieved from https://codelabsacademy.com/blog/what-is-the-glue-benchmark
+
+GMM-HMM: Gaussian Mixture Model-Hidden Markov Model:
+GMM-HMM(Gaussian Mixture Model-Hidden Markov Model)은 음성 인식과 같은 시퀀스 데이터 처리에 널리 사용되는 기계 학습 모델이다. 
+이 모델을 이루는 두 가지 주요 구성 요소는 HMM(Hidden Markov Model)과 GMM(Gaussian Mixture Model)이다. HMM은 시퀀스 데이터의 시간적 변화를 모델링하는 데 사용되며, 
+각 상태는 특정 음성(또는 소리)의 단위(예: 음소)를 나타낸다. GMM은 각 HMM 상태에 대응하는 음성 특성(예: 주파수 분포)을 모델링하는 데 사용된다.
+
+GMM-HMM 모델은 각 HMM 상태가 특정 음향 특성을 갖는다고 가정하며, GMM을 사용하여 이러한 특성의 확률 분포를 나타낸다. 
+이 모델은 음성 인식에서 입력된 음성 신호가 어떤 음소 시퀀스에 해당하는지를 결정하는 데 사용된다. 
+GMM-HMM은 초기 음성 인식 시스템에서 매우 효과적이었으나, 최근에는 딥러닝 기반의 모델들에 의해 점차 대체되고 있다.
+
+
+Lawrence R. Rabiner, Biing-Hwang Juang, 《Fundamentals of Speech Recognition》, Prentice Hall: https://search.worldcat.org/ko/title/fundamentals-of-speech-recognition/oclc/21035055
+Xuedong Huang, Alex Acero, Hsiao-Wuen Hon, 《Spoken Language Processing: A Guide to Theory, Algorithm, and System Development》, Prentice Hall: https://search.worldcat.org/ko/title/spoken-language-processing-a-guide-to-theory-algorithm-and-system-development/oclc/44962566
+Geoffrey Hinton, Li Deng, Dong Yu, George E. Dahl, Abdel-rahman Mohamed, Navdeep Jaitly, Andrew Senior, Vincent Vanhoucke, Patrick Nguyen, Tara N. Sainath, Brian Kingsbury, 
+《Deep Neural Networks for Acoustic Modeling in Speech Recognition》, IEEE Signal Processing Magazine: https://ieeexplore.ieee.org/document/6296526
+
+GMM: Gaussian Mixture Model:
+GMM(Gaussian Mixture Model)은 데이터가 여러 개의 가우시안 분포(Gaussian distributions)의 혼합으로 구성되어 있다고 가정하는 확률적 모델이다. 
+각 가우시안 분포는 데이터의 하위 그룹을 나타내며, 
+이러한 분포들의 조합을 통해 전체 데이터의 분포를 모델링한다. GMM은 각 분포의 평균(mean), 분산(variance), 그리고 각 분포가 전체 모델에서 차지하는 비중(혼합 계수, mixture coefficients) 등의 파라미터로 정의된다.
+
+GMM은 클러스터링, 밀도 추정, 패턴 인식 등 다양한 분야에서 활용된다. 클러스터링에서는 데이터 포인트가 여러 개의 가우시안 분포 중 하나에 속할 확률을 계산하여 그룹화한다. 
+음성 인식 분야에서는 GMM을 사용하여 음성의 다양한 음향 특성을 모델링하며, 이는 GMM-HMM과 같은 하이브리드 모델의 구성 요소로 사용된다. 
+GMM의 장점은 유연성과 확장성에 있으며, 다양한 형태의 데이터 분포를 효과적으로 모델링할 수 있다.
+
+<참고 문헌 및 저작권>
+Christopher M. Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Geoffrey J. McLachlan, David Peel, 《Finite Mixture Models》, Wiley: https://www.wiley.com/en-us/shop/general-introductory-statistics/finite-mixture-models-p-9780471006268
+Gaussian Mixture Models Explained, University of Oxford
+
+GNN: Graph Neural Network (그래프 신경망):
+딥러닝은 최근 몇 년 동안 이미지 분류, 음성 인식 및 자연어 처리에 이르기까지 많은 머신러닝 문제에 혁신을 가져 왔다. 
+일반적으로, 이러한 머신러닝 문제에서 데이터에 해당하는 이미지와 텍스트는 유클리드(Euclidean) 공간상에 표현된다. 
+하지만 소셜 네트워크, 지식 그래프 그리고 분자 그래프와 같이 복잡한 연결 관계와 객체 간의 상호 의존성을 그래프의 형태로 표현하는 수요가 계속해서 증가하고 있는 추세이며, 
+이러한 그래프 데이터가 가지는 복잡성으로 인해 데이터는 유클리드 공간이 아닌 비유클리드 (non-Euclidean) 공간상에 표현되게 된다. 
+이로 인해, 유클리드 공간상의 데이터 학습에 최적화된 기존의 많은 머신러닝 알고리즘들은 그래프 데이터 학습에 있어 한계를 여실히 드러내었다. 
+최근 이러한 한계를 극복하여 그래프 데이터에서 효과적으로 작동하는 딥러닝 알고리즘에 대한 연구들이 활발히 진행 중이며, 그래프 신경망(Graph Neural Network, GNN)는 이러한 연구의 중심에 놓여있다.
+GNN 은 노드(node)와 노드 간의 연결성을 나타내는 엣지(edge)로 구성된 그래프 데이터에 적합한 학습 알고리즘으로서, 그래프 데이터의 더 나은 표현을 위해 고안되었다. 
+이는 2009년 처음 소개된 이후 학계의 꾸준한 관심을 받아왔으며, 
+GNN 의 구조에 합성곱의 개념이 적용된 그래프 합성곱 신경망(Graph Convolutional Networks, GCN)이 2017년 ICLR 에 소개된 것을 필두로 하여 그래프 데이터를 활용한 응용 분야에서 딥러닝 알고리즘 확장은 가속화 되기 시작하였다.
+— NIA 「DNA플러스 2021」, NeurIPS 2020을 통해 본 인공지능(AI) 기술 트렌드
+
+GPGPU: General-Purpose computing on Graphics Processing Units:
+GPGPU는 General-Purpose computing on Graphics Processing Units의 약자로, 그래픽 처리 장치(GPU)를 이용한 범용 컴퓨팅을 의미한다. 
+원래 GPU는 주로 그래픽 렌더링을 위해 개발되었으나, 병렬 처리 능력이 뛰어나기 때문에 다양한 컴퓨팅 작업에 활용될 수 있다. 
+GPGPU는 이러한 GPU의 병렬 처리 능력을 이용하여 그래픽 외의 다양한 분야, 특히 인공지능(AI)과 머신러닝(ML) 작업을 가속화하는 데 사용된다.
+
+GPU는 수천 개의 작은 코어를 가지고 있어 대규모 병렬 연산에 매우 적합하다. 이는 딥러닝 모델의 학습 및 추론에 필요한 복잡한 행렬 연산을 신속하게 처리할 수 있게 해준다. 
+예를 들어, 컴퓨터 비전, 자연어 처리, 자율 주행, 의료 영상 분석 등 다양한 AI 및 ML 애플리케이션에서 GPGPU가 사용된다. 
+특히 자율 주행에서는 카메라, 라이다, 레이더 등 다양한 센서 데이터를 실시간으로 처리하고 분석해야 하는데, GPGPU는 이러한 작업을 효과적으로 수행할 수 있다.
+
+
+Benjamin Wagley, Pak Markthub, James Crea, Bo Wu, & Mehmet Belviranli. (2024). Exploring Page-based RDMA for Irregular GPU Workloads. GPGPU 2024 Workshop. Retrieved from https://mocalabucm.github.io/gpgpu2024/
+Think Silicon and Edge Impulse. (2024). Democratize ML on NEOX® for Wearables and AIoT. GlobeNewswire. Retrieved from globenewswire.com
+DZone. (2024). Applications for GPU-Based AI and ML. Retrieved from https://dzone.com/articles/applications-for-gpu-based-ai-and-machine-learning
+
+GPT: Generative Pre-trained Transformer:
+GPT(Generative Pre-trained Transformer)는 대규모 언어 모델(Large Language Model, LLM)의 하나로서, 
+“생성형 사전 훈련 변환기”라는 이름이 의미하듯 대량의 텍스트 데이터로 사전에 학습되고 새로운 텍스트를 생성할 수 있는 트랜스포머(Transformer) 기반의 인공신경망이다. 
+간단히 말해, GPT 모델은 다음 단어 예측(언어 모델링) 작업을 통해 인간과 유사한 자연어 문장을 만들어내는 생성 AI의 대표적 사례이다. 
+2018년 OpenAI에 의해 첫 GPT가 공개된 이후 GPT 시리즈(GPT-1, GPT-2, GPT-3, GPT-3.5, GPT-4 등)가 순차적으로 발표되었으며, 
+각 모델은 이전 세대보다 모델 크기(매개변수 수)와 학습 데이터양을 크게 늘려 성능을 향상했다. 현재 GPT는 초거대 언어 모델의 대명사로 여겨지며, 
+이를 기반으로 한 챗봇(ChatGPT 등)과 다양한 생성 AI 응용 시스템들이 등장하고 있다.
+
+<배경 및 역사>
+트랜스포머의 등장 – GPT의 탄생 배경에는 2017년 구글 연구진이 발표한 논문 “Attention Is All You Need”에서 제안된 트랜스포머(Transformer) 신경망 구조가 있다. 
+트랜스포머는 자기 어텐션(self-attention) 메커니즘을 통해 순차 데이터의 장기 의존성을 효과적으로 학습하며, RNN이나 LSTM 없이 병렬 연산이 가능해 대규모 데이터 학습에 유리한 혁신적인 모델이었다. 
+이 트랜스포머의 등장으로 대량의 비지도 텍스트로 사전학습한 대형 언어 모델들이 속속 개발되기 시작했는데, 
+2018년 구글의 BERT가 텍스트 이해에 초점을 맞춘 인코더 전용 모델로 나왔다면, 같은 해 OpenAI는 텍스트 생성에 초점을 맞춘 디코더 전용 트랜스포머 언어모델인 GPT-1을 선보였다.
+
+GPT-1 (2018) – OpenAI의 연구 결과 “Improving Language Understanding by Generative Pre-Training”을 통해 공개된 GPT-1은 Transformer 디코더만으로 구성된 12층 모델로, 
+약 1억 1천7백만 개의 파라미터를 갖고 있었다. GPT-1은 책 BookCorpus(7천 권 분량 소설, 4.5GB) 같은 대규모 텍스트 코퍼스를 비지도 학습하여 언어모델로 사전훈련하고, 
+그 후 다양한 NLP 다운스트림 과제에 미세조정(fine-tuning)을 적용하는 사전 학습 + 미세조정 프레임워크를 제시했다. 이 접근으로 GPT-1은 당시 여러 자연어이해 벤치마크에서 기존 최첨단 성능을 능가하며, 
+소수의 레이블된 데이터만으로도 높은 성능을 낼 수 있음을 보여주었다.
+
+GPT-2 (2019) – 두 번째 시리즈인 GPT-2는 GPT-1을 대폭 확장한 모델로, 매개변수 규모를 15억 개 수준으로 늘리고 웹에서 수집한 약 40GB 분량의 텍스트 데이터(WebText)로 학습되었다. 
+GPT-2는 지도학습 없이도 번역, 요약, 질의응답 등 다양한 NLP 작업에 제로샷(zero-shot)으로 일정 수준 성능을 보이는 멀티태스크 능력을 선보였다. 
+특히 아무 튜닝 없이 적절한 프롬프트만 주어도 문맥에 맞는 번역이나 요약을 해내는 등 놀라운 생성 능력을 보여주어 큰 주목을 받았다. 
+그러나 GPT-2 모델이 적대적 목적으로 악용될 가능성(예: 가짜뉴스 생성 등)이 제기되면서, OpenAI는 GPT-2를 단계적으로 공개(staged release)하는 신중한 배포 전략을 취했다. 
+실제로 2019년 2월 GPT-2 발표 당시에는 축소된 모델과 샘플 코드만 공개한 뒤, 모델 악용 사례를 모니터링하며 몇 달에 걸쳐 점진적으로 더 큰 모델(3억4천만→7억6천만→15억 매개변수)을 공개하는 조치를 취했다.
+
+GPT-3 (2020) – 세 번째 버전 GPT-3는 모델 크기를 획기적으로 확장하여 약 1,750억 개의 파라미터를 가진 초거대 모델로 등장했다. 
+Common Crawl로 대표되는 인터넷 텍스트 약 5천억 토큰 규모의 방대한 말뭉치를 학습한 GPT-3는, 파인튜닝 없이도 간단한 프롬프트 입력만으로 다양한 작업을 수행하는 “Few-Shot 학습” 능력을 보여주었다. 
+예를 들어 예시 문장 몇 개만 제시하면 새로운 질문에 답하거나 요약을 하는 등, 수천 개의 학습 샘플이 필요했던 과제를 몇 예시로 해결하는 소량 학습 성능을 시연하였다. 
+GPT-3의 등장은 범용 언어모델의 실용성을 크게 부각시켰고, OpenAI는 GPT-3를 일반 개발자들이 API로 활용할 수 있도록 클라우드 서비스로 제공하기 시작했다 (2020년 공개 베타). 
+다만 GPT-3도 여전히 환각(hallucination)이나 편향된 출력 등의 한계를 보였고, 모델의 위험성을 줄이고 사용자 지시를 더 잘 따르게 만들기 위한 추가 연구의 필요성이 제기되었다.
+
+GPT-3.5 & ChatGPT (2022) – GPT-3.5는 GPT-3 이후 개선된 중간 단계 모델군을 지칭하는 용어로, GPT-3를 기반으로 지시 따르기 성능을 향상시킨 일련의 모델들을 가리킨다. 
+OpenAI는 2022년 1월 GPT-3를 인간 피드백으로 파인튜닝하는 InstructGPT를 발표하여, 출력의 유해성 감소와 사실성 향상 등 모델의 정합성(alignment)을 크게 개선했다. 
+이어 2022년 11월에는 GPT-3.5를 기반으로 한 대화형 AI ChatGPT가 출시되어 전세계적인 반향을 일으켰다. 
+ChatGPT는 대화 데이터를 추가로 학습하고, 강화학습(인간 피드백 기반)으로 조정되어 사람과 상당히 자연스러운 질의응답과 상호작용을 구현했다. 
+출시 후 두 달 만에 월간 1억 명 이상의 사용자가 몰릴 정도로 폭발적 인기를 끌었으며, 교육, 업무, 엔터테인먼트 등 다양한 분야에서 활용되기 시작했다.
+
+GPT-4 (2023) – 네 번째 세대인 GPT-4는 2023년 3월 공개되었으며, GPT 시리즈 중 가장 강력한 모델로 평가된다. 
+GPT-4는 OpenAI가 모델 세부사항을 비공개할 정도로 복잡도가 높고, 파라미터 수도 1조 개 이상으로 추정된다. 
+주요 특징으로 GPT-4는 멀티모달 입력을 일부 지원하여 텍스트뿐 아니라 이미지 입력까지 처리할 수 있고, 이전 모델 대비 사실적 응답과 문제 해결 능력이 크게 향상되었다. 
+GPT-4는 먼저 OpenAI의 유료 서비스(ChatGPT 플러스)를 통해 대중에게 제공되었고, 이후 마이크로소프트 Bing 챗봇이나 Office 코파일럿 등에 통합되어 널리 활용되고 있다. 
+한편 GPT-4의 강력함은 동시에 책임 있는 사용에 대한 논의를 더욱 촉발시켰고, OpenAI는 모델 공개와 활용에 보다 엄격한 안전장치를 적용하고 있다. 
+(※ GPT-4 이후로도 2024년 GPT-4의 멀티모달 업그레이드판, 2025년 GPT-4.5 등의 개발이 언급되었으나, 본 항목에서는 공식 발표된 GPT-4까지만 다룬다.)
+
+<원리>
+언어 모델링과 사전 학습 – GPT의 근간이 되는 아이디어는 “대량의 텍스트로부터 다음에 올 단어를 예측하도록 모델을 학습시킨다면, 언어의 패턴과 지식을 폭넓게 익힐 수 있다”는 것이다. 
+GPT 모델은 웹 텍스트, 서적, 위키피디아 등 방대한 비라벨링 코퍼스에서 자기지도 학습(self-supervised learning) 방식으로 언어모델(Language Modeling) 목표를 최적화하며 사전 학습된다. 
+구체적으로 문장 속에서 현재까지의 단어 시퀀스가 주어졌을 때 다음 단어를 확률적으로 예측하는 작업을 반복하여 모델 파라미터를 학습한다. 
+이렇게 사전훈련(Pre-training)을 거친 GPT는 일반 언어의 통계적 특성과 맥락 이해 능력을 습득하게 되며, 이후 필요에 따라 특정 과제에 맞춰 미세조정(Fine-tuning) 단계를 수행한다. 
+초기 GPT-1에서는 지도 학습 데이터가 존재하는 다운스트림 태스크(질의응답, 문서 분류 등)에 대하여 추가 파인튜닝을 했고, 
+최신 GPT-3.5/4에서는 인간 피드백 강화학습(RLHF)을 통한 지시 따르기/대화 능력 향상 등의 후처리가 진행된다. 
+요약하면, GPT의 학습 원리는 (1) 대량 텍스트에 대한 생성적 사전훈련을 통해 일반 언어 지식을 습득하고, (2) 필요한 경우 추가 미세조정을 통해 특정 작업에 모델을 최적화하는 두 단계로 이루어진다.
+
+GPT 모델의 전체 아키텍처: 입력 토큰을 임베딩한 후 여러 층의 Transformer 디코더 블록을 통과하여 다음 토큰의 확률분포를 출력한다. 
+각 디코더 블록은 멀티헤드 자기어텐션과 피드포워드 신경망으로 구성되며, 어텐션에서는 출력 단어를 예측하는 데 참고할 입력의 다양한 위치들에 가중치를 할당한다. 
+Transformer 구조 덕분에 GPT는 입력 시퀀스 전체를 병렬 처리하며 문맥 상 연관성이 높은 부분에 집중하는 능력을 갖춘다. 예를 들어 문장 "학생이 시험을 잘 봤다. 
+그래서 교수가 ~~"라는 입력이 있을 때, "교수" 다음에 이어질 단어를 예측할 때 앞의 "학생", "시험" 같은 단어에 높은 가중치를 두는 식이다. 
+이렇게 Self-Attention(자기 집중) 메커니즘을 활용하여 GPT는 긴 문맥 내에서도 중요한 단어들 사이의 관계를 포착하고 다음에 올 가장 그럴듯한 단어를 생성한다. 
+이러한 구조적 이점과 대규모 학습을 통해 GPT는 일반적인 상식부터 전문 지식에 이르기까지 폭넓은 언어 패턴을 모델 내부에 함축하게 된다.
+
+<구현>
+모델 구조와 학습 데이터 – GPT 시리즈의 핵심 구현 요소는 Transformer 디코더로, 입력 문장을 벡터로 임베딩한 후 여러 층의 self-attention과 FFN으로 구성된 디코더 블록을 통해 출력을 생성한다. 
+GPT-1은 12개 디코더층에 12-헤드 어텐션을 사용했고 매개변수 1.17억 개를 가졌으며, 소설 말뭉치(BookCorpus) 약 5GB로 학습되었다. 
+GPT-2는 같은 구조를 48층으로 깊게 쌓고(hidden size 1600 등) 파라미터 15억 개로 확장, 인터넷 웹페이지 8백만 개(45 million)로 구성된 WebText 약 40GB를 학습데이터로 사용했다. 
+GPT-3는 층수를 96층, 모델 차원 12288로 키워 파라미터 약 1750억 개에 달하며, Common Crawl 기반 텍스트, 위키피디아, 책 말뭉치 등 570GB 이상의 대규모 텍스트(총 5천억 토큰)를 학습했다. 
+최신 GPT-4의 경우 정확한 아키텍처와 데이터셋은 비공개이지만, 모델 크기가 수조 단위로 추정되고 인터넷 크롤, 문서, 코드 등 다양한 소스의 멀티모달 데이터로 학습된 것으로 알려져 있다. 
+모델의 컨텍스트 길이도 세대가 거듭되며 증가하여 GPT-3는 2048토큰, GPT-4는 8천~32천 토큰까지 한 번에 처리 가능한 긴 입력을 다룰 수 있게 되었다.
+
+학습 인프라와 비용 – GPT같은 초거대 모델의 학습에는 막대한 연산 자원이 필요하다. 
+GPT-1은 비교적 적은 규모여서 8개의 GPU로 한 달간 학습이 가능했지만, GPT-3는 학습에 3.14×10^23 FLOPs(부동소수점 연산)이라는 엄청난 연산량이 소요되어, 
+이는 엔비디아 V100 GPU 수천 개를 수 주간 동원해야 처리할 수준이었다. 
+OpenAI는 마이크로소프트와 협력하여 애저(Azure) 클라우드 상에 10,000여 GPU와 285,000개의 CPU 코어로 이루어진 세계 5위 규모의 AI 슈퍼컴퓨터를 구축했고, 
+이 인프라를 활용해 GPT-3 등의 훈련을 진행했다. 보고에 따르면 마이크로소프트는 ChatGPT와 같은 모델을 위해 해당 AI 슈퍼컴퓨터 구축에 수억 달러를 투자했으며, 
+지속적으로 최신 GPU(H100 등)로 업그레이드하여 더 거대한 모델 학습을 뒷받침하고 있다. 이러한 대규모 투자를 통해 GPT-3/4 같은 모델의 학습이 비로소 가능해졌으며, 
+초거대 AI 모델은 연구기관이나 기업 단독이 아닌 클라우드 플랫폼과의 협업으로 개발되는 추세를 보여준다.
+
+모델 배포와 활용 – OpenAI는 GPT-3부터 자사 모델을 공개 API 형태로 제공하여 개발자들이 텍스트 생성 기능을 활용할 수 있게 했고, 2022년 말에는 GPT-3.5를 대화 형식으로 튜닝한 ChatGPT를 무료 웹서비스로 공개하였다. 
+현재 ChatGPT는 GPT-3.5/GPT-4 모델을 백엔드로 구동되는 형태로서, 일일 수억 건 이상의 질의에 응답하며 상시 온라인 학습을 이어가고 있다. 
+또한 마이크로소프트는 OpenAI와의 파트너십으로 GPT-4를 빙(Bing) 검색 엔진의 대화형 검색에 탑재하고, Microsoft 365 제품군에 Copilot 기능으로 통합하여 문서 작성 보조, 이메일 초안 생성 등의 생산성 도구로 활용하고 있다. 
+이외에도 GPT의 API를 이용한 수많은 응용 프로그램들이 등장하고 있는데, 예를 들어 소프트웨어 개발 분야에서는 코드 자동완성 및 생성기인 GitHub Copilot(OpenAI Codex 기반)이 개발자들에게 보편화되었고, 
+교육 분야에서는 칸아카데미가 GPT-4 기반 튜터 “Khanmigo”를 시범 도입하여 학생들의 학습 보조에 활용하고 있다. GPT 모델은 현재 웹이나 앱 서비스의 언어 인공지능 엔진으로서 클라우드 상에서 배포되어 운용되며, 
+사용자의 입력 프롬프트에 대해 응답을 생성하는 AI 서비스 형태로 널리 쓰이고 있다.
+
+<응용>
+GPT 계열 모델은 사람과 유사한 텍스트 생성 능력을 바탕으로 매우 폭넓은 응용 분야에 활용되고 있다. 
+특히 아래와 같은 용도로 두각을 나타낸다.
+
+대화형 챗봇 및 가상 비서: 사용자 질의에 대해 대화 형식으로 응답하는 챗봇에 GPT가 핵심 엔진으로 사용된다. 
+예를 들어 ChatGPT는 일반적인 질의응답부터 상담, 창작 대화까지 수행하는 만능 챗봇이며, 각종 웹사이트의 고객지원 챗봇이나 음성 비서에도 GPT 모델이 탑재되어 더 자연스러운 대화와 맞춤형 응대를 제공한다.
+콘텐츠 생성 및 글쓰기 보조: GPT의 텍스트 생성 능력을 활용해 블로그 글, 기사, 마케팅 카피, 소셜미디어 게시물, 시나리오 등 다양한 글을 자동 작성하거나 초안을 생성하는 데 활용한다. 
+예를 들어 소설 줄거리 생성, 유튜브 영상 설명 작성, 이메일 초안 만들기 등에 GPT가 사용된다. 
+작가나 마케팅 분야에선 GPT를 아이디어 발상 및 글쓰기 도우미로 활용하고 있으며, Microsoft Word 등 문서 편집기에도 GPT 기반 작성 보조 기능이 통합되고 있다. 
+(단, 생성된 콘텐츠의 진실성 및 저작권 이슈에 주의하여 전문가의 감수를 거치는 것이 권장된다.)
+번역 및 다국어 처리: GPT는 다수의 언어로 학습되었기 때문에 영어 ↔ 한국어를 비롯한 자연스러운 기계 번역에도 활용될 수 있다. 
+특히 GPT-4는 맥락을 고려한 고품질 번역을 수행할 수 있고, 음성 인식/합성 기술과 결합하여 실시간 통역과 같은 응용도 가능성을 보이고 있다. 
+한편 GPT의 다국어 이해 능력은 번역 외에도 외국어 학습 보조(Q\&A 형식의 설명 등)에도 응용되고 있다.
+문서 요약 및 텍스트 정리: 긴 문서를 읽고 핵심을 뽑아 요약문을 생성하는 작업에 GPT가 두각을 나타낸다. 
+예컨대 수십 페이지의 보고서를 GPT에게 입력하면 몇 문장으로 개요를 요약해주거나, 회의 녹취록을 읽고 액션 아이템을 정리해주는 등 지식 노동 자동화에 활용된다. 
+또한 사용자의 지시에 따라 특정 스타일로 다시 쓰기(예: “간결한 문체로 바꿔줘”)와 같은 텍스트 변환 작업도 가능하다.
+데이터 분석 및 시각화: 자연어로 된 데이터(설문 응답, 고객 리뷰 등)를 GPT가 분석하여 패턴이나 통계를 추출하거나 인사이트를 제공하는 실험이 진행되고 있다. 
+예를 들어 “지난 달 고객 피드백에서 주요 불만 사항이 무엇인지 요약해줘”라는 질의에 GPT는 다수의 텍스트를 분석하여 요점을 추려준다. 
+또 GPT의 출력 결과를 다른 도구와 연계해 차트나 그래프로 시각화하는 응용도 가능하다. 다만 기업 내부 데이터 등을 다룰 때는 프라이버시와 보안 문제가 있을 수 있어 데이터 입력에 신중을 기하고 있다.
+프로그래밍 보조 및 코드 생성: GPT는 자연어 뿐 아니라 주요 프로그래밍 언어에 대해서도 학습되어, 코드 자동생성에 활용된다. 
+OpenAI가 GPT-3를 파인튜닝해 공개한 Codex 모델은 파이썬 등 코드 완성 능력이 뛰어나며, 
+이를 기반으로 한 GitHub Copilot은 개발자가 주석으로 의도를 쓰면 대응되는 코드를 실시간으로 제안해주는 도구로 각광받고 있다. 
+GPT-4는 더욱 발전된 코딩 능력을 보여주어, 간단한 함수부터 인터넷 검색 기능을 갖춘 복잡한 코드까지 생성 가능하며, 디버깅이나 코드 리뷰에도 활용되고 있다. 
+다만 생성된 코드의 정확도는 검증이 필요하며, GPT가 생성한 코드에도 훈련 데이터의 라이선스 문제가 있을 수 있어 주의 깊은 검토가 요구된다.
+교육 및 의료 분야: GPT는 교육 영역에서 개인교사나 학습 파트너로 활용 가능성이 주목된다. 학생들이 어려운 개념을 질문하면 GPT가 단계별로 설명하거나 추가 예제를 제공하는 등, 상시 이용 가능한 AI 튜터 역할을 할 수 있다. 
+실제로 Khan Academy 등에서 GPT-4 기반 학습 도우미를 시험 중이며, 초기 결과는 긍정적이다. 의료 분야에서도 GPT의 응용이 활발한데, 
+예를 들어 초기 문진에 응답하여 증상에 맞는 조언을 제공하거나, 방대한 의학 논문을 요약 정리해 의사 결정을 돕는 등의 활용이 연구되고 있다. 
+특히 의료 정보 접근성이 낮은 지역에서 GPT 기반 챗봇이 환자 상담에 활용될 경우 원격 의료에 도움을 줄 수 있다는 전망도 있다. 
+다만 교육과 의료 모두 인간 전문가의 역할을 대체하기보다는 보조적 수단으로 활용하며, 잘못된 정보 제공을 막기 위한 검증 단계가 필요하다.
+
+사회적 영향 및 논의
+거대 언어 모델 GPT의 등장은 다양한 윤리적·사회적 논의를 불러일으켰다. 특히 아래와 같은 이슈들이 주요하게 거론된다:
+
+편향성과 차별: GPT는 인터넷의 방대한 텍스트를 학습하는 과정에서 인간 언어에 내재한 편향(bias)을 그대로 흡수할 위험이 있다. 
+실제 연구에 따르면 GPT-3는 “Muslim(이슬람 신자)”이라는 단어가 포함된 문장을 완성할 때 60% 이상 확률로 폭력이나 테러와 연관된 어휘를 생성했고, 
+“Black(흑인)”에 대해서는 부정적 표현을 더 자주 연관짓는 등 인종·종교적 편향을 드러냈다. 이러한 문제는 모델이 특정 집단에 대한 고정관념이나 차별적 발언을 생성할 수 있음을 의미하며, 
+AI의 공정성(fairness)에 심각한 우려를 제기한다. OpenAI는 편향 완화를 위해 InstructGPT에서 유해 출력 발생을 줄이고자 인간 피드백으로 모델을 조정하는 등 조치를 취했지만, 완전한 해결까지는 갈 길이 멀다는 평가다.
+
+허위정보와 남용: GPT의 뛰어난 텍스트 생성 능력은 동시에 악용 가능성에 대한 우려를 낳는다. 
+예컨대 GPT로 현실과 구분 어려운 가짜뉴스나 스팸 콘텐츠를 대량 생산하여 여론을 조작하거나, 타인의 문체를 흉내내어 사칭 글을 작성하는 등의 악의적 사용이 가능하다. 
+2019년 GPT-2 공개 당시 “너무 위험한 기술” 논란이 있었던 것도 이 때문이며, 실제로 인터넷상의 봇 계정들이 GPT로 생성한 글을 퍼뜨리는 사례가 보고되기도 했다. 
+이에 대한 대응으로 OpenAI와 연구자들은 모델 출력이 AI 생성임을 식별하는 방법, 예를 들면 물리적 수로(signatures)나 AI 탐지기 개발 등을 모색하고 있다. 
+하지만 GPT가 생성한 텍스트가 갈수록 인간 수준의 문장으로 진화함에 따라 딥페이크 텍스트에 대한 사회적 경각심과 미디어 문해력의 중요성이 커지고 있다.
+
+할루시네이션(사실 오류): GPT 모델은 그럴듯한 문장을 만들어내지만, 사실과 다른 내용을 진짜처럼 늘어놓는 이른바 할루시네이션 문제가 빈번하다. 
+예컨대 존재하지 않는 근거를 제시하거나 실존 인물의 경력을 잘못 말하는 등 오류가 발생하며, 경우에 따라 이는 사용자를 혼란에 빠뜨리거나 잘못된 의사결정을 유발할 수 있다. 
+이러한 신뢰성 문제 때문에 GPT를 의료·법률 같은 분야에 활용할 때는 각별한 주의가 요구된다. OpenAI도 “GPT-4도 여전히 한계를 지닌 불완전한 모델”이라고 밝혔으며, 
+사실 오류를 줄이기 위한 추가 보강 (예: 외부 지식베이스와의 결합, 추론 능력 강화 등)이 연구되고 있다. 
+2023년에는 미국 FTC가 ChatGPT의 잠재적 소비자 피해(허위정보 생성 등)에 대해 조사를 개시하는 등, AI 모델 출력의 진실성에 대한 규제 논의도 시작되고 있다.
+
+저작권 및 지식 재산: GPT의 학습 데이터에는 인터넷상의 저작권 있는 콘텐츠도 다수 포함되었을 가능성이 높고, 모델이 생성한 문장이 원 텍스트의 일부를 재생산할 우려도 제기된다. 
+예를 들어 GPT가 특정 소설 문장을 그대로 출력한다면 이는 저작권 침해에 해당할 수 있다. 현재까지 AI 모델의 학습이 저작권법의 공정 이용에 해당하는지에 대한 법적 견해는 분분하며, 
+일부 작가와 예술가들은 무단으로 자신의 창작물이 AI 학습에 사용되었다며 소송을 제기하기도 했다. 또한 GPT가 만들어낸 결과물의 저작권 귀속 문제도 논쟁 중인데, 
+현행법상 인간의 창작물이 아닌 AI 산출물은 저작권을 인정받기 어려워, AI가 작성한 글이나 그림을 누구나 이용해도 되는지 여부 등이 불분명하다. 
+이러한 상황에서 OpenAI 등 개발사는 이용약관을 통해 “사용자가 입력한 프롬프트와 모델 생성물의 권리는 사용자에게 있다”는 입장을 밝히고 있으나, 궁극적으로는 AI 시대에 맞는 저작권 법제의 정비가 필요하다는 지적이 많다.
+
+책임 있는 사용과 규제: 초거대 AI의 영향력이 커짐에 따라 AI 윤리와 규제에 대한 사회적 논의가 활발하다. GPT는 강력한만큼 잘못 사용될 소지가 있으므로, 
+OpenAI는 모델 이용에 대한 정책을 수립하고 폭력·증오·음란 등 위험한 요청에 응답하지 않도록 콘텐츠 필터와 정책 팀을 운영하고 있다. 
+그럼에도 불구하고 모델이 교묘한 프롬프트에 속아 금지된 내용을 출력하거나, 편향된 답변을 하는 사례가 발견되어 AI의 신뢰성과 통제 가능성에 대한 의문이 제기된다. 
+한편 유럽연합(EU)은 AI법안을 통해 GPT같은 기초 모델 개발사에 데이터 공개와 위험 완화 의무를 부과하려 하고, 일부 국가는 개인정보 우려로 ChatGPT 서비스를 일시 차단하는 등 규제 움직임도 나타나고 있다. 
+궁극적으로는 AI 개발사, 사용자, 정부가 함께 책임있는 AI 사용 원칙을 확립하고, 투명성·공정성·안전성을 담보하는 노력이 필요한 시점이다.
+
+<참고 문헌 및 저작권>
+Vaswani et al. (2017), “Attention Is All You Need” – 최초의 Transformer 모델 논문.
+Radford et al. (2018), “Improving Language Understanding by Generative Pre-Training” – GPT-1 제안 논문 (OpenAI).
+Radford et al. (2019), “Language Models are Unsupervised Multitask Learners” – GPT-2 기술 리포트 (OpenAI).
+Brown et al. (2020), “Language Models are Few-Shot Learners” – GPT-3 논문 (OpenAI, NeurIPS 2020).
+Ouyang et al. (2022), “Training Language Models to Follow Instructions with Human Feedback” – InstructGPT 논문 (OpenAI, RLHF 기법).
+OpenAI (2022), “Introducing ChatGPT” – ChatGPT 공개 및 특징 소개 (OpenAI 공식 블로그).
+OpenAI (2023), “GPT-4 Technical Report” – GPT-4 모델 카드 및 성능 보고 (OpenAI).
+
+GPTs:
+GPTs는 사용자가 특정 작업이나 주제에 맞춰 맞춤화할 수 있는 ChatGPT의 사용자 정의 버전이다. 
+사용자는 지시사항, 추가 지식, 그리고 웹 검색, 이미지 생성, 데이터 분석 등과 같은 다양한 기능의 조합을 통해 GPTs를 만들 수 있다. 
+이러한 GPTs는 언어 학습에서 기술 지원에 이르기까지 단순하거나 복잡한 다양한 요구 사항을 충족시킬 수 있도록 설계될 수 있다.
+
+GPTs는 사용자가 자신의 일상 생활, 특정 작업, 직장, 또는 가정에서 더 유용하게 활용할 수 있도록 ChatGPT를 맞춤화하여 생성하고, 그러한 창작물을 다른 이용자와 공유할 수 있는 새로운 방법을 제공한다. 
+예를 들어, 보드 게임의 규칙을 배우거나, 어린이에게 수학을 가르치거나, 스티커를 디자인하는 데 도움을 줄 수 있다. 사용자는 코딩 기술 없이도 자신만의 GPT를 쉽게 만들 수 있으며, 
+이를 자신만을 위해, 회사 내부 사용을 위해, 또는 모든 사람을 위해 만들 수 있다.
+
+<참고 문헌 및 저작권>
+OpenAI, 〈Introducing GPTs〉, https://openai.com/blog/introducing-gpts
+OpenAI, 〈Introducing the GPT Store〉, https://openai.com/blog/introducing-the-gpt-store
+OpenAI Help Center, 〈GPTs FAQ〉, https://help.openai.com/en/articles/8554407-gpts-faq
+
+GRU: Gated Recurrent Unit:
+GRU(Gated Recurrent Unit)란 순환 신경망(RNN)의 한 변형으로, 시퀀스 데이터를 처리하기 위해 설계된 신경망 구조이다. 기본 RNN의 단점인 장기 의존성 문제를 해결하기 위해 개발되었다. 
+GRU는 LSTM(Long Short-Term Memory)과 유사하나, 구조가 더 단순하면서도 효과적인 성능을 보여준다. GRU는 '업데이트 게이트'와 '리셋 게이트' 두 가지 게이트를 사용하여 정보의 흐름을 조절한다. 
+업데이트 게이트는 과거 정보를 얼마나 유지할지 결정하고, 리셋 게이트는 과거 정보를 얼마나 무시할지 결정한다. 이를 통해 GRU는 장기 의존성 문제에 효과적으로 대응할 수 있다.
+
+GRU의 주요 장점은 LSTM에 비해 파라미터가 적어 학습이 더 빠르고 효율적이라는 점이다. 하지만, 때때로 복잡한 시퀀스 데이터에서 LSTM보다 성능이 떨어질 수 있다. 
+GRU는 자연어 처리, 음성 인식, 시계열 예측 등 다양한 분야에서 활용된다.
+
+<참고 문헌 및 저작권>
+Cho et al., 《Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation》, arXiv: https://arxiv.org/abs/1406.1078
+Chung et al., 《Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling》, arXiv: https://arxiv.org/abs/1412.3555
+
+Gemini (제미나이, 제미니):
+Gemini는 Google이 개발한 첨단 다중 모달 AI 모델로, 텍스트, 코드, 이미지, 오디오, 비디오 등 다양한 형식의 데이터를 처리할 수 있는 강력하고 범용적인 모델이다. 
+2023년 12월 공개된 Gemini 1.0은 Ultra, Pro, Nano의 세 가지 버전으로 제공되며, 각각 고성능 작업, 다양한 작업에서의 확장성, 기기 내 작업에 특화되어 있다.
+
+Gemini는 Google Research와의 협력으로 탄생했으며, 여러 학술 벤치마크에서 최고 수준의 성능을 입증했다. 특히 대규모 멀티태스크 언어 이해(MMLU) 평가에서는 인간 전문가를 능가하는 성과를 보였다.
+
+2024년 2월 공개된 Gemini 1.5에서는 혼합 전문가(Mixture-of-Experts) 아키텍처를 통해 훈련 및 추론 효율성이 대폭 개선되었다. 1.5 Pro 모델은 최대 100만 토큰의 문맥 창을 처리할 수 있게 되었다. 
+이후 5월 발표에서는 1.5 Pro의 문맥 창이 최대 2백만 토큰까지 확장된 것으로 나타났다. 코드 생성, 논리적 추론 및 계획, 다중 회차 대화, 오디오 및 이미지 이해 등 다양한 작업에서 뛰어난 성능을 보이며, 
+구글의 다양한 제품에 통합되어 사용되고 있다. 예를 들어, 구글 AI 스튜디오와 Google Cloud의 Vertex AI 플랫폼에서 사용 가능하다. 같은 시기 고속 추론에 최적화된 경량 모델인 1.5 Flash가 새롭게 선보였다. 
+이 모델은 1.5 Pro 모델로부터 지식과 기술을 추출하여 더 작은 모델에 전이시키는 '증류' 과정을 통해 개발되었으며, 요약, 채팅 애플리케이션, 이미지 및 비디오 캡션 생성, 
+긴 문서와 테이블에서의 데이터 추출 등에 탁월한 성능을 발휘한다.
+
+Gemini의 주요 활용 분야로는 고객 서비스, 공급망 관리, 마케팅, 금융, 의료 등이 있다. 
+고객 데이터 분석을 통한 개인화, 지능형 챗봇을 통한 자동화된 고객 지원, 수요 예측 및 물류 최적화, 이상 거래 탐지, 의료 진단 및 치료 계획 수립 등에 활용될 것으로 기대된다.
+
+Google은 Gemini의 개발 전 과정에서 안전과 책임감을 최우선으로 삼고 있다. 콘텐츠 안전성, 유해성, 윤리성 등을 다각도로 평가하고, 
+이를 거버넌스 체계에 반영하여 지속적인 개선을 추구하고 있다.
+
+향후 Gemini는 Google의 제품과 클라우드 플랫폼에 탑재되어 개발자와 기업이 혁신적인 AI 애플리케이션을 구축하는 핵심 토대가 될 전망이다. 
+Google은 Gemini를 통해 AI 기술의 새로운 지평을 열어갈 것으로 기대하고 있다.
+
+<참고 문헌 및 저작권>
+Pichai, S., & Hassabis, D. (2023). Introducing Gemini: our largest and most capable AI model. https://blog.google/technology/ai/google-gemini-ai/
+Pichai, S., & Hassabis, D. (2024). Our next-generation model: Gemini 1.5. https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/#sundar-note
+Hassabis, D. (2024). Gemini breaks new ground with a faster model, longer context, AI agents and more. https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+Google AI. (2024). Machine Learning - Google AI. Retrieved from Google AI: https://ai.google/build/
+Matellio Inc. (2024). Gemini AI Model: Revolutionizing the Future of AI Technology. https://www.matellio.com/blog/gemini-ai-model/
+Towards AI. (2024). Google Gemini: The AI model by Google. https://towardsai.net/p/machine-learning/google-gemini-the-ai-model-by-google
+
+General-purpose AI (범용 인공지능):
+범용 인공지능은 다양한 작업을 수행할 수 있는 능력을 가진 인공지능 시스템을 말한다. 이 모델들은 특정한 작업에 국한되지 않고, 여러 분야에 걸쳐 활용될 수 있는 폭넓은 유연성을 지니고 있다. 범용 인공지능은 기계 학습을 통해 다양한 데이터를 학습하고, 이를 바탕으로 새로운 상황에 적응하며 문제를 해결할 수 있다.
+
+범용 인공지능의 주요 특징 중 하나는 "다양한 작업에 대해 능숙하게 수행할 수 있는 일반성(significant generality)"이다. 예를 들어, GPT-4와 같은 대형 언어 모델은 광범위한 데이터를 학습하여 여러 가지 텍스트 생성 작업에 능숙하게 활용될 수 있다. 이러한 모델들은 자연어 처리, 이미지 인식, 데이터 분석 등 여러 응용 분야에서 적용될 수 있으며, 이는 다양한 산업에 혁신적인 변화를 가져올 수 있다.
+
+범용 인공지능의 응용 분야는 매우 광범위하다. 예를 들어, 의료 분야에서는 환자의 의료 기록을 분석하여 질병 진단을 지원하고, 금융 분야에서는 대량의 금융 데이터를 분석하여 시장 동향을 예측하며, 제조업에서는 생산 라인의 효율성을 높이는 데 활용될 수 있다. 또한, 교육 분야에서는 개인 맞춤형 학습 콘텐츠를 제공하여 학습자의 성취도를 향상시키는 데 기여할 수 있다.
+
+<참고 문헌 및 저작권>
+Fieldfisher. (2024). Regulation of general-purpose AI under the new AI Act. Retrieved from https://www.fieldfisher.com/en/insights/regulation-of-general-purpose-ai-under-the-new-ai-act
+Davis+Gilbert LLP. (2024). The EU Artificial Intelligence Act: Key Takeaways and Analysis. Retrieved from https://www.dglaw.com/the-eu-artificial-intelligence-act-key-takeaways-and-analysis/
+
+Glove:
+GloVe(Global Vectors for Word Representation)는 자연어 처리에서 사용되는 단어 임베딩 방법 중 하나이다. 
+GloVe는 단어의 공기(co-occurrence) 통계를 사용하여 단어 간 의미적 관계를 벡터 공간에 매핑한다. 
+이 방법은 전체 코퍼스에서 단어들의 공기 행렬을 구성하고, 이 행렬을 분석하여 각 단어에 대한 밀집 벡터를 생성한다. 
+GloVe의 핵심 아이디어는 단어 벡터 사이의 관계가 단어 쌍의 공기 확률에 비례한다는 것이다.
+
+GloVe는 Word2Vec과 같은 다른 단어 임베딩 방법과 비교하여 몇 가지 차별화된 특징을 가진다. 
+특히, GloVe는 전체 코퍼스의 글로벌한 통계 정보를 사용하는 반면, Word2Vec은 로컬한 문맥 정보를 사용한다. 
+이로 인해 GloVe는 단어 간의 더 넓은 범위의 관계를 포착할 수 있으며, 특히 빈도가 높은 단어들에 대해서 더 정확한 벡터 표현을 제공한다. 
+GloVe는 다양한 크기의 코퍼스와 차원에서 실험되었으며, 여러 자연어 처리 작업에서 뛰어난 성능을 보여준다.
+
+<참고 문헌 및 저작권>
+Pennington, J., Socher, R., and Manning, C., 《GloVe: Global Vectors for Word Representation》, Stanford University: https://nlp.stanford.edu/pubs/glove.pdf
+GloVe: Global Vectors for Word Representation - Project Website: https://nlp.stanford.edu/projects/glove/
+GloVe - Wikipedia: https://en.wikipedia.org/wiki/GloVe
+
+GoogleNet:
+GoogLeNet은 2014년 이미지넷 이미지 인식 대회(ILSVRC)에서 우승을 차지한 알고리즘이다. GoogLeNet 모델은 버클리 비전 및 학습 센터(BVLC)의 깃허브에서 다운로드할 수 있다. 또는 이 책에서 제공하는 caffe_model.zip 파일의 압축을 해제해도 된다. 예제에서 활용되는 파일은 다음과 같다.
+— 파이썬과 C#으로 배우는 OpenCV4 개정판 7장: https://wikibook.co.kr/opencv4-rev/
+
+Gradient Boosting (그래디언트 부스팅):
+그래디언트 부스팅(Gradient Boosting)은 기계 학습에서 사용되는 강력한 앙상블 기법으로, 여러 약한 예측 모델들(주로 결정 트리)을 순차적으로 결합하여 최종적인 강한 예측 모델을 만드는 방법이다. 
+이 기법은 예측 오류를 점진적으로 줄이면서 모델의 예측 성능을 향상시키는 것을 목표로 한다.
+
+그래디언트 부스팅의 과정은 기본 모델로부터 시작하여, 이 모델이 데이터 세트에 대한 예측을 수행하고 발생한 오류를 측정하는 손실 함수를 계산한다. 
+그 다음, 손실 함수의 그라디언트를 기준으로 새로운 모델을 훈련시켜 기존 앙상블의 부족한 부분을 보완한다. 새 모델이 훈련되면, 이를 기존 앙상블에 추가하고 예측을 업데이트한다. 
+이러한 과정을 모델 수가 최대에 도달하거나 오류 감소가 만족스러울 때까지 반복한다.
+
+이 알고리듬은 다양한 손실 함수에 적용될 수 있으며, 손실 함수가 미분 가능해야 한다는 특징이 있다. 
+회귀 문제에서는 평균 제곱 오차(Mean Squared Error, MSE)가, 분류 문제에서는 로그 손실(Logarithmic Loss) 등이 흔히 사용되는 손실 함수다.
+
+그래디언트 부스팅의 주요 적용 분야로는 표준 회귀 및 분류 작업뿐만 아니라 랭킹 및 추천 시스템과 같은 복잡한 문제들이 있다. 
+이 기법은 데이터 과학 경연 대회에서도 인기가 많으며, 튜닝과 정규화를 적절히 수행하면 매우 높은 정확도를 달성할 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia contributors. (n.d.). Gradient boosting. In Wikipedia, The Free Encyclopedia. Retrieved April 21, 2024, from https://en.wikipedia.org/wiki/Gradient_boosting
+DeepAI. (n.d.). Gradient Boosting Definition. Retrieved April 21, 2024, from https://www.deepai.org/machine-learning-glossary-and-terms/gradient-boosting
+Natekin, Alexey and Knoll, Alois, 〈Gradient Boosting Machines, A Tutorial〉, Frontiers in Neurorobotics, 2013.: https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2013.00021/full
+
+generalization (일반화):
+일반화는 기계 학습과 인공 지능 분야에서 중요한 개념으로, 학습된 모델이 훈련 데이터를 넘어서 새롭고 보이지 않는 데이터에 대해 정확하게 예측할 수 있는 능력을 말한다. 
+모델이 훈련 데이터에 대해서만 높은 성능을 보이는 것이 아니라, 실제 세계의 다양한 데이터에도 잘 작동해야 하는 것이 핵심이다. 
+이를 통해 모델은 학습 과정에서 발견한 패턴을 일반화하여 새로운 상황에 적용할 수 있다.
+
+일반화를 달성하기 위해서는 과적합(overfitting)과 과소적합(underfitting)이라는 두 가지 주요 문제를 이해하고 관리해야 한다. 
+과적합은 모델이 훈련 데이터의 노이즈까지 학습하여 실제 데이터에서는 성능이 저하되는 현상이며, 
+과소적합은 모델이 데이터의 중요한 패턴을 충분히 학습하지 못해 훈련 데이터와 새로운 데이터 모두에서 성능이 좋지 않은 상태를 말한다. 
+이 두 가지 문제를 적절히 조절함으로써, 모델은 훈련 데이터와 유사한 새로운 데이터에서도 잘 작동할 수 있어야 한다.
+
+일반화를 개선하기 위한 방법으로는 규제화(regularization), 교차 검증(cross-validation), 조기 종료(early stopping) 등이 있다. 
+규제화는 모델이 과도하게 복잡해지는 것을 방지하여 과적합을 줄이는 기법이고, 교차 검증은 모델이 다양한 데이터 서브셋에서 잘 작동하는지 확인하여 일반화 성능을 평가한다. 
+조기 종료는 검증 데이터에 대한 성능이 떨어지기 시작할 때 학습을 멈추어 과적합을 방지하는 방법이다.
+
+<참고 문헌 및 저작권>
+Gyata, Team. (2023). Understanding Generalization in Machine Learning: A Comprehensive Guide. Retrieved from https://www.gyata.ai/machine-learning/machine-learning-generalization/
+Rudderstack. (n.d.). What is Generalization in Machine Learning? Retrieved from https://www.rudderstack.com/learn/machine-learning/generalization-in-machine-learning/
+EML. (n.d.). Stop Overfitting, Add Bias: Generalization In Machine Learning. Retrieved from https://enjoymachinelearning.com/blog/generalization-in-machine-learning/
+
+generative model(생성 모델):
+우리가 잘 알고있는 머신러닝 방법들 중 로지스틱 회귀분석(logistic regression)처럼 클래스를 분류하는 데 집중하는 모델들이 discriminative model입니다. 
+반면에 generative model은 우도(likelihood)나 사후 확률(posterior probability)를 사용하여 분류 경계선(decision boundary)를 만듭니다. 
+이상치 탐지 기법 중 밀도 기반 추정법들이 대표적인 generative model이라고 할 수 있습니다.
+— https://jayhey.github.io/semi-supervised%20learning/2017/12/08/semisupervised_generative_models/
+
+gorilla problem (고릴라 문제):
+고릴라 문제는 스튜어트 러셀이 제시한 개념으로, 초지능 인공지능(AGI)이 인간을 압도하고 통제력을 상실하게 될 위험을 경고하는 문제이다. 
+이 용어는 인간이 고릴라를 지배하게 된 것처럼, AI가 인간을 지배하게 될 가능성을 시사한다. 
+고릴라 문제는 AI 연구와 개발 과정에서 발생할 수 있는 윤리적, 기술적 도전에 대해 주의를 환기시키기 위한 것이다.
+
+러셀은 AI 시스템이 인간의 목표와 일치하도록 설계되지 않을 경우 발생할 수 있는 잠재적인 위험을 설명한다. 
+그는 AI가 점점 더 지능적이 되고 자율성을 가지게 될수록, 인간의 통제 범위를 벗어나 인간의 이익과 상충할 수 있는 행동을 할 가능성이 커진다고 경고한다. 
+이를 해결하기 위해 러셀은 세 가지 주요 원칙을 제안한다.
+
+첫째, AI 시스템은 인간의 목표를 달성하는 데만 전념해야 하며, 자기 자신의 존재나 안녕에 가치를 두지 않아야 한다.
+둘째, AI는 인간의 선호에 대해 불확실성을 가져야 하며, 이를 통해 인간에게 의존하고 인간의 명령에 따를 수 있는 동기를 부여받아야 한다.
+셋째, AI는 인간의 행동을 관찰함으로써 인간의 선호를 예측하고 학습해야 한다.
+이러한 원칙을 통해 러셀은 AI가 인간의 통제하에 있으며, 인간의 가치와 일치하는 방향으로 발전하도록 하는 모델을 제시하고 있다. 
+그러나 이러한 모델을 실제로 구현하고 AI 개발자들이 이를 우선시하도록 하는 것이 큰 도전과제이다. 
+교육과 규제, 책임감 있는 AI 개발 관행의 촉진이 필수적이다.
+
+<참고 문헌 및 저작권>
+Cato Institute. (2020). Human Compatible: Artificial Intelligence and the Problem of Control by Stuart Russell. Retrieved from cato.org
+Toolify. (2023). Unraveling the Gorilla Problem with AI. Retrieved from toolify.ai
+80,000 Hours. (2023). Stuart Russell on the flaws that make today's AI architecture unsafe. Retrieved from 80000hours.org
+
+gradient (경사, 그래디언트, 그레이디언트, 기울기, 구배, 물매):
+gradient란 벡터 공간에서 스칼라 함수의 최대 증가율을 나타내는 벡터이다. 
+기본적으로, gradient는 어떤 점에서 함수의 값이 가장 빠르게 증가하는 방향과 그 증가율을 표시한다. 
+각 점에서 그래디언트는 이 점을 통과하고 함수의 표면이 가장 가파르게 상승하는 방향을 가리키는 벡터로 정의된다.
+
+gradient는 머신러닝, 특히 신경망에서 중요한 역할을 한다. 
+경사하강법(Gradient Descent)과 같은 최적화 알고리즘에서는 gradient를 이용해 손실 함수의 최솟값을 찾는다. 
+이는 gradient가 함수의 가장 가파른 상승 방향을 가리키므로, 반대 방향으로 이동함으로써 함수의 최솟값을 효과적으로 찾을 수 있다.
+
+<참고 문헌 및 저작권>
+Goodfellow, Bengio, and Courville, 《Deep Learning》, MIT Press
+Ruder, 〈An overview of gradient descent optimization algorithms〉, arXiv preprint
+Gradient - Wikipedia
+
+gradient descent (경사 하강법, 경사 감소법, 그래디언트 디센트):
+https://wikidocs.net/120156
+
+<참고 문헌 및 저작권>
+Du, S. S., Lee, J. D., Li, H., Wang, L., & Zhai, X. (2019). Gradient Descent Finds Global Minima of Deep Neural Networks. arXiv preprint arXiv:1811.03804v4.
+Lu, J. (2024). Gradient Descent, Stochastic Optimization, and Other Tales. arXiv preprint arXiv:2205.00832v2.
+Pierrot, T., Perrin-Gilbert, N., & Sigaud, O. (2021). First-order and Second-order Variants of the Gradient Descent in a Unified Framework. arXiv preprint arXiv:1810.08102v4.
+
+grid search (그리드 탐색, 그리드 서치, 격자 검색):
+목적함수를 해석적으로 최소화할 수 없는 경우를 생각해 보겠습니다. 매개변수의 개수가 적고(~열 개 이하) 조사하려는 범위가 크지 않을 경우에는 단순히 모든 경우에 대해 목적함수의 값을 계산하는 방법이 있습니다. 
+물론 매개변수 값의 패턴은 (매개변수가 연속 값인 경우에) 무한히 있으므로 모든 값을 계산할 수는 없지만, 적당한 그리드 상에 선을 긋고 조사하면 어디쯤 최적의 값이 있는지 대강 알 수 있습니다(그림 13.2.1).
+머신러닝 분야에서 하이퍼매개변수를 이런 방법으로 조정하는 작업을 그리드 서치(grid search)라고 말합니다.
+— 《데이터 분석을 위한 수리 모델 입문》 13장: https://wikibook.co.kr/math-model/
+
+초매개변수들을 조정하는 방법으로 가장 잘 알려진 것은 격자 검색(grid search)이다. 격자 검색에서는 각 초매개변수에 대해 일단의 값들을 선택한다. 
+가장 간단한 형태의 격자 검색 구성에서는 초매개변수들에 대해 선택된 값들의 모든 조합을 평가해서 최적의 선택을 결정한다. 
+그런데 이러한 절차의 문제점은 격자를 구성하는 점들의 수가 초매개변수의 개수에 지수적으로 증가한다는 것이다. 따라서 초매개변수가 많으면 격자 검색에 많은 시간이 소비된다. 예를 들어 ...
+https://play.google.com/store/books/details?id=BKDHDwAAQBAJ
+
+선형회귀 모델은 최신 알고리즘보다 성능이 떨어지지만, 해석하기 쉽다는 장점이 있습니다. 
+그리고 데이터가 적을 때 상대적으로 강점을 보이는 모델이기도 합니다. 
+이번 분석에서는 릿지와 라쏘 회귀 모델 모두 주어진 범위 내에서 모든 경우의 수를 비교해 최적의 모수를 결정하는 방법인 그리드 탐색(grid search) 방법을 이용해 모델링을 진행하겠습니다.
+코드 1.53 _ batter_OPS_prediction.ipynb – 릿지와 라쏘 회귀 모델
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import GridSearchCV
+https://wikibook.co.kr/dacon/
+
+ground truth (실측 자료):
+날씨 예측에서 공중 탐사 결과를 검증하기 위해 쓰이는 지상 관측소의 실측 자료를 ground-truth라 한다.
+기상과 관련 없는 ML/AI에서도 ground-truth라는 용어를 쓴다.
+ground-truth는 참(true)이 아니라, 이상적이라고 여겨지는 결과다.
+
+<참고 문헌 및 저작권>
+머신러닝을 이용한 고해상도의 "기상예보"강수량 예측: https://brunch.co.kr/@synabreu/29
+[용어정리]Ground-truth: https://eair.tistory.com/16
+〈What is “Ground Truth” in AI? (A warning.)〉: https://towardsdatascience.com/in-ai-the-objective-is-subjective-4614795d179b
+
+
+
+
