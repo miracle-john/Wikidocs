@@ -33,153 +33,161 @@ IG: Information Gain (정보 이득):
 또한, 정보 이득은 특징 선택 과정에서도 사용된다.  
 이는 데이터 세트의 차원을 줄이고 모델의 성능을 향상시키기 위해 가장 관련성 높은 속성을 식별하는 데 도움을 준다.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<참고 문헌 및 저작권>
+Hanane, D. (n.d.). Information Gain (IG) - machinelearning-basics.com. Retrieved from https://machinelearning-basics.com/information-gain-ig/
+ThinkLike.AI. (n.d.). What is information gain. Retrieved from https://thinklike.ai/artificial-intelligence/what-is-information-gain/
+Wikipedia. (n.d.). Information gain (decision tree). Retrieved from https://en.wikipedia.org/wiki/Information_gain_(decision_tree)
+AI Wiki - Artificial Intelligence, Machine Learning Wiki and Guide. (n.d.). Information Gain in Machine Learning. Retrieved from https://aiwiki.ai/wiki/Information_gain
+
+IG: Integrated Gradients (적분 경사, 통합 경사):
+Integrated Gradients란 딥러닝 모델의 예측에 대한 입력 피처의 중요성을 해석하고자 하는 방법이다. 
+Sundararajan, Taly, and Yan,이 2017년에 제안한 이 방법은, 모델의 예측을 해석하기 위한 방법으로서 신경망에서 입력 피처의 기여도를 정량화하는 데 사용된다. 
+이 방법은 모델의 출력을 연속적으로 변화시키는 입력의 경로를 따라 그래디언트를 적분함으로써, 해당 입력 피처가 모델 출력에 어떠한 영향을 미치는지 설명한다.
+
+Integrated Gradients는 모델의 예측이 변경되는 정도를 기여도로 삼는다. 
+이 방법은 모델이 복잡한 예측을 만들어낼 때 그 과정을 이해하고 해석하는 데 매우 유용하다. 
+Integrated Gradients의 장점 중 하나는 피처 중요도의 합계가 특정 입력에 대한 모델의 예측 변화와 일치하는 속성, 
+즉 합계 성질(summation property)을 갖는다는 점이다. 이 특성은 모델 해석이나 디버깅에 큰 도움을 주며, 또한 높은 해석력을 가지는 것으로 인정받았다.
+
+<참고 문헌 및 저작권>
+Sundararajan, Taly, Yan, 《Axiomatic Attribution for Deep Networks》, ICML 2017: https://arxiv.org/abs/1703.01365
+Christoph Molnar, 《Interpretable Machine Learning》, Leanpub: https://christophm.github.io/interpretable-ml-book/
+Integrated Gradients on TensorFlow: https://www.tensorflow.org/tutorials/interpretability/integrated_gradients?hl=ko
+
+Image Captioning (이미지 캡셔닝):
+이미지 캡셔닝 (Image Captioning)은 컴퓨터 비전과 자연어 처리의 교차점에서 이미지의 내용을 자연어로 설명하는 기술이다. 
+이미지 캡셔닝 시스템은 입력 이미지에서 시각적 정보를 추출하고 이를 바탕으로 적절한 설명을 생성한다. 
+이 기술은 주로 자동 사진 설명, 비디오 자막 생성, 웹 접근성 향상 등 다양한 분야에 응용된다.
+
+<기술적 접근 방식>
+주의 메커니즘 (Attention Mechanisms): 초기의 이미지 캡셔닝 모델들은 이미지 전체를 한 번에 처리했으나, 최근에는 주의 메커니즘을 도입하여 이미지의 중요한 부분에 더 집중하도록 개선되었다. 
+이를 통해 모델은 이미지의 특정 부분을 강조하며 설명의 정확성과 일관성을 높인다.
+
+비전-언어 모델 (Vision-Language Models): CLIP, BLIP 등의 모델은 대규모의 이미지-텍스트 쌍 데이터를 사용하여 사전 훈련된 후, 특정 작업에 맞게 미세 조정된다. 
+이러한 모델들은 새로운 객체를 인식하고 설명하는 능력을 크게 향상시킨다.
+
+검색 기반 접근 방식 (Retrieval-Augmented Approaches): EVA-CLIP과 같은 모델은 이미지와 가장 잘 맞는 캡션을 데이터베이스에서 검색하여 사용한다. 
+이를 통해 훈련 데이터에 없는 새로운 객체에 대한 설명도 가능해진다.
+
+<응용 분야>
+이미지 캡셔닝 기술은 다양한 실세계 응용 분야에서 사용된다. 
+예를 들어, 시각 장애인을 위한 이미지 설명, 소셜 미디어의 자동 사진 캡션, 디지털 자산 관리 시스템의 자동 태그 생성 등이 있다. 
+또한, 이미지 캡셔닝은 자율 주행차의 환경 인식 시스템에서도 중요한 역할을 한다.
+
+<참고 문헌 및 저작권>
+He, Z., & Luo, P. (2023). The Solution for the CVPR2024 NICE Image Captioning Challenge. arXiv. https://ar5iv.labs.arxiv.org/html/2404.12739
+Wang, L., & Hu, X. (2024). AI advances in image captioning: Describing images as well as people do. Microsoft Research. https://www.microsoft.com/en-us/research/video/ai-advances-in-image-captioning-describing-images-as-well-as-people-do/
+Chen, X., & Zhang, Y. (2023). Deep Learning Approaches on Image Captioning: A Review. arXiv. https://ar5iv.labs.arxiv.org/html/2201.12944
+Li, J., & Sugimoto, A. (2024). EVCap: Retrieval-Augmented Image Captioning with External Visual–Name Memory for Open-World Comprehension. arXiv. https://ar5iv.labs.arxiv.org/html/2311.15879
+Text Data-Centric Image Captioning with Interactive Prompts, https://ar5iv.labs.arxiv.org/html/2403.19193
+
+Instance Segmentation (인스턴스 세그먼테이션):
+인스턴스 세그먼테이션(Instance Segmentation)은 이미지 내의 각 개체를 개별적으로 구분하고 분할하는 고급 이미지 처리 기술이다. 
+이 과정은 의미론적 세그먼테이션(Semantic Segmentation)과 유사하게 각 픽셀을 특정 카테고리에 할당하지만, 동일한 카테고리 내에서도 개별 객체를 구별한다. 
+예를 들어, 이미지에 여러 대의 자동차가 있을 경우, 인스턴스 세그먼테이션은 각각의 자동차를 별도의 인스턴스로 식별하고 분리한다.
+
+인스턴스 세그먼테이션은 특히 복잡한 장면에서 다수의 중첩되거나 가까이 있는 객체들을 정확하게 구분해야 할 필요가 있는 응용 분야에서 중요하다. 
+이를 위해 딥러닝 기반의 방법, 특히 컨볼루션 신경망(CNN)을 활용한 기술이 널리 사용되고 있다. 
+대표적인 인스턴스 세그먼테이션 모델로는 Mask R-CNN이 있으며, 
+이 모델은 객체 검출(Object Detection)과 세그먼테이션을 동시에 수행하여 각 객체의 정확한 형태와 경계를 파악한다.
+
+<참고 문헌 및 저작권>
+K. He, G. Gkioxari, P. Dollár, R. Girshick, 〈Mask R-CNN〉, IEEE International Conference on Computer Vision (ICCV): https://arxiv.org/abs/1703.06870
+A. Kirillov et al., 《Panoptic Segmentation》, CVPR 2019: https://arxiv.org/abs/1801.00868
+T.-Y. Lin et al., 《Feature Pyramid Networks for Object Detection》, CVPR 2017: https://arxiv.org/abs/1612.03144
+
+Isolation Forest:
+Isolation Forest란 이상치 탐지에 특화된 머신러닝 알고리듬이다. 이 알고리듬은 특정 데이터를 '정상'과 '비정상'으로 분류하는 데 효과적이다.
+
+기존의 통계적 방법이나 클러스터링 기반의 이상치 탐지 알고리듬들은 대부분 데이터의 분포를 가정하거나, 정상 데이터와 이상치 간의 거리를 계산하는 방식을 사용한다. 
+그러나 Isolation Forest는 이와는 다르게 '이상치'가 '정상' 데이터보다 더 빠르게 '분리(Isolation)'될 것이라는 개념을 바탕으로 한다. 
+이는 트리 기반 알고리듬으로, 임의의 특성을 선택하고 선택한 특성의 최대와 최소값 사이의 임의의 분할 값을 선택해 트리를 구성한다. 
+이상치는 정상치에 비해 상대적으로 적은 수의 분할로 분리되기 때문에, 분리에 필요한 경로의 길이를 통해 이상치를 식별할 수 있다.
+
+<참고 문헌 및 저작권>
+Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou, 〈Isolation Forest〉, Proceedings of the 8th IEEE International Conference on Data Mining, 2008: https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf?q=isolation-forest
+Outlier Detection with Isolation Forest, Towards Data Science: https://towardsdatascience.com/anomaly-detection-with-isolation-forest-3d190448d45e
+
+image classcification (이미지 분류):
+이미지 분류(Image Classification)는 디지털 이미지를 분석하여 하나 이상의 카테고리 또는 클래스로 분류하는 컴퓨터 비전의 과정이다. 
+이 과정의 목적은 입력된 이미지가 어떤 종류의 객체나 개념을 나타내는지를 식별하는 것이다. 이미지 분류는 주로 머신러닝, 특히 딥러닝 기술을 활용하여 수행된다. 
+가장 널리 사용되는 딥러닝 모델로는 컨볼루션 신경망(Convolutional Neural Networks, CNN)이 있다. CNN은 이미지의 특징을 자동으로 학습하고, 이를 바탕으로 이미지를 분류하는 데 매우 효과적이다.
+
+이미지 분류 작업은 디지털 이미지에서 객체의 존재 여부, 그리고 해당 객체의 종류를 판별하는 것을 포함한다. 
+이 과정은 소셜 미디어, 의료 영상 분석, 위성 이미지 해석, 보안 시스템 등 다양한 분야에서 중요한 역할을 한다. 
+이미지 분류의 정확도와 효율성은 사용된 모델, 학습 데이터의 품질, 분류하고자 하는 클래스의 복잡성 등에 따라 달라진다.
+
+<참고 문헌 및 저작권>
+A. Krizhevsky, I. Sutskever, G. E. Hinton, 《ImageNet Classification with Deep Convolutional Neural Networks》, NeurIPS 2012: https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+K. He, X. Zhang, S. Ren, J. Sun, 〈Deep Residual Learning for Image Recognition〉, CVPR 2016: https://arxiv.org/abs/1512.03385
+C. Szegedy et al., 《Going Deeper with Convolutions》, CVPR 2015: https://arxiv.org/abs/1409.4842
+
+image segmentation (이미지 세그멘테이션, 이미지 세분화, 이미지 분할):
+이미지 세그멘테이션(Image Segmentation)은 디지털 이미지를 여러 부분 또는 영역으로 분할하는 과정이다. 
+이 과정의 목표는 이미지를 구성하는 픽셀들을 동질적인 특성을 공유하는 부분으로 나누는 것이며, 이는 이미지 분석 및 처리에 있어 중요한 단계이다. 
+이미지 세그멘테이션은 크게 두 가지 주요 유형으로 나뉜다: 의미론적 세그멘테이션(Semantic Segmentation)과 인스턴스 세그멘테이션(Instance Segmentation). 
+의미론적 세그멘테이션은 이미지 내의 픽셀들을 카테고리별로 분류하지만, 개별 인스턴스를 구분하지 않는다. 
+반면, 인스턴스 세그멘테이션은 동일한 카테고리 내의 개별 객체들도 서로 구분한다.
+
+이미지 세그멘테이션 기술은 의료 영상 분석, 자율 주행 차량, 위성 이미지 분석, 비디오 감시 등 다양한 분야에 응용된다. 
+딥러닝, 특히 컨볼루션 신경망(CNN) 기반의 알고리듬들이 이 분야에서 높은 정확도와 효율성을 제공하며, 
+복잡한 이미지에서도 정밀한 세그멘테이션을 수행할 수 있다.
+
+<참고 문헌 및 저작권>
+J. Long, E. Shelhamer, T. Darrell, 《Fully Convolutional Networks for Semantic Segmentation》, IEEE Conference on Computer Vision and Pattern Recognition (CVPR): https://arxiv.org/abs/1411.4038
+K. He, G. Gkioxari, P. Dollár, R. Girshick, 〈Mask R-CNN〉, IEEE International Conference on Computer Vision (ICCV): https://arxiv.org/abs/1703.06870
+O. Ronneberger, P. Fischer, T. Brox, 《U-Net: Convolutional Networks for Biomedical Image Segmentation》, MICCAI 2015: https://arxiv.org/abs/1505.04597
+
+image-to-image translation:
+주어진 이미지의 특정 모습을 다른 모습으로 바꾸는 것. 예를 들면, 얼굴 표정을 웃는 모습에서 찌푸리는 모습으로 바꾸는 것이 있다. 
+이러한 표정 변화 분야는 GAN 이후로 상당히 발전이 되어 왔다. 
+이외에도 머리 색 바꾸기나 선으로 표현된 그림을 사진처럼 바꾸는 task들이 있다.
+— https://simonezz.tistory.com/70
+
+independent variable (독립변수):
+독립 변수(Independent Variable)는 실험 또는 데이터 세트에서 조작되거나 측정되어 종속 변수(응답 변수 또는 결과 변수)에 미치는 영향을 파악하기 위해 사용되는 변수이다. 
+통계 분석 및 기계 학습 분야에서 중요한 역할을 하며, 독립 변수는 종속 변수에 영향을 미칠 것으로 여겨지는 특성 또는 요소이다. 다양한 통계 모델과 기계 학습 알고리즘에서 사용되며, 
+예를 들어, 선형 회귀, 로지스틱 회귀 등에서 중요하게 활용된다.
+
+독립 변수는 수치 변수(양적 데이터를 나타내며 숫자 스케일로 측정할 수 있는 변수), 
+범주형 변수(질적 데이터를 나타내며 데이터 포인트가 속하는 범주나 그룹을 설명하는 변수), 
+순서형 변수(명확한 순서나 랭킹이 있는 범주형 변수), 
+이진 변수(두 개의 범주 또는 수준만 가지는 특별한 유형의 범주형 변수) 등 다양한 유형을 가질 수 있다.
+
+기계 학습에서 독립 변수는 훈련 및 예측을 위해 입력으로 사용되는 특성 또는 속성을 의미한다. 
+이들은 데이터 행렬의 열로서, 다양한 형태(숫자, 순서형, 이진, 범주형 등)로 존재할 수 있다. 독립 변수는 모델 내에서 입력 변수로 사용되며, 
+이를 통해 예측 모델이 구축되어 종속 변수의 값을 예측하게 된다.
+
+선형 회귀 분석에서 독립 변수는 종속 변수와의 관계를 모델링하는데 사용된다.
+
+<참고 문헌 및 저작권>
+DeepAI. (n.d.). Predictor Variable Definition. Retrieved from https://deepai.org/machine-learning-glossary-and-terms/predictor-variable
+Neural Designer. (2023, August 31). Types and uses of variables in machine learning. Retrieved from https://www.neuraldesigner.com/blog/type-uses-variables/
+Built In. (n.d.). Regression in Machine Learning: What It Is & Examples. Retrieved from https://builtin.com/data-science/regression-machine-learning
+
+inference (추론, 인퍼런스):
+인퍼런스(Inference)는 인공 지능(AI) 및 기계 학습(ML) 분야에서 훈련된 모델이 새로운 데이터에 대해 결론을 도출하는 과정을 말한다. 
+모델이 훈련을 통해 배운 정보를 실시간 데이터에 적용하여 예측하거나 작업을 해결하는 과정으로, AI 모델의 '실전' 단계라 할 수 있다. 
+예를 들어, 스팸 이메일을 식별하거나, 대화를 텍스트로 전환하거나, 보고서를 요약하는 등의 작업이 인퍼런스 과정에 해당한다.
+
+이 과정은 모델이 훈련 단계에서 학습한 정보를 바탕으로 새롭고 보지 못한 데이터에 대해 유의미한 결과를 생성하는 것을 포함한다. 
+즉, AI 인퍼런스는 훈련된 기계 학습 모델이 완전히 새로운 데이터로부터 결론을 내리는 능력을 갖추는 것이다.
+
+AI 인퍼런스는 실제 세계의 다양한 시나리오에 모델이 얼마나 효과적으로 일반화할 수 있는지를 결정하는 중요한 단계이다. 
+이 과정은 모델 아키텍처 설계, 특징 추출, 입력 데이터 처리, 그리고 실제로 새로운 데이터에 모델을 적용하는 단계로 구성된다. 
+인퍼런스는 헬스케어, 금융, 자율 주행 차량 등 다양한 산업 분야에서 중요한 역할을 하며, 실시간 데이터 해석 및 적용을 통해 혁신과 효율성을 주도하고 있다.
+
+AI 인퍼런스의 과정은 다음과 같다.
+
+1. 훈련(Training): 모델이 대규모 데이터셋을 통해 패턴을 학습하는 첫 단계.
+2. 모델 아키텍처(Model Architecture): 모델이 정보를 처리하는 방식을 결정하는 설계.
+3. 특징 추출(Feature Extraction): 모델이 작업에 관련된 특정 속성이나 특징을 식별하고 선택하는 과정.
+4. 입력 데이터 처리(Input Data Processing): 새로운 데이터를 모델에 적용하기 전에 올바르게 처리하고 형식을 맞추는 단계.
+5. 전방 통과(Forward Pass): 모델이 새로운 데이터에 대해 학습한 내용을 적용하여 예측이나 결정을 내리는 실제 인퍼런스 단계.
+
+이러한 인퍼런스 과정은 모델이 실세계 데이터에 대해 어떻게 행동하고, 결정을 내릴지 결정하는 핵심 요소이며, 다양한 산업 분야에서 AI의 활용 범위를 넓히는 데 기여한다.
+
+<참고 문헌 및 저작권>
+Martineau, K. (2023, October 5). What is AI inferencing? IBM Research Blog. https://research.ibm.com/blog/AI-inference-explained
+What is AI inference? Cloudflare. https://www.cloudflare.com/ko-kr/learning/ai/inference-vs-training/
+What is Inference? All About AI. https://www.allaboutai.com/ai-glossary/inference-ai/
