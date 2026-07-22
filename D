@@ -402,28 +402,77 @@ Goodfellow et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.
 Chollet François, 〈Deep Learning with Python〉, Manning Publications: https://www.manning.com/books/deep-learning-with-python
 Dense Layer, Keras Documentation: https://keras.io/api/layers/core_layers/dense/
 
+digital image processing (디지털 이미지 프로세싱):
+디지털 이미지 프로세싱(Digital Image Processing)이란 디지털 이미지를 신호 처리하는 분야로서 이미지로부터 유의미한 정보를 얻기 위해 사용되는 일련의 알고리즘을 의미한다. 
+변환, 분류, 탐지, 인식, 검출, 분석, 왜곡, 수정, 향상, 복원, 압축, 필터링 등의 다양한 처리가 가능하다. 
+디지털 이미지는 2차원 배열 형태로 표시할 수 있으므로 2차원 평면 공간에서 이미지의 픽셀 좌표와 픽셀 좌표가 지닌 값을 알 수 있다. 
+이를 대상으로 신호 처리 기법을 사용해 이미지에서 원하는 정보를 얻게 된다. — C#과 파이썬을 활용한 OpenCV4 프로그래밍 1장: https://wikibook.co.kr/opencv4/
 
+discount factor (할인율, 할인 계수):
+할인 계수(Discount Factor)는 강화학습과 관련된 개념으로, 미래의 보상을 현재 가치로 환산할 때 적용되는 계수이다. 일반적으로 감마(γ)로 표현되며, 그 값은 0과 1 사이이다. 
+할인 계수가 적용되는 주된 이유는 미래의 불확실성을 반영하고, 즉각적인 보상을 더 중시하기 위함이다. 
+할인 계수가 0에 가까우면 에이전트는 현재의 보상에 더 큰 가치를 두고, 1에 가까우면 미래의 보상도 현재의 보상만큼 중요하게 여긴다.
 
+할인 계수는 강화학습에서 중요한 역할을 한다. 각각의 에이전트는 최대의 누적 보상을 얻기 위해 행동을 결정하는데, 할인 계수는 이러한 결정에 영향을 미친다. 할인 계수가 낮으면 단기적인 보상에 집중하게 되고, 
+높으면 장기적인 결과를 더 고려하게 된다. 이러한 특성 때문에, 할인 계수는 에이전트의 전략과 학습 결과에 직접적인 영향을 미친다.
 
+<참고 문헌 및 저작권>
+Sutton, Richard S. and Barto, Andrew G., 《Reinforcement Learning: An Introduction》, MIT Press, 2018.: http://incompleteideas.net/book/RLbook2020.pdf
+Kaelbling, Leslie Pack et al., 〈Planning and acting in partially observable stochastic domains〉, Artificial Intelligence, 1998.: https://www.sciencedirect.com/science/article/pii/S000437029800023X
+wikipedia URL: https://en.wikipedia.org/wiki/Discounting#Discount_factor
 
+downstream task (다운스트림 작업):
+다운스트림 작업(downstream tasks)은 AI와 머신러닝에서 사전 학습된 모델을 특정 작업에 맞게 조정하여 활용하는 과정을 의미한다. 
+이러한 작업은 일반적으로 사전 학습된 모델의 출력을 활용하여 보다 구체적이고 특정한 과제를 수행하는 데 사용된다. 다운스트림 작업의 예로는 텍스트 분류, 질의응답, 명명 엔터티 인식(NER), 음성 인식, 이미지 분할 등이 있다.
 
+주요 응용 분야
+자연어 처리 (NLP):
+텍스트 분류: 주어진 텍스트를 미리 정의된 카테고리로 분류하는 작업이다. 예를 들어, 스팸 필터링이나 감성 분석이 포함된다.
+질의응답: 주어진 문맥에서 질문에 대한 답변을 생성하는 작업으로, BERT 모델을 미세 조정하여 사용할 수 있다.
+개체명 인식(NER): 텍스트 내에서 사람, 장소, 조직 등 특정 엔터티를 식별하는 작업이다.
 
+음성 인식:
+음성-텍스트 변환: Wav2Vec 2.0 모델을 사용하여 음성을 텍스트로 변환하는 작업으로, 가상 비서나 자막 생성 등에 사용된다.
 
+컴퓨터 비전:
+이미지 분할: 이미지 내의 객체를 픽셀 단위로 분할하는 작업으로, 자율 주행차의 객체 인식이나 의료 영상 분석에 사용된다.
 
+<도전 과제와 고려 사항>
+데이터 품질과 양: 충분하고 깨끗한 레이블 데이터가 필수적이다. 데이터가 부족하거나 노이즈가 많으면 모델 성능이 저하될 수 있다.
+모델 선택: 특정 다운스트림 작업에 적합한 사전 학습 모델을 선택하는 것이 중요하다. 다양한 모델과 아키텍처를 평가하여 최적의 성능을 찾는 과정이 필요하다.
+미세 조정: 하이퍼파라미터 튜닝 및 훈련 전략이 필요하다. 과적합과 과소적합의 균형을 맞추는 것이 중요하다.
 
+<실제 응용 사례>
+헬스케어: 의료 이미지 분석, 질병 진단, 환자 모니터링 등에서 사전 학습된 모델을 활용하여 정확하고 빠른 진단을 돕는다.
+금융: 사기 탐지, 신용 위험 평가, 알고리즘 트레이딩 등에 사용되며, 사전 학습된 모델을 통해 효율적인 데이터 기반 결정을 내린다.
+자율 주행차: 객체 감지, 차선 분할, 경로 계획 등에 사용되며, 안전하고 신뢰할 수 있는 자율 주행을 가능하게 한다.
+다운스트림 작업은 AI 모델이 실제로 유용하게 활용될 수 있도록 하는 중요한 단계이다. 이를 통해 다양한 산업과 도메인에서 AI의 잠재력을 최대한 발휘할 수 있다.
 
+<참고 문헌 및 저작권>
+https://ai.stackexchange.com/questions/28410/which-tasks-are-called-as-downstream-tasks
+https://www.analyticsvidhya.com/blog/2023/08/adapting-bert-through-fine-tuning-for-downstream-tasks/
+https://techkluster.com/ai/downstream-tasks-ai/
 
+dropout (드롭아웃):
+드롭아웃(Dropout)은 신경망 학습 과정에서 과적합을 방지하기 위해 사용되는 기법이다. 이 방법은 학습 단계마다 무작위로 일부 뉴런을 비활성화(즉, 드롭아웃) 시킴으로써, 
+신경망이 특정 뉴런에 과도하게 의존하는 것을 방지한다. 드롭아웃은 각 학습 단계에서 랜덤하게 선택된 뉴런을 일시적으로 제거함으로써, 네트워크가 더 강건하게 데이터의 다양한 패턴을 학습하도록 돕는다.
 
+드롭아웃은 일반적으로 완전 연결 계층(Fully Connected Layers)에서 주로 사용되지만, 컨볼루션 신경망(CNN)과 같은 다른 유형의 신경망에서도 적용될 수 있다. 
+드롭아웃 비율, 즉 각 학습 단계에서 비활성화할 뉴런의 비율은 하이퍼파라미터로 설정되며, 이 값에 따라 모델의 학습과 일반화 능력이 달라질 수 있다.
 
+<참고 문헌 및 저작권>
+Srivastava, N., et al., 《Dropout: A Simple Way to Prevent Neural Networks from Overfitting》, Journal of Machine Learning Research: https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf
+Goodfellow, I., Bengio, Y., and Courville, A., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
 
+dynamic programming (동적 계획법):
+다이나믹 프로그래밍(Dynamic Programming)은 문제를 여러 하위 문제로 나누어 해결하는 알고리즘 설계 기법이다. 큰 문제를 작은 문제로 분할하여 각 하위 문제의 해를 계산하고, 
+이를 이용하여 상위 문제의 해를 구하는 방식으로 동작한다. 다이나믹 프로그래밍은 하위 문제의 중복 계산을 피하고 최적 부분 구조를 활용하여 효율적인 해결을 가능하게 한다.
 
+다이나믹 프로그래밍은 메모이제이션(Memoization)이라는 기법을 활용하여 계산 결과를 저장하고 재사용하는 방식으로 작동한다. 각 하위 문제의 해를 한 번 계산하고 저장해두면, 
+동일한 하위 문제가 나타날 때마다 계산 과정을 반복하지 않고 저장된 값을 사용하여 빠르게 해를 구할 수 있다.
 
+이 알고리즘 설계 기법은 최적화 문제나 조합 최적화 문제에 주로 적용되며, 그래프 알고리즘, 문자열 처리, 수치해석 등 다양한 분야에서 활용된다.
 
-
-
-
-
-
-
-
-
+<참고 문헌 및 저작권>
+Dynamic Programming (위키백과): https://en.wikipedia.org/wiki/Dynamic_programming
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein, 《Introduction to Algorithms》, MIT Press: https://mitpress.mit.edu/9780262533058/introduction-to-algorithms/
