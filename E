@@ -1,0 +1,177 @@
+EVA-CLIP:
+EVA-CLIP는 대규모 대조적 언어-이미지 사전 학습(Contrastive Language-Image Pretraining, CLIP) 모델 시리즈의 최신 확장판으로, EVA-CLIP-18B 모델이 그 대표적인 예이다. 
+EVA-CLIP-18B는 180억 개의 매개변수를 포함하고 있으며, 다양한 이미지 분류 벤치마크에서 탁월한 성능을 보여준다. 이 모델은 60억 개의 훈련 샘플만을 사용하고도 평균적으로 80.7%의 제로샷(top-1) 정확도를 기록하여, 
+이전 모델인 EVA-02-CLIP-E/14+ 및 기타 오픈소스 CLIP 모델들을 크게 능가한다.
+
+EVA-CLIP의 주요 강점은 효율적인 학습 기술과 데이터 병합 방법에 있다. EVA-CLIP-18B는 Merged-2B+ 데이터셋을 사용하여 학습되었으며, 
+이는 LAION-2B와 COYO-700M 등의 대규모 공개 데이터셋을 통합하여 구성되었다. 이를 통해 다양한 이미지 및 텍스트 검색 작업에서도 우수한 성능을 보이며, 
+Flickr30K와 COCO 데이터셋에서의 제로샷 이미지-텍스트 검색에서도 높은 평균 회수율을 기록한다.
+
+EVA-CLIP 모델들은 2D 및 3D 비전과 멀티모달 모델링을 위한 기반으로 널리 사용되고 있다. 이러한 모델들은 성능 포화 없이 확장 가능하며, 
+다양한 이미지넷 변형 데이터셋에서도 일관된 성능을 유지하는 강점을 가지고 있다. EVA-CLIP 시리즈는 앞으로도 비전 모델의 발전과 연구를 촉진하기 위해 지속적으로 공개될 예정이다.
+
+<참고 문헌 및 저작권>
+Sun, Q., Wang, J., et al. (2024). EVA-CLIP-18B: Scaling CLIP to 18 Billion Parameters. arXiv. Retrieved from https://arxiv.org/abs/2402.04252
+Hassan, S. (2024). Unveiling EVA-CLIP-18B: A Leap Forward in Open-Source Vision and Multimodal AI Models. MarkTechPost. Retrieved from https://www.marktechpost.com/2024/02/16/unveiling-eva-clip-18b-a-leap-forward-in-open-source-vision-and-multimodal-ai-models/
+BAAI (2024). EVA-CLIP-18B Model Card. Hugging Face. Retrieved from https://huggingface.co/BAAI/EVA-CLIP-18B
+
+Entropy (엔트로피):
+엔트로피(Entropy)란 정보 이론에서 정보의 불확실성이나 무질서도를 측정하는 지표이다. 확률 변수의 가능한 모든 상태에 대한 정보를 고려하여, 그 상태가 발생할 확률에 따라 가중치를 더한 값이다. 상황이 더 불확실하거나 무질서하다면 엔트로피 값은 높아지고, 반대로 상황이 더 확실하거나 질서 정연하다면 엔트로피 값은 낮아진다.
+
+또한, 머신러닝에서는 엔트로피를 손실 함수로 사용하여 모델이 예측한 결과와 실제 값의 차이를 측정하기도 한다. 여기서 손실 함수의 역할은 모델의 예측이 얼마나 틀렸는지를 나타내는 척도로, 이 값을 최소화하는 방향으로 모델을 훈련한다.
+
+<참고 문헌 및 저작권>
+Shannon, Claude E., 《A Mathematical Theory of Communication》, Bell System Technical Journal: https://archive.org/details/bstj27-3-379
+Nielsen, Michael A., 《Neural Networks and Deep Learning》, Determination Press: http://neuralnetworksanddeeplearning.com/chap3.html
+Wikipedia Article on Entropy: https://en.wikipedia.org/wiki/Entropy_(information_theory)
+
+Explained Variance:
+Explained Variance란 다변량 통계에서 주성분 분석(PCA)의 결과를 설명하는 측정 지표이다. 이것은 각 주성분이 데이터의 분산을 얼마나 설명하는지를 나타내며, 데이터 내에서 이러한 주성분의 상대적 중요도를 비교하는데 사용된다.
+
+이는 원래의 데이터 공간에서 변환된 새로운 특징 공간의 각 축(즉, 각 주성분)에 대한 분산을 측정하며, 이는 해당 축이 데이터의 변동을 얼마나 잘 설명하는지를 나타낸다. 
+각 주성분의 explained variance는 다른 모든 주성분들과 합쳐져 전체 데이터의 분산을 구성하며, 따라서 모든 주성분의 explained variance의 합은 원래 데이터의 전체 분산과 같다.
+
+<참고 문헌 및 저작권>
+Jolliffe, I., 《Principal Component Analysis》, Springer: https://link.springer.com/book/10.1007/978-1-4757-1904-8
+James, G., Witten, D., Hastie, T., & Tibshirani, R., 《An Introduction to Statistical Learning》, Springer: https://link.springer.com/book/10.1007/978-1-4614-7138-7
+Principal Component Analysis Explained Visually: https://setosa.io/ev/principal-component-analysis/
+
+Exploding Gradient (그래디언트 폭발):
+폭발하는 그래디언트(Exploding Gradient)란 딥러닝 모델, 특히 심층 신경망에서 발생할 수 있는 문제이다. 학습 중인 신경망에서 그래디언트는 각 층을 통해 역전파되면서 연산된다. 
+그러나 때때로 이 그래디언트가 너무 커져서 제어할 수 없게 되는 경우가 있는데 이를 폭발하는 그래디언트 문제라고 한다. 이 문제는 수치적 불안정성을 초래하며, 
+이로 인해 모델의 학습 과정이 불안정해지거나 심지어는 실패할 수 있다.
+
+폭발하는 그래디언트는 주로 순환 신경망(Recurrent Neural Networks, RNN)과 같은 시퀀스 처리 모델에서 흔히 발생한다. 이는 RNN의 연산 과정에서 시간을 거슬러 가며 그래디언트를 역전파하는 방식 때문인데, 
+이런 방식은 그래디언트가 시간에 따라 기하급수적으로 증가할 가능성을 가지고 있다. 이 문제를 해결하기 위해 그래디언트 클리핑(Gradient Clipping)과 같은 여러 기법이 사용된다.
+
+<참고 문헌 및 저작권>
+Goodfellow, I., Bengio, Y., Courville, A., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Pascanu, R., Mikolov, T., Bengio, Y., 〈On the difficulty of training Recurrent Neural Networks〉, 28th International Conference on Machine Learning, 2013: https://arxiv.org/abs/1211.5063
+Exploding gradients and how to prevent them
+
+early stopping (조기 중단):
+Early Stopping은 기계학습에서 과적합(overfitting)을 방지하기 위해 사용되는 정규화(regularization) 형태이다. 이 방법은 반복적인 학습 방법, 
+예를 들어 경사 하강법(gradient descent)과 같은 방법을 사용하여 학습하는 학습자를 조기에 멈추게 함으로써 과적합을 방지한다. 
+이러한 방법들은 각 반복마다 학습 데이터에 더 잘 맞도록 학습자를 업데이트하는데, 이 과정이 일정 지점까지는 학습자의 데이터에 대한 성능을 향상시키지만, 과도한 학습은 과적합으로 이어질 수 있다.
+
+Early Stopping은 딥 뉴럴 네트워크에 대한 정규화 기법으로도 널리 사용된다. 학습 도중 파라미터 업데이트가 검증 세트(validation set)에서의 개선을 더 이상 가져오지 않을 때 학습을 멈춘다. 
+이 기법은 학습 과정을 제한함으로써 최적화 절차를 더 작은 파라미터 공간으로 제한하는 정규화 역할을 한다. 이는 과적합을 방지하는 데 도움이 된다.
+
+Early Stopping을 구현할 때는 여러 설정을 고려해야 한다. 예를 들어, min_delta 인자를 통해 성능 측정 지표가 얼마나 개선되어야 실제로 개선된 것으로 간주할지를 설정할 수 있다. 
+또한, baseline 인자를 설정하여 특정 기준이나 임계값을 넘어서야 학습을 멈추게 할 수도 있다. 이러한 설정은 모델이 특정 수준의 성능에 도달했을 때 더 이상 학습이 필요 없음을 알려줄 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Early stopping. Retrieved from https://en.wikipedia.org/wiki/Early_stopping
+Papers With Code. (n.d.). Early Stopping. Retrieved from https://paperswithcode.com/method/early-stopping
+Brownlee, J. (n.d.). Use Early Stopping to Halt the Training of Neural Networks At the Right Time. MachineLearningMastery. Retrieved from https://machinelearningmastery.com/how-to-stop-training-deep-neural-networks-at-the-right-time-using-early-stopping/
+
+embedding (임베딩):
+임베딩(embedding)은 다차원의 데이터를 보다 낮은 차원의 공간으로 표현하는 방법이다. 특히 자연어 처리에서는 단어, 문장, 문단 등의 텍스트 데이터를 수치화된 벡터 형태로 변환하는 과정을 의미한다. 
+이렇게 변환된 벡터는 단어나 문장의 의미적, 문맥적 유사성을 반영하여 기계 학습 모델이 텍스트 데이터를 더 잘 이해하고 처리할 수 있도록 돕는다. 
+예를 들어, '왕'과 '여왕'과 같이 의미적으로 관련된 단어들은 벡터 공간에서 서로 가까운 위치에 임베딩될 가능성이 높다.
+
+임베딩 기법에는 다양한 종류가 있는데, 가장 널리 알려진 것으로는 워드 임베딩(Word Embedding)이 있다. 워드 임베딩 방법론 중에서도 Word2Vec, GloVe(Global Vectors for Word Representation) 같은 모델이 대표적이다. 
+또한, 문장이나 문단을 임베딩하는 방법으로는 BERT와 같은 트랜스포머 기반 모델이 있다. 이러한 임베딩 기법들은 텍스트 데이터를 다루는 다양한 응용 분야에서, 
+예를 들어 감성 분석, 텍스트 분류, 기계 번역 등에서 핵심적인 역할을 한다.
+
+<참고 문헌 및 저작권>
+Mikolov, et al., 《Efficient Estimation of Word Representations in Vector Space》, arXiv: https://arxiv.org/abs/1301.3781
+Pennington, et al., 《GloVe: Global Vectors for Word Representation》, Stanford University: https://nlp.stanford.edu/pubs/glove.pdf
+Devlin, et al., 《BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding》, arXiv: https://arxiv.org/abs/1810.04805
+
+end-to-end learning (엔드 투 엔드 학습, 종단 간 학습):
+End-to-end learning은 인공지능(AI) 및 머신러닝(ML)에서 데이터를 입력부터 최종 출력까지 중간 단계 없이 처리하는 접근 방식을 말한다. 
+이 방식은 전통적인 머신러닝에서 필요한 특징 추출(feature extraction) 및 수작업 공정을 생략하고, 모델이 데이터로부터 직접 학습하여 결과를 도출하도록 한다.
+End-to-end learning은 주로 대량의 레이블된 데이터를 활용해, 입력 데이터에서 원하는 출력으로 직접 매핑하도록 모델을 훈련시키는 것이다. 
+이는 컨볼루션 신경망(CNN)이나 순환 신경망(RNN)과 같은 딥러닝 기법을 사용해 이루어진다. 
+이러한 접근 방식은 중간 단계의 특징 공정을 생략하고, 모델이 데이터를 통해 자체적으로 유용한 특징을 학습하게 한다.
+
+<응용 분야>
+End-to-end learning은 다양한 분야에서 혁신적인 성과를 보여주고 있다.
+
+컴퓨터 비전: 이미지 분류, 객체 탐지 등에서 기존의 복잡한 특징 추출 단계를 없애고, 원본 이미지 데이터를 직접 처리해 성능을 극대화하고 있다.
+
+자연어 처리(NLP): 기계 번역, 음성 인식 등에서 입력된 원시 데이터를 직접 학습하여 정확도를 높이고 있다. 이러한 모델은 인간과 보다 자연스럽게 상호작용할 수 있도록 돕는다.
+
+자율주행차: 테슬라의 최신 자율주행 시스템은 end-to-end neural net을 사용해 차량의 모든 반응을 학습하고, 사람처럼 도로 상황에 대응할 수 있게 되었다.
+
+<장점과 한계>
+End-to-end learning의 주요 장점은 효율성과 적응력이다. 수작업 특징 추출이 필요 없기 때문에 모델이 더 효율적으로 작동하며, 데이터의 변화를 스스로 학습하여 적응할 수 있다. 
+그러나 이러한 접근 방식은 대량의 레이블된 데이터가 필요하고, 모델의 내부 작동을 해석하거나 디버깅하기 어렵다는 단점도 존재한다.
+
+<참고 문헌 및 저작권>
+Deepgram. (2024). End-to-end Learning. Retrieved from https://deepgram.com/ai-glossary/end-to-end-learning
+TEDAI San Francisco. (2024). What is end-to-end learning in AI? Retrieved from https://tedai-sanfrancisco.ted.com/glossary/end-to-end-learning/
+Analytics Vidhya. (2024). Tesla Releases Full Self-Driving with End-to-End AI. Retrieved from https://www.analyticsvidhya.com/blog/2024/01/tesla-releases-full-self-driving-with-end-to-end-ai/
+Wayve. (2024). The Road to Embodied AI. Retrieved from https://wayve.ai/thinking/road-to-embodied-ai/
+https://ai.stackexchange.com/questions/16575/what-does-end-to-end-training-mean
+
+ensemble learning (앙상블 학습):
+앙상블(Ensemble) 학습은 여러 학습 알고리듬을 결합하여 단일 알고리듬만을 사용할 때보다 더 나은 예측 성능을 얻는 기계 학습의 방법이다. 
+이 방법은 각각의 학습 알고리듬(기본 모델이라고 함)으로부터의 예측을 통합함으로써, 보다 정확하고 견고한 예측을 생성한다. 
+기본 모델들은 단일 모델링 알고리듬을 사용하거나 여러 다른 알고리듬을 사용하여 구성될 수 있으며, 목표는 동일한 모델링 작업에 대해 성능이 약한 모델들의 다양한 컬렉션을 훈련시키는 것이다.
+
+앙상블 학습의 주요 기법으로는 보팅(voting), 배깅(Bagging), 부스팅(Boosting), 스태킹(Stacking)/블렌딩(Blending)이 있으며, 
+이 기법들은 기본 모델들 사이에 높은 다양성을 유도하여 합성 모델의 변동성을 높인다. 
+배깅은 "부트스트랩 집계"의 약자로, 훈련 데이터로부터 무작위 샘플을 생성하여 동일 모델을 각기 다른 샘플에 적합시키는 방식으로 다양성을 생성한다. 
+부스팅은 이전 기본 모델의 오류에 가중치를 두어 순차적으로 다음 기본 모델을 훈련시키는 반복 과정을 따르며, 최종 모델 오류를 줄이는 데 목적이 있다. 
+스태킹은 독립적으로 훈련된 다양한 기본 모델들을 결합하는 것으로, 합성 모델을 생성한다.
+
+앙상블 학습은 다양한 분야에서 널리 활용되며, 그중 일부 예로는 랜덤 포레스트(Random Forests), 부스팅 트리 모델(Boosted Tree-Models), 그래디언트 부스팅 트리 모델(Gradient Boosted Tree-Models)이 있다. 
+특히, 스태킹은 특정 작업에 더 맞춤화된 모델을 결합하는 데 사용된다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Ensemble learning. In Wikipedia. Retrieved from https://en.wikipedia.org/wiki/Ensemble_learning
+V7 Labs. (n.d.). Ensemble Learning: Methods, Techniques & Examples. Retrieved from https://www.v7labs.com/blog/ensemble-learning-methods
+
+environment (환경):
+환경: 에이전트가 아닌 모든 것; 에이전트가 직접적이든 간접적이든 상호작용할 수 있는 모든 것.
+에이전트가 행동을 수행함에 따라 환경은 변화하며, 이러한 모든 변화는 상태 전환으로 간주된다. 에이전트가 수행하는 모든 행동은 에이전트가 얻는 보상을 낳는다. 
+Environment: Everything which isn’t the Agent; everything the Agent can interact with, either directly or indirectly. 
+The environment changes as the Agent performs actions; every such change is considered a state-transition. Every action the Agent performs yields a reward received by the Agent. 
+— The Complete Reinforcement Learning Dictionary: https://towardsdatascience.com/the-complete-reinforcement-learning-dictionary-e16230b7d24e#f366
+
+episode (에피소드):
+에피소드: 초기 상태와 종결 상태 사이에 있는 모든 상태를 말합니다. 예를 들어, 체스 한 판이 이에 해당합니다. 에이전트의 목표는 에피소드 동안 얻는 총 보상을 극대화하는 것입니다. 
+종결 상태가 없는 상황에서는 무한 에피소드로 간주합니다. 서로 다른 에피소드들은 서로 완전히 독립적이라는 점을 기억하는 것이 중요합니다.
+Episode: All states that come in between an initial-state and a terminal-state; for example: one game of Chess. 
+The Agent’s goal it to maximize the total reward it receives during an episode. In situations where there is no terminal-state, we consider an infinite episode. 
+It is important to remember that different episodes are completely independent of one another. 
+— The Complete Reinforcement Learning Dictionary: https://towardsdatascience.com/the-complete-reinforcement-learning-dictionary-e16230b7d24e
+
+epoch (에포크, 에폭, 세, 세대):
+전체 과정에서 하나의 훈련 자료점(훈련점)이 여러 번 입력될 수 있다. 각 반복 주기를 세(epoch; 또는 세대, 시대)라고 부른다.
+— 《신경망과 심층학습》: https://play.google.com/store/books/details?id=BKDHDwAAQBAJ
+
+전체 데이터 세트의 각 예를 한 번씩 확인한 전체 학습 단계입니다. 따라서 한 세대(이폭)는 N/배치 크기 학습 반복을 나타내며, 여기에서 N은 총 예시 수입니다.
+— 구글 머신러닝 용어집: https://developers.google.com/machine-learning/glossary?hl=ko
+
+전체 훈련 집합을 1회 반복하는 것을 세대(epoch)라고 한다.
+— 《실전! 텐서플로 2를 활용한 딥러닝 컴퓨터 비전》 1장: https://wikibook.co.kr/dl-vision/
+
+explanatory variable (설명 변수):
+두 변수의 관계에서 설명을 하는 변수를 설명변수(explanatory variable)라 하고 이에 반응하는 변수를 반응변수(response variable)라고 합니다.
+— https://enook.jbnu.ac.kr/contents/39/#!/p/20
+
+exploitation:
+주어진 정보를 가지고 최선의 결정을 내리는 것을 말한다.
+
+<참고 문헌 및 저작권>
+https://wonwooddo.tistory.com/89
+
+exploration-exploitation trade-off (탐색-활용 트레이드오프):
+활용(exploitation)은 주어진 정보를 가지고 최선의 결정을 내리는 것을 말하며, 탐색(exploration)은 정보를 더 수집하는 것을 말한다.
+
+이미 아는 것을 선택함으로써 예상과 가까운 결과를 얻는 '활용'과 확실치 않은 것을 선택해서 배움을 얻는 '탐색' 중 무엇을 선택할지에 대한 딜레마, 
+즉 트레이드오프(trade-off)가 발생한다.
+
+[강화학습 9강] Exploration and Exploitation: https://wonwooddo.tistory.com/89
+The exploration-exploitation trade-off: intuitions and strategies: https://towardsdatascience.com/
+Fundamentals of learning: the exploration-exploitation trade-off
+
+ϵ-greedy (ϵ 탐욕):
+ϵ 탐욕(ϵ-greedy) 알고리즘은 시행들을 크게 낭비하지 않고 최적의 전략을 사용하기 위한 것이다. 간단히 설명하자면, 이 알고리즘은 전체 시행 중 비율 ϵ만큼의 시행들을 탐색에 사용한다. 
+탐색 시행들 역시 전체 시행 중에서 무작위로(ϵ의 확률로) 선택한다. 따라서 탐색 시행들과 활용 시행들이 섞인 형태가 된다. 
+전체의 (1-ϵ) 비율에 해당하는 나머지 활용 시행들은 그때까지 평균 지급액이 가장 큰 슬롯머신을 돌리는 데 사용한다. 이 접근 방식의 중요한 장점 하나는 잘못된 전략에 영원히 발이 묶이는 일이 없다는 것이다. 
+또한, 활용 단계가 일찍 시작하기 때문에 전체 과정 중 상당 부분에서 최선의 전략을 사용하게 될 가능성이 크다.
+— 《신경망과 심층학습》 p.548: https://play.google.com/store/books/details?id=BKDHDwAAQBAJ
