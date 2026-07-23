@@ -1,0 +1,201 @@
+L2 normalization (L2 정규화, L2 노멀라이제이션):
+L2 정규화(L2 normalization)는 벡터의 각 요소의 제곱합의 제곱근으로 벡터의 크기를 조정하는 방법이다. 
+이는 유클리드 거리(Euclidean norm)로도 알려져 있으며, 기계학습과 데이터 사이언스 분야에서 중요한 전처리 단계 중 하나로 사용된다. 
+이 과정을 통해 데이터는 더 작은 범위 내로 스케일링되며, 이는 특히 입력 특성의 스케일이 다른 경우 기계 학습 알고리즘의 수렴 속도를 높이고 성능을 개선하는 데 도움이 된다.
+
+L2 정규화는 또한 L2 규제(ridge regression)에 사용되어 모델의 과적합을 방지하고 일반화 능력을 향상시키는 데 기여한다. 
+L2 규제는 모델의 손실 함수에 패널티 항을 추가하여 모델이 더 작고 균일하게 분포된 계수를 가지도록 유도한다. 
+이는 선형 회귀, 로지스틱 회귀, 신경망 및 서포트 벡터 머신과 같은 다양한 기계 학습 알고리즘에서 널리 사용된다.
+
+L2 정규화는 L1 정규화와 대비되며, 각 방법은 서로 다른 특성과 용도를 가지고 있다. 
+L1 정규화는 해결책에서 희소성을 촉진하며, 일부 계수를 정확히 0으로 만들어 특성 선택과 모델 해석성을 향상시킨다. 
+반면, L2 정규화는 해결책에서 희소성을 촉진하지 않으며 모든 계수에 걸쳐 패널티를 분배하여 보다 균형 잡힌 해결책을 제공한다. 
+정규화 기법의 선택은 특정 기계 학습 작업의 요구 사항에 따라 달라진다. 예를 들어, 
+특성 선택과 모델의 해석 가능성이 중요한 경우 L1 정규화를 선택할 수 있으며, 
+과적합을 방지하고 일반화 능력을 개선하는 것이 주된 관심사인 경우 L2 정규화를 선택할 수 있다.
+
+<참고 문헌 및 저작권>
+Jason Brownlee. (n.d.). Gentle Introduction to Vector Norms in Machine Learning. MachineLearningMastery. https://machinelearningmastery.com/vector-norms-machine-learning/
+NISHANT TIWARI. (2024, January 24). Vector Norms in Machine Learning: Decoding L1 and L2 Norms. Analytics Vidhya. https://www.analyticsvidhya.com/blog/2024/01/vector-norms-in-machine-learning-decoding-l1-and-l2-norms/
+Normalization. (2023, March 18). AI Wiki - Artificial Intelligence, Machine Learning Wiki and Guide. https://aiwiki.ai/wiki/Normalization
+
+L2 regularization (L2 규제, L2 정규화):
+L2 규제
+L2 정규화(Regularization)는 머신 러닝 모델의 과적합(overfitting)을 방지하기 위해 손실 함수(loss function)에 추가되는 패널티 항이다. 
+이 방법은 리지 회귀(ridge regression)라고도 하며, 모델의 가중치(weights)의 제곱합에 대한 패널티를 적용함으로써, 모델 가중치의 크기를 가능한 작게 유지하려고 한다. 
+L2 정규화는 각 특성(feature)이 출력에 미치는 영향을 낮게 유지하면서도 모델의 정확도를 최대한 높이려는 목표를 가지고 있다.
+
+L2 정규화를 적용한 회귀 모델은 손실 함수에 모델의 가중치의 제곱합을 더해 수정한다. 
+이때, 람다(λ)라는 정규화 강도를 조절하는 하이퍼파라미터를 사용하여 정규화의 강도를 조절할 수 있다. 
+람다 값이 크면 클수록 모델의 가중치가 더 많이 축소되어, 과적합을 방지하는 효과가 커지지만, 
+너무 큰 값을 사용하면 모델이 과소적합(underfitting)될 위험이 있다.
+
+L2 정규화는 특히 대규모의 특성 세트를 다룰 때 유용하며, 모델의 복잡성을 줄이고 과적합을 방지하는 데에 효과적이다. 
+그러나 L2 정규화는 특성 선택(feature selection)에는 적합하지 않으며, 이 경우 L1 정규화가 더 자주 사용된다. 
+L1 정규화는 중요도가 낮은 특성의 계수를 정확히 0으로 만들어 해당 특성을 모델에서 제외시킬 수 있기 때문이다.
+
+L2 규제를 포함하는 손실 함수
+L2 규제를 포함하는 손실 함수는 기본 손실 함수에 가중치의 제곱합(L2 노름)에 비례하는 패널티 항을 추가함으로써 모델의 복잡도를 제어한다. 
+이를 통해 과적합을 방지하고 모델의 일반화 능력을 향상시킬 수 있다.
+결과적으로 모델이 덜 복잡한 패턴을 학습하고 더 일반적인 예측을 수행하도록 돕는다.
+
+<참고 문헌 및 저작권>
+Nagpal, A. (2022, January 5). L1 and L2 Regularization Methods, Explained. Built In. https://builtin.com/data-science/l2-regularization
+DataQuest. (n.d.). Regularization in Machine Learning (with Code Examples). https://www.dataquest.io/blog/regularization-in-machine-learning/
+E2E Networks. (2024, March 22). Regularization in Deep Learning: L1, L2 & Dropout. https://www.e2enetworks.com/blog/regularization-in-deep-learning-l1-l2-dropout
+이관수, 서울사이버대학교 머신러닝 5주차 수업
+
+LAS: Listen, Attend and Spell:
+Listen, Attend and Spell (LAS)은 음성 인식에서 사용되는 심층 학습 기반의 시퀀스-투-시퀀스(sequence-to-sequence) 모델이다. 
+이 모델은 음성 신호를 텍스트로 변환하는 과정을 "듣기(Listen)", "주의(Attend)", 그리고 "철자하기(Spell)"의 세 단계로 나눈다. 
+"듣기" 단계에서는 음성 신호를 인코더를 사용하여 특징 벡터로 변환한다. 
+"주의" 단계에서는 주의 메커니즘을 통해 이 특징 벡터들 중 어떤 부분에 집중할지 결정한다. 
+마지막으로 "철자하기" 단계에서는 디코더를 사용하여 최종적인 텍스트 출력을 생성한다.
+
+LAS 모델은 기존의 음성 인식 시스템과 달리 별도의 음소나 단어 경계를 식별할 필요 없이, end-to-end 방식으로 직접 음성에서 텍스트를 생성한다. 
+이는 모델 구조를 단순화시키고, 학습 및 추론 과정을 효율적으로 만든다. 
+또한, 주의 메커니즘을 통해 음성 신호의 어떤 부분이 현재 출력되는 텍스트와 가장 관련이 깊은지를 동적으로 결정함으로써, 더 정확하고 자연스러운 인식 결과를 도출한다.
+
+<참고 문헌 및 저작권>
+Chan, W., Jaitly, N., Le, Q., & Vinyals, O., 《Listen, Attend and Spell》, arXiv preprint arXiv:1508.01211: https://arxiv.org/abs/1508.01211
+〈Sequence-to-Sequence Models〉, TensorFlow Tutorial
+〈Attention Mechanism in Deep Learning〉, Distill: https://distill.pub/2016/augmented-rnns/
+
+LDA: Latent Dirichlet Allocation (잠재 디리클레 할당):
+토픽 모델링은 문서의 집합에서 토픽을 찾아내는 프로세스를 말합니다. 
+이는 검색 엔진, 고객 민원 시스템 등과 같이 문서의 주제를 알아내는 일이 중요한 곳에서 사용됩니다. 
+잠재 디리클레 할당(Latent Dirichlet Allocation, LDA)은 토픽 모델링의 대표적인 알고리즘입니다. 줄여서 LDA라고 합니다.
+LDA는 문서들은 토픽들의 혼합으로 구성되어져 있으며, 토픽들은 확률 분포에 기반하여 단어들을 생성한다고 가정합니다. 
+데이터가 주어지면, LDA는 문서가 생성되던 과정을 역추적합니다.
+— 《딥 러닝을 이용한 자연어 처리 입문》: https://wikidocs.net/30708
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
