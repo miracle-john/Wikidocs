@@ -149,70 +149,476 @@ UBIAI Tools. (2024). Masked Language Model: labeling and training. UBIAI Tools. 
 ChatGPT Guide. (2024). What is Masked Language Model: LLMs Explained. ChatGPT Guide. Retrieved from https://www.chatgptguide.ai/2024/02/29/what-is-masked-language-model-llms-explained/
 
 MLP: multilayer perceptron (다층 퍼셉트론):
-MLP(Multi-Layer Perceptron)란 지도학습에 사용되는 인공 신경망의 한 형태이다. MLP는 일반적으로 최소 하나 이상의 비선형 은닉 계층을 포함하며, 이러한 계층은 학습 데이터에서 복잡한 패턴을 추출하는 데 도움이 된다. MLP는 주로 분류 및 회귀 문제에 적용되며, 그 학습 알고리즘으로 역전파가 주로 사용된다.
+MLP(Multi-Layer Perceptron)란 지도학습에 사용되는 인공 신경망의 한 형태이다. MLP는 일반적으로 최소 하나 이상의 비선형 은닉 계층을 포함하며, 이러한 계층은 학습 데이터에서 복잡한 패턴을 추출하는 데 도움이 된다. 
+MLP는 주로 분류 및 회귀 문제에 적용되며, 그 학습 알고리즘으로 역전파가 주로 사용된다.
+
+MLP는 입력 계층, 하나 이상의 은닉 계층, 그리고 출력 계층으로 구성된다. 
+각 계층은 노드(또는 뉴런)로 구성되며, 이들은 다음 계층에 있는 노드로 완전히 연결되어 있다. 
+MLP의 핵심 개념은 "깊이" 혹은 "층"에 있는데, 이는 복잡한 패턴을 학습하는 데 필요한 노드의 개수와 결합의 복잡성을 증가시킨다.
+
+<참고 문헌 및 저작권>
+Ian Goodfellow, Yoshua Bengio, Aaron Courville, 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Christopher M. Bishop, 《Pattern Recognition and Machine Learning》, Springer
+Multi-layer Perceptron Wikipedia page: https://en.wikipedia.org/wiki/Multilayer_perceptron
+
+MMLU: Massive Multitask Language Understanding:
+MMLU(Massive Multitask Language Understanding)는 사전 훈련 동안 습득한 지식을 평가하기 위해 설계된 벤치마크이다. 
+이 벤치마크는 모델의 언어 이해 능력을 다방면에서 측정하며, 주로 zero-shot 및 few-shot 설정에서 모델을 평가한다. 
+MMLU는 인문학, 사회과학, 자연과학 및 기타 전문 지식 분야를 포함한 57개의 과목에 걸쳐 다양한 수준의 질문을 제공하여 모델의 이해도를 측정한다.
+
+MMLU의 주요 특징 중 하나는 광범위한 주제와 깊이를 다룬다는 점이다. 
+예를 들어, 고등학교 수준의 수학 및 생물학부터 대학 수준의 물리학, 전문 의학 지식까지 다양한 과목을 포함한다. 
+이는 모델이 특정 분야에서의 이해도와 지식 적용 능력을 평가할 수 있게 해준다. 
+또한, MMLU는 각 주제별로 최소 100개의 텍스트 예제를 포함하고 있어 모델의 약점을 파악하는 데 유용하다.
+
+<참고 문헌 및 저작권>
+Hendrycks, D., Burns, C., Basart, S., Zou, A., Mazeika, M., Song, D., & Steinhardt, J. (2021). Measuring Massive Multitask Language Understanding. GitHub. Retrieved from GitHub Repository.: https://github.com/standardgalactic/mmlu
+Papers With Code. (2024). MMLU Dataset. Retrieved from Papers With Code.: https://huggingface.co/datasets/cais/mmlu
+Deepgram. (2024). MMLU: Better Benchmarking for LLM Language Understanding. Retrieved from Deepgram.: https://deepgram.com/learn/mmlu-llm-benchmark-guide
+
+MNIST:
+손으로 쓴 글자 이미지를 분류하는(즉, 이미지에 0이 포함돼 있는지 1이 포함되어 있는지 등을 인식하는) 일은 컴퓨터 비전 분야에서는 오래된 문제다. 
+7만 개의 흑백 숫자 이미지(28×28픽셀)를 포함하고 있는 MNIST(Modified National Institute of Standards and Technology) 데이터셋이 수년간 이 인식 문제를 해결하는 기법을 테스트하기 위한 참고자료로 사용됐다
+(얀 르쿤[Yann LeCun]과 코리나 코르테스[Corinna Cortes]가 다음 이미지의 데이터셋에 대한 저작권을 보유하고 있다). — 《실전! 텐서플로 2를 활용한 딥러닝 컴퓨터 비전》 1장: https://wikibook.co.kr/dl-vision/
+
+지도학습 분류 태스크 튜토리얼로 자주 사용되는 MNIST(Modified National Institute of Standards and Technology) 분류기를 파이토치로 구현해 보겠다. 
+MNIST는 미국 통계국 직원과 고등학생이 쓴 숫자 손글씨 이미지를 모은 데이터다. 훈련 데이터 6만 건, 테스트 데이터 1만 건으로 구성돼 있다. — 《PyTorch를 활용한 강화학습/심층강화학습 실전 입문》 4장: https://wikibook.co.kr/pytorch-drl/
+
+MSE: Mean Squared Error (평균 제곱 오차):
+평균 제곱 오차(Mean Squared Error, MSE)는 실제 값과 예측된 값의 차이를 제곱한 값들의 평균으로 정의된다. 
+이는 회귀 문제에서 모델의 성능을 평가하는 데 널리 사용되는 지표 중 하나이다. 
+MSE는 예측된 값들이 실제 값에 얼마나 가까운지를 측정하며, 값이 작을수록 모델의 예측 정확도가 높음을 의미한다.
+
+MSE의 주요 이점은 모든 오차들이 긍정적으로 처리되어 오차의 크기를 과장함으로써 모델이 큰 오차를 더 크게 처벌하도록 한다는 점이다. 
+하지만 이로 인해 이상치(outliers)에 매우 민감하며, 극단적인 값들은 MSE를 크게 증가시킬 수 있다. 
+또한, MSE는 불균형 데이터에 대한 모델의 일반화 및 공정성에 부정적인 영향을 미칠 수 있다는 단점이 있다. 
+이러한 문제를 해결하기 위해 균형 잡힌 MSE와 같은 대안적인 손실 함수가 제안되기도 했다.
 
-MLP는 입력 계층, 하나 이상의 은닉 계층, 그리고 출력 계층으로 구성된다. 각 계층은 노드(또는 뉴런)로 구성되며, 이들은 다음 계층에 있는 노드로 완전히 연결되어 있다. MLP의 핵심 개념은 "깊이" 혹은 "층"에 있는데, 이는 복잡한 패턴을 학습하는 데 필요한 노드의 개수와 결합의 복잡성을 증가시킨다.
+실제 적용 예로, MSE는 통신 분야에서 전체 이중 OFDM 시스템의 채널 추정기 성능 분석, 컴퓨터 비전 분야에서 불균형 시각 회귀 작업을 위한 모델 성능 개선 등 다양한 산업 분야와 사용 사례에서 중요한 역할을 한다.
 
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Mean squared error. Retrieved from https://en.wikipedia.org/wiki/Mean_squared_error
+Activeloop. (n.d.). What is Mean Squared Error (MSE). Retrieved from https://www.activeloop.ai/resources/glossary/mean-squared-error-mse/
+
+MT: Machine Translation (기계 번역):
+기계 번역(Machine Translation, MT)은 컴퓨터 소프트웨어를 사용하여 하나의 자연어에서 다른 자연어로 텍스트 또는 음성을 자동으로 번역하는 과정이다. 
+이 기술의 목표는 인간 번역가 없이도 문서, 웹 페이지, 대화 등을 다른 언어로 정확하고 자연스럽게 번역하는 것이다. 
+초기의 기계 번역 시스템은 규칙 기반 번역(Rule-Based Translation)과 통계적 기계 번역(Statistical Machine Translation) 방법을 사용했다. 
+하지만 최근에는 신경망 기계 번역(Neural Machine Translation, NMT)이 주류가 되었다. NMT는 딥러닝, 특히 순환 신경망(RNN)이나 트랜스포머(Transformer) 모델을 활용하여 번역의 정확도와 자연스러움을 크게 향상시켰다.
 
+기계 번역은 언어 간의 문법, 문맥, 문화적 차이 등을 고려하여야 하며, 이러한 복잡성 때문에 여전히 어려운 과제로 남아 있다. 
+그럼에도 불구하고, 기계 번역 기술은 글로벌 커뮤니케이션과 정보 접근성을 향상시키는 데 중요한 역할을 하고 있다.
 
+<참고 문헌 및 저작권>
+P. Koehn, 《Statistical Machine Translation》, Cambridge University Press
+I. Sutskever, O. Vinyals, Q. V. Le, 〈Sequence to Sequence Learning with Neural Networks〉, NeurIPS 2014: https://arxiv.org/abs/1409.3215
+A. Vaswani et al., 《Attention Is All You Need》, NeurIPS 2017: https://arxiv.org/abs/1706.03762
 
+Many-Shot In-Context Learning:
+매니 샷 인컨텍스트 러닝(Many-Shot In-Context Learning)은 대규모 언어 모델이 인퍼런스 시점에서 수백 또는 수천 개의 예시를 통해 학습하는 기법을 의미한다. 
+이 방식은 기존의 소수 예시를 이용한 인컨텍스트 러닝(few-shot in-context learning)을 확장한 것으로, 많은 수의 예시를 활용하여 성능 향상을 꾀한다. 
+매니 샷 인컨텍스트 러닝은 주로 생성적 및 판별적 작업에서 뛰어난 성과를 보이며, 사전 훈련된 편향을 극복하고 수치 입력을 포함한 고차원 함수를 학습하는 데 효과적이다.
+
+이 방식의 한계는 인간이 생성한 예시의 양에 의해 성능이 제한될 수 있다는 점이다. 이를 극복하기 위해, 강화된 인컨텍스트 러닝(Reinforced ICL)과 비감독 인컨텍스트 러닝(Unsupervised ICL)이 도입되었다. 
+강화된 인컨텍스트 러닝은 모델이 생성한 사고 과정을 예시로 사용하고, 비감독 인컨텍스트 러닝은 프롬프트에서 사고 과정을 제외하고 도메인 특정 질문만을 포함시킨다.
 
+이러한 접근 방식들은 복잡한 추론 작업에서 특히 효과적이며, 인컨텍스트 러닝의 기존의 접근 방식들과 비교하여 더 다양하고 깊이 있는 학습을 가능하게 한다. 
+예를 들어, 특정 질병의 진단, 법률적 문제 해결, 고급 수학 문제의 해석 등 복잡한 도메인에서의 응용이 가능하다.
 
+<참고 문헌 및 저작권>
+Agarwal, R., Singh, A., Zhang, L. M., Bohnet, B., Chan, S., Anand, A., ... & Larochelle, H. (2024). Many-Shot In-Context Learning. arXiv preprint arXiv:2404.11018. Retrieved from https://ar5iv.labs.arxiv.org/html/2404.11018
 
+Markov process (마르코프 과정):
+그림은 아이가 잠이 들 때 벌어지는 상황을 마르코프 프로세스로 모델링 한 그림입니다. 아이가 취할 수 있는 상태state의 종류는 총 5가지입니다. 
+누워있는 상태 s0, 일어나서 노는 상태 s1, 눈을 감고 있는 상태 s2, 서서히 잠이 오는 상태 s3, 마침내 잠이 든 상태 s4입니다. 
+그리고 아이가 하나의 상태에 진입하게 되면 해당 상태에서 1분씩 머물게 됩니다. 1분이 지나면 다음 상태로 상태 전이state transition를 합니다. 
+상태 전이는 현재 상태에서 다음 상태로 넘어간다는 것의 다른 말입니다. — 영진닷컴 블로그: https://ydot.tistory.com/687
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Markov property (마르코프 성질): https://wikidocs.net/120374
+
+Markov reward process (마르코프 보상 과정): A Markov reward process is a Markov chain with values. — David Silver
+
+Mask R-CNN:
+Mask R-CNN은 이미지 내의 객체를 식별하고, 분류하며, 동시에 각 객체의 정확한 형태와 위치를 픽셀 수준에서 분할하는 고급 컴퓨터 비전 알고리즘이다. 
+이 기술은 R-CNN(Region-based Convolutional Neural Networks)과 Fast R-CNN, Faster R-CNN의 발전된 형태로, 인스턴스 세그멘테이션(Instance Segmentation) 작업에 특화되어 있다. 
+Mask R-CNN은 두 가지 주요 작업을 수행한다: 
+첫 번째는 객체 검출(Object Detection)로, 이미지에서 개체의 경계 상자(Bounding Box)와 그 클래스를 식별한다. 
+두 번째는 세그멘테이션으로, 각 객체의 정확한 픽셀 단위의 마스크를 생성한다.
+
+Mask R-CNN은 Faster R-CNN의 구조에 기반을 두고 있으며, 추가적으로 각 객체에 대한 바이너리 마스크(Binary Mask)를 생성하는 브랜치를 포함한다. 
+이 알고리즘은 다양한 크기와 형태의 객체를 효과적으로 처리할 수 있으며, 의료 영상 분석, 자율 주행 차량, 비디오 분석 등 다양한 응용 분야에서 활용된다.
+
+<참고 문헌 및 저작권>
+K. He, G. Gkioxari, P. Dollár, R. Girshick, 《Mask R-CNN》, IEEE International Conference on Computer Vision (ICCV): https://arxiv.org/abs/1703.06870
+R. Girshick, 《Fast R-CNN》, IEEE International Conference on Computer Vision (ICCV): https://arxiv.org/abs/1504.08083
+S. Ren, K. He, R. Girshick, J. Sun, 〈Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks〉, NeurIPS 2015: https://arxiv.org/abs/1506.01497
+
+Min-Max Scaling:
+Min-Max Scaling은 머신 러닝에서 데이터를 전처리하기 위해 널리 사용되는 기술이다. 이 기법은 데이터의 각 특징을 특정 범위, 일반적으로 0과 1 사이로 조정하여 모든 특징이 동일한 척도를 갖도록 만든다. 
+이러한 스케일링은 특징들의 스케일에 민감한 알고리듬의 성능을 향상시키는 데 도움이 된다.
+
+<Min-Max Scaling이란 무엇인가?>
+Min-Max Scaling은 데이터 정규화 기술의 한 종류로, 데이터를 특정 범위로 스케일링하는 데 사용된다. 가장 일반적으로 사용되는 범위는 0과 1 사이이지만, 
+데이터의 특성에 따라 -1과 1 사이의 범위 또는 다른 범위를 사용할 수도 있다. Min-Max Scaling은 각 특징의 최솟값과 최댓값을 사용하여 데이터를 변환한다. 
+쉽게 말해, 데이터 세트에서 특징의 최솟값은 0으로, 최댓값은 1로 변환되고, 나머지 값들은 이 범위 내에서 선형적으로 조정된다.
+
+예를 들어, 데이터 세트에 '나이'라는 특징이 있고, 그 값이 20세부터 60세까지 분포되어 있다고 가정해 보자. 
+Min-Max Scaling을 적용하면 20세는 0으로, 60세는 1로 변환되고, 30세, 40세와 같은 나머지 값들은 0과 1 사이의 값으로 변환된다.
+
+Min-Max Scaling은 데이터의 원래 분포 형태를 유지하면서 특징들의 스케일을 조정하기 때문에 K-Nearest Neighbors, Support Vector Machines와 같은 거리 기반 알고리듬에서 특히 유용하다. 
+이러한 알고리듬은 데이터 포인트 간의 거리를 계산하여 작동하기 때문에, 특징들의 스케일이 다르면 특정 특징이 거리 계산에 지나치게 큰 영향을 미쳐 결과가 왜곡될 수 있다. 
+Min-Max Scaling을 통해 모든 특징을 동일한 범위로 조정하면 이러한 문제를 방지하고 알고리듬의 성능을 향상시킬 수 있다.
+
+<Min-Max Scaling의 주요 특징>
+장점
+이상치에 덜 민감하다.
+데이터의 원래 분포를 유지한다.
+특징들을 특정 범위로 제한하여 해석력을 높인다.
+이미지 처리와 같은 특정 분야에서 유용하게 사용된다.
+
+단점
+새로운 데이터가 추가될 때 스케일링 범위가 변경될 수 있다.
+데이터의 분산을 줄일 수 있다.
+
+<Min-Max Scaling의 활용 분야>
+Min-Max Scaling은 다양한 머신 러닝 알고리듬의 성능을 향상시키는 데 사용된다. 특히, 다음과 같은 알고리듬에서 유용하게 활용된다.
+
+K-Nearest Neighbors (KNN): 데이터 포인트 간의 거리를 기반으로 작동하는 알고리듬으로, 특징들의 스케일이 다르면 거리 계산이 왜곡되어 알고리듬의 성능이 저하될 수 있다. 
+Min-Max Scaling을 사용하여 특징들을 동일한 범위로 조정하면 이러한 문제를 해결하고 알고리듬의 정확도를 높일 수 있다.
+
+Support Vector Machines (SVM): SVM 또한 거리 기반 알고리듬으로, Min-Max Scaling을 통해 특징 스케일을 조정하면 성능이 향상될 수 있다.
+
+신경망: Min-Max Scaling은 신경망의 활성화 함수의 성능을 향상시키고 학습 속도를 높이는 데 도움이 될 수 있다.
+
+이미지 처리: 이미지 데이터는 일반적으로 픽셀 값으로 이루어져 있다. Min-Max Scaling을 사용하여 픽셀 값을 0과 1 사이로 조정하면 이미지 데이터를 정규화하여 알고리듬의 성능을 향상시킬 수 있다.
+
+자연어 처리: 텍스트 데이터에서 단어 빈도는 매우 다양하게 나타날 수 있다. Min-Max Scaling을 사용하여 단어 빈도를 정규화하면 텍스트 데이터를 분석하는 데 도움이 된다.
+
+<Python scikit-learn 라이브러리의 MinMaxScaler 사용 방법>
+Python에서 Min-Max Scaling을 적용하려면 scikit-learn 라이브러리의 MinMaxScaler 함수를 사용할 수 있다.
+---------------python code--------------------
+from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+
+# 샘플 데이터
+data = np.array([[1, 2], [3, 4], [5, 6]])
+
+# MinMaxScaler 객체 생성
+scaler = MinMaxScaler()
+
+# 스케일링 적용
+scaled_data = scaler.fit_transform(data)
+
+# 스케일링된 데이터 출력
+print(scaled_data)
+---------------------------------------------
+이 코드는 샘플 데이터를 0과 1 사이의 범위로 스케일링하는 방법을 보여준다. MinMaxScaler 객체를 생성하고 fit_transform 메서드를 사용하여 데이터를 스케일링한다.
+
+<Min-Max Scaling의 한계와 대안>
+Min-Max Scaling은 이상치에 덜 민감하지만, 새로운 데이터가 추가될 때 스케일링 범위가 변경될 수 있다는 단점이 있다. 
+예를 들어, 기존 데이터의 범위가 0부터 100까지이고 이를 Min-Max Scaling하여 0과 1 사이로 스케일링했다고 가정해 보자. 
+만약 새로운 데이터 값으로 150이 추가된다면, 기존의 스케일링 범위는 더 이상 유효하지 않게 된다. 
+이 경우 새로운 최댓값 150을 기준으로 스케일링 범위를 다시 계산해야 하고, 기존 데이터의 스케일링된 값도 모두 다시 계산해야 한다.
+
+또한, Min-Max Scaling은 데이터의 분산을 줄일 수 있기 때문에, 분산 정보가 중요한 경우에는 적합하지 않을 수 있다. 
+즉, 데이터가 가진 원래의 분포 특성을 잃어버릴 수 있다는 의미이다.
+
+<대안>
+Z-score normalization: 데이터를 평균 0, 표준 편차 1을 갖도록 변환한다. 각 데이터 포인트에서 평균을 빼고 표준 편차로 나누어 계산한다. 
+Z-score normalization은 데이터의 분포를 표준 정규 분포로 변환하기 때문에, 데이터의 상대적인 위치를 파악하는 데 유용하다. 하지만 이상치에 민감하다는 단점이 있다.
+
+Robust scaling: 중앙값과 사분위 범위를 사용하여 스케일링한다. 각 데이터 포인트에서 중앙값을 빼고 사분위 범위로 나누어 계산한다. 
+Robust scaling은 이상치의 영향을 최소화하는 데 효과적이다. 하지만 데이터의 분포를 변경할 수 있다는 단점이 있다.
+
+<스케일링 기술 비교>
+------------------------------------------------------------------------------------------------------------------------------------
+    Scaling Technique      /	              Advantages	          /                            Disadvantages                       /
+------------------------------------------------------------------------------------------------------------------------------------
+    Min-Max Scaling        / 이상치에 덜 민감, 데이터 분포 유지    / 새로운 데이터 추가 시 스케일링 범위 변경 가능, 데이터 분산 감소
+------------------------------------------------------------------------------------------------------------------------------------
+  Z-score normalization    /    데이터를 표준 정규 분포로 변환     /                          이상치에 민감                         /
+------------------------------------------------------------------------------------------------------------------------------------
+     Robust scaling        /          이상치에 매우 강건          /                         데이터 분포 변경 가능                   /
+------------------------------------------------------------------------------------------------------------------------------------
+
+<결론>
+Min-Max Scaling은 머신 러닝에서 데이터를 전처리하는 데 유용한 기술이다. 특히, 특징들의 스케일이 다를 때 알고리듬의 성능을 향상시키는 데 효과적이다. 
+KNN, SVM, 신경망과 같은 알고리듬에서 유용하게 사용되며, 이미지 처리 및 자연어 처리와 같은 분야에서도 널리 활용된다.
+
+Min-Max Scaling은 데이터의 원래 분포를 유지하면서 특징들을 특정 범위로 스케일링하기 때문에 데이터 해석력을 높이고 이상치의 영향을 줄이는 데 도움이 된다. 
+특히, 알고리듬이 특정 범위 내의 값을 요구하는 경우, 예를 들어 이미지 처리에서 픽셀 값을 0과 1 사이로 정규화해야 하는 경우에 유용하다. 
+또한, 데이터의 원래 분포를 유지해야 하는 경우에도 Min-Max Scaling이 적합한 선택이다.
+
+하지만 Min-Max Scaling은 새로운 데이터가 추가될 때 스케일링 범위가 변경될 수 있고 데이터의 분산을 줄일 수 있다는 점을 고려해야 한다. 
+따라서 데이터의 특성과 알고리듬의 종류에 따라 적절한 스케일링 기술을 선택하는 것이 중요하다. 
+만약 이상치가 많거나 데이터의 분산 정보가 중요한 경우에는 Z-score normalization이나 Robust scaling과 같은 다른 스케일링 기술을 고려해 볼 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia: Feature scaling (Accessed January 2, 2025): https://en.wikipedia.org/wiki/Feature_scaling
+A Comprehensive Guide to Normalization in Machine Learning | by Noor Fatima - Medium (Accessed January 2, 2025): https://medium.com/@noorfatimaafzalbutt/a-comprehensive-guide-to-normalization-in-machine-learning-afead759b062
+Data Pre-Processing with Sklearn using Standard and Minmax scaler - GeeksforGeeks (Accessed January 2, 2025): https://www.geeksforgeeks.org/machine-learning/data-pre-processing-wit-sklearn-using-standard-and-minmax-scaler/
+Wikipedia: Feature scaling (Accessed January 2, 2025): https://en.wikipedia.org/wiki/Feature_scaling
+Min-max scaling - (Collaborative Data Science) - Vocab, Definition, Explanations | Fiveable (Accessed January 2, 2025): https://fiveable.me/categories/ap-act-sat
+Normalization (statistics) - Wikipedia (Accessed January 2, 2025): https://en.wikipedia.org/wiki/Normalization_(statistics)
+Scaling Numerical Data, Explained: A Visual Guide with Code Examples for Beginners (Accessed January 2, 2025): https://towardsdatascience.com/scaling-numerical-data-explained-a-visual-guide-with-code-examples-for-beginners-11676cdb45cb/
+Min-Max Scaling more sensitive to outliers than 'Simple Feature Scaling'? (Accessed January 2, 2025): https://datascience.stackexchange.com/questions/128116/min-max-scaling-more-sensitive-to-outliers-than-simple-feature-scaling
+How to use Data Scaling Improve Deep Learning Model Stability and Performance (Accessed January 2, 2025): https://machinelearningmastery.com/how-to-improve-neural-network-stability-and-modeling-performance-with-data-scaling/
+MinMaxScaler — scikit-learn 1.5.2 documentation (Accessed January 2, 2025): https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.MinMaxScaler.html
+Which data scaling technique should I use ? | by Hasan Hüseyin Coşgun | Medium (Accessed January 2, 2025): https://medium.com/@hhuseyincosgun/which-data-scaling-technique-should-i-use-a1615292061e
+
+MoE: Mixture of Experts (전문가 혼합):
+Mixture of Experts(MoE)는 신경망 내에서 입력 샘플마다 다른 하위 네트워크(전문가)를 활성화하는 방식으로 동작하는 기법이다. 
+이는 모든 샘플에 동일한 모델 파라미터를 사용하는 전통적인 신경망과 달리, 특정 입력에 대해 일부 전문가만 선택적으로 활성화되므로, 모델의 총 파라미터 수는 증가하지만 연산량은 상대적으로 일정하게 유지된다.
+
+<원리>
+MoE의 핵심 구성 요소는 전문가(Expert) 네트워크와 게이트(Gate) 네트워크이다.
+
+게이트 네트워크(Gating Network)
+입력 데이터를 기반으로 최적의 전문가를 선택하는 역할을 한다.
+일반적으로 소프트맥스(Softmax)를 사용하여 각 전문가에 대한 확률을 계산하며, 특정 개수(top-k)의 전문가를 선택하여 가중합을 수행한다.
+k=1의 경우, 입력 데이터는 하나의 전문가에만 전달되는 "Switch Routing" 방식이 된다.
+
+전문가 네트워크(Expert Networks)
+일반적으로 다층 퍼셉트론(MLP) 형태를 가지며, 입력을 받아 처리하는 하위 신경망이다.
+각 전문가가 다른 데이터 패턴을 학습하면서 역할을 분리하는 것이 이상적이다.
+전문가 네트워크의 개수(E)는 모델 용량을 증가시키는 핵심 요소이며, 너무 많아질 경우 불균형 문제(load imbalance)가 발생할 수 있다.
+
+출력 조합(Output Aggregation)
+게이트 네트워크의 선택 확률을 활용하여 활성화된 전문가들의 출력을 가중합하여 최종 출력을 생성한다.
+
+이러한 구조를 통해 MoE는 특정 태스크에 맞는 전문가를 선택적으로 활성화하여 모델의 용량을 증가시키면서도 연산량을 제한할 수 있다.
+
+<최신 연구 동향>
+최근 MoE 모델은 다양한 개선을 통해 더욱 효율적인 학습과 추론이 가능해지고 있다. 대표적인 연구 사례는 다음과 같다.
+
+DeepSeek-V2
+Multi-Head Latent Attention(MLA): 기존 다중 헤드 어텐션(MHA)의 Key-Value(KV) 캐시 크기를 줄여 추론 속도를 크게 향상시킴.
+
+DeepSeekMoE: 전문가 네트워크를 미세하게 분할하고 공유 전문가를 도입하여 불필요한 중복 학습을 줄이고 모델의 전문성을 강화함.
+236B개의 총 파라미터 중 21B개의 파라미터만 활성화하여 연산량을 감소시키면서도 성능을 유지함.
+기존 모델 대비 42.5% 적은 학습 비용, 93.3% 더 작은 KV 캐시, 5.76배 향상된 생성 속도를 기록함.
+
+이처럼 최신 MoE 모델들은 연산량 절감을 위한 다양한 기술을 도입하면서도 기존 Dense 모델 대비 높은 성능을 유지하고 있다.
+
+<응용>
+MoE는 대규모 신경망을 효율적으로 학습하고, 다양한 자연어 처리(NLP) 및 기계 학습 태스크에 적용될 수 있다. 대표적인 응용 분야는 다음과 같다.
+
+대규모 언어 모델(Language Modeling)
+GPT 및 T5 같은 대형 모델을 확장하는 방법으로 사용됨.
+Google의 Switch Transformer(Fedus et al., 2022)는 MoE 구조를 기반으로 최대 1조(1T) 개의 파라미터를 가진 모델을 훈련하는 데 성공함.
+기존 Transformer 모델과 비교해 동일한 연산량에서 4배 이상의 속도 향상을 보임.
+
+기계 번역(Machine Translation)
+Google의 MoE 기반 GNMT(Google Neural Machine Translation) 모델(Wu et al., 2016)에서 다국어 번역 성능을 향상시키기 위해 사용됨.
+한 개의 다국어 모델이 여러 개의 단일 언어 모델과 경쟁할 수 있도록 모델 용량을 증가시킴.
+
+멀티태스크 학습(Multi-Task Learning)
+NLP, 비전, 음성 인식 등 다양한 태스크를 단일 모델 내에서 처리하는 데 활용 가능.
+각 태스크별 전문가를 학습하여 모델 성능을 최적화할 수 있음.
+
+<한계 및 해결책>
+부하 불균형(Load Imbalance)
+특정 전문가만 선택되는 현상이 발생하면 일부 전문가가 과적합(overfitting)되고, 일부는 거의 학습되지 않는 문제가 발생할 수 있음.
+해결책: 부하 균형 로스(load balancing loss) 추가, 확률적 탐색(Stochastic Routing) 도입, 정규화된 라우팅 방식 적용.
+
+통신 비용 증가(Communication Overhead)
+분산 환경에서 전문가들이 여러 장치에 분산될 경우, 활성화된 전문가 간 통신 비용이 크게 증가할 수 있음.
+해결책: 전문가-데이터 병렬 처리(Expert-Data Parallelism) 기법을 활용하여 연산량을 최적화.
+
+훈련 불안정성(Training Instability)
+특히 대규모 MoE 모델에서는 게이트 네트워크의 학습이 불안정하여 특정 전문가가 과도하게 선택될 수 있음.
+해결책: 정밀도 조정(Selective Precision) 기법 활용, 정규화된 초기화 전략 적용.
+
+<결론>
+Mixture of Experts(MoE)는 대규모 신경망의 확장성과 연산 효율성을 동시에 달성할 수 있는 강력한 방법론이다. 
+특히, DeepSeek-V2와 같은 최신 연구에서 보듯이, 모델 용량을 기하급수적으로 증가시키면서도 효율적으로 훈련할 수 있는 강점을 지닌다. 
+향후 MoE는 다양한 도메인에서 더 넓게 활용될 가능성이 크며, 특히 초거대 모델 연구에서 중요한 역할을 할 것으로 예상된다.
+
+<참고 문헌 및 저작권>
+Fedus, W., Zoph, B., & Shazeer, N. (2022). Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity. Journal of Machine Learning Research, 23, 1-40.
+Shazeer, N., Mirhoseini, A., Maziarz, K., Davis, A., Le, Q., Hinton, G., & Dean, J. (2017). Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer. In International Conference on Learning Representations (ICLR).
+Wu, Y., Schuster, M., Chen, Z., Le, Q., Norouzi, M., Macherey, W., ... & Dean, J. (2016). Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. arXiv preprint arXiv:1609.08144.
+DeepSeek-AI. (2024). DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model. arXiv preprint arXiv:2405.04434.
+
+Monte Carlo Methods (몬테카를로 방법):
+몬테카를로 방법(Monte Carlo method)은 난수를 이용하여 함수의 값을 확률적으로 계산하는 알고리즘을 부르는 용어이다. 수학이나 물리학 등에 자주 사용되며, 
+계산하려는 값이 닫힌 형식으로 표현되지 않거나 복잡한 경우에 근사적으로 계산할 때 사용된다. 
+스타니스와프 울람이 모나코의 유명한 도박의 도시 몬테카를로의 이름을 본따 명명하였다. — 위키백과: https://ko.wikipedia.org/wiki/%EB%AA%AC%ED%85%8C%EC%B9%B4%EB%A5%BC%EB%A1%9C_%EB%B0%A9%EB%B2%95
+
+그러나 처음 가본 건물에서 화장실을 찾아갈 때는 그 건물에 대한 모형이 제대로 갖추어져 있지 않으므로 시행착오가 필요하다. 
+그러한 시행착오 전략은 크게 보아 몬테카를로 방법(Monte Carlo method)의 범주에 속한다. —심층 강화학습 인 액션: https://jpub.tistory.com/1103
+
+Multiclass Classification (다중 클래스 분류):
+다중 클래스 분류(Multiclass Classification)는 하나의 데이터 포인트를 여러 개의 상호 배타적인 클래스 중 하나로 분류하는 머신러닝 과정이다. 
+이는 이진 분류(Binary Classification)와 달리, 세 개 이상의 클래스로 분류해야 하는 경우에 적용된다. 
+예를 들어, 동물 이미지를 '고양이', '개', '말' 등 여러 동물 종류 중 하나로 분류하는 경우가 다중 클래스 분류에 해당한다. 
+각 클래스는 독립적이며, 모델은 각 입력 샘플에 대해 하나의 클래스 레이블만을 할당한다.
+
+다중 클래스 분류를 수행하기 위한 머신러닝 알고리즘에는 로지스틱 회귀, 결정 트리, 랜덤 포레스트, 서포트 벡터 머신(SVM), 신경망 등이 있다. 
+신경망에서는 소프트맥스(Softmax) 함수가 종종 출력 계층에 사용되어, 각 클래스에 속할 확률을 추정한다. 
+다중 클래스 분류 문제는 텍스트 분류, 이미지 인식, 의료 진단 등 다양한 분야에서 중요한 역할을 한다.
+
+<참고 문헌 및 저작권>
+T. Hastie, R. Tibshirani, J. Friedman, 《The Elements of Statistical Learning》, Springer: https://hastie.su.domains/ElemStatLearn/
+C. M. Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Y. LeCun, Y. Bengio, G. Hinton, 《Deep Learning》, Nature 2015: https://www.deeplearningbook.org/
+
+Multicollinearity (다중공선성): https://wikidocs.net/235828
+다중공선성(multicollinearity)은 회귀분석에서 사용되는 독립변수(설명변수)들 사이에 강한 선형 상관관계가 존재하여, 이들 변수 중 일부가 사실상 다른 변수에 의해 설명되는 상황을 의미한다(김, 2019). 
+즉, 여러 독립변수들이 서로 중복되는 정보를 가지고 있어, 독립변수 간 상관이 높은 경우를 말한다. 
+다중공선성이 심하면 특정 독립변수의 효과가 실제보다 부풀려지거나, 반대로 통계적 유의성이 낮아 보이는 등 회귀계수 추정과 해석에 혼란을 야기할 수 있다(Salmerón-Gómez et al., 2020).
+
+<역사와 배경>
+고전적 회귀분석에서의 문제 제기:
+선형회귀분석이 활발히 사용되면서, 독립변수들이 완전히 독립적이지 않은 상황, 즉 설명변수들이 서로 상관관계를 맺고 있음을 종종 발견하게 되었다. 
+이러한 문제는 1960년대 후반부터 ‘공선성(collinearity)’ 혹은 ‘다중공선성(multicollinearity)’이라는 용어로 정의되었으며, 
+높은 상관관계는 모형 불안정성과 해석의 어려움을 야기한다는 점이 강조되었다(김, 2019).
+
+다중공선성 진단법 제안:
+회귀분석에서 다중공선성을 진단하기 위해 오랜 기간 다양한 방법론이 제시되었는데, 대표적으로 분산팽창계수(Variance Inflation Factor, VIF), 조건수(condition number) 등의 도구가 개발되고 널리 쓰이게 되었다
+(Salmerón-Gómez et al., 2020; Kim, 2019).
+
+추가 진단 및 대안적 접근:
+최근에는 단순히 공선성을 진단하는 데서 나아가, 문제가 되는 정도의 공선성을 검정하거나, 
+새로운 방식의 회귀추정(예: 리지(ridge), 레이즈(raise) 회귀 등)으로 공선성을 완화하려는 다양한 방법론이 연구되고 있다(Salmerón-Gómez et al., 2021; Kayanan & Wijekoon, 2019).
+
+<공선성 완화 기법 및 응용>
+1) 변수 선택 및 변환
+공선성이 높은 변수를 제거하거나(혹은 통합) 변수를 차분, 지수화, 주성분변환(PCA) 등으로 변환하여 사용하면, 다중공선성을 일부 해소할 수 있다(Kayanan & Wijekoon, 2019).
+
+2) 패널티 회귀기법
+리지 회귀(Ridge Regression): 공선성 완화를 위해 회귀계수에 패널티(모수 k)를 두어 계수를 축소(bias)하지만, 분산을 줄여 추정 안정성을 높인다.
+레이즈 회귀(Raise Regression): 리지와 달리 모형의 분산분해 등을 유지하며, 특정 변수에만 조정(raise)을 가하는 방식으로 공선성 문제를 완화하려는 방법이 제안되었다(Salmerón-Gómez et al., 2021).
+
+3) 통계적 검정
+Salmerón-Gómez et al.(2020)은 재정의된 VIF(new VIF)와 새로운 검정절차를 통해 문제적(multicollinearity) 수준을 판단할 수 있는 통계적 테스트를 제안하였다. 
+이로써 “실제로 예측 성능과 추론에 유의미한 해가 되는 정도”의 공선성인지를 가려낼 수 있다.
+
+4) 적용 분야
+머신러닝 모델 구성 시, 고차원(변수 수가 많은) 데이터 분석, 경제·금융 시계열 모델링, 생명·의학 연구의 다변량 회귀분석 등에서 다중공선성 문제는 매우 자주 발생한다(김, 2019).
+공선성 진단 후 변수를 제거하거나 적절히 합성·변환하는 과정은 모델 단순화와 해석력 향상에 기여하며, 예측 안정성을 높이는 중요한 단계가 된다.
+
+<참고 문헌 및 저작권>
+Kim, J. H. (2019). Multicollinearity and misleading statistical results. Korean Journal of Anesthesiology, 72(6), 558-569.: https://doi.org/10.4097/kja.19087
+
+Salmerón-Gómez, R., Garćıa-Garćıa, C. B., & Garćıa-Pérez, J. (2020). Overcoming the inconsistences of the variance inflation factor: a redefined VIF and a test to detect statistical troubling multicollinearity. arXiv.
+https://arxiv.org/abs/2005.02245v1
+
+Salmerón Gómez, R., Garćıa Garćıa, C., & Garćıa Pérez, J. (2021). The Raise Regression: Justification, properties and application. arXiv.
+https://arxiv.org/abs/2104.14423v1
+
+Kayanan, M., & Wijekoon, P. (2019). Optimal estimators in misspecified linear regression model with an application to real-world data. arXiv.
+https://arxiv.org/abs/1803.04839v3
+
+Multimodal AI (멀티모달 인공지능):
+멀티모달(Multimodal) 인공지능(AI)은 다양한 유형의 데이터를 동시에 처리하고 해석하는 능력을 가진 AI 시스템이다. 
+전통적인 AI 모델이 텍스트, 이미지, 오디오 등 단일 형태의 데이터만을 처리하는 것과 달리, 멀티모달 AI는 텍스트, 이미지, 오디오, 비디오 등의 여러 데이터를 결합하여 더 풍부하고 정교한 결과를 생성한다.
+
+멀티모달 AI의 핵심은 각기 다른 데이터 형태를 통합하는 능력에 있다. 예를 들어, GPT-4o와 같은 모델은 텍스트와 이미지를 동시에 입력받아 이를 바탕으로 종합적인 답변을 생성할 수 있다. 
+이는 사용자가 이미지 속 재료를 제공하면, 해당 재료로 만들 수 있는 요리를 제안하는 등의 응용이 가능하다.
+
+멀티모달 AI는 다양한 산업에서 혁신을 일으키고 있다. 
+헬스케어 분야에서는 전자의무기록(EMR)을 텍스트, 이미지, 음성 등 다양한 데이터 형태로 통합하여 진단의 정확성을 높이고, 환자 치료를 개선하는 데 사용된다. 
+소매업에서는 텍스트 입력만으로도 시각적으로 매력적인 마케팅 이미지나 비디오를 생성할 수 있으며, 
+교육 분야에서는 VR/AR 기기를 활용한 적응형 콘텐츠로 학습 경험을 향상시킨다.
+
+<참고 문헌 및 저작권>
+Ajder, H. (2024). Multimodal: AI’s new frontier. MIT Technology Review. Retrieved from https://www.technologyreview.com/2024/05/08/1092009/multimodal-ais-new-frontier/
+Boyd, E. (2024). Introducing GPT-4o: OpenAI’s new flagship multimodal model now in preview on Azure. Microsoft Azure Blog. Retrieved from https://azure.microsoft.com/en-us/blog/introducing-gpt-4o-openais-new-flagship-multimodal-model-now-in-preview-on-azure/
+B12. (2024). The rising importance of multimodal AI in 2024. Retrieved from https://www.b12.io/resource-center/ai-thought-leadership/the-rising-importance-of-multimodal-ai-in-2024.html
+
+Multiple Linear Regression (다중 선형 회귀): https://wikidocs.net/235827
+다중 선형 회귀(Multiple Linear Regression)는 통계적 기법으로, 두 개 이상의 독립 변수(설명 변수)를 사용하여 종속 변수(예측하고자 하는 변수)의 결과를 예측하는 데 사용된다. 
+이는 단순 선형 회귀(Simple Linear Regression)의 확장이며, 단순 선형 회귀가 한 개의 독립 변수와 한 개의 종속 변수 사이의 관계를 모델링하는 반면, 다중 선형 회귀는 여러 독립 변수를 고려한다.
+
+이 기법은 독립 변수들이 종속 변수에 미치는 영향의 상대적 기여도 및 모델의 변동을 결정할 수 있게 해 준다. 
+예를 들어, 회사의 이익(종속 변수)을 사무실 위치, 직원 수, 마케팅 비용 등(독립 변수)을 통해 예측할 수 있다.
+
+다중 선형 회귀는 몇 가지 주요 가정에 기반한다. 
+첫째, 종속 변수와 각 독립 변수 사이에는 선형 관계가 있어야 한다. 
+둘째, 독립 변수들 사이에는 높은 상관관계(다중공선성)가 없어야 한다. 
+셋째, 잔차의 분산은 일정해야 하며(등분산성), 
+넷째, 관측치는 서로 독립적이어야 한다. 
+마지막으로, 잔차는 정규 분포를 따라야 한다.
+
+Python을 사용한 다중 선형 회귀 모델의 구현은 데이터를 훈련 세트와 테스트 세트로 분할하고, 
+"LinearRegression" 모델을 훈련시킨 후, 
+모델을 사용하여 테스트 데이터에 대한 예측을 수행하고, 
+예측의 정확도를 평가하는 단계를 포함한다. 
+모델의 성능은 "r2_score"나 평균 제곱 오차(Mean Squared Error, MSE) 같은 지표를 사용하여 평가할 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Linear regression. Retrieved from https://en.wikipedia.org/wiki/Linear_regression
+Corporate Finance Institute. (n.d.). What is Multiple Linear Regression? Retrieved from https://corporatefinanceinstitute.com/resources/data-science/multiple-linear-regression/
+Analytics Vidhya. (2024, January 17). Multiple linear regression: Definition, Example and Applications. Retrieved from https://www.analyticsvidhya.com/blog/2021/05/multiple-linear-regression-using-python-and-scikit-learn/
+
+meta-learning (메타 학습):
+메타학습이란 자신이 아는 것과 모르는 것을 즉각적으로 구별할 줄 아는 ‘메타 인지’로부터 시작한 개념으로, 적은 양의 데이터와 주어진 환경만으로도 스스로 학습하고, 
+학습한 정보와 알고리즘을 새로운 문제에 적용하여 해결하는 학습방식을 의미한다. 딥러닝은 대량의 데이터의 패턴을 찾아내면서 알고리즘을 발전시키는 방식에 반해, 
+사람은 단 몇 장의 사진만으로도 개와 고양이를 분류하거나 처음 본 종류의 동물조차 스스로 특징을 파악해 분류할 수 있다. 
+메타학습은 이러한 사람의 학습 과정과 비슷하며, 다른 분야나 새로운 환경에도 적용할 수 있는 특징을 가진다. 
+이는 기존에 학습한 모델을 이용하여 새로운 문제를 해결하기 위한 연구 분야로 일컬어지기도 하며, 기 학습된 모델을 기반으로 새로운 데이터를 효율적으로 학습시킬 수 있는 기법을 개발하는 것이 메타학습의 주요 목표다.
+— NIA 「DNA플러스 2021」, NeurIPS 2020을 통해 본 인공지능(AI) 기술 트렌드
+
+mini-batch gradient descent (미니 배치 경사 하강법):
+미니-배치 경사 하강법은 경사 하강법의 한 변형이다. 이 방법은 데이터 세트의 전체 배치를 사용하여 가중치를 업데이트하는 대신, 작은 데이터의 하위 집합을 사용한다. 
+이 하위 집합을 '미니-배치'라고 부른다. 매 반복에서 미니 배치의 크기를 결정하여, 미니 배치의 예제에 대한 평균 그래디언트를 계산하고 이를 이용해 가중치를 업데이트한다.
+
+미니-배치 경사 하강법은 경사 하강법과 확률적 경사 하강법(SGD)의 장점을 결합한다. 전체 데이터 세트에 대해 한 번에 연산을 수행하는 대신, 
+미니-배치를 이용해 더 빠른 수렴을 실현하고, 하드웨어의 병렬 처리 능력을 최대한 활용한다. 또한, 미니 배치를 사용함으로써 SGD보다 덜 노이즈하게 가중치를 업데이트할 수 있다.
+
+<참고 문헌 및 저작권>
+Goodfellow, Ian, et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Sebastian Ruder, 〈An overview of gradient descent optimization algorithms〉, 2016: https://www.ruder.io/optimizing-gradient-descent/
+Mini-batch Gradient Descent on GeeksforGeeks: https://www.geeksforgeeks.org/machine-learning/ml-mini-batch-gradient-descent-with-python/
+
+model (모델):
+모델은 데이터에서 패턴을 인식하거나 예측을 생성하는 데 사용되는 컴퓨터 프로그램이다. 
+이러한 모델은 머신러닝 알고리듬에서 생성되며, 알고리듬은 레이블이 지정된 데이터, 레이블이 지정되지 않은 데이터, 또는 이 둘의 혼합을 사용하여 훈련과정을 거친다. 
+특정 알고리듬에 데이터를 소개함으로써, 이 알고리듬은 특정 작업을 더 잘 처리하도록 수정되어 점점 더 정확하게 해당 작업을 수행할 수 있는 모델로 발전한다.
+
+머신러닝 알고리듬은 통계학, 미적분학, 선형대수학에서 가져온 수학적 방법으로, 데이터 집합에서 패턴을 찾기 위해 사용된다. 
+이러한 알고리듬에는 선형 회귀, 의사 결정 트리, 랜덤 포레스트, XGBoost 등이 포함된다. 
+모델 훈련이란 데이터셋(훈련 데이터라고 함)에서 머신러닝 알고리즘을 실행하고, 알고리즘을 최적화하여 특정 패턴이나 출력을 찾는 과정을 말한다. 
+이 과정을 통해 생성된 규칙 및 데이터 구조를 가진 함수가 바로 훈련된 머신러닝 모델이다.
+
+모델은 데이터 세트에 대해 훈련된 파일로, 특정 유형의 패턴을 인식하도록 훈련된다. 모델을 훈련시키기 위해, 알고리즘을 사용하여 데이터를 학습하고 이를 통해 데이터를 추론하고 예측한다. 
+예를 들어, 사용자의 감정을 그들의 얼굴 표정을 바탕으로 인식할 수 있는 애플리케이션을 구축하고자 할 때, 각각 특정 감정으로 태그된 얼굴 이미지를 제공하여 모델을 훈련시키고, 
+이 모델을 사용하여 어떤 사용자의 감정도 인식할 수 있는 애플리케이션에서 사용할 수 있다.
+
+<참고 문헌 및 저작권>
+Coursera. (n.d.). Machine Learning Models: What They Are and How to Build Them. Retrieved from https://www.coursera.org/articles/machine-learning-models
+Databricks. (n.d.). What are Machine Learning Models? Retrieved from https://www.databricks.com/glossary/machine-learning-models
+Microsoft. (2021, December 30). What is a machine learning model? Retrieved from https://learn.microsoft.com/en-us/windows/ai/windows-ml/what-is-a-machine-learning-model
+
+model-based learning (모델 기반 학습):
+Model-Based Learning는 강화 학습(Reinforcement Learning, RL)에서 에이전트가 환경의 동적 모델을 명시적으로 학습하고 이를 기반으로 행동을 결정하는 접근 방식이다. 
+여기서 "모델"은 주어진 상태에서의 행동이 미래의 상태나 보상에 어떤 영향을 미치는지를 설명하는 함수로, 에이전트가 환경과의 상호작용을 통해 이 모델을 학습한 후, 이 모델을 사용해 최적의 정책을 수립한다.
+
+Model-Based Learning의 주요 장점은 샘플 효율성이 높다는 점이다. 에이전트는 실제 환경에서 학습하는 대신, 모델을 통해 시뮬레이션된 환경에서 다양한 시나리오를 테스트할 수 있다. 
+이로 인해 실제 환경에서의 상호작용 횟수를 줄이면서도 효율적인 학습이 가능하다. 예를 들어, 체스 같은 게임에서 에이전트는 수많은 가능한 움직임과 결과를 시뮬레이션하여 최적의 움직임을 결정할 수 있다.
+
+이러한 방식은 특히 로봇 공학이나 제조업에서 널리 사용되는데, 환경이 비교적 고정되어 있고 정확한 예측이 필요한 상황에서 매우 유용하다. 
+그러나 모델이 환경을 완벽하게 설명하지 못하거나, 환경이 너무 복잡하거나 동적인 경우에는 모델 기반 접근 방식이 한계를 보일 수 있다. 
+이와 달리, Model-Free Learning은 환경 모델을 사용하지 않기 때문에 이러한 복잡한 상황에서도 더 유연하게 적용될 수 있다.
+
+<참고 문헌 및 저작권>
+Reward-Based Learning, Model-Based and Model-Free. (2023). SpringerLink. https://link.springer.com/referenceworkentry/10.1007/978-1-0716-1006-0_674
+Pytennis Case Study. (2023). Neptune.ai. https://neptune.ai/blog/model-based-and-model-free-reinforcement-learning-pytennis-case-study
+
+model-free learning
+Model-Free Learning는 강화 학습(Reinforcement Learning, RL)의 한 종류로, 환경의 동적 모델을 명시적으로 학습하지 않고도 최적의 행동 정책을 학습하는 방법이다. 
+이를 통해 에이전트는 상태와 행동에 대한 값을 축적된 경험을 통해 직접 학습하게 된다. 이 방식은 환경을 블랙박스(black box)로 간주하고, 에이전트가 행동한 결과로 얻은 보상만을 기반으로 학습한다.
+
+Model-Free Learning의 주요 접근 방식에는 크게 가치 기반(Value-based), 정책 기반(Policy-based), 그리고 액터-크리틱(Actor-Critic) 방법이 있다. 
+예를 들어, Q-러닝(Q-learning)과 SARSA와 같은 알고리즘은 가치 기반 방법의 대표적인 예로, 상태-행동 쌍에 대한 예상 누적 보상을 추정하여 최적의 행동을 결정한다. 
+반면, 정책 기반 방법은 가치 함수를 평가하지 않고, 정책을 직접 최적화하는 접근법으로, REINFORCE 알고리즘이 그 예이다. 액터-크리틱 방법은 두 접근법을 결합하여 보다 안정적인 학습을 지원한다.
+
+Model-Free Learning의 주요 장점은 환경의 모델이 불완전하거나 복잡하여 명시적으로 학습하기 어려운 상황에서도 적용 가능하다는 점이다. 
+이로 인해 다양한 환경에 적용할 수 있으며, 새로운 상태나 변화된 환경에 신속히 적응할 수 있다. 
+그러나 환경 모델을 학습하지 않기 때문에, 모델 기반 학습에 비해 샘플 효율성이 낮고, 학습 속도가 느릴 수 있다는 단점도 있다.
+
+<참고 문헌 및 저작권>
+Dilith Jay. (2023). Model-Free Deep Reinforcement Learning—Algorithms and Applications. SpringerLink. https://link.springer.com/chapter/10.1007/978-3-030-41188-6_10
+Ericsson. (2024). Reinforcement learning: Model-based vs. model-free. Ericsson. https://www.ericsson.com/en/blog/2023/12/comparing-model-based-and-model-free-reinforcement-learning-characteristics-and-applicability
+Analytics India Magazine. (2024). What Is Model-Free Reinforcement Learning? https://analyticsindiamag.com/ai-mysteries/what-is-model-free-reinforcement-learning/
