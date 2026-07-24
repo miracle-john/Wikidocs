@@ -1,0 +1,136 @@
+U-Net:
+U-Net은 의료 이미징 분야 등에서 주로 영상 분할에 사용되는 컨볼루션 신경망(CNN) 아키텍처이다. 
+이 구조는 적은 양의 주석이 달린 이미지를 사용하여 높은 정확도로 세분화를 수행하는 능력으로 유명하다. 
+U-Net은 이름에서 알 수 있듯이 U자형 구조를 가지고 있다.
+
+<추가 설명>
+
+U-Net의 기본 구조와 특징:
+U-Net은 데이터 증강을 강하게 활용하여 적은 수의 주석이 달린 이미지에서도 효과적으로 학습할 수 있는 네트워크 및 학습 전략을 제공한다.
+컨텍스트를 포착하는 축소 경로와 정밀한 위치 지정을 가능하게 하는 대칭 확장 경로로 구성되어 있다.
+U-Net은 매우 적은 수의 이미지로부터 end-to-end 학습이 가능하며, 이전의 최선의 방법인 슬라이딩 윈도우 컨볼루션 네트워크를 능가한다.
+
+성능 및 적용 사례:
+U-Net은 ISBI 2012에서 전자 현미경 스택의 신경 구조 분할을 위한 EM 분할 챌린지에서 큰 차이로 우승했다.
+네트워크는 전자 현미경 기록에서 신경 구조의 분할, HeLa 세포의 DIC 현미경 기록 등 다양한 생물의학적 분할 응용에서 뛰어난 성능을 보였다.
+
+네트워크 아키텍처:
+U-Net의 아키텍처는 높은 수준의 특징 채널을 확장 경로에 포함시켜, 네트워크가 컨텍스트 정보를 더 높은 해상도 층으로 전파할 수 있게 한다.
+이 아키텍처는 완전 연결 계층이 없으며, 각 컨볼루션의 유효한 부분만을 사용하여, 입력 이미지에서 전체 컨텍스트가 가능한 픽셀만을 포함하는 분할 맵을 생성한다.
+
+Ronneberger, O., Fischer, P., & Brox, T., 《U-Net: Convolutional Networks for Biomedical Image Segmentation》, Medical Image Computing and Computer-Assisted Intervention (MICCAI), Springer, LNCS, Vol.9351.: https://arxiv.org/abs/1505.04597
+U-Net for Image Segmentation: https://towardsdatascience.com/train-neural-net-for-semantic-segmentation-with-pytorch-in-50-lines-of-code-830c71a6544f/
+
+Universal Intelligence (보편 지능):
+보편적 지능(Universal Intelligence)은 다양한 환경에서 목표를 달성하는 기계의 능력을 정량화한 개념으로, 인간 지능에 대한 비공식적 특징들을 수학적으로 정교하게 형식화하려는 시도이다. 
+이를 위해 가능한 모든 환경에서의 성취도를 복잡도에 따른 가중치로 합산하는 방식이 제안되었다. 
+
+
+Legg, S., & Hutter, M. (2007). Universal Intelligence: A Definition of Machine Intelligence. Minds and Machines. https://arxiv.org/pdf/0712.3329
+Hutter, M. (2012). One Decade of Universal Artificial Intelligence. arXiv preprint arXiv:1202.6153. https://arxiv.org/abs/1202.6153
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
