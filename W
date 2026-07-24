@@ -1,0 +1,33 @@
+WRMSE: Weighted Root Mean Square Error: https://wikidocs.net/120046
+
+weight (가중치): https://wikidocs.net/120285
+
+weight decay:
+Weight decay는 머신 러닝과 딥 러닝에서 사용되는 정규화 기법으로, 모델의 가중치를 제어해 과적합(overfitting)을 방지하는 역할을 한다. 
+구체적으로는, 학습 과정에서 손실 함수에 가중치 크기에 비례한 패널티를 추가함으로써 가중치가 지나치게 커지는 것을 막는다. 
+이를 통해 모델이 훈련 데이터에 과하게 적응하는 것을 방지하고, 새로운 데이터에 대한 일반화 성능을 향상시킨다.
+
+수학적으로는 손실 함수에 가중치의 L2 노름을 추가하여 구현되며, 이를 통해 모델의 복잡성을 줄이고, 더 단순한 패턴을 학습하도록 유도한다. 
+Weight decay는 주로 신경망 훈련에서 사용되며, 다양한 모델에서 효과적으로 적용되고 있다. 
+예를 들어, ResNet이나 BERT 같은 대형 딥 러닝 모델에서도 이 기법이 활용된다.
+
+
+https://spotintelligence.com/2024/05/02/weight-decay/
+Jason Brownlee. (2020). How to Use Weight Decay to Reduce Overfitting of Neural Network in Keras. Machine Learning Mastery.
+Papers with Code. (n.d.). Weight Decay Explained. Retrieved from https://paperswithcode.com/method/weight-decay
+Spot Intelligence. (n.d.). Weight Decay in ML & Deep Learning Explained.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
