@@ -1,0 +1,200 @@
+SGD: stochastic gradient descent (확률적 경사 하강법):
+확률적 경사 하강법(SGD: Stochastic Gradient Descent)는 머신러닝, 특히 딥러닝에서 사용되는 가장 대표적인 최적화 알고리듬이다. 
+전체 데이터셋을 사용하여 비용 함수의 기울기를 계산하는 배치 경사 하강법과는 달리, SGD는 한 번에 하나 또는 일부의 훈련 샘플을 사용하여 그라디언트를 계산하고 매개 변수를 업데이트한다. 
+이 방식은 계산 비용을 절감하며, 비선형 최적화 문제에 대한 솔루션을 빠르게 근사할 수 있다.
+
+그러나 SGD는 수렴 속도가 느리고, 최적화 문제에 따라 최솟값을 찾는 데 어려움이 있을 수 있다. 
+이는 이동 단계마다 하나 또는 일부 샘플만 사용하기 때문에 그라디언트의 방향이 불안정하고 노이즈가 많을 수 있기 때문이다. 
+이 문제를 해결하기 위해 SGD의 변형이 개발되었다. 
+예를 들어, 모멘텀 방법은 이전 그라디언트를 사용하여 현재 그라디언트를 보정하고, AdaGrad는 학습률을 동적으로 조정한다.
+
+<참고 문헌 및 저작권>
+Goodfellow, Bengio, Courville, 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Ruder, Sebastian, 〈An overview of gradient descent optimization algorithms〉, arXiv Preprint: https://arxiv.org/abs/1609.04747
+https://en.wikipedia.org/wiki/Stochastic_gradient_descent
+
+SHAP:
+SHAP(SHapley Additive exPlanations)는 머신 러닝 모델의 출력을 설명하는 게임 이론적 접근법이다. 
+SHAP는 게임 이론의 샤플리 값을 사용하여 각 입력 피처가 예측에 미치는 기여도를 계산한다. 
+이를 통해 모델의 예측을 이해하고, 각 피처가 결과에 어떻게 영향을 미치는지 명확히 설명할 수 있다.
+
+SHAP는 모델의 예측을 로컬 수준에서 설명하는 데 유용하다. 
+예를 들어, 특정 데이터 포인트에 대한 예측이 어떻게 이루어졌는지, 어떤 피처들이 그 예측에 긍정적 또는 부정적 영향을 미쳤는지 시각화할 수 있다. 
+이를 통해 모델의 투명성을 높이고, 데이터 과학자가 모델의 작동 방식을 더 잘 이해할 수 있게 도와준다.
+
+<참고 문헌 및 저작권>
+Lundberg, S. (2024). Welcome to the SHAP documentation. SHAP documentation. https://shap.readthedocs.io/en/latest/index.html
+Schneppat, J.-O. (2024). Variable Importance Analysis with SHAP in Python: A Comprehensive Guide. AI Watch24. https://aiwatch24.wordpress.com/2024/05/12/variable-importance-analysis-with-shap-in-python-a-comprehensive-guide/
+
+SMOTE: Synthetic Minority Over-sampling Technique
+SMOTE는 Synthetic Minority Over-sampling Technique의 약자로, 불균형한 데이터셋에서 소수 클래스의 데이터 포인트를 합성적으로 생성하는 오버샘플링 기법이다. 
+불균형 데이터셋은 한 클래스의 샘플 수가 다른 클래스의 샘플 수보다 많이 적을 때 발생하며, 이러한 데이터 불균형 문제를 해결하지 않으면 분류 모델의 성능이 저하될 수 있다. 
+SMOTE는 소수 클래스의 데이터 포인트 사이의 차이를 사용하여 새로운 합성 샘플을 생성하므로, 오버샘플링에 있어서 단순 복제보다 더 효과적인 방법으로 간주된다.
+
+<참고 문헌 및 저작권>
+N. V. Chawla et al., 〈SMOTE: Synthetic Minority Over-sampling Technique〉, Journal of Artificial Intelligence Research, 2002.: https://www.jair.org/index.php/jair/article/view/10302
+Imbalanced-learn documentation on SMOTE: https://imbalanced-learn.org/stable/over_sampling.html#from-random-over-sampling-to-smote-and-adasyn
+
+SOTA: State of the Art:
+SOTA는 'State of the Art'의 약어로, 인공지능(AI) 및 기계 학습(ML) 분야에서 특정 작업에 대해 현재 사용 가능한 최고의 모델 또는 알고리듬을 의미한다. 
+이 용어는 연구자들이 특정 도메인에서 달성한 최고 수준의 성능을 나타내며, 연구 및 개발의 지표로 활용된다. 
+SOTA를 달성하기 위한 노력은 새로운 알고리즘, 모델, 기술의 개발을 촉진하며, 이는 다양한 산업 분야와 사회적 도전 과제에 대한 효율적이고 정확한 해결책을 제공한다.
+
+SOTA 달성은 데이터의 품질 및 양, 계산 자원의 필요성, 모델의 복잡성 및 해석 가능성, 지속적인 알고리즘 혁신 등 다양한 도전 과제를 포함한다. 
+이러한 도전을 극복하기 위해 연구자들은 데이터 증대, 전이 학습, 정규화 기법, 앙상블 방법, 하이퍼파라미터 최적화 등 여러 기법을 사용한다.
+
+실제 응용 프로그램에서 SOTA는 이론적 진보를 실용적인 용도로 전환하는 데 도움을 주어, 더 정확하고 효율적인 기계 학습 시스템의 배치를 가능하게 한다. 
+예를 들어, 의료 영상, 자연어 처리, 객체 인식 등에서 SOTA 모델은 더 나은 진단, 효율적인 통신 및 향상된 데이터 처리를 가능하게 해 준다.
+
+<참고 문헌 및 저작권>
+Robots.net. (n.d.). What Is SOTA In Machine Learning. Retrieved from https://robots.net/fintech/what-is-sota-in-machine-learning/
+CitizenSide. (n.d.). What Is SOTA in Machine Learning. Retrieved from https://citizenside.com/technology/what-is-sota-in-machine-learning/
+
+SSD: Single Shot MultiBox Detector:
+SSD(Single Shot MultiBox Detector)란 객체 탐지(Object Detection)를 위한 딥러닝 기반의 알고리즘이다. 
+이 알고리즘은 한 번의 순방향 패스(Forward Pass)로 이미지 내의 여러 객체를 탐지하고 분류한다. 
+SSD는 기존의 객체 탐지 방법들과 달리 별도의 객체 후보 영역을 추출하는 단계 없이, 고정된 수의 경계 상자(Bounding Boxes)를 사용하여 객체의 위치와 클래스를 동시에 예측한다.
+
+SSD의 핵심은 다양한 크기와 비율의 피처 맵(Feature Maps)에서 객체를 탐지하는 것이다. 
+이를 통해 다양한 크기의 객체를 효과적으로 탐지할 수 있다. 
+SSD는 빠른 처리 속도와 높은 탐지 정확도를 동시에 제공하기 때문에 실시간 시스템이나 자원이 제한된 환경에서 널리 사용된다.
+
+<참고 문헌 및 저작권>
+Liu, W., Anguelov, D., Erhan, D., Szegedy, C., Reed, S., Fu, C.-Y., & Berg, A. C., 《SSD: Single Shot MultiBox Detector》, European Conference on Computer Vision (ECCV), 2016.: https://arxiv.org/abs/1512.02325
+Real-Time Object Detection with SSD, PyImageSearch.: https://pyimagesearch.com/2020/06/01/opencv-social-distancing-detector/
+
+SVD: Singular Value Decomposition (특잇값 분해): https://wikidocs.net/230484
+SVD는 데이터의 차원 축소, 신호 처리, 기계 학습 등 다양한 분야에서 활용된다. 
+예를 들어, 기계 학습에서는 특성 추출이나 데이터 압축을 위해 SVD를 사용하며, 추천 시스템을 개발할 때 사용자와 아이템 간의 상호 작용을 모델링하는 데에도 적용된다. 
+특잇값 분해는 데이터의 주요한 특성을 포착하여 중요한 정보를 유지하면서 차원을 축소할 수 있는 능력 때문에 매우 유용하다.
+
+Gilbert Strang, 《Introduction to Linear Algebra》, Wellesley-Cambridge Press: https://math.mit.edu/~gs/linearalgebra/
+Lloyd N. Trefethen and David Bau, III, 《Numerical Linear Algebra》, SIAM: https://www.maths.ox.ac.uk/groups/numerical-analysis
+Singular Value Decomposition, Wikipedia: https://en.wikipedia.org/wiki/Singular_value_decomposition
+
+SVM: support vector machine (서포트 벡터 머신):
+SVM(Support Vector Machine)은 패턴 인식, 분류, 그리고 회귀 분석 등의 머신러닝 알고리즘이다. 
+이는 고차원 또는 무한 차원에서 최적의 분리 초평면을 찾아내는 방식을 사용하여, 데이터를 분류하거나 예측하는 데 사용된다. 
+이 방식은 분류할 항목들 사이에 가장 큰 간격을 두는 초평면을 찾는 것이 목표이다.
+
+SVM은 선형 분류 뿐만 아니라 비선형 분류에서도 활용되는 강력한 모델이다. 선형 분류가 불가능한 경우, SVM은 Kernel Trick이라는 기법을 통해 데이터를 고차원으로 매핑하고 그 고차원에서 분류를 수행한다. 
+이러한 특징 덕분에 SVM은 복잡하고 비선형적인 분류 문제에서도 효과적으로 적용되곤 한다.
+
+<참고 문헌 및 저작권>
+〈Support Vector Machines〉: https://www.cs.columbia.edu/~kathy/cs4701/documents/jason_svm_tutorial.pdf
+Wikipedia: Support Vector Machine: https://en.wikipedia.org/wiki/Support_vector_machine
+
+Skip Connection (스킵 연결):
+Skip Connection이란 딥러닝에서 사용되는 네트워크 구조 중 하나이다. 이는 입력 데이터가 네트워크의 여러 레이어를 건너뛰어 출력 레이어에 직접 연결되는 방식을 말한다. 
+Skip Connection은 주로 깊은 네트워크에서 그래디언트 소실(Vanishing Gradient) 문제를 완화하는 데 사용된다.
+
+Skip Connection의 구체적인 예로는 Residual Network (ResNet)이 있다. ResNet에서는 Skip Connection을 "shortcut" 또는 "residual" 연결이라고 부르며, 
+이를 통해 입력 값이 네트워크를 직접 통과하여 더 깊은 레이어로 전달되어도 원래의 정보를 보존할 수 있다. 
+이러한 방식은 깊은 네트워크에서 성능 저하를 초래하는 그래디언트 소실 문제를 크게 완화시키는 데 도움이 된다.
+
+<참고 문헌 및 저작권>
+He, Kaiming, et al., 《Deep Residual Learning for Image Recognition》, Proceedings of the IEEE conference on computer vision and pattern recognition, 2016.: https://arxiv.org/abs/1512.03385
+Goodfellow, Ian, et al., 《Deep Learning》, MIT Press, 2016.: https://www.deeplearningbook.org/
+
+Sora (소라):
+Sora는 OpenAI에서 개발한 텍스트-투-비디오 생성 AI 모델이다. 
+이 모델은 텍스트 설명을 바탕으로 최대 60초 길이의 비디오를 생성할 수 있으며, 
+복잡한 카메라 움직임과 여러 캐릭터가 포함된 고해상도 장면을 만들 수 있다. 
+Sora의 주요 응용 분야로는 영화 예고편, 역사적 자료 재현, 교육 콘텐츠, 마케팅 비디오 등이 있으며, 
+이를 통해 창작자들은 더 다양한 방식으로 상상력을 펼칠 수 있다. 
+예를 들어, 사용자가 특정 도시의 거리를 묘사하면 Sora는 그에 맞는 비디오를 생성할 수 있으며, 
+복잡한 물리적 상호작용을 포함한 장면도 구현 가능하다.
+
+Sora의 기술적 기초는 디퓨전 모델에 기반한다. 이 모델은 처음에 정적 노이즈와 같은 비디오를 생성한 후, 점진적으로 노이즈를 제거하여 최종 결과를 도출한다. 
+Sora는 영상 데이터를 ‘패치’라는 작은 단위로 분할하여, 이 패치들을 GPT와 유사한 토큰으로 처리함으로써 다양한 해상도, 길이, 비율의 비디오를 생성할 수 있다. 
+또한, Sora는 고도로 설명적인 캡션을 생성하여 시각적 학습 데이터를 기반으로 사용자 텍스트 지시를 충실히 따를 수 있도록 하는 리캡셔닝 기술을 사용한다.
+
+그러나 Sora는 일부 한계도 존재한다. 
+예를 들어, 길이가 1분을 초과하는 비디오를 생성할 수 없으며, 복잡한 액션이나 미세한 표정 묘사에서 일관성을 유지하는 데 어려움을 겪을 수 있다. 
+또한, 텍스트 입력이 지나치게 복잡하거나 추상적일 경우 정확한 결과를 도출하기 어렵다. 
+OpenAI는 이러한 문제를 해결하기 위해 지속적으로 모델을 개선하고 있으며, 
+생성된 콘텐츠의 윤리적 사용을 보장하기 위한 조치도 함께 취하고 있다.
+
+<참고 문헌 및 저작권>
+OpenAI. (2024). Creating video from text. Retrieved from https://openai.com/index/sora/
+Sora: A Review on Background, Technology, Limitations, and Opportunities of Large Vision Models. https://ar5iv.labs.arxiv.org/html/2402.17177
+Codemotion. (2024). Generative Video Creation: Sora by OpenAI is Here. Codemotion. https://www.codemotion.com/magazine/ai-ml/generative-video-creation-sora-by-openai/
+InfoQ. (2024). OpenAI Launches AI Text-to-Video Generator Sora. InfoQ. https://www.infoq.com/news/2024/02/openai-sora-video-generator/
+TechXplore. (2024). Sora is ChatGPT maker OpenAI's new textto-video generator. Here's what we know about the new tool. TechXplore. https://techxplore.com/news/2024-02-sora-chatgpt-maker-openai-text.pdf
+
+Sovereign AI (소버린 AI, 주권적 AI, AI 주권):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
