@@ -1,0 +1,28 @@
+XAI: eXplainable AI (설명 가능 인공지능):
+XAI(설명 가능한 인공지능, Explainable AI)란 인공지능의 결정 과정이나 결과를 인간 사용자가 이해할 수 있도록 만드는 기술과 방법론을 말한다. 전통적인 인공지능 시스템, 
+특히 딥러닝 모델들은 종종 '블랙 박스'로 불리며, 그들의 결정 과정이 외부에서는 불투명하다. 반면, XAI는 이러한 결정 과정을 투명하게 만들어, 사용자가 AI의 결정을 이해하고, 신뢰할 수 있게 한다. 
+이는 AI 시스템의 해석 가능성을 높이고, 오류나 편향에 대한 진단을 용이하게 한다.
+
+XAI의 중요성은 AI가 중요한 결정을 내리는 분야에서 특히 강조된다. 
+예를 들어, 의료 진단, 금융 서비스, 법 집행과 같은 영역에서 AI의 결정은 큰 영향을 미칠 수 있다. 
+이러한 결정들이 어떻게 내려졌는지를 이해하는 것은 투명성을 제공하고, 사용자의 신뢰를 구축하는 데 필수적이다. 
+또한, XAI는 AI 시스템이 내린 결정에 대한 책임 소재를 명확히 하고, 규제 준수를 지원하는 데에도 중요한 역할을 한다.
+
+<참고 문헌 및 저작권>
+Miller, Tim, 〈Explanation in Artificial Intelligence: Insights from the Social Sciences〉, arXiv: https://arxiv.org/abs/1706.07269
+Gunning, David, 〈Explainable Artificial Intelligence (XAI)〉, DARPA: https://www.darpa.mil/research/programs/explainable-artificial-intelligence
+https://www.ibm.com/cloud/learn/explainable-ai
+
+XGBoost(eXtra Gradient Boost):
+XGBoost(Extreme Gradient Boosting)란 효율적이고 확장 가능한 그라디언트 부스팅(Gradient Boosting) 알고리듬의 한 형태이다. 
+이 기법은 여러 개의 약한 학습기(주로 결정 트리)를 결합하여 강력한 예측 모델을 만드는 앙상블 방법이다. 
+XGBoost는 그라디언트 부스팅의 일반적인 구현체보다 계산 효율성이 뛰어나며, 과적합(Overfitting)을 방지하기 위한 규제(Regularization)를 포함하고 있다는 점에서 차별화된다.
+
+XGBoost는 대규모 데이터셋에서 뛰어난 성능을 발휘하며, 특징 중요도(feature importance) 평가, 누락된 데이터 처리, 트리 가지치기 등의 기능을 제공한다. 
+이 알고리즘은 분류와 회귀 문제에 모두 사용될 수 있으며, 경진대회나 실제 산업 환경에서 널리 사용되고 있다. 
+XGBoost의 성공은 그것의 속도, 성능 및 유연성에서 기인하며, 파이썬, R, 자바 등 다양한 프로그래밍 언어를 지원한다.
+
+<참고 문헌 및 저작권>
+Chen, T. & Guestrin, C., 〈XGBoost: A Scalable Tree Boosting System〉, ArXiv: https://arxiv.org/abs/1603.02754
+XGBoost Documentation, 공식 문서: https://xgboost.readthedocs.io/en/latest/
+XGBoost, Wikipedia 페이지: https://en.wikipedia.org/wiki/XGBoost
