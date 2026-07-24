@@ -1,0 +1,114 @@
+VAE: Variational Autoencoder (변분 오토인코더):
+VAE(Variational Autoencoder)란 딥러닝의 하나로, 생성 모델 중의 한 종류이다. 
+  생성 모델은 주어진 데이터를 바탕으로 데이터의 분포를 학습하고, 
+이를 바탕으로 새로운 데이터를 생성하는 모델이다. 
+  VAE는 이러한 생성 모델 중에서도 복잡한 데이터의 분포를 학습하고자 하는 목적을 가진다. 
+  특히, VAE는 높은 차원의 데이터를 낮은 차원의 잠재 공간에 매핑하는 인코더와, 
+이 잠재 공간에서 원래의 데이터 공간으로 매핑하는 디코더로 구성되어 있다.
+
+VAE는 다른 생성 모델과 달리 학습 과정에서 확률적인 방법을 사용한다. 
+  즉, 인코더에서는 입력 데이터를 잠재 공간의 확률 분포로 변환하며, 
+디코더에서는 이 확률 분포에서 샘플링한 값으로 원래의 데이터를 복원한다. 
+  이를 통해 VAE는 데이터의 노이즈에 강건하며, 
+다양한 종류의 데이터에 적용할 수 있다는 장점이 있다.
+
+<참고 문헌 및 저작권>
+Kingma, Diederik P. and Welling, Max, 《Auto-Encoding Variational Bayes》, International Conference on Learning Representations: https://arxiv.org/abs/1312.6114
+Doersch, Carl, 〈Tutorial on Variational Autoencoders〉, arXiv preprint: https://arxiv.org/abs/1606.05908
+Irhum Shafkat, Intuitively Understanding Variational Autoencoders (towardsdatascience.com): https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726/
+
+VITS:
+VITS(Variational Inference with adversarial learning for Text-to-Speech)는 자연스러운 음성 합성을 생성할 수 있는 신경망 기반의 엔드투엔드 텍스트-투-스피치(TTS) 모델이다. 
+  이 모델은 조건부 변분 오토인코더(VAE)와 적대적 학습을 결합하여 텍스트로부터 직접 음성 파형을 생성한다. 
+  VITS는 기존의 두 단계 TTS 시스템과 달리 단일 단계 학습 과정을 통해 더 빠른 합성을 가능하게 하며, 복잡한 학습 단계나 외부 정렬 정보 없이도 효과적인 학습이 가능하다.
+
+VITS의 아키텍처는 두 가지 주요 인코더, 즉 텍스트 인코더와 후방 인코더로 구성된다. 
+  텍스트 인코더는 텍스트 데이터를 처리하여 특징을 추출하고, 후방 인코더는 이 특징들을 스펙트로그램의 표현으로 변환한다. 
+    이렇게 변환된 데이터는 정규화 플로우를 통해 학습되며, 
+이 과정에서 KL 발산을 사용하여 두 표현 사이의 일치를 학습한다. 
+  또한, VITS는 HiFi-GAN 보코더를 사용하여 최종 음성 파형을 생성한다.
+
+훈련 중에는 여러 손실 함수를 사용하여 모델을 최적화한다. 
+이에는 재구성 손실, KL 발산 손실, 지속 시간 손실, 대립적 손실 및 특징 일치 손실이 포함된다. 
+이 손실 함수들은 모델이 실제와 가까운 음성을 생성하도록 도와준다.
+
+<참고 문헌 및 저작권>
+VITS (huggingface.co). Retrieved from https://huggingface.co/docs/transformers/model_doc/vits
+VITS - TTS 0.22.0 documentation (docs.coqui.ai). Retrieved from https://docs.coqui.ai/tts/v0.22.0/models/vits/
+TTS En VITS | NVIDIA NGC (catalog.ngc.nvidia.com). Retrieved from https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/tts_en_lj_vits
+VITS (anwarvic.github.io). Retrieved from https://anwarvic.github.io/blog/vits
+
+VLN: Vision-and-Language Navigation:
+Vision-and-Language Navigation(VLN)은 자연어로 주어진 지시(instruction)를 기반으로, 
+실제 혹은 사진 기반의 3D 환경 내에서 에이전트(agent)가 스스로 이동·경로 결정을 수행하도록 하는 인공지능 과제이다(Anderson et al., 2018). 
+즉, 시각(사진·영상 등) 정보와 언어(텍스트·음성 등) 정보를 함께 이해하여, 명령어에 따라 공간 환경을 탐색(navigation)하고 최종 목적지 또는 목표 동작에 도달하는 것을 목적으로 한다. 
+이때 에이전트는 입력된 언어(예: “거실을 통과하여 복도로 이동한 뒤 오른쪽으로 두 번 돌아 문이 있는 방으로 들어가세요”)를 분석하고, 
+시각적 관찰(주변 장면, 사물 등)을 토대로 경로를 설계하면서 단계별 의사결정을 수행한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
