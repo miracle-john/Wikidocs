@@ -579,37 +579,361 @@ safetensors는 순수한 텐서 데이터만 포함하여 보안성을 강화하
 파일 크기 제한 없음: 일부 기존 형식(Protobuf 등)의 파일 크기 제한이 없으며, 대용량 모델도 안전하게 저장 가능하다.
 범용성: PyTorch, TensorFlow 등 주요 프레임워크에서 사용할 수 있으며, 다양한 데이터 형식을 지원한다.
 
+-----------------------------------------------------------------------------
 <설치 방법>
 Python 환경에서 safetensors 라이브러리를 설치하려면 다음 명령어를 사용하면 된다.
 
 !pip install safetensors
-
+-----------------------------------------------------------------------------
 Rust 환경에서 소스 코드로 설치하는 경우:
 
+# Rust 설치
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
+
+# Safetensors 소스 코드 다운로드 및 설치
+git clone https://github.com/huggingface/safetensors
+cd safetensors/bindings/python
+pip install setuptools_rust
+pip install -e .
+-----------------------------------------------------------------------------
+기본 사용법
+Python에서 safetensors 파일을 저장하고 불러오는 예제:
+
+import torch
+from safetensors.torch import save_file, safe_open
+
+# 텐서 저장
+tensors = {
+    "weight1": torch.zeros((1024, 1024)),
+    "weight2": torch.zeros((1024, 1024))
+}
+save_file(tensors, "model.safetensors")
+
+# 텐서 불러오기
+tensors = {}
+with safe_open("model.safetensors", framework="pt", device="cpu") as f:
+    for key in f.keys():
+        tensors[key] = f.get_tensor(key)
+-----------------------------------------------------------------------------
+.ckpt → .safetensors 변환 방법
+Model Converter 확장 기능 사용
+stable-diffusion-webui의 확장 탭에서 Model Converter를 선택
+변환할 모델을 선택
+변환 후 파일 이름을 설정 (선택 사항)
+정밀도 선택 (FP32 또는 FP16)
+safetensors 형식을 선택하고 ckpt 체크 해제
+Run 버튼을 클릭하여 변환 실행
+변환된 모델은 stable-diffusion-webui/models/Stable-diffusion 폴더에 저장된다.
+-----------------------------------------------------------------------------
+Checkpoint Merger 사용
+Checkpoint Merger 탭으로 이동
+변환할 .ckpt 파일을 슬롯 A에 배치
+변환 후 파일 이름을 설정 (선택 사항)
+Checkpoint format에서 safetensors 선택
+Merge 버튼을 클릭하여 변환 실행
+-----------------------------------------------------------------------------
+Safetensors 활용
+모델 저장 경로:
+
+Checkpoints: stable-diffusion-webui/models/Stable-diffusion
+LoRAs: stable-diffusion-webui/models/Lora
+VAEs: stable-diffusion-webui/models/VAE
+Embeddings: stable-diffusion-webui/embeddings
+
+모델 학습 지원: safetensors는 Dreambooth, LoRA 등 다양한 훈련 기법에서 사용할 수 있다.
+
+대량 변환 지원: mass conversion 스크립트를 이용하여 다수의 .ckpt 파일을 일괄 변환 가능하다.
+-----------------------------------------------------------------------------
+
+          .safetensors vs. .ckpt 비교
+--------------------------------------------------------
+      기능          /	    .ckpt      /  	.safetensors/
+--------------------------------------------------------
+      보안성        /    낮음        /       높음      /
+--------------------------------------------------------
+     로딩 속도      /    보통        /       빠름      /
+--------------------------------------------------------
+  Lazy loading 지원/    제한적      /       지원       /
+--------------------------------------------------------
+  파일 크기 제한   /     있음       /       없음       /
+--------------------------------------------------------
+  텐서 데이터 구조 /    유연함      /      엄격함      /
+--------------------------------------------------------
+
+<결론>
+safetensors는 기존 .ckpt 파일의 보안 취약점을 해결하면서 성능까지 개선한 텐서 저장 포맷이다. 
+Stable Diffusion, LoRA, ControlNet과 같은 AI 모델에서 널리 사용되며, 
+향후 업계 표준으로 자리 잡을 가능성이 높다. 
+새로운 모델을 공유하거나 사용할 때는 가능하면 safetensors 형식을 우선적으로 고려하는 것이 권장된다.
 
 
+<참고 문헌 및 저작권>
+Hugging Face Safetensors 공식 문서: https://huggingface.co/docs/safetensors/index
+Safetensors GitHub: https://github.com/huggingface/safetensors
+A guide on safetensors and how to convert .ckpt models to .safetensors directly with Voldy (AUTOMATIC1111)'s UI
 
+saturate (포화): https://wikidocs.net/148850
 
+segmentation (세그먼테이션, 세그멘테이션, 세분화, 분할):
+세그멘테이션(segmentation)이란 이미지 또는 비디오에서 개체, 경계, 또는 특정 지역을 식별하고 분리하는 과정이다. 
+컴퓨터 비전 분야에서 중요한 역할을 하며, 이미지를 분석하고 처리하는데 필수적인 단계이다. 
+세그멘테이션은 크게 의미론적 세그멘테이션(semantic segmentation)과 인스턴스 세그멘테이션(instance segmentation)의 두 유형으로 나뉜다. 
+의미론적 세그멘테이션은 이미지 내의 모든 픽셀을 카테고리별로 분류하며, 인스턴스 세그멘테이션은 동일한 카테고리 내에서도 개별 객체를 구별한다. 
+이 기술은 의료 영상 분석, 자율 주행 차량, 위성 이미지 해석 등 다양한 분야에서 응용된다.
 
+세그멘테이션 기술은 기존의 픽셀 기반 방법에서 머신러닝, 특히 딥러닝 기술의 발전으로 획기적인 발전을 이루었다. 
+딥러닝 기반의 세그멘테이션 모델, 예를 들어 U-Net이나 FCN(Fully Convolutional Networks)은 높은 정확도와 효율성을 제공하며, 복잡한 텍스처와 형태의 객체도 정확하게 구분할 수 있다.
 
+<참고 문헌 및 저작권>
+J. Long, E. Shelhamer, T. Darrell, 《Fully Convolutional Networks for Semantic Segmentation》, IEEE Conference on Computer Vision and Pattern Recognition (CVPR): https://arxiv.org/abs/1411.4038
+O. Ronneberger, P. Fischer, T. Brox, 〈U-Net: Convolutional Networks for Biomedical Image Segmentation〉, MICCAI 2015: https://arxiv.org/abs/1505.04597
 
+self-supervised learning (자기 지도 학습):
+자기지도 학습(Self-Supervised Learning)이란 레이블이 없는 데이터로부터 학습하는 인공지능 기법이다. 
+이 방법은 레이블이나 주석이 필요하지 않은 대신, 데이터 자체에서 학습 과제를 생성한다. 
+예를 들어, 이미지에서 일부를 가리고 모델이 가려진 부분을 예측하게 하는 것이 자기지도 학습의 한 예시이다. 
+이러한 접근 방식은 모델이 데이터의 내재된 구조와 패턴을 이해하도록 돕는다.
 
+자기지도 학습은 지도 학습(Supervised Learning)과 비지도 학습(Unsupervised Learning)의 중간쯤에 위치한다고 볼 수 있다. 
+지도 학습처럼 명시적인 목표를 가지고 학습하지만, 비지도 학습처럼 레이블이나 주석이 필요 없다. 
+이 기법은 특히 데이터 레이블링에 많은 비용이 드는 경우 유용하며, 자연어 처리(NLP), 컴퓨터 비전 등 다양한 분야에서 활용되고 있다.
 
+<참고 문헌 및 저작권>
+LeCun, Y., 〈Self-Supervised Learning: The Dark Matter of Intelligence〉, Facebook AI: https://ai.meta.com/blog/self-supervised-learning-the-dark-matter-of-intelligence/
+He, K., Fan, H., Wu, Y., Xie, S., & Girshick, R., 〈Momentum Contrast for Unsupervised Visual Representation Learning〉, ArXiv: https://arxiv.org/abs/1911.05722
+Self-supervised learning, Wikipedia 페이지: https://en.wikipedia.org/wiki/Self-supervised_learning
 
+semantic segmentation (의미론적 세그멘테이션):
+의미론적 세그멘테이션(Semantic Segmentation)은 이미지 내의 각 픽셀을 특정 카테고리(예: 사람, 자동차, 나무 등)에 할당하는 이미지 분석 과정이다. 
+이 과정은 이미지를 구성하는 개체들을 이해하고, 각 픽셀이 어떤 의미를 가지는지를 분류한다. 
+의미론적 세그멘테이션은 각 객체의 정확한 경계를 구분하지는 않지만, 
+동일한 객체 유형에 속하는 모든 픽셀을 동일한 라벨로 마킹한다. 
+예를 들어, 이미지에서 모든 '자동차' 픽셀은 하나의 카테고리로 분류되며, 
+각각의 개별 자동차는 구분되지 않는다.
 
+의미론적 세그멘테이션은 컴퓨터 비전 분야에서 중요한 역할을 하며, 
+특히 도시 환경 분석, 자율 주행 차량, 의료 영상 분석 등 다양한 응용 분야에서 사용된다. 
+최근에는 딥러닝, 특히 컨볼루션 신경망(CNN)을 기반으로 하는 알고리즘들이 이 분야에서 매우 높은 정확도와 효율성을 보이고 있다.
 
+<참고 문헌 및 저작권>
+J. Long, E. Shelhamer, T. Darrell, 《Fully Convolutional Networks for Semantic Segmentation》, IEEE Conference on Computer Vision and Pattern Recognition (CVPR): https://arxiv.org/abs/1411.4038
+V. Badrinarayanan, A. Kendall, R. Cipolla, 〈SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation〉, IEEE Transactions on Pattern Analysis and Machine Intelligence: https://arxiv.org/abs/1511.00561
+O. Ronneberger, P. Fischer, T. Brox, 《U-Net: Convolutional Networks for Biomedical Image Segmentation》, MICCAI 2015: https://arxiv.org/abs/1505.04597
 
+semi-supervised learning(준지도 학습, 지도/자율 학습): https://wikidocs.net/120199
 
+sentiment analysis (감성 분석): https://wikidocs.net/120217
 
+seq2seq: Sequence to Sequence (시퀀스 투 시퀀스): https://wikidocs.net/158319
+문맥을 이해하고 새로운 시퀀스를 '생성'하는 데 특화되어 있어 인코더-디코더(Encoder-Decoder) 모델
 
+<핵심 논문 및 역사적 배경>
+이 기술의 근간이 된 주요 연구는 다음과 같다.
 
+Sutskever et al. (2014): "Sequence to Sequence Learning with Neural Networks" (NIPS) - 다층 LSTM을 사용하여 긴 문장에서도 성능을 입증하며 Seq2Seq라는 용어를 대중화했다.
+Cho et al. (2014): "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation" (EMNLP) - GRU(Gated Recurrent Unit)를 처음 제안하며 인코더-디코더 프레임워크를 정립했다.
 
+<한계와 발전: Attention의 등장>
+기존 Seq2Seq는 긴 문장의 정보를 단 하나의 고정된 크기의 벡터에 모두 담아야 한다는 점이 치명적인 약점(병목 현상)이었다. 
+이를 해결하기 위해 Bahdanau et al. (2015)은 디코더가 매 시점마다 입력 문장의 특정 부분에 집중하게 만드는 어텐션(Attention) 메커니즘을 제안했다. 
+이 흐름은 이후 2017년 Transformer의 탄생으로 이어진다.
 
+<참고 문헌 및 저작권>
+Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to Sequence Learning with Neural Networks. In Advances in Neural Information Processing Systems (pp. 3104–3112).: https://arxiv.org/abs/1409.3215
+Cho, K., Van Merriënboer, B., Gulcehre, C., et al. (2014). Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. In EMNLP.: https://arxiv.org/abs/1406.1078
+Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural Machine Translation by Jointly Learning to Align and Translate. In ICLR.: https://arxiv.org/abs/1409.0473
 
+sequence data (시퀀스 데이터):
+시퀀스 데이터란 순서대로 정렬된 데이터의 연속이다. 이 데이터 유형은 특정 순서에 따라 배열된 항목들로 구성되며, 
+각 항목의 순서는 데이터 해석에 있어 중요한 역할을 한다. 
+시퀀스 데이터는 다양한 분야에서 나타나며, 
+예를 들어 생물학에서는 DNA 서열, 컴퓨터 과학에서는 문자열이나 시간에 따른 이벤트 로그, 금융에서는 시간에 따른 주식 가격 변동 같은 형태로 나타난다.
 
+시퀀스 데이터의 처리와 분석은 주로 순차적 정보를 유지하며 이를 기반으로 패턴을 인식하거나 예측을 수행하는 데 중점을 둔다. 
+이러한 데이터를 다루는 기계학습 모델로는 순환 신경망(RNN), 장단기 메모리(LSTM), 그리고 변환자(Transformer) 모델 등이 있다. 
+각각의 모델은 시퀀스 데이터의 특성을 학습하고 이를 바탕으로 다음 시퀀스를 예측하거나 분류하는 데 사용된다.
 
+<참고 문헌 및 저작권>
+Goodfellow, Ian, et al., 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+Cho, Kyunghyun, et al., 〈Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation〉, Association for Computational Linguistics: https://arxiv.org/abs/1406.1078
+Vaswani, Ashish, et al., 〈Attention is All You Need〉, Advances in Neural Information Processing Systems: https://arxiv.org/abs/1706.03762
+https://www.facebook.com/groups/255834461424286?multi_permalinks=2246319285709117&hoisted_section_header_type=recently_seen
 
+sigmoid (시그모이드):
+시그모이드(sigmoid)란 머신 러닝과 통계학에서 주로 사용되는 S형 함수이다. 보통 0과 1사이의 값을 출력하며, 그 형태가 S자 모양을 닮아 있어 시그모이드라 불린다. 
+이 함수는 확률과 같은 비율을 나타내는 데 사용되며, 로지스틱 회귀, 인공 신경망 등에서 주로 활성화 함수로 사용된다.
 
+시그모이드 함수는 그 입력값이 어떤 범위에 들어갈 때 출력 값이 0과 1 사이에서 급격하게 변하는 특성을 가지고 있다. 
+이러한 특성 때문에 시그모이드 함수는 이진 분류 문제에서 출력 레이어의 활성화 함수로 널리 사용된다. 
+시그모이드 함수는 확률로 해석될 수 있기 때문에, 결과값은 특정 클래스에 속할 확률로 해석될 수 있다.
 
+<참고 문헌 및 저작권>
+Christopher M. Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Andrew Ng, 《Machine Learning Yearning》, deeplearning.ai: https://www.mlyearning.org/
+Sigmoid function: https://en.wikipedia.org/wiki/Sigmoid_function
 
+simulated annealing (시뮬레이티드 어닐링):
+시뮬레이티드 어닐링(simulated annealing)은 최적화 문제를 해결하기 위한 확률적 방법 중 하나이다. 
+이 방법은 금속을 가열한 다음 천천히 냉각하여 결정 구조를 개선하는 물리적 과정인 풀림(annealing)에서 영감을 받았다. 
+시뮬레이티드 어닐링은 해 공간 내에서 임의의 초기 해를 선택한 후, 이웃하는 해들 중에서 새로운 해를 선택하며 점차적으로 최적해에 도달하려고 시도한다. 
+이 과정에서 특정 확률에 따라 더 나쁜 해를 일시적으로 수용함으로써 지역 최적해에 갇히는 것을 방지하고, 전역 최적해에 더 가까워질 수 있는 기회를 제공한다.
 
+시뮬레이티드 어닐링은 온도라는 개념을 사용하여 탐색의 유연성을 조절한다. 
+초기에는 온도가 높아서 알고리즘이 더 많은 해를 수용하고 넓은 범위를 탐색할 수 있지만, 
+시간이 지나면서 온도가 점점 낮아져서 탐색이 점차 더 세밀해지고 최종적으로 최적해에 접근한다. 
+이 방법은 다양한 최적화 문제, 특히 전역 최적화가 필요한 복잡한 문제에서 널리 사용된다.
+
+<참고 문헌 및 저작권>
+Kirkpatrick, S., Gelatt, C. D., & Vecchi, M. P., 《Optimization by Simulated Annealing》, Science: https://www.science.org/doi/10.1126/science.220.4598.671
+
+skip connection (잔차 연결, 건너뛴 연결): https://wikidocs.net/120073
+
+softmax (소프트맥스):
+소프트맥스(Softmax) 함수는 다중 클래스 분류 문제에서 사용되는 활성화 함수로, 각 클래스에 속할 확률을 추정한다. 
+이 함수는 입력받은 값을 0과 1 사이의 값으로 정규화하며, 모든 출력값의 합은 1이 된다. 
+이러한 특성 때문에 소프트맥스 함수는 각 클래스에 대한 확률 분포를 나타내는 데 적합하다. 
+주로 로지스틱 회귀(Logistic Regression)나 신경망의 마지막 계층에서 사용되며, 여러 클래스 중 하나를 선택해야 할 때 유용하다.
+
+이 함수는 각 클래스에 대한 출력값을 확률로 변환하여, 가장 높은 확률을 가진 클래스를 모델의 예측 결과로 선택한다. 
+소프트맥스 함수는 다중 클래스 분류 문제를 해결하는 데 필수적인 요소로, 이미지 분류, 언어 모델링, 텍스트 분류 등 다양한 분야에서 사용된다.
+
+<참고 문헌 및 저작권>
+C. M. Bishop, 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+I. Goodfellow, Y. Bengio, A. Courville, 《Deep Learning》, MIT Press: https://www.deeplearningbook.org/
+T. Hastie, R. Tibshirani, J. Friedman, 《The Elements of Statistical Learning》, Springer: https://hastie.su.domains/ElemStatLearn/
+
+sparse matrix (희소 행렬): https://wikidocs.net/120069
+
+sparsity problem (희소성 문제):
+희소성 문제(Sparsity problem)는 데이터 과학과 자연어 처리 분야에서 자주 마주치는 문제로, 데이터가 매우 드물게 분포되어 있어 분석이나 모델 학습에 어려움을 겪는 현상을 말한다. 
+특히 자연어 처리에서는 단어가 매우 많고 각 단어가 다양한 문맥에서 사용되기 때문에, 단어 간의 관계를 표현하는 벡터(예: 원-핫 인코딩)가 대부분 0으로 채워지는 희소 벡터가 되는 경우가 많다. 
+이러한 희소 벡터는 저장 공간과 계산 자원을 비효율적으로 사용하고, 모델의 성능을 저하시킬 수 있다.
+
+희소성 문제는 고차원 데이터에서 더욱 심각해지는데, 이는 '차원의 저주'(Curse of Dimensionality)로도 알려져 있다. 
+데이터의 차원이 높아질수록, 데이터 포인트 간의 거리가 증가하고, 데이터 분포가 더욱 희소해진다. 
+이로 인해 기계 학습 모델, 특히 거리 기반의 알고리즘들이 제대로 작동하지 않을 수 있다.
+
+희소성 문제를 해결하기 위한 여러 접근 방법이 있으며, 대표적으로 차원 축소 기법(예: PCA), 데이터 정규화, 특성 선택 기법, 그리고 단어 임베딩과 같은 밀집 벡터 표현 방식이 있다. 
+이러한 방법들은 데이터의 중요한 정보를 유지하면서 차원을 줄여 희소성을 감소시키는 데 도움을 준다.
+
+<참고 문헌 및 저작권>
+James, G., Witten, D., Hastie, T., and Tibshirani, R., 《An Introduction to Statistical Learning》, Springer
+Manning, C. D. and Schütze, H., 《Foundations of Statistical Natural Language Processing》, MIT Press: https://nlp.stanford.edu/fsnlp/
+Sparsity - Wikipedia: https://en.wikipedia.org/wiki/Sparse_matrix
+
+speech recognition (음성 인식):
+음성 인식(Speech Recognition)은 컴퓨터 또는 전자 장치가 인간의 말소리를 인식하고 이를 텍스트로 변환하는 기술이다. 
+이 기술은 음성 신호를 디지털 데이터로 변환한 후, 이 데이터를 처리하여 단어나 문장으로 해석한다. 
+음성 인식 시스템은 일반적으로 음향 모델과 언어 모델 두 가지 주요 구성 요소를 사용한다. 
+음향 모델은 음성 신호의 소리 패턴을 인식하고, 언어 모델은 인식된 단어들이 어떻게 조합되어 의미 있는 문장을 형성하는지 결정한다. 
+초기의 시스템은 제한된 어휘와 간단한 명령어에 초점을 맞췄지만, 최근의 시스템은 더 넓은 어휘와 복잡한 문맥, 다양한 발음 및 억양을 처리할 수 있다.
+
+음성 인식 기술은 인공지능, 특히 딥러닝의 발전에 힘입어 크게 발전했다. 
+순환 신경망(RNN), 특히 LSTM(Long Short-Term Memory) 네트워크, 그리고 최근에는 트랜스포머(Transformer) 기반 모델이 음성 인식의 정확도를 향상시키는 데 중요한 역할을 하고 있다. 
+이 기술은 음성 기반의 사용자 인터페이스, 음성으로 작동하는 개인 비서, 자동 자막 생성, 의료 분야의 음성 진단 등 다양한 분야에서 활용된다.
+
+<참고 문헌 및 저작권>
+X. Huang, A. Acero, H-W. Hon, 《Spoken Language Processing》, Prentice Hall: https://www.pearson.com/en-us/search/Shop?aq=spoken%20language%20processing
+S. Hochreiter, J. Schmidhuber, 〈Long Short-Term Memory〉, Neural Computation: https://direct.mit.edu/neco/article-abstract/9/8/1735/6109/Long-Short-Term-Memory?redirectedFrom=fulltext
+A. Vaswani et al., 《Attention Is All You Need》, NeurIPS 2017: https://arxiv.org/abs/1706.03762
+
+stacking (스태킹):
+스태킹(stacking)은 여러 개의 기계 학습 모델을 통합하여 예측 정확도를 높이는 앙상블 학습 방법 중 하나이다. 
+이 기법은 기본 모델(base models)의 예측 결과를 새로운 메타 모델(meta model)의 입력으로 사용하여 최종 예측을 수행한다. 
+기본 모델로부터의 예측 결과들이 메타 모델에 입력되며, 메타 모델은 이러한 입력들을 종합하여 최종적인 예측 결과를 도출한다.
+
+스태킹은 일반적으로 두 가지 주요 단계로 구성된다. 첫 번째 단계에서는 다양한 기본 모델들이 각각의 데이터 세트에 대해 독립적으로 학습되며, 
+이 모델들은 각기 다른 머신 러닝 알고리즘을 사용할 수 있다. 두 번째 단계에서는 이러한 기본 모델들의 예측을 입력으로 사용하여 메타 모델이 학습된다. 
+이 메타 모델은 보통 로지스틱 회귀나 다른 간단한 머신 러닝 모델이 사용되며, 기본 모델들의 예측을 종합해 최종적인 예측을 수행한다.
+
+스태킹의 장점은 여러 모델의 강점을 조합하고 각 모델의 약점을 보완하여 일반화 성능을 향상시킬 수 있다는 것이다. 
+예를 들어, 어떤 모델은 특정 유형의 데이터에서 잘 작동할 수 있지만 다른 데이터에서는 성능이 떨어질 수 있다. 
+스태킹을 통해 이러한 모델들을 조합함으로써 다양한 상황에서 강력하고 견고한 예측 모델을 구축할 수 있다. 
+그러나, 이 기법은 설정과 실행이 복잡할 수 있으며, 데이터 누수 같은 문제를 피하기 위해서 올바르게 구현하는 것이 중요하다.
+
+<참고 문헌 및 저작권>
+Brownlee, J. (n.d.). Stacking Ensemble Machine Learning With Python. Retrieved from https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/
+scikit-learn. (n.d.). sklearn.ensemble.StackingClassifier — scikit-learn 1.4.2 documentation. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.StackingClassifier.html
+Analytics Vidhya. (n.d.). Ensemble Stacking for Machine Learning and Deep Learning. Retrieved from https://www.analyticsvidhya.com/blog/2021/08/ensemble-stacking-for-machine-learning-and-deep-learning/
+
+standard deviation (표준 편차): https://wikidocs.net/120063
+
+state (상태): https://wikidocs.net/120357
+
+state transition (상태 전이): https://wikidocs.net/122752
+
+stemming (어간 추출): https://wikidocs.net/159039
+
+snowball stemming:
+다음 코드는 “snowball stemming”이라는 간단한 형태소 처리 알고리즘을 보여준다. 이 형태소 처리기의 처리 결과는 언어에 따라 달라지며, 여기서는 영어를 사용하지만 여러 언어를 지원한다.
+-------------------------------Python-----------------------------------
+stemmer = nltk.SnowballStemmer("english")
+def wordStemmer(wordrow):
+    stemmed = [stemmer.stem(word) for word in wordrow]
+    return stemmed
+
+manual_stopwords = [',','.',')',',','(','m',"'m","n't",'e.g',"'ve",'s','#',
+    '/','``',"'s","''",'!','r',']','=','[','s','&','%','*','...','1','2','3',
+    '4','5','6','7','8','9','10','--',"''",';','-',':']
+
+def data_processing(sql,manual_stopwords):
+    #create pointer to the sqlite data
+    c.execute(sql)
+    data = {'wordMatrix':[],'all_words':[]}
+    interWordMatrix = []
+    interWordList = []
+
+    row = c.fetchone()
+    while row is not None:
+        tokenizer = nltk.tokenize.RegexpTokenizer(r'\w+|[^\w\s]+')
+
+        wordrow = tokenizer.tokenize(row[0]+" "+row[1])
+        wordrow_lowercased = lowerCaseArray(wordrow)
+        wordrow_nostopwords = wordFilter(stopwords,wordrow_lowercased)
+
+        wordrow_nostopwords = wordFilter(manual_stopwords,wordrow_nostopwords)
+        wordrow_stemmed = wordStemmer(wordrow_nostopwords)
+
+        interWordList.extend(wordrow_stemmed)
+        interWordMatrix.append(wordrow_stemmed)
+
+        row = c.fetchone()
+
+        wordfreqs = nltk.FreqDist(interWordList)
+        hapaxes = wordfreqs.hapaxes() 
+        for wordvector in interWordMatrix: 
+            wordvector_nohapexes = wordFilter(hapaxes,wordvector) 
+            data['wordMatrix'].append(wordvector_nohapexes) 
+            data['all_words'].extend(wordvector_nohapexes) 
+
+    return data 
+
+for subject in subreddits: 
+    data[subject] = data_processing( 
+        sql='''SELECT topicTitle,topicText,topicCategory FROM topics
+            WHERE topicCategory = '''+"'"+subject+"'", 
+        manual_stopwords=manual_stopwords)
+------------------------------------------------------------------------
+
+super resolution (초해상도): https://wikidocs.net/120075
+
+supervised learning (지도학습): 
+지도 학습(Supervised learning)은 머신러닝의 주요한 방법 중 하나로, 입력과 해당 출력(레이블) 쌍으로 이루어진 학습 데이터를 사용하여 모델을 훈련시키는 과정이다. 
+이 방법의 목표는 학습 데이터를 바탕으로 함수를 추정하여, 새로운 입력 데이터에 대해 정확한 출력을 예측하는 것이다. 
+지도 학습은 주로 분류(Classification)와 회귀(Regression) 문제에 사용되며, 이 두 경우 모두 모델은 주어진 입력 데이터에 대한 올바른 출력(레이블 또는 연속적인 값)을 예측하도록 학습한다.
+
+지도 학습의 핵심은 레이블이 붙은 학습 데이터의 사용에 있다. 훈련 중 모델은 입력 데이터와 이에 해당하는 레이블 사이의 관계를 학습하고, 
+이를 바탕으로 새로운 데이터에 대한 예측을 수행한다. 모델의 성능은 보통 검증 데이터셋을 사용하여 평가되며, 
+이 과정에서 모델이 새로운 데이터에 대해 얼마나 잘 일반화되는지를 확인한다. 
+지도 학습은 다양한 실세계 응용 분야에서 널리 사용되며, 
+특히 명확한 입력-출력 관계가 정의되어 있을 때 효과적이다.
+
+그러나 지도 학습은 충분하고 고품질의 레이블이 있는 데이터가 필요하며, 
+레이블링 과정은 시간과 비용이 많이 드는 작업일 수 있다. 
+또한, 모델이 학습 데이터에 과적합(Overfitting)되는 경향이 있을 수 있으므로 적절한 평가와 조정이 필요하다.
+
+<참고 문헌 및 저작권>
+Alpaydin, E., 《Introduction to Machine Learning》, MIT Press: https://mitpress.mit.edu/9780262043793/introduction-to-machine-learning/
+Bishop, C. M., 《Pattern Recognition and Machine Learning》, Springer: https://link.springer.com/book/9780387310732
+Supervised learning - Wikipedia: https://en.wikipedia.org/wiki/Supervised_learning
