@@ -1,0 +1,161 @@
+Q value (Q값):
+Q Value (Q Function): Usually denoted as (sometimes with a π subscript, and sometimes as in Deep RL), 
+Q Value is a measure of the overall expected reward assuming the Agent is in state s and performs action a, 
+and then continues playing until the end of the episode following some policy π. Its name is an abbreviation of the word “Quality”
+
+where N is the number of states from state s till the terminal state, 
+γ is the discount factor and r⁰ is the immediate reward received after performing action a in state s. — The Complete Reinforcement Learning Dictionary: 
+
+Q 값(Q 함수): 일반적으로 (때로는 π 하첨자가 붙기도 하고, 딥 강화 학습(Deep RL)에서는 다음과 같이 표기되기도 함)
+Q 값은 에이전트가 상태 s에 있을 때 행동 a를 수행하고,
+이후 어떤 정책 π에 따라 에피소드가 끝날 때까지 게임을 계속할 경우 기대되는 전체 보상의 척도입니다. 이 이름은 “Quality”라는 단어의 약자입니다.
+
+여기서 N은 상태 s부터 종결 상태까지의 상태 수이며,
+γ는 할인 계수이고, r⁰는 상태 s에서 행동 a를 수행한 후 즉시 받는 보상이다.
+
+Q-Learning (Q러닝):
+Q-learning은 모델을 필요로 하지 않는 강화 학습 알고리듬이다. 이 알고리듬은 특정 상태에서의 작용의 가치를 학습하기 위해 사용되며, 환경의 모델을 필요로 하지 않기 때문에 "모델 프리(model-free)"라고 불린다. 
+Q-learning은 확률적 전환과 보상을 다룰 수 있으며, 적응 없이도 문제를 처리할 수 있다. Q-learning은 유한 마르코프 결정 과정에 대해 최적의 정책을 찾아내는 것을 목표로 하며, 
+무한한 탐색 시간과 부분적으로 무작위 정책이 주어진 모든 유한 마르코프 결정 과정에 대한 최적의 작용 선택 정책을 식별할 수 있다.
+
+Q-learning의 주요 목표는 에이전트의 현재 상태를 고려하여 최선의 작용 방향을 찾는 것이다. 이는 무작위로 작용을 선택하고 보상을 극대화하는 것을 목표로 한다. 
+Q-learning은 모델 프리이며 오프-정책(off-policy) 강화 학습으로, 에이전트는 환경의 예상 반응에 대한 예측을 사용하여 전진하며, 보상 시스템을 통해 학습하는 대신 시행착오를 통해 학습한다. 
+예를 들어, Q-learning을 사용하여 광고 추천 시스템을 최적화할 수 있는데, 사용자가 클릭한 제안된 제품에 대한 보상을 통해 자주 함께 구매되는 제품을 추천하는 시스템을 구현할 수 있다.
+
+<참고 문헌 및 저작권>
+Wikipedia. (n.d.). Q-learning. Retrieved from https://en.wikipedia.org/wiki/Q-learning
+Simplilearn. (n.d.). What is Q-Learning: Everything you Need to Know. Retrieved from https://www.simplilearn.com/tutorials/machine-learning-tutorial/what-is-q-learning
+
+QA: question answering (질의응답):
+질의응답(Question Answering, QA)은 사용자가 제시한 질문에 대해 정확하고 관련성 높은 답변을 제공하는 AI 시스템이다. 
+이러한 시스템은 자연어 처리(NLP), 머신러닝, 딥러닝 기술을 활용하여 질문의 의미를 이해하고 적절한 답변을 생성한다. 
+QA 시스템은 크게 두 가지 방식으로 분류할 수 있다: 추출형 QA와 생성형 QA이다.
+
+<QA 시스템의 주요 유형>
+추출형 QA (Extractive QA): 추출형 QA 시스템은 주어진 문맥에서 질문의 답변이 포함된 텍스트의 특정 부분을 추출한다. 
+예를 들어, BERT 기반의 QA 모델은 입력된 문맥과 질문을 받아 답변의 시작과 끝 위치를 식별한다. 
+이는 주로 SQuAD와 같은 데이터셋을 통해 학습된다.
+
+생성형 QA (Generative QA): 생성형 QA 시스템은 주어진 문맥을 기반으로 새로운 답변을 생성한다. 
+이는 질문에 대한 답변을 문맥 내에서 생성해 내거나, 문맥 없이도 답변을 생성할 수 있다. 
+예를 들어, GPT-3와 같은 모델은 입력된 질문을 기반으로 자유 텍스트 형태의 답변을 생성할 수 있다.
+
+<QA 모델의 학습 및 미세 조정>
+QA 모델을 구축하려면 사전 학습된 언어 모델을 특정 QA 작업에 맞게 미세 조정해야 한다. BERT를 
+예로 들면, BERT 모델에 QA 헤드를 추가하여 문맥에서 질문에 대한 답변의 시작과 끝 토큰을 예측하도록 학습할 수 있다. 
+Hugging Face의 Transformers 라이브러리를 사용하면 쉽게 QA 모델을 미세 조정할 수 있다. 
+
+아래는 BERT를 기반으로 한 QA 모델을 학습하는 코드의 예이다.
+------------------------ Python---------------------------
+from transformers import pipeline
+
+qa_model = pipeline("question-answering")
+question = "Where do I live?"
+context = "My name is Merve and I live in İstanbul."
+result = qa_model(question=question, context=context)
+print(result)
+---------------------------------------------------------
+이 코드는 BERT 모델을 사용하여 주어진 문맥에서 질문에 대한 답변을 추출하는 예제이다.
+
+<실세계 응용>
+QA 시스템은 다양한 산업에서 활용될 수 있다. 예를 들어, 고객 지원 챗봇은 자주 묻는 질문에 자동으로 답변할 수 있으며, 의료 분야에서는 연구 문헌에서 필요한 정보를 추출하는 데 사용할 수 있다. 
+또한, 법률 문서 분석, 금융 데이터 분석 등에서도 QA 시스템이 중요한 역할을 한다.
+
+QA 시스템은 사용자의 질문에 대해 신속하고 정확한 답변을 제공함으로써 다양한 응용 분야에서 효율성을 높이고 사용자 경험을 향상시키는 데 기여할 수 있다.
+
+<참고 문헌 및 저작권>
+https://blog.paperspace.com/how-to-train-question-answering-machine-learning-models/
+https://dzone.com/articles/question-answering-tutorial-with-hugging-face-bert
+https://huggingface.co/tasks/question-answering
+https://wandb.ai/mostafaibrahim17/ml-articles/reports/The-Answer-Key-Unlocking-the-Potential-of-Question-Answering-With-NLP--VmlldzozNTcxMDE3#:~:text=URL%3A%20https%3A%2F%2Fwandb.ai%2Fmostafaibrahim17%2Fml
+https://www.deepset.ai/blog/modern-question-answering-systems-explained
+
+QLoRA: Quantized Low-Rank Adapter:
+QLoRA(Quantized Low-Rank Adapter)는 대형 언어 모델(LLM)을 효율적으로 미세 조정하기 위한 혁신적인 접근 방식이다. 
+QLoRA는 4비트 양자화된 사전 훈련 모델을 활용하여 메모리 사용량을 대폭 줄이면서도 16비트 전체 미세 조정의 성능을 유지한다. 
+이를 통해 매우 큰 모델을 단일 GPU에서도 미세 조정할 수 있게 된다.
+
+QLoRA의 핵심 기술에는 4비트 NormalFloat(NF4) 데이터 타입, 이중 양자화(Double Quantization), 페이지드 옵티마이저(Paged Optimizers) 등이 있다. 
+NF4는 통상적인 분포에 최적화된 데이터 타입으로, 양자화 과정에서 메모리 사용을 최소화한다. 
+이중 양자화는 양자화 상수를 다시 양자화하여 메모리 풋프린트를 추가로 줄인다. 
+페이지드 옵티마이저는 그래디언트 체크포인팅 중 메모리 스파이크를 방지하여 대형 모델의 훈련을 단일 머신에서도 가능하게 한다.
+
+QLoRA의 실제 응용 사례로는 LLaMA 모델을 기반으로 한 Guanaco 모델 패밀리가 있다. 
+이 모델은 ChatGPT의 99.3% 성능을 24시간의 단일 GPU 훈련으로 달성했다. 
+QLoRA는 작은 고품질 데이터셋을 사용하여도 최첨단 성과를 달성할 수 있음을 입증했다. 
+이 접근 방식은 데이터셋 크기보다 데이터 품질이 더 중요함을 보여주었다.
+
+<참고 문헌 및 저작권>
+https://github.com/artidoro/qlora
+Dettmers, T., Zettlemoyer, L., & Artidoro, R. (2023). QLoRA: Efficient Finetuning of Quantized LLMs. arXiv. Retrieved from https://arxiv.org/abs/2305.14314
+Martra, P. (2023). QLoRA: Training a Large Language Model on a 16GB GPU. Towards AI. Retrieved from https://towardsai.net/p/machine-learning/qlora-training-a-large-language-model-on-a-16gb-gpu
+Hamdoune, M. B. (2023). QLORA: Efficient Finetuning of Quantized Language Models. Artificial Mind. Retrieved from https://www.artificialmind.io/qlora-llm-finetuning
+Hugging Face. (2023). Making LLMs even more accessible with bitsandbytes, 4-bit quantization and QLoRA. Retrieved from https://huggingface.co/blog/4bit-transformers-bitsandbytes
+
+Qwen:
+Qwen은 알리바바 그룹에서 개발한 대규모 언어 모델(LLM) 시리즈로, 자연어 처리, 코드 생성, 수학적 추론 등 다양한 응용 분야에서 뛰어난 성능을 보이는 AI 모델이다. 
+초기 모델인 Qwen1에서 시작하여, Qwen2, Qwen2.5로 지속적인 발전을 이루어 왔다.
+
+Qwen 시리즈는 Transformer 기반의 모델 아키텍처를 활용하며, 모델 크기에 따라 0.5B에서 72B까지 다양한 크기의 모델이 존재한다. 
+최신 버전인 Qwen2.5는 18조 개의 토큰을 사용한 사전 훈련을 통해 기존 모델보다 더 강력한 언어 이해 및 생성 능력을 갖추고 있다. 
+특히, Mixture-of-Experts(MoE) 모델인 Qwen2.5-Turbo와 Qwen2.5-Plus는 GPT-4o 및 GPT-4o-mini와 경쟁할 수 있는 성능을 제공하며, 연산 비용 대비 성능이 뛰어난 것으로 평가된다.
+
+Qwen 모델은 다음과 같은 응용 분야에서 활용될 수 있다:
+
+1. 자연어 이해 및 생성: 문서 요약, 번역, 텍스트 생성, 질문 응답 등에서 우수한 성능을 발휘.
+2. 코딩 및 프로그래밍 지원: Qwen2.5-Coder 모델은 코드 작성 및 디버깅을 지원하며, 다중 프로그래밍 언어를 다룰 수 있음.
+3. 수학적 추론 및 계산: Qwen2.5-Math 모델은 수학 문제 해결 및 논리적 추론 작업에서 강력한 성능을 보임.
+4. 멀티모달 AI: 텍스트뿐만 아니라 이미지 및 오디오와 결합된 응용도 가능.
+
+Qwen2.5는 Hugging Face, ModelScope, GitHub에서 공개적으로 다운로드하여 사용할 수 있으며, 모델 경량화(양자화) 버전도 제공된다.
+
+<참고 문헌 및 저작권>
+Qwen Team. (2023). QWEN TECHNICAL REPORT. Alibaba Group. Retrieved from https://arxiv.org/pdf/2309.16609
+Qwen Team. (2024). QWEN2 TECHNICAL REPORT. Alibaba Group. Retrieved from https://arxiv.org/pdf/2407.10671
+Qwen Team. (2025). Qwen2.5 Technical Report. Alibaba Group. Retrieved from https://arxiv.org/pdf/2412.15115
+
+quantization (양자화):
+딥러닝 모델의 가중치(weight)와 활성값(activation)을 부동소수점 대신 저정밀 정수(예: INT8, INT4) 또는 특수 저비트 부동소수 표현(예: NF4)으로 근사하여 모델 크기를 줄이고 추론 속도를 개선하는 기법이다. 
+정확도 손실을 최소화하도록 교정(calibration), 재학습 등의 절차를 동반하며, 대표적으로 정수 산술만으로 추론을 수행하는 체계가 제안되어 CPU/에지 환경에서 효율적으로 활용된다.
+
+<기본 원리>
+양자화는 연속적인 실수 값을 제한된 개수의 정수로 변환하는 과정이다. 
+예를 들어, -127.3이나 45.8 같은 부동소수점 숫자를 -128, -127, ..., 127 같은 256개의 정수(INT8) 중 하나로 근사하는 것이다. 
+이 과정에서 두 가지 핵심 매개변수가 사용된다.
+
+스케일(S): "실수 세계의 한 단위가 정수 세계에서 얼마나 큰가"를 나타낸다. 스케일이 크면 넓은 범위를 표현할 수 있지만 정밀도가 낮아지고, 작으면 좁은 범위를 정밀하게 표현한다.
+
+영점(Z): "실수 0이 정수 세계에서 어떤 값에 대응되는가"를 정의한다. 예를 들어 -3.5부터 5.2까지의 범위를 표현할 때, 0을 정수 공간의 중앙이 아닌 적절한 위치에 배치하여 범위를 효율적으로 활용한다. 
+          0의 정확한 표현은 패딩·합성곱 등에서 중요하다.
+
+<주요 기법>
+PTQ (Post-Training Quantization)
+학습 완료 모델을 교정만으로 양자화. LLM에서도 8비트(W8A8)나 저비트 가중치 전용 등 다양한 변형이 실용화됨.
+
+SmoothQuant: 활성값 outlier를 부드럽게 만들어 W8A8 양자화에서 정확도와 하드웨어 효율 확보
+AWQ: 활성 통계로 중요 채널만 보호/스케일링하여 4비트에서도 성능 보존
+GPTQ: 2차 근사 정보를 활용한 원샷 가중치 양자화로 3-4비트까지 정밀도 유지
+
+QAT (Quantization-Aware Training)
+훈련 중 양자화 효과를 모사(Fake Quantization)하여 정확도 손실 최소화. CNN부터 모바일 배포까지 폭넓게 활용
+
+LLM 특화 기법
+QLoRA: NF4(정규분포 가정 최적) + Double Quantization + LoRA 미세조정으로 메모리 절감, 4비트 미세조정 실용화
+
+장점
+메모리/저장소 절감: FP32→INT8 변환 시 4배 이상 축소, 대형 LLM의 단일 GPU/에지 배포 가능성 확대
+추론 속도 향상: 정수 연산 선호 하드웨어(CPU, 모바일, 엣지)에서 지연 시간 감소
+전력 소비 절감: 배터리 기반 장치에서 효율성 증대
+
+한계 및 주의점
+정확도 저하 위험: 활성값 outlier, LayerNorm/어텐션 분포 등에 민감. 채널별 스케일링, outlier 처리 등 기법별 보정 필요
+하드웨어 제약: 연산자별 INT 지원 여부, 커널 구현, 혼합정밀 경계에서의 비용 고려 필요
+교정 데이터 품질: 대표성 부족 시 범위 추정 오류로 성능 저하
+
+<참고 문헌 및 저작권>
+Jacob, B., et al. (2018). Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference. CVPR. https://openaccess.thecvf.com/content_cvpr_2018/papers/Jacob_Quantization_and_Training_CVPR_2018_paper.pdf
+Xiao, G., et al. (2022). SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models. arXiv:2211.10438: https://arxiv.org/abs/2211.10438
+Lin, J., et al. (2023). AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration. arXiv:2306.00978: https://arxiv.org/abs/2306.00978
+Frantar, E., et al. (2022). GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers. ICLR. https://htor.inf.ethz.ch/publications/img/2023_iclr_gptq.pdf
+Dettmers, T., et al. (2023). QLoRA: Efficient Finetuning of Quantized LLMs. arXiv:2305.14314: https://arxiv.org/pdf/2305.14314
+Gholami, A., et al. (2021). A Survey of Quantization Methods for Efficient Neural Network Inference. arXiv:2103.13630: https://arxiv.org/abs/2103.13630
